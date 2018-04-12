@@ -1,0 +1,56 @@
+// Import all the tools needed to customize the theme and extract parts of it
+@import '~@angular/material/theming';
+
+// Define a mixin that accepts a theme and outputs the color styles for the component.
+@mixin body-theme($theme) {
+  // Extract whichever individual palettes you need from the theme.
+  $app-background-palette: map-get($theme, background);
+  $app-foreground-palette: map-get($theme, foreground);
+  $app-primary-palette: map-get($theme, primary);
+  $app-accent-palette: map-get($theme, accent);
+  $app-warn-palette: map-get($theme, warn);
+
+  $app-primary: mat-color($app-primary-palette);
+  $app-accent: mat-color($app-accent-palette);
+  $app-warn: mat-color($app-warn-palette);
+  $app-foreground: mat-color($app-foreground-palette, text);
+  $app-background: mat-color($app-background-palette, background);
+  $app-header-background: #1c92d2;
+  $app-header-foreground: #fff;
+  $app-nav-background: mat-color($app-background-palette, app-bar);
+  $app-background-alt: $app-primary;
+  $app-background-card: mat-color($app-background-palette, card);
+  $app-foreground-alt: #fff;
+  $app-foreground-sub: mat-color($app-foreground-palette, secondary-text);
+  $app-link: mat-color($app-foreground-palette, text);
+  $app-link-hover: mat-color($app-foreground-palette, text, .3);
+  $app-hover-background: mat-color($app-background-palette, hover);
+
+  .text-alt {
+    color: $app-foreground-alt;
+  }
+
+  .background-alt {
+    background: $app-background-alt;
+  }
+
+  .muted {
+    color: $app-foreground-sub;
+  }
+
+  .accent {
+    color: $app-primary;
+  }
+
+  .app-nav-background {
+    background: $app-nav-background;
+  }
+
+  .app-nav-foreground {
+    color: $app-foreground;
+  }
+
+  .app-foreground-sub {
+    color: $app-foreground-sub;
+  }
+}

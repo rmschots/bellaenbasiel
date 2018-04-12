@@ -1,0 +1,19 @@
+$header-height: 80px;
+
+:host {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+bnb-navbar {
+  height: $header-height;
+  position: fixed;
+}
+
+#content {
+  height: calc(100% - #{$header-height});
+  position: fixed;
+  top: $header-height;
+  width: 100%;
+}

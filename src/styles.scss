@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+@import '~@angular/material/theming';
+
+@include mat-core();
+@import './theme';
+@import './variables';
+
+body {
+  display: block;
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+}
+
+.container {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 16px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,14 @@
+<div class="container" fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="space-between center">
+  <a class="navbar-brand" href="#">
+    <img src="assets/img/logo-header.png" alt="">
+  </a>
+  <div class="nav-links">
+    <ul fxLayout="row" fxLayoutGap="16px">
+      <li *ngFor="let navItem of navItems">
+        <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true">
+          {{ navItem.nameKey | translate }}
+        </button>
+      </li>
+    </ul>
+  </div>
+</div>
