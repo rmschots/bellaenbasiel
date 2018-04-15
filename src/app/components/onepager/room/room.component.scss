@@ -2,10 +2,48 @@
   display: block;
 }
 
-.room-image {
-  background: bisque;
+.room-image-wrapper {
+  position: relative;
+
+  .room-image {
+    background: bisque;
+  }
 }
+
 
 h1 {
   background: #8EBCAF;
+}
+
+.utilities-icons {
+  color: #9E9E9E;
+}
+
+.room-info {
+  margin: 32px;
+}
+
+mat-tab-group img {
+  display: flex;
+}
+
+.pricing-chips {
+  position: absolute;
+  z-index: 3000;
+  bottom: 0;
+  left: 0;
+  margin-left: 16px;
+  margin-bottom: 16px;
+}
+
+.check-list {
+  list-style: none;
+}
+
+ngx-gallery /deep/ .ngx-gallery-icon {
+  background: #000;
+}
+
+ngx-gallery {
+  display: block;
 }

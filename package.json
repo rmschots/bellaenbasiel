@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --host 0.0.0.0",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -25,8 +25,9 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/router": "^5.2.9",
     "@ngx-translate/core": "^9.1.1",
-    "@ngx-translate/http-loader": "^3.0.1",
+    "@ngx-translate/http-loader": "^2.0.1",
     "core-js": "^2.4.1",
+    "ngx-gallery": "^5.3.2",
     "ngx-page-scroll": "^4.0.2",
     "rxjs": "^5.5.9",
     "zone.js": "^0.8.19"

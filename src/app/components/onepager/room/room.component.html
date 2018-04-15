@@ -1,8 +1,14 @@
-<h1 class="text-center">Room</h1>
-<div class="container">
-  <div fxLayout="row" class="room-details mat-elevation-z6">
-    <div fxFlex="520px" class="room-image">Image</div>
-    <div fxLayout="column">
+<bnb-section-title>Room</bnb-section-title>
+<div class="container" fxLayout="column" fxLayoutGap="32px">
+  <div fxLayout="row" class="room-details mat-elevation-z3">
+    <div class="room-image-wrapper">
+      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+      <mat-chip-list class="pricing-chips">
+        <mat-chip color="accent" selected="true">&euro; 75 / night*</mat-chip>
+        <mat-chip color="accent" selected="true">breakfast &euro; 10 pppn**</mat-chip>
+      </mat-chip-list>
+    </div>
+    <div fxLayout="column" class="room-info">
       <h3>
         Cosy and quiet 2 person room
       </h3>
@@ -11,29 +17,32 @@
         You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin.
         There is a hairdryer and free Wi-Fi.
       </p>
-      <div>
-        icons here
+      <div class="utilities-icons">
+        <mat-icon matTooltip="Max occupancy: 2 persons" matTooltipPosition="above">hotel</mat-icon>
+        <mat-icon matTooltip="WiFi available" matTooltipPosition="above">wifi</mat-icon>
+        <mat-icon matTooltip="Breakfast optional" matTooltipPosition="above">free_breakfast</mat-icon>
+        <mat-icon matTooltip="No smoking inside" matTooltipPosition="above">smoke_free</mat-icon>
       </div>
     </div>
   </div>
-  <div>
-    table here
-  </div>
   <div fxLayout="row" fxLayoutGap="16px">
-    <mat-card fxFlex="33">
-      <mat-card-title>Extra info</mat-card-title>
+    <mat-card fxFlex="33" class="mat-elevation-z3">
+      <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon color="primary">info_outline</mat-icon>
+        <span>Extra info</span>
+      </mat-card-title>
       <mat-card-content>
-        <ul>
-          <li>*You can order breakfast by mail contact</li>
-          <li>Tourist tax city of Bruges = €2,- pppn</li>
-          <li>No pets allowed</li>
-          <li>Smoking is allowed in the garden</li>
-          <li>Use washing machine or dryer : €5,-</li>
-        </ul>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let checkText of extraInfoTexts">
+          <mat-icon color="accent">check</mat-icon>
+          <span [innerHTML]="checkText"></span>
+        </div>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex="66">
-      <mat-card-title>Booking</mat-card-title>
+    <mat-card fxFlex="66" class="mat-elevation-z3">
+      <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon color="primary">attach_money</mat-icon>
+        <span>Booking</span>
+      </mat-card-title>
       <mat-card-content>
         <p>
           Deposit of 1 night is required as a reservation.
@@ -41,15 +50,10 @@
           Balance payment in cash on arrival. We do not accept credit cards.
         </p>
         <h4>General booking conditions:</h4>
-        <ul>
-          <li>Deposit: 75,- € on BE47 7512 0859 2880</li>
-          <li>Balance: cash on arrival</li>
-          <li>
-            Cancelling is possible without penalty up to 5 days before the arrival date.
-            For later cancellation, the first night and possibly ordered breakfast is charged.
-            In case of no show, the total sum of the reservation will be charged.
-          </li>
-        </ul>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let checkText of bookingTexts">
+          <mat-icon color="accent">check</mat-icon>
+          <span [innerHTML]="checkText"></span>
+        </div>
       </mat-card-content>
     </mat-card>
   </div>

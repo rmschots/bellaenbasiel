@@ -1,35 +1,65 @@
-<h1 class="text-center">Contact</h1>
+<bnb-section-title>Contact</bnb-section-title>
 <div class="container">
   <div fxLayout="row" fxLayoutGap="32px">
     <div fxLayout="column" fxFlex="60">
       <div>
         <h4>Bella en Basiel</h4>
-        <ul>
-          <li>Rijkepijndersstraat 7</li>
-          <li>8000 Brugge</li>
-          <li>+32 472 64 35 27</li>
-          <li>bellaenbasiel@telenet.be</li>
-        </ul>
+        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon>location_on</mat-icon>
+          <span>Rijkepijndersstraat 7, 8000 Brugge</span>
+        </p>
+        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon>phone</mat-icon>
+          <span><a href="tel:+32 472 64 35 27">+32 472 64 35 27</a></span>
+        </p>
+        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon>email</mat-icon>
+          <span><a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel@telenet.be</a></span>
+        </p>
       </div>
       <div>
-        <h4>Access</h4>
-        <ul>
-          <li>By train: b-rail.be</li>
-          <li>
-            By bus: In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop
+        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon>accessibility</mat-icon>
+          <h4>Access</h4>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+          <mat-icon color="accent">check</mat-icon>
+          <span>
+            <b>By train:</b> <a href="http://b-rail.be">b-rail.be</a>
+          </span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+          <mat-icon color="accent">check</mat-icon>
+          <span>
+            <b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop
             Carmersbrug. From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90.
             You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to
             walk.
-          </li>
-          <li>By taxi: ca 10€</li>
-          <li>By car: Loading and unloading is allowed in front of our house. We’ll help you to find parking space.</li>
-        </ul>
+          </span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+          <mat-icon color="accent">check</mat-icon>
+          <span>
+            <b>By taxi:</b> ca 10€
+          </span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+          <mat-icon color="accent">check</mat-icon>
+          <span>
+            <b>By car:</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space.
+          </span>
+        </div>
       </div>
-      <div>
-        <h4>Get directions</h4>
-        <input type="text" placeholder="Enter your location">
+      <form fxLayout="column">
+        <div fxLayout="row" fxLayoutAlign="left center" fxLayoutGap="8px">
+          <mat-icon>navigation</mat-icon>
+          <h4>Get directions</h4>
+        </div>
+        <mat-form-field>
+          <input matInput placeholder="Enter your location">
+        </mat-form-field>
         <button mat-raised-button color="primary">Get directions</button>
-      </div>
+      </form>
     </div>
     <div fxLayout="column" fxFlex="40">
       <h3 class="text-center">Availability</h3>

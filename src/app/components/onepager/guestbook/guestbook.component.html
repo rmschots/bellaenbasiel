@@ -1,3 +1,25 @@
-<div class="container">
-  <h1 class="text-center">Guestbook</h1>
+<div class="guestbook-background"></div>
+<div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
+  <h1 class="text-center guestbook-title">Guestbook</h1>
+  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" class="guestbook-entry-box mat-elevation-z6">
+    <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
+    <div *ngIf="currentEntry$ | async as currentEntry" fxFlex="stretch" fxLayout="column">
+      <p>
+        {{ currentEntry.content }}
+      </p>
+      <div fxLayout="row" fxLayoutAlign="space-between">
+        <div>by {{ currentEntry.author }}, {{ currentEntry.date }}</div>
+        <bnb-star-rating [stars]="currentEntry.stars"></bnb-star-rating>
+      </div>
+    </div>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="8px">
+    <div class="review-count mat-elevation-z6">review {{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}</div>
+    <button mat-mini-fab (click)="prevEntry()">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <button mat-mini-fab (click)="nextEntry()">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
 </div>

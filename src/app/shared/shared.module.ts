@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import {
   MatButtonModule,
   MatButtonToggleModule,
-  MatCardModule,
+  MatCardModule, MatChipsModule,
   MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
@@ -15,20 +15,25 @@ import {
   MatSidenavModule,
   MatSortModule,
   MatStepperModule,
-  MatTableModule
+  MatTableModule,
+  MatTabsModule,
+  MatTooltipModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { SectionTitleComponent } from './components/section-title/section-title.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { NgxGalleryModule } from 'ngx-gallery';
 
-const DIALOGS = [
-];
+const DIALOGS = [];
 
 const COMPONENTS = [
-  ...DIALOGS
+  ...DIALOGS,
+  SectionTitleComponent,
+  StarRatingComponent
 ];
 
-const SERVICES = [
-];
+const SERVICES = [];
 
 const GUARDS = [];
 
@@ -49,7 +54,10 @@ const MATERIAL_MODULES = [
   MatCardModule,
   MatTableModule,
   MatPaginatorModule,
-  MatSortModule
+  MatSortModule,
+  MatTooltipModule,
+  MatTabsModule,
+  MatChipsModule
 ];
 
 const MODULES = [
@@ -58,6 +66,7 @@ const MODULES = [
   FormsModule,
   ReactiveFormsModule,
   TranslateModule,
+  NgxGalleryModule,
   ...MATERIAL_MODULES
 ];
 
@@ -72,7 +81,7 @@ const MODULES = [
   ],
   declarations: [
     ...COMPONENTS,
-    ...PIPES,
+    ...PIPES
   ],
   entryComponents: [
     ...DIALOGS

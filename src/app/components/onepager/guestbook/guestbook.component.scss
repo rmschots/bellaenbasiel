@@ -1,4 +1,41 @@
 :host {
-  background: #c6c6c6; // TODO: remove
   display: block;
+  position: relative;
+  color: #fff;
+}
+
+.guestbook-background {
+  background: url('/assets/img/guestbook_background.jpg') no-repeat fixed center;
+  background-size: cover;
+  filter: blur(5px);
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+}
+
+.guestbook-content {
+  position: relative;
+}
+
+.guestbook-entry-quote-icon {
+  font-size: 60px;
+  height: 60px;
+  width: 60px;
+}
+
+.guestbook-entry-box {
+  background: rgba(50, 162, 183, 0.77);
+  padding: 24px;
+}
+
+.guestbook-title {
+  font-family: 'Yellowtail', cursive;
+  font-size: 110px;
+  margin: 0;
+}
+
+.review-count {
+  background: rgba(50, 162, 183, 0.77);
+  padding: 8px;
 }

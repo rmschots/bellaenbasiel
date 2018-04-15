@@ -1,4 +1,25 @@
 :host {
-  background: #c6c6c6; // TODO: remove
   display: block;
+  position: relative;
+  color: #fff;
+}
+
+.pictures-background {
+  background: url('/assets/img/pictures_background.jpg') no-repeat fixed center;
+  background-size: cover;
+  filter: blur(5px);
+  height: 100%;
+  margin: 0 auto;
+  position: absolute;
+  width: 100%;
+}
+
+.pictures-content {
+  position: relative;
+}
+
+.pictures-title {
+  font-family: 'Yellowtail', cursive;
+  font-size: 110px;
+  margin: 0;
 }

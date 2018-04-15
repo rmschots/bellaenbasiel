@@ -9,6 +9,7 @@ body {
   height: 100vh;
   margin: 0;
   width: 100vw;
+  font-family: 'Lato', sans-serif;
 }
 
 .container {
@@ -38,4 +39,25 @@ body {
 
 .text-center {
   text-align: center;
+}
+
+.ngx-gallery-preview-top {
+  z-index: 1000;
+}
+
+.material-icon {
+  height: 40px;
+  width: 40px;
+
+  &.material-icon-close {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 48 48" style="width:100%;height:100%"><path d="M38 12.83L35.17 10 24 21.17 12.83 10 10 12.83 21.17 24 10 35.17 12.83 38 24 26.83 35.17 38 38 35.17 26.83 24z"/></svg>');
+  }
+
+  &.material-icon-navigate-before {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 48 48" style="width:100%;height:100%"><path d="M30.83 14.83L28 12 16 24l12 12 2.83-2.83L21.66 24z"/></svg>');
+  }
+
+  &.material-icon-navigate-next {
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" fill="#fff" viewBox="0 0 48 48" style="width:100%;height:100%"><path d="M20 12l-2.83 2.83L26.34 24l-9.17 9.17L20 36l12-12z"/></svg>');
+  }
 }
