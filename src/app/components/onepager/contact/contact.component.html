@@ -50,20 +50,6 @@
           </span>
         </div>
       </div>
-      <form fxLayout="column">
-        <div fxLayout="row" fxLayoutAlign="left center" fxLayoutGap="8px">
-          <mat-icon>navigation</mat-icon>
-          <h4>Get directions</h4>
-        </div>
-        <div fxLayout="column" class="directions-form">
-          <mat-form-field>
-            <input matInput placeholder="Enter your location">
-          </mat-form-field>
-          <div>
-            <button mat-raised-button color="primary">Get directions</button>
-          </div>
-        </div>
-      </form>
     </div>
     <div fxLayout="column" fxFlex="40">
       <mat-card class="availability-data mat-elevation-z3">
@@ -78,6 +64,6 @@
     </div>
   </div>
 </div>
-<div class="map-footer">
-  map here
-</div>
+<agm-map class="map-footer" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>

@@ -7,5 +7,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ContactComponent {
-
+  title = 'My first AGM project';
+  lat = 51.214227;
+  lng = 3.231609;
+  zoom = 12;
 }
