@@ -36,13 +36,13 @@ const galleryOptions: NgxGalleryOptions[] = [
 
 const galleryImages: NgxGalleryImage[] = [
   {
-    small: 'assets/img/gallery/brugge1-small.jpg',
-    medium: 'assets/img/gallery/brugge1-medium.jpg',
-    big: 'assets/img/gallery/brugge1.jpg'
+    small: '/assets/img/gallery/brugge1-small.jpg',
+    medium: '/assets/img/gallery/brugge1-medium.jpg',
+    big: '/assets/img/gallery/brugge1.jpg'
   }, {
-    small: 'assets/img/gallery/brugge2-small.jpg',
-    medium: 'assets/img/gallery/brugge2-medium.jpg',
-    big: 'assets/img/gallery/brugge2.jpg'
+    small: '/assets/img/gallery/brugge2-small.jpg',
+    medium: '/assets/img/gallery/brugge2-medium.jpg',
+    big: '/assets/img/gallery/brugge2.jpg'
   }
 ];
 

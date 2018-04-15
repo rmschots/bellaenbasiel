@@ -18,11 +18,11 @@ const galleryOptions: NgxGalleryOptions[] = [
 
 const galleryImages: NgxGalleryImage[] = [
   {
-    medium: 'assets/img/room_img1.jpg',
-    big: 'assets/img/room_img1.jpg'
+    medium: '/assets/img/room_img1.jpg',
+    big: '/assets/img/room_img1.jpg'
   }, {
-    medium: 'assets/img/room_img2.jpg',
-    big: 'assets/img/room_img2.jpg'
+    medium: '/assets/img/room_img2.jpg',
+    big: '/assets/img/room_img2.jpg'
   }
 ];
 
