@@ -20,21 +20,21 @@ body {
   padding: 16px;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 600px) {
   .container {
-    width: 750px;
+    width: 590px;
   }
 }
 
-@media (min-width: 992px) {
+@media (min-width: 960px) {
   .container {
-    width: 970px;
+    width: 900px;
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
   .container {
-    width: 1170px;
+    width: 1120px;
   }
 }
 
@@ -65,4 +65,10 @@ body {
 
 .cal-month-view .cal-day-cell {
   min-height: unset;
+}
+
+a {
+  color: #39bad2;
+  outline: 0;
+  text-decoration: none;
 }

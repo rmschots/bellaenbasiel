@@ -7,7 +7,7 @@
       <p>
         {{ currentEntry.content }}
       </p>
-      <div fxLayout="row" fxLayoutAlign="space-between">
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between">
         <div>by {{ currentEntry.author }}, {{ currentEntry.date }}</div>
         <bnb-star-rating [stars]="currentEntry.stars"></bnb-star-rating>
       </div>
