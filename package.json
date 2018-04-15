@@ -12,6 +12,7 @@
   },
   "private": true,
   "dependencies": {
+    "@agm/core": "^1.0.0-beta.2",
     "@angular/animations": "^5.2.9",
     "@angular/cdk": "^5.2.4",
     "@angular/common": "^5.2.9",
@@ -26,7 +27,9 @@
     "@angular/router": "^5.2.9",
     "@ngx-translate/core": "^9.1.1",
     "@ngx-translate/http-loader": "^2.0.1",
+    "angular-calendar": "^0.23.7",
     "core-js": "^2.4.1",
+    "ical.js": "^1.2.2",
     "ngx-gallery": "^5.3.2",
     "ngx-page-scroll": "^4.0.2",
     "rxjs": "^5.5.9",

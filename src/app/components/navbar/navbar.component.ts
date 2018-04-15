@@ -1,4 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { SectionService } from '../../shared/services/section/section.service';
+import { Observable } from 'rxjs/Observable';
 
 interface NavItem {
   id: string;
@@ -20,5 +22,16 @@ export class NavbarComponent {
     {id: 'activities', nameKey: 'NAV.activities'},
     {id: 'contact', nameKey: 'NAV.contact'}
   ];
+
+  constructor(private _sectionService: SectionService) {
+  }
+
+  get currentSection$(): Observable<string> {
+    return this._sectionService.currentSectionName$;
+  }
+
+  public scrollTo(sectionId: string): void {
+    this._sectionService.scrollTo(sectionId);
+  }
 
 }
