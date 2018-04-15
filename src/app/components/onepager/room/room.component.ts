@@ -3,16 +3,22 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gal
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
-    width: '520px',
+    width: '558px',
     height: '390px',
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,
     previewCloseOnEsc: true,
     arrowPrevIcon: 'material-icon material-icon-navigate-before',
     arrowNextIcon: 'material-icon material-icon-navigate-next',
-    imageSize: 'contain',
+    imageSize: 'cover',
     thumbnails: false,
     imageArrowsAutoHide: true
+  },
+  // max-width 600
+  {
+    breakpoint: 600,
+    width: '400px',
+    height: '300px',
   }
 ];
 
@@ -23,6 +29,9 @@ const galleryImages: NgxGalleryImage[] = [
   }, {
     medium: '/assets/img/room_img2.jpg',
     big: '/assets/img/room_img2.jpg'
+  }, {
+    medium: '/assets/img/room_img3.jpg',
+    big: '/assets/img/room_img3.jpg'
   }
 ];
 

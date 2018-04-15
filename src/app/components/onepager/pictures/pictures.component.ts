@@ -49,8 +49,7 @@ const galleryImages: NgxGalleryImage[] = [
 @Component({
   selector: 'bnb-pictures',
   templateUrl: './pictures.component.html',
-  styleUrls: ['./pictures.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./pictures.component.scss']
 })
 export class PicturesComponent {
   galleryOptions: NgxGalleryOptions[] = galleryOptions;

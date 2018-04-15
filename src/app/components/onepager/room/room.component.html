@@ -1,6 +1,6 @@
 <bnb-section-title>Room</bnb-section-title>
 <div class="container" fxLayout="column" fxLayoutGap="32px">
-  <div fxLayout="row" class="room-details mat-elevation-z3">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center" class="room-details mat-elevation-z3">
     <div class="room-image-wrapper">
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
       <mat-chip-list class="pricing-chips">
@@ -25,7 +25,7 @@
       </div>
     </div>
   </div>
-  <div fxLayout="row" fxLayoutGap="16px">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="16px">
     <mat-card fxFlex="33" class="mat-elevation-z3">
       <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
         <mat-icon color="primary">info_outline</mat-icon>
