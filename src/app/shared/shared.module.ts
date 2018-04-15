@@ -28,6 +28,7 @@ import { CalendarDateFormatter, CalendarModule } from 'angular-calendar';
 import { ShortDateFormatter } from './util/short-date-formatter';
 import { SectionService } from './services/section/section.service';
 import { SectionComponent } from './components/section/section.component';
+import { AgmCoreModule } from '@agm/core';
 
 const DIALOGS = [];
 
@@ -76,6 +77,7 @@ const MODULES = [
   TranslateModule,
   NgxGalleryModule,
   CalendarModule,
+  AgmCoreModule,
   ...MATERIAL_MODULES
 ];
 
