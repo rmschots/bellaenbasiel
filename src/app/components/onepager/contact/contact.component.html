@@ -1,7 +1,7 @@
 <bnb-section-title>Contact</bnb-section-title>
 <div class="container">
   <div fxLayout="row" fxLayoutGap="32px">
-    <div fxLayout="column" fxFlex="60">
+    <div fxLayout="column" fxLayoutGap="16px" fxFlex="60">
       <div>
         <h4>Bella en Basiel</h4>
         <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
@@ -55,15 +55,26 @@
           <mat-icon>navigation</mat-icon>
           <h4>Get directions</h4>
         </div>
-        <mat-form-field>
-          <input matInput placeholder="Enter your location">
-        </mat-form-field>
-        <button mat-raised-button color="primary">Get directions</button>
+        <div fxLayout="column" class="directions-form">
+          <mat-form-field>
+            <input matInput placeholder="Enter your location">
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="primary">Get directions</button>
+          </div>
+        </div>
       </form>
     </div>
     <div fxLayout="column" fxFlex="40">
-      <h3 class="text-center">Availability</h3>
-      <div class="text-center">availability calendar here</div>
+      <mat-card class="availability-data mat-elevation-z3">
+        <mat-card-title fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+          <mat-icon color="primary">event_available</mat-icon>
+          <span>Availability</span>
+        </mat-card-title>
+        <mat-card-content>
+          <bnb-availability-calendar></bnb-availability-calendar>
+        </mat-card-content>
+      </mat-card>
     </div>
   </div>
 </div>

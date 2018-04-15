@@ -24,16 +24,24 @@ import { TranslateModule } from '@ngx-translate/core';
 import { SectionTitleComponent } from './components/section-title/section-title.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { NgxGalleryModule } from 'ngx-gallery';
+import { CalendarDateFormatter, CalendarModule } from 'angular-calendar';
+import { ShortDateFormatter } from './util/short-date-formatter';
+import { SectionService } from './services/section/section.service';
+import { SectionComponent } from './components/section/section.component';
 
 const DIALOGS = [];
 
 const COMPONENTS = [
-  ...DIALOGS,
   SectionTitleComponent,
-  StarRatingComponent
+  StarRatingComponent,
+  SectionComponent,
+  ...DIALOGS
 ];
 
-const SERVICES = [];
+const SERVICES = [
+  SectionService,
+  { provide: CalendarDateFormatter, useClass: ShortDateFormatter }
+];
 
 const GUARDS = [];
 
@@ -67,6 +75,7 @@ const MODULES = [
   ReactiveFormsModule,
   TranslateModule,
   NgxGalleryModule,
+  CalendarModule,
   ...MATERIAL_MODULES
 ];
 

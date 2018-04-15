@@ -1,0 +1,26 @@
+:host {
+  display: block;
+}
+
+.date-cell {
+  color: #fff;
+  padding-left: 8px;
+  font-size: 20px;
+
+  &.occupied {
+    background: #E44646;
+  }
+
+  &.free {
+    background: #6DBD5A;
+  }
+
+  &.grayed-out {
+    background: gray;
+  }
+
+  &.not-in-month {
+    opacity: .5;
+  }
+}
+

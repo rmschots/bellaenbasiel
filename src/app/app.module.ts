@@ -20,6 +20,8 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GuestbookComponent } from './components/onepager/guestbook/guestbook.component';
+import { AvailabilityCalendarComponent } from './components/onepager/contact/availability-calendar/availability-calendar.component';
+import { CalendarModule } from 'angular-calendar';
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -28,6 +30,7 @@ const SINGLETON_MODULES = [
   AppRoutingModule,
   NgxPageScrollModule,
   FlexLayoutModule,
+  CalendarModule.forRoot(),
   SharedModule.forRoot(),
   TranslateModule.forRoot({
     loader: {
@@ -48,7 +51,8 @@ const CONTAINERS = [
   WelcomeComponent,
   OnepagerComponent,
   NavbarComponent,
-  GuestbookComponent
+  GuestbookComponent,
+  AvailabilityCalendarComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {

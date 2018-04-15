@@ -7,11 +7,11 @@
     </div>
     <img src="/assets/img/air-bnb.png">
     <div>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="scrollTo('welcome')" pageScroll pageScrollTarget="#welcome" [pageScrollAdjustHash]="true">
         <mat-icon>arrow_downward</mat-icon>
         Visit the website
       </button>
-      <button mat-raised-button color="primary">
+      <button mat-raised-button color="primary" (click)="scrollTo('contact')" pageScroll pageScrollTarget="#contact" [pageScrollAdjustHash]="true">
         <mat-icon>event_available</mat-icon>
         Check availability
       </button>

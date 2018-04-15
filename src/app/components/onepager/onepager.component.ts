@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, HostListener } from '@angular/core';
+import { SectionService } from '../../shared/services/section/section.service';
 
 @Component({
   selector: 'bnb-onepager',
@@ -7,5 +8,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class OnepagerComponent {
+  constructor(elem: ElementRef, private _sectionService: SectionService) {
+    _sectionService.scrollRoot = elem.nativeElement;
+  }
 
+  @HostListener('scroll', [])
+  onWindowScroll() {
+    this._sectionService.refreshCurrentSectionName();
+  }
 }
