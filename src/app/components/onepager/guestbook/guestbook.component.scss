@@ -1,7 +1,7 @@
 :host {
+  color: #fff;
   display: block;
   position: relative;
-  color: #fff;
 }
 
 .guestbook-background {
@@ -15,6 +15,7 @@
 }
 
 .guestbook-content {
+  padding-bottom: 32px;
   position: relative;
 }
 
@@ -31,7 +32,7 @@
 
 .guestbook-title {
   font-family: 'Yellowtail', cursive;
-  font-size: 110px;
+  font-size: 80px;
   margin: 0;
 }
 

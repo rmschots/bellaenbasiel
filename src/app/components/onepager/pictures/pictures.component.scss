@@ -1,7 +1,7 @@
 :host {
+  color: #fff;
   display: block;
   position: relative;
-  color: #fff;
 }
 
 .pictures-background {
@@ -15,15 +15,13 @@
 }
 
 .pictures-content {
+  padding-bottom: 32px;
   position: relative;
 }
 
 .pictures-title {
   font-family: 'Yellowtail', cursive;
-  font-size: 110px;
+  font-size: 80px;
   margin: 0;
-}
-
-ngx-gallery /deep/ .ngx-gallery-icon {
-  background: #000;
+  text-shadow: 0 1px rgba(000, 000, 000, .45);
 }

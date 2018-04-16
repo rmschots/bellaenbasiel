@@ -1,20 +1,55 @@
 :host {
   background: url('/assets/img/home_img1.jpg') no-repeat fixed center;
   background-size: cover;
+  color: white;
   display: block;
   height: auto;
-  min-height: calc(100vh - 80px);
   width: 100%;
-  color: white;
+}
+
+.header-content-with-sticky-navbar {
+  height: calc(100% - 80px);
+  min-height: calc(100vh - 80px); // fallback
+}
+
+.header-content-without-navbar {
+  min-height: 100vh;
 }
 
 #header-content {
   background-image: none;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
-  height: 100%; // fallback
-  min-height: calc(100vh - 80px);
+}
+
+.header-text-content {
+  max-width: 800px;
 }
 
 .header-copyright {
   margin: 8px;
+}
+
+.header-title {
+  font-size: 60px;
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+
+.header-subtitle {
+  font-size: 42px;
+  font-weight: normal;
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+.unclear-logo {
+  background: #fff;
+  border-radius: 6px;
+  height: 32px;
+  padding: 4px;
+}
+
+.header-button {
+  font-size: 21px;
+  height: 44px;
 }

@@ -23,6 +23,7 @@ import { GuestbookComponent } from './components/onepager/guestbook/guestbook.co
 import { AvailabilityCalendarComponent } from './components/onepager/contact/availability-calendar/availability-calendar.component';
 import { CalendarModule } from 'angular-calendar';
 import { AgmCoreModule } from '@agm/core';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -56,7 +57,8 @@ const CONTAINERS = [
   OnepagerComponent,
   NavbarComponent,
   GuestbookComponent,
-  AvailabilityCalendarComponent
+  AvailabilityCalendarComponent,
+  SidenavComponent
 ];
 
 export function createTranslateLoader(http: HttpClient) {

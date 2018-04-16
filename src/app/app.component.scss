@@ -11,9 +11,34 @@ bnb-navbar {
   position: fixed;
 }
 
+#content-wrapper {
+  height: 100%;
+  overflow: auto;
+}
+
 #content {
-  height: calc(100% - #{$header-height});
-  position: fixed;
-  top: $header-height;
+  position: relative;
   width: 100%;
+}
+
+.menu-button-overlay {
+  left: 16px;
+  position: fixed;
+  top: 16px;
+  z-index: 9999;
+}
+
+mat-sidenav-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+
+.sidenav-container-without-navbar {
+  top: 0;
+}
+
+.sidenav-container-with-sticky-navbar {
+  top: $header-height;
 }

@@ -8,8 +8,7 @@ const galleryOptions: NgxGalleryOptions[] = [
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,
     previewCloseOnEsc: true,
-    arrowPrevIcon: 'material-icon material-icon-navigate-before',
-    arrowNextIcon: 'material-icon material-icon-navigate-next',
+    closeIcon: '',
     imageSize: 'cover',
     thumbnails: false,
     imageArrowsAutoHide: true

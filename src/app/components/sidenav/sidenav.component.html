@@ -1,0 +1,15 @@
+<div class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollDuration]="0"
+     [pageScrollAdjustHash]="true" (click)="scrollTo('home')">
+  <img src="/assets/img/logo-header.png" alt="">
+</div>
+<div class="nav-links" *ngIf="currentSection$ | async as currentSection">
+  <ul>
+    <li *ngFor="let navItem of navItems">
+      <button mat-button
+              [ngClass]="{ 'active-section': navItem.id === currentSection}" (click)="scrollTo(navItem.id)"
+              pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true">
+        {{ navItem.nameKey | translate }}
+      </button>
+    </li>
+  </ul>
+</div>
