@@ -1,11 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SectionService } from '../../shared/services/section/section.service';
 import { Observable } from 'rxjs/Observable';
-
-interface NavItem {
-  id: string;
-  nameKey: string;
-}
+import { NavItem } from '../../shared/models/nav-item';
 
 @Component({
   selector: 'bnb-navbar',

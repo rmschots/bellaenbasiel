@@ -1,23 +1,40 @@
-<div id="header-content" fxLayout="column">
-  <div fxFlex="stretch" fxLayout="column" fxLayoutAlign="center center">
-    <h1>BELLA & BASIEL</h1>
+<div id="header-content" fxLayout="column" fxLayoutAlign="center center" [ngClass]="{
+    'header-content-with-sticky-navbar': media.isActive('gt-sm'),
+    'header-content-without-navbar': media.isActive('lt-md')
+    }">
+  <div class="header-text-content" fxFlex="stretch" fxLayout="column" fxLayoutAlign="center center">
+    <h1 class="header-title text-center">BELLA & BASIEL</h1>
     <div>
-      <h2>Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES</h2>
+      <h2 class="text-center header-subtitle">Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES</h2>
       <hr>
     </div>
-    <img src="/assets/img/air-bnb.png">
-    <div>
-      <button mat-raised-button color="primary" (click)="scrollTo('welcome')" pageScroll pageScrollTarget="#welcome" [pageScrollAdjustHash]="true">
+    <div fxFlexOffset="8px" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
+      <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
+        <img src="/assets/img/air-bnb.png">
+      </a>
+      <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
+        <img class="unclear-logo" src="/assets/img/visit-bruges.png">
+      </a>
+      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
+        <img class="unclear-logo" src="/assets/svg/westtoer.svg">
+      </a>
+    </div>
+    <div fxFlexOffset="64px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
+      <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
+              pageScrollTarget="#welcome"
+              [pageScrollAdjustHash]="true">
         <mat-icon>arrow_downward</mat-icon>
         Visit the website
       </button>
-      <button mat-raised-button color="primary" (click)="scrollTo('contact')" pageScroll pageScrollTarget="#contact" [pageScrollAdjustHash]="true">
+      <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('contact')" pageScroll
+              pageScrollTarget="#contact"
+              [pageScrollAdjustHash]="true">
         <mat-icon>event_available</mat-icon>
         Check availability
       </button>
     </div>
   </div>
   <div class="text-center header-copyright">
-    &reg; 2016 B&B - Contact: <a href="tel:+32 472 643527">+32 472 643527</a>
+    &reg; 2018 Bella en Basiel - Contact: <a href="tel:+32 472 643527">+32 472 643527</a>
   </div>
 </div>
