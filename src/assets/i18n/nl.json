@@ -1,0 +1,100 @@
+{
+  "NAV": {
+    "welcome": "Welkom",
+    "room": "Kamer",
+    "pictures": "Foto's",
+    "activities": "Activiteiten",
+    "contact": "Contact"
+  },
+  "HEADER": {
+    "subtitle": "Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES",
+    "visitWebsite": "Bezoek de website",
+    "checkAvailability": "Bekijk beschikbaarheid",
+    "contact": "Contact"
+  },
+  "WELCOME": {
+    "title": "Welkom",
+    "hosts": {
+      "title": "Gastheer en –vrouw",
+      "text": "Als geboren en getogen Bruggelingen kennen we onze stad en dat willen we graag delen.<br>Nog steeds ontdekken we romantische plekjes,lekkere restaurantjes, gezellige caféétjes,…. We adviseren u ook over fietstochten, uitstappen, evenementen."
+    },
+    "house": {
+      "title": "Ons huis",
+      "text": "Naast een eigen slaap- en badkamer hebben onze gasten toegang tot de eetkamer waar het ontbijt genomen wordt.<br>Bij goed weer kan genoten worden van onze zonnige en bloemrijke stadstuin. Onze stadskippen houden niet van andere huisdieren. Roken kan in de tuin."
+    },
+    "neighbourhood": {
+      "title": "Onze buurt",
+      "text": "Wij verwelkomen u graag in onze gastenkamer, gelegen in het rustige en groene Sint Annakwartier, een volksbuurt binnen de oude stadsomwalling van Brugge.<br>Op nauwelijks 10 minuten wandelen langs pittoreske straatjes bent u in hartje Brugge."
+    }
+  },
+  "GUESTBOOK": {
+    "title": "Gastenboek",
+    "review": "review"
+  },
+  "ROOM": {
+    "title": "Kamer",
+    "night": "&euro; {{amount}} / nacht*",
+    "breakfast": "ontbijt &euro; {{amount}} pppn**",
+    "tags": {
+      "maxOccupancy": "Maximum {{amount}} personen",
+      "wifi": "WiFi beschikbaar",
+      "breakfastOptional": "Ontbijt optioneel",
+      "nonSmoking": "Binnen niet roken"
+    },
+    "room1": {
+      "title": "Gezellige en rustige 2-persoonskamer",
+      "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 1e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee."
+    },
+    "extraInfo": {
+      "title": "Extra info",
+      "item1": "*Minimum 2 nachten",
+      "item2": "**Vooraf te bespreken per mail",
+      "item3": "Toeristenbelasting stad Brugge = &euro;2,- pppn",
+      "item4": "Huisdieren niet toegelaten",
+      "item5": "Roken kan in de tuin",
+      "item6": "Gebruik wasmachine of droogkast : &euro;5,-"
+    },
+    "booking": {
+      "title": "Boeken",
+      "text": "Voorschot van 1 nacht is vereist als reservatie.<br>Betaling saldo in cash bij aankomst. Wij aanvaarden geen kredietkaarten.",
+      "conditions": "Algemene Boekingsvoorwaarden",
+      "item1": "<b>Voorschot:</b> &euro;75,- te storten op rekeningnr BE47 7512 0859 2880",
+      "item2": "<b>Saldo:</b> cash bij aankomst, of voorafgaandelijk met bankoverschrijving",
+      "item3": "<b>Annuleren</b> is mogelijk zonder kosten tot 5 dagen voor de aankomstdatum. Wie later annuleert, wordt de eerste nacht en eventueel besteld ontbijt aangerekend. In geval van no-show, zal de totale som van de reservatie aangerekend worden."
+    }
+  },
+  "PICTURES": {
+    "title": "Foto's"
+  },
+  "ACTIVITIES": {
+    "title": "Activiteiten",
+    "relax": {
+      "title": "Relax Brugge",
+      "text": "Een romantische wandeling langs de feeëriek verlichte Brugse Reien, een smakelijk biertje in een bruine kroeg of een frivool festival op de mooie pleinen, brengen u in de perfecte vakantiestemming.<br>Uiteraard hoort daar ook wat shoppen en chocolade bij !"
+    },
+    "culture": {
+      "title": "Cultuur",
+      "text": "Met zijn historische gebouwen en imposante stadspoorten behoort Brugge tot Unesco werelderfgoed. Talrijke musea en tentoonstellingen vullen de cultuurzoeker."
+    },
+    "sportsAndNature": {
+      "title": "Sport en natuur",
+      "text": "Rond Brugge hebben we belangrijke groene wegen en natuurgebieden. Zo kan je het Brugs Ommeland fietsen. Ook de kust (het Zwin en de Uitkerkse polders) is op fietsafstand en bereik je via schilderachtige polderdorpjes. Eveneens Sluis (NL) is amper 20 km ver.<br>Het boekendorpje Damme is zelfs op wandelafstand."
+    },
+    "gastronomy": {
+      "title": "Gastronomie",
+      "text": "Lekker tafelen hoort bij onze Bourgondische cultuur van genieten. Zo vind je in Brugge eetgelegenheden van friettent tot sterrenrestaurants.<br><br>We raden je aan op voorhand een restaurant te reserveren, indien gewenst."
+    }
+  },
+  "CONTACT": {
+    "access": {
+      "title": "Bereikbaarheid",
+      "train": "<b>Per trein:</b> <a href=\"http://b-rail.be\">b-rail.be</a>",
+      "bus": "<b>Per bus:</b> Neem aan de voorzijde van het station bus nr 4,14, of 43 en vraag de chauffeur te stoppen aan de halte “Gouden Handrei ” of Carmersbrug. Vanaf 20.00 uur ‘s avonds rijdt de avondlijn Koolkerke -Dudzele nr 90",
+      "taxi": "<b>Per taxi:</b> ca &euro;10",
+      "car": "<b>Per auto:</b> in- en uitladen kan gemakkelijk voor de deur. We helpen u dan verder zoeken naar een parkeerplaats."
+    },
+    "availability": {
+      "title": "Beschikbaarheid"
+    }
+  }
+}

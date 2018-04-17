@@ -35,6 +35,12 @@
     "title": "Room",
     "night": "&euro; {{amount}} / night*",
     "breakfast": "breakfast &euro; {{amount}} pppn**",
+    "tags": {
+      "maxOccupancy": "Max occupancy: {{amount}} persons",
+      "wifi": "WiFi available",
+      "breakfastOptional": "Breakfast optional",
+      "nonSmoking": "No smoking inside"
+    },
     "room1": {
       "title": "Cosy and quiet 2 person room",
       "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi."

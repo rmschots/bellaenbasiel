@@ -13,10 +13,18 @@
       <h3>{{ 'ROOM.room1.title' | translate }}</h3>
       <p [innerHtml]="'ROOM.room1.text' | translate"></p>
       <div class="utilities-icons">
-        <mat-icon matTooltip="Max occupancy: 2 persons" matTooltipPosition="above">hotel</mat-icon>
-        <mat-icon matTooltip="WiFi available" matTooltipPosition="above">wifi</mat-icon>
-        <mat-icon matTooltip="Breakfast optional" matTooltipPosition="above">free_breakfast</mat-icon>
-        <mat-icon matTooltip="No smoking inside" matTooltipPosition="above">smoke_free</mat-icon>
+        <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | translate:{amount: '2'}" matTooltipPosition="above">
+          hotel
+        </mat-icon>
+        <mat-icon [matTooltip]="'ROOM.tags.wifi' | translate" matTooltipPosition="above">
+          wifi
+        </mat-icon>
+        <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | translate" matTooltipPosition="above">
+          free_breakfast
+        </mat-icon>
+        <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | translate" matTooltipPosition="above">
+          smoke_free
+        </mat-icon>
       </div>
     </div>
   </div>
