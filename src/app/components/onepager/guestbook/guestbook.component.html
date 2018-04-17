@@ -1,7 +1,7 @@
 <div class="guestbook-background"></div>
 <div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
   <h1 class="text-center guestbook-title">Guestbook</h1>
-  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px" class="guestbook-entry-box mat-elevation-z6">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px" class="guestbook-entry-box mat-elevation-z6">
     <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
     <div *ngIf="currentEntry$ | async as currentEntry" fxFlex="stretch" fxLayout="column">
       <p>
