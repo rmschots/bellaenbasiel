@@ -16,8 +16,12 @@ const galleryOptions: NgxGalleryOptions[] = [
   // max-width 600
   {
     breakpoint: 600,
-    width: '400px',
+    width: '100%',
     height: '300px',
+  },
+  {
+    breakpoint: 400,
+    preview: false
   }
 ];
 
