@@ -1,23 +1,17 @@
-<bnb-section-title>Room</bnb-section-title>
+<bnb-section-title>{{ 'ROOM.title' | translate }}</bnb-section-title>
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
        class="room-details mat-elevation-z3">
     <div class="room-image-wrapper">
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
       <mat-chip-list class="pricing-chips">
-        <mat-chip color="accent" selected="true">&euro; 75 / night*</mat-chip>
-        <mat-chip color="accent" selected="true">breakfast &euro; 10 pppn**</mat-chip>
+        <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '75'}"></mat-chip>
+        <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.breakfast' | translate:{amount: '10'}"></mat-chip>
       </mat-chip-list>
     </div>
     <div fxLayout="column" class="room-info">
-      <h3>
-        Cosy and quiet 2 person room
-      </h3>
-      <p>
-        The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor.
-        You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin.
-        There is a hairdryer and free Wi-Fi.
-      </p>
+      <h3>{{ 'ROOM.room1.title' | translate }}</h3>
+      <p [innerHtml]="'ROOM.room1.text' | translate"></p>
       <div class="utilities-icons">
         <mat-icon matTooltip="Max occupancy: 2 persons" matTooltipPosition="above">hotel</mat-icon>
         <mat-icon matTooltip="WiFi available" matTooltipPosition="above">wifi</mat-icon>
@@ -30,30 +24,26 @@
     <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
       <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
         <mat-icon color="primary">info_outline</mat-icon>
-        <span>Extra info</span>
+        <span>{{ 'ROOM.extraInfo.title' | translate }}</span>
       </mat-card-title>
       <mat-card-content>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let checkText of extraInfoTexts">
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let x of extraInfo; let i = index;">
           <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="checkText"></span>
+          <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | translate"></span>
         </div>
       </mat-card-content>
     </mat-card>
     <mat-card fxFlex.gt-sm="67" class="mat-elevation-z3">
       <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
         <mat-icon color="primary">attach_money</mat-icon>
-        <span>Booking</span>
+        <span>{{ 'ROOM.booking.title' | translate }}</span>
       </mat-card-title>
       <mat-card-content>
-        <p>
-          Deposit of 1 night is required as a reservation.
-          <br>
-          Balance payment in cash on arrival. We do not accept credit cards.
-        </p>
-        <h4>General booking conditions:</h4>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let checkText of bookingTexts">
+        <p [innerHtml]="'ROOM.booking.text' | translate"></p>
+        <h4>{{ 'ROOM.booking.conditions' | translate }}:</h4>
+        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let x of bookings; let i = index">
           <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="checkText"></span>
+          <span [innerHTML]="('ROOM.booking.item'+(i+1)) | translate"></span>
         </div>
       </mat-card-content>
     </mat-card>

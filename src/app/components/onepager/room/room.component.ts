@@ -48,20 +48,11 @@ export class RoomComponent {
   galleryOptions: NgxGalleryOptions[] = galleryOptions;
   galleryImages: NgxGalleryImage[] = galleryImages;
 
-  extraInfoTexts: string[] = [
-    '*Minimum 2 nights',
-    '**You can order breakfast by mail contact',
-    'Tourist tax city of Bruges = &euro;2,- pppn',
-    'No pets allowed',
-    'Smoking is allowed in the garden',
-    'Usage of washing machine or dryer : &euro;5,-'
-  ];
+  get extraInfo(): any[] {
+    return Array(6);
+  }
 
-  bookingTexts: string[] = [
-    '<b>Deposit:</b> &euro;75,- on BE47 7512 0859 2880',
-    '<b>Balance:</b> cash on arrival',
-    '<b>Cancelling</b> is possible without penalty up to 5 days before the arrival date.' +
-    ' For later cancellation, the first night and possibly ordered breakfast is charged.' +
-    ' In case of no show, the total sum of the reservation will be charged.'
-  ];
+  get bookings(): any[] {
+    return Array(3);
+  }
 }

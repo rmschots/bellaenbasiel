@@ -20,34 +20,23 @@
       <div>
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon>accessibility</mat-icon>
-          <h4>Access</h4>
+          <h4>{{ 'CONTACT.access.title' | translate }}</h4>
         </div>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
           <mat-icon color="accent">check</mat-icon>
-          <span>
-            <b>By train:</b> <a href="http://b-rail.be">b-rail.be</a>
-          </span>
+          <span [innerHtml]="'CONTACT.access.train' | translate"></span>
         </div>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
           <mat-icon color="accent">check</mat-icon>
-          <span>
-            <b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop
-            Carmersbrug. From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90.
-            You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to
-            walk.
-          </span>
+          <span [innerHtml]="'CONTACT.access.bus' | translate"></span>
         </div>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
           <mat-icon color="accent">check</mat-icon>
-          <span>
-            <b>By taxi:</b> ca 10€
-          </span>
+          <span [innerHtml]="'CONTACT.access.taxi' | translate"></span>
         </div>
         <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
           <mat-icon color="accent">check</mat-icon>
-          <span>
-            <b>By car:</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space.
-          </span>
+          <span [innerHtml]="'CONTACT.access.car' | translate"></span>
         </div>
       </div>
     </div>
@@ -55,7 +44,7 @@
       <mat-card class="availability-data mat-elevation-z3">
         <mat-card-title fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
           <mat-icon color="primary">event_available</mat-icon>
-          <span>Availability</span>
+          <span>{{ 'CONTACT.availability.title' | translate }}</span>
         </mat-card-title>
         <mat-card-content>
           <bnb-availability-calendar></bnb-availability-calendar>
