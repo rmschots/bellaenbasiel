@@ -9,7 +9,7 @@ import {
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatMenuModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
@@ -66,7 +66,8 @@ const MATERIAL_MODULES = [
   MatSortModule,
   MatTooltipModule,
   MatTabsModule,
-  MatChipsModule
+  MatChipsModule,
+  MatMenuModule
 ];
 
 const MODULES = [
