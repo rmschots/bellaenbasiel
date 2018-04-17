@@ -11,5 +11,16 @@
         {{ navItem.nameKey | translate }}
       </button>
     </li>
+    <li>
+      <button mat-button [matMenuTriggerFor]="menu">
+        <img src="/assets/img/languages/{{selectedLanguage.code}}.jpg"/>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)">
+          <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg"/></mat-icon>
+          <span>{{language.name}}</span>
+        </button>
+      </mat-menu>
+    </li>
   </ul>
 </div>

@@ -1,10 +1,10 @@
-<div class="container" fxLayout="row" fxLayoutGap="32px" fxLayoutAlign="space-between center">
+<div class="container" fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
   <a class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollAdjustHash]="true"
      (click)="scrollTo('home')">
     <img src="/assets/img/logo-header.png" alt="">
   </a>
   <div class="nav-links" *ngIf="currentSection$ | async as currentSection">
-    <ul fxLayout="row" fxLayoutGap="16px">
+    <ul fxLayout="row">
       <li *ngFor="let navItem of navItems">
         <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
                 (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}">
@@ -13,4 +13,13 @@
       </li>
     </ul>
   </div>
+  <button mat-button [matMenuTriggerFor]="menu">
+    <img src="/assets/img/languages/{{selectedLanguage.code}}.jpg"/>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)">
+      <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg"/></mat-icon>
+      <span>{{language.name}}</span>
+    </button>
+  </mat-menu>
 </div>
