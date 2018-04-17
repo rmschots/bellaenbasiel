@@ -5,5 +5,90 @@
     "pictures": "Pictures",
     "activities": "Activities",
     "contact": "Contact"
+  },
+  "HEADER": {
+    "subtitle": "Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES",
+    "visitWebsite": "Visit the website",
+    "checkAvailability": "Check availability",
+    "contact": "Contact"
+  },
+  "WELCOME": {
+    "title": "Welcome",
+    "hosts": {
+      "title": "Hosts",
+      "text": "As born and raised locals we know our city and we like to share this with our guests. Still we discover some romantic places, tasty restaurants and cosy pubs.<br>We advise you about all kinds of activities, events, musea,…."
+    },
+    "house": {
+      "title": "Our house",
+      "text": "The guests have their own room and bathroom. Breakfast is served in the dining room or outside in our sunny and flowered garden.<br>Our chickens don’t like other pets.<br>Smoking is allowed in the garden."
+    },
+    "neighbourhood": {
+      "title": "Our neighborhood",
+      "text": "We gladly welcome you in our guestroom, situated in the quiet and green Saint Ann district, a working-class area within the old city walls of Bruges.<br>Via a 10-minute walk along picturesque small streets you will arrive at the city centre, from where you can enjoy numerous historic buildings, events, museums, festivals, exhibitions…"
+    }
+  },
+  "GUESTBOOK": {
+    "title": "Guestbook",
+    "review": "review"
+  },
+  "ROOM": {
+    "title": "Room",
+    "night": "&euro; {{amount}} / night*",
+    "breakfast": "breakfast &euro; {{amount}} pppn**",
+    "room1": {
+      "title": "Cosy and quiet 2 person room",
+      "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi."
+    },
+    "extraInfo": {
+      "title": "Extra info",
+      "item1": "*Minimum 2 nights",
+      "item2": "**You can order breakfast by mail contact",
+      "item3": "Tourist tax city of Bruges = &euro;2,- pppn",
+      "item4": "No pets allowed",
+      "item5": "Smoking is allowed in the garden",
+      "item6": "Usage of washing machine or dryer : &euro;5,-"
+    },
+    "booking": {
+      "title": "Booking",
+      "text": "Deposit of 1 night is required as a reservation.<br>Balance payment in cash on arrival. We do not accept credit cards.",
+      "conditions": "General booking conditions",
+      "item1": "<b>Deposit:</b> &euro;75,- on BE47 7512 0859 2880",
+      "item2": "<b>Balance:</b> cash on arrival",
+      "item3": "<b>Cancelling</b> is possible without penalty up to 5 days before the arrival date. For later cancellation, the first night and possibly ordered breakfast is charged. In case of no show, the total sum of the reservation will be charged."
+    }
+  },
+  "PICTURES": {
+    "title": "Pictures"
+  },
+  "ACTIVITIES": {
+    "title": "Activities",
+    "relax": {
+      "title": "Relax Bruges",
+      "text": "A romantic stroll along the illuminated fairy-tale like Canals, a tasty beer in a pub or a frivolous festival on the beautiful squares, put you in the perfect holiday mood.<br>Belgian chocolate and waffles make your holiday perfect !"
+    },
+    "culture": {
+      "title": "Culture",
+      "text": "With its historical buildings and imposing city gates Bruges belongs to Unesco World Heritage site. Numerous museums and exhibitions fill the culture finder."
+    },
+    "sportsAndNature": {
+      "title": "Sports and nature",
+      "text": "Around the city there are important green footpaths and nature reserves. And there is also a possibility to safely ride your bike on the cycle lanes around the city.<br>You can also reach the coast (e.g. the nature reserve ‘het Zwin’ and the polders near Uitkerke) by bike, while visiting colourful polder villages.<br>The Dutch border town of Sluis is only 20 kilometres away and the book village of Damme is even within walking distance."
+    },
+    "gastronomy": {
+      "title": "Gastronomy",
+      "text": "Fine dining is part of our culture of Burgundy. You’ll find in Bruges dining options of fries tent to Michelin-star restaurants."
+    }
+  },
+  "CONTACT": {
+    "access": {
+      "title": "Access",
+      "train": "<b>By train:</b> <a href=\"http://b-rail.be\">b-rail.be</a>",
+      "bus": "<b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop Carmersbrug. From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90. You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to walk.",
+      "taxi": "<b>By taxi:</b> ca &euro;10",
+      "car": "<b>By car:</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space."
+    },
+    "availability": {
+      "title": "Availability"
+    }
   }
 }
