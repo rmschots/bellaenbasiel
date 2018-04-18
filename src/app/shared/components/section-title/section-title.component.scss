@@ -1,7 +1,66 @@
-:host{
-  background: #51a4c4 url('/assets/img/title-background.jpg') repeat-x center bottom;
-  color: #fff;
+$brace-color: #8b8b8b;
+
+:host {
   display: block;
   padding: 8px;
-  text-shadow: 0 1px rgba(000, 000, 000, .45);
+}
+
+h1 {
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 48px;
+  margin-bottom: 16px;
+  margin-top: 16px;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.45);
+}
+
+.brace {
+  background-color: transparent;
+  background-image:
+    radial-gradient(circle at 0 0, rgba($brace-color,0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color,0) 20.5px),
+    radial-gradient(circle at 35px 0, rgba($brace-color,0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color,0) 20.5px);
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-size: 35px 20px;
+  border: 0;
+  color: $brace-color;
+  filter: drop-shadow(0 1px 1px rgba(black,.15));
+  font-size: 2em;
+  font-style: italic;
+  line-height: 2em;
+  margin: 0 15px 15px;
+  min-width: 35px;
+  padding-bottom: 20px;
+  position: relative;
+  text-align: center;
+  text-transform: lowercase;
+  vertical-align: middle;
+  width: auto;
+
+  &:before {
+    border-left: 1px solid transparent;
+    border-top: 5px solid $brace-color;
+    border-top-left-radius: 20% 30px; /* play with this until you like the look of it */
+    box-sizing: border-box;
+    content: "";
+    height: 100%;
+    left: -15px;
+    margin-top: -5px;
+    position: absolute;
+    top: 100%;
+    width: 50%;
+  }
+
+  &:after {
+    border-right: 1px solid transparent;
+    border-top: 5px solid $brace-color;
+    border-top-right-radius: 20% 30px; /* play with this until you like the look of it */
+    box-sizing: border-box;
+    content: "";
+    height: 100%;
+    margin-top: -5px;
+    position: absolute;
+    right: -15px;
+    top: 100%;
+    width: 50%;
+  }
 }
