@@ -3,12 +3,7 @@ import { SectionService } from '../../shared/services/section/section.service';
 import { Observable } from 'rxjs/Observable';
 import { NavItem } from '../../shared/models/nav-item';
 import { Language } from '../../shared/models/language';
-
-const languages: Language[] = [
-  {code: 'en', name: 'English'},
-  {code: 'nl', name: 'Nederlands'},
-  {code: 'fr', name: 'Français'}
-];
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'bnb-sidenav',
@@ -25,10 +20,10 @@ export class SidenavComponent {
     {id: 'contact', nameKey: 'NAV.contact'}
   ];
 
-  languages: Language[] = languages;
-  selectedLanguage: Language = languages[0];
+  languages: Language[] = TranslationService.languages;
 
-  constructor(private _sectionService: SectionService) {
+  constructor(private _sectionService: SectionService,
+              private _translationService: TranslationService) {
   }
 
   get currentSection$(): Observable<string> {
@@ -40,6 +35,10 @@ export class SidenavComponent {
   }
 
   languageSelected(language: Language) {
-    // this.languageService.setLanguage(language); // TODO
+    this._translationService.currentLanguage = language;
+  }
+
+  get currentLanguage$() {
+    return this._translationService.currentLanguage$;
   }
 }

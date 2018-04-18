@@ -6,6 +6,7 @@ import { MatSidenav } from '@angular/material';
 import { SectionService } from './shared/services/section/section.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
+import { TranslationService } from './shared/services/translation.service';
 
 @Component({
   selector: 'bnb-root',
@@ -19,9 +20,10 @@ export class AppComponent implements OnInit {
 
   private _navBarClosed$ = new BehaviorSubject<boolean>(true);
 
-  constructor(translationService: TranslateService, public media: ObservableMedia, private _sectionService: SectionService) {
-    translationService.setDefaultLang('en');
-    translationService.use('en');
+  constructor(public media: ObservableMedia,
+              private _sectionService: SectionService,
+              private _translationService: TranslationService) {
+    this._translationService.init();
     this.configurePageScroll();
   }
 

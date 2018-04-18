@@ -12,8 +12,8 @@
       </button>
     </li>
     <li>
-      <button mat-button [matMenuTriggerFor]="menu">
-        <img src="/assets/img/languages/{{selectedLanguage.code}}.jpg"/>
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage">
+        <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg"/>
       </button>
       <mat-menu #menu="matMenu">
         <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)">
