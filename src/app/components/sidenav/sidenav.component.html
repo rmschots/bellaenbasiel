@@ -18,7 +18,7 @@
       <mat-menu #menu="matMenu">
         <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)">
           <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg"/></mat-icon>
-          <span>{{language.name}}</span>
+          <span>{{ language.name }}</span>
         </button>
       </mat-menu>
     </li>
