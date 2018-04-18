@@ -3,13 +3,7 @@ import { SectionService } from '../../shared/services/section/section.service';
 import { Observable } from 'rxjs/Observable';
 import { NavItem } from '../../shared/models/nav-item';
 import { Language } from '../../shared/models/language';
-import { TranslateService } from '@ngx-translate/core';
-
-const languages: Language[] = [
-  {code: 'en', name: 'English'},
-  {code: 'nl', name: 'Nederlands'},
-  {code: 'fr', name: 'Français'}
-];
+import { TranslationService } from '../../shared/services/translation.service';
 
 @Component({
   selector: 'bnb-navbar',
@@ -27,10 +21,10 @@ export class NavbarComponent {
     {id: 'contact', nameKey: 'NAV.contact'}
   ];
 
-  languages: Language[] = languages;
-  selectedLanguage: Language = languages[0];
+  languages: Language[] = TranslationService.languages;
 
-  constructor(private _sectionService: SectionService, private _translateService: TranslateService) {
+  constructor(private _sectionService: SectionService,
+              private _translationService: TranslationService) {
   }
 
   get currentSection$(): Observable<string> {
@@ -42,7 +36,11 @@ export class NavbarComponent {
   }
 
   languageSelected(language: Language) {
-    // this.languageService.setLanguage(language); // TODO
+    this._translationService.currentLanguage = language;
+  }
+
+  get currentLanguage$() {
+    return this._translationService.currentLanguage$;
   }
 
 }

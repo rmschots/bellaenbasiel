@@ -29,6 +29,7 @@ import { ShortDateFormatter } from './util/short-date-formatter';
 import { SectionService } from './services/section/section.service';
 import { SectionComponent } from './components/section/section.component';
 import { AgmCoreModule } from '@agm/core';
+import { TranslationService } from './services/translation.service';
 
 const DIALOGS = [];
 
@@ -41,6 +42,7 @@ const COMPONENTS = [
 
 const SERVICES = [
   SectionService,
+  TranslationService,
   { provide: CalendarDateFormatter, useClass: ShortDateFormatter }
 ];
 
