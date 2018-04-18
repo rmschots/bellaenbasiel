@@ -29,12 +29,13 @@
   },
   "GUESTBOOK": {
     "title": "Guestbook",
+    "by": "by",
     "review": "review"
   },
   "ROOM": {
     "title": "Room",
-    "night": "&euro; {{amount}} / night*",
-    "breakfast": "breakfast &euro; {{amount}} pppn**",
+    "night": "&euro;{{amount}} / night*",
+    "breakfast": "breakfast &euro;{{amount}} pppn**",
     "tags": {
       "maxOccupancy": "Max occupancy: {{amount}} persons",
       "wifi": "WiFi available",
@@ -49,16 +50,16 @@
       "title": "Extra info",
       "item1": "*Minimum 2 nights",
       "item2": "**You can order breakfast by mail contact",
-      "item3": "Tourist tax city of Bruges = &euro;2,- pppn",
+      "item3": "Tourist tax city of Bruges = &euro;2 pppn",
       "item4": "No pets allowed",
       "item5": "Smoking is allowed in the garden",
-      "item6": "Usage of washing machine or dryer : &euro;5,-"
+      "item6": "Usage of washing machine or dryer : &euro;5"
     },
     "booking": {
       "title": "Booking",
       "text": "Deposit of 1 night is required as a reservation.<br>Balance payment in cash on arrival. We do not accept credit cards.",
       "conditions": "General booking conditions",
-      "item1": "<b>Deposit:</b> &euro;75,- on BE47 7512 0859 2880",
+      "item1": "<b>Deposit:</b> &euro;75 on BE47 7512 0859 2880",
       "item2": "<b>Balance:</b> cash on arrival",
       "item3": "<b>Cancelling</b> is possible without penalty up to 5 days before the arrival date. For later cancellation, the first night and possibly ordered breakfast is charged. In case of no show, the total sum of the reservation will be charged."
     }
@@ -86,6 +87,7 @@
     }
   },
   "CONTACT": {
+    "title": "Contact",
     "access": {
       "title": "Access",
       "train": "<b>By train:</b> <a href=\"http://b-rail.be\">b-rail.be</a>",
