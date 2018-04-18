@@ -29,12 +29,13 @@
   },
   "GUESTBOOK": {
     "title": "Gastenboek",
+    "by": "door",
     "review": "review"
   },
   "ROOM": {
     "title": "Kamer",
-    "night": "&euro; {{amount}} / nacht*",
-    "breakfast": "ontbijt &euro; {{amount}} pppn**",
+    "night": "&euro;{{amount}} / nacht*",
+    "breakfast": "ontbijt &euro;{{amount}} pppn**",
     "tags": {
       "maxOccupancy": "Maximum {{amount}} personen",
       "wifi": "WiFi beschikbaar",
@@ -49,16 +50,16 @@
       "title": "Extra info",
       "item1": "*Minimum 2 nachten",
       "item2": "**Vooraf te bespreken per mail",
-      "item3": "Toeristenbelasting stad Brugge = &euro;2,- pppn",
+      "item3": "Toeristenbelasting stad Brugge = &euro;2 pppn",
       "item4": "Huisdieren niet toegelaten",
       "item5": "Roken kan in de tuin",
-      "item6": "Gebruik wasmachine of droogkast : &euro;5,-"
+      "item6": "Gebruik wasmachine of droogkast : &euro;5"
     },
     "booking": {
       "title": "Boeken",
       "text": "Voorschot van 1 nacht is vereist als reservatie.<br>Betaling saldo in cash bij aankomst. Wij aanvaarden geen kredietkaarten.",
       "conditions": "Algemene Boekingsvoorwaarden",
-      "item1": "<b>Voorschot:</b> &euro;75,- te storten op rekeningnr BE47 7512 0859 2880",
+      "item1": "<b>Voorschot:</b> &euro;75 te storten op rekeningnr BE47 7512 0859 2880",
       "item2": "<b>Saldo:</b> cash bij aankomst, of voorafgaandelijk met bankoverschrijving",
       "item3": "<b>Annuleren</b> is mogelijk zonder kosten tot 5 dagen voor de aankomstdatum. Wie later annuleert, wordt de eerste nacht en eventueel besteld ontbijt aangerekend. In geval van no-show, zal de totale som van de reservatie aangerekend worden."
     }
@@ -86,6 +87,7 @@
     }
   },
   "CONTACT": {
+    "title": "Contact",
     "access": {
       "title": "Bereikbaarheid",
       "train": "<b>Per trein:</b> <a href=\"http://b-rail.be\">b-rail.be</a>",

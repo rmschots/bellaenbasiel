@@ -1,1 +1,102 @@
-{}
+{
+  "NAV": {
+    "welcome": "Bienvenue",
+    "room": "Chambre",
+    "pictures": "Photos",
+    "activities": "Activités",
+    "contact": "Contact"
+  },
+  "HEADER": {
+    "subtitle": "Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES",
+    "visitWebsite": "More information",
+    "checkAvailability": "Check availability",
+    "contact": "Contact"
+  },
+  "WELCOME": {
+    "title": "Bienvenue",
+    "hosts": {
+      "title": "Hôte et Hôtesse",
+      "text": "Né(e)s et élévé(e)s à Bruges, la ville n’a pas des secrets pour nous. On aime bien de partager avec vous les endroits romantiques, des restaurants trop bons, des cafés agréables… On peut aussi vous conseiller des parcours à bicyclette, des activités et des événéments."
+    },
+    "house": {
+      "title": "Notre maison",
+      "text": "En plus d’une propre chambre à coucher et salle de bains, nos invitées ont accès à la salle à manger où nous vous servons le petit déjeuner.<br>Quand il fait beau, vous pouvez séjourner dans le jardin ensoleillé et plein de fleurs. Nos poules de ville n’aiment pas d’autres animaux. Il est permis de fumer dans le jardin."
+    },
+    "neighbourhood": {
+      "title": "Notre quartier",
+      "text": "Soyez bienvenue dans notre chambre d’hôtes, situé dans le quartier populaire St. Anna. Le B&B se trouve au milieu des vieux remparts de Bruges dans un environnement vert et serein.<br>Après une balade courte (10 min. au maximum) en passant des petites rues pittoresques, vous arrivez au coeur du centre ville de Bruges où vous pouvez admirer les bâtiments historiques, participer aux nombreux evenements, musées, festivals, expositions et cetera."
+    }
+  },
+  "GUESTBOOK": {
+    "title": "Livre d'Or",
+    "by": "par",
+    "review": "critique"
+  },
+  "ROOM": {
+    "title": "Chambre",
+    "night": "&euro;{{amount}} / nuit*",
+    "breakfast": "breakfast &euro;{{amount}} pppn**",
+    "tags": {
+      "maxOccupancy": "{{amount}} personnen max",
+      "wifi": "WiFi disponible",
+      "breakfastOptional": "Petit-déjeuner en option",
+      "nonSmoking": "Ne pas fumer à l'intérieur"
+    },
+    "room1": {
+      "title": "Chambre double agréable et calme",
+      "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café."
+    },
+    "extraInfo": {
+      "title": "Infos supplémentaires",
+      "item1": "*Minimum 2 nuits",
+      "item2": "**A convenir d’avance par mail",
+      "item3": "Taxe touristique de la Ville de Bruges &euro;2 par personne et par nuit.",
+      "item4": "Animaux non admis",
+      "item5": "Il est permis de fumer dans le jardin",
+      "item6": "Usage du lave-linge ou séchoir: &euro;5"
+    },
+    "booking": {
+      "title": "Réserver",
+      "text": "Une avance d’une nuit est obligatoire pour que la réservation soit valable.<br>Paiement solde en espèces à l’arrivée. Nous n’acceptons pas des cartes de crédits.",
+      "conditions": "Conditions générales de réservation",
+      "item1": "<b>Avance:</b> &euro;75 à verser sur le compte BE47 7512 0859 2880",
+      "item2": "<b>Solde:</b> en espèces à l’arrivée ou en avance par virement bancaire",
+      "item3": "C’est possible d’<b>annuler</b> votre réservation sans frais jusqu’à 5 jours avant la date d’arrivée. Si vous annulez plus tard, on vous facture la première nuit et eventuellement (si commandé) le petit déjeuner. En cas de no-show, on vous demande de payer le montant entier de la réservation."
+    }
+  },
+  "PICTURES": {
+    "title": "Photos"
+  },
+  "ACTIVITIES": {
+    "title": "ACTIVITÉS",
+    "relax": {
+      "title": "Une pause relaxante à Bruges",
+      "text": "Une balade romantique parmi les canaux de Bruges éclairé et féerique, une bière délicieuse dans un endroit sympa ou un festival frivole sur les places belles… c’est tout ce que tu as besoin d’avoir un bien esprit de vacances. N’oubliez pas de goûter du vrai chocolat Belge et de faire du shopping!"
+    },
+    "culture": {
+      "title": "De la culture",
+      "text": "Grâce à ses bâtiments historiques et les portes de villes impressionantes Bruges est reconnue patrimoine mondial de l’Unesco. Les passionés de culture trouvent ici de nombreux musées et nombreuses expositions."
+    },
+    "sportsAndNature": {
+      "title": "Du sport et la nature",
+      "text": "Bruges est entouré des routes vertes et des réserves naturelles très importantes. Ca vous donne la possibilité de découvrir l’Arrière-Pays de Bruges en vélo. Aussi l’environnement de la côte (région du Zwin et le Uitkerkse Polder) se trouve dans une distance cyclable. En route vous passez des villages ruraux et pittoresques. A la frontière des Pays-Bas (qui est que 20 kilomètres) vous trouvez un village qui s’appele Sluis."
+    },
+    "gastronomy": {
+      "title": "De la gastronomie",
+      "text": "Vous ne trouvez pas seulement des activités culturelles à Bruges. En plus vous avez aussi la possibilité de faire des balades romantiques. Les restaurants variées ne vous laissent pas la chance d’être affamés. Il y a vraiment de tout: des bistros jusqu’à un restaurant étoilé. Afin que votre visite à Bruges soie complète, il faut rendre une visite dans les bars nombreux qui servent au moins une centaine de différentes bières."
+    }
+  },
+  "CONTACT": {
+    "title": "Contact",
+    "access": {
+      "title": "Accessibilité",
+      "train": "<b>En trein:</b> <a href=\"http://b-rail.be\">b-rail.be</a>",
+      "bus": "<b>En bus:</b> Prenez le bus 4 ou 14 et demandez au chauffeur de s’arrêter à la halte ‘Carmersbrug‘.<br>Vous traversez le pont et continuez tout droit jusqu’au le Rijkepijndersstraat, la 3ième rue à gauche (200 m)<br>C’est moins cher d’acheter un billet par SMS le code de commande ‘DL’ au numéro court 4884<br>Aprés 20.00h prenez le bus nr 90 Koolkerke-Dudzele",
+      "taxi": "<b>Taxi:</b> Le prix d’un taxi coûte environ &euro;12",
+      "car": "<b>A voiture:</b> Eventuellement après le check-in:<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;12/jour."
+    },
+    "availability": {
+      "title": "Disponibilité"
+    }
+  }
+}
