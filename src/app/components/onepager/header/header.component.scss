@@ -19,6 +19,7 @@
 #header-content {
   background-image: none;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+  position: relative;
 }
 
 .header-text-content {
@@ -52,4 +53,10 @@
 .header-button {
   font-size: 21px;
   height: 44px;
+}
+
+.external-links-pc {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
 }

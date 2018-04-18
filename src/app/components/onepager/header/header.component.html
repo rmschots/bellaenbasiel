@@ -8,18 +8,7 @@
       <h2 class="text-center header-subtitle">{{ 'HEADER.subtitle' | translate }}</h2>
       <hr>
     </div>
-    <div fxFlexOffset="8px" fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="16px">
-      <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
-        <img src="/assets/img/air-bnb.png">
-      </a>
-      <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
-        <img class="unclear-logo" src="/assets/img/visit-bruges.png">
-      </a>
-      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
-        <img class="unclear-logo" src="/assets/svg/westtoer.svg">
-      </a>
-    </div>
-    <div fxFlexOffset="64px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
+    <div fxFlexOffset="32px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
               pageScrollTarget="#welcome"
               [pageScrollAdjustHash]="true">
@@ -35,6 +24,28 @@
     </div>
   </div>
   <div class="text-center header-copyright">
-    &reg; 2018 Bella en Basiel - {{ 'HEADER.contact' | translate }}: <a href="tel:+32 472 643527">+32 472 643527</a>
+    <div fxHide.gt-sm="true">
+      <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
+        <img src="/assets/img/air-bnb.png">
+      </a>
+      <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
+        <img class="unclear-logo" src="/assets/img/visit-bruges.png">
+      </a>
+      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
+        <img class="unclear-logo" src="/assets/svg/westtoer.svg">
+      </a>
+    </div>
+    <span>&reg; 2018 Bella en Basiel - {{ 'HEADER.contact' | translate }}: <a href="tel:+32 472 643527">+32 472 643527</a></span>
+  </div>
+  <div fxHide.lt-md="true" class="external-links-pc">
+    <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
+      <img src="/assets/img/air-bnb.png">
+    </a>
+    <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
+      <img class="unclear-logo" src="/assets/img/visit-bruges.png">
+    </a>
+    <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
+      <img class="unclear-logo" src="/assets/svg/westtoer.svg">
+    </a>
   </div>
 </div>
