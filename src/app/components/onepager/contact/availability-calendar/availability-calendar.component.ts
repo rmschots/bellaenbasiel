@@ -25,7 +25,7 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
   }
 
   ngOnInit() {
-    this._httpClient.get('/assets/calendar.ics', {responseType: 'text'})
+    this._httpClient.get('https://www.airbnb.be/calendar/ical/12102270.ics?s=43d614d026f02aef4ac8431f625b3433', {responseType: 'text'})
       .takeUntil(this.ngUnsubscribe$)
       .subscribe(value => this.initCalendar(value));
   }
