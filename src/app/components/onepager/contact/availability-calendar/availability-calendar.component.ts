@@ -15,6 +15,7 @@ import { Observable } from 'rxjs/Observable';
 })
 export class AvailabilityCalendarComponent extends Unsubscribable implements OnInit {
   // https://www.airbnb.be/calendar/ical/12102270.ics?s=43d614d026f02aef4ac8431f625b3433
+  // https://calendar.google.com/calendar/ical/a2cpg0o6c8rfv2479ga1fkshe9g34ahh%40import.calendar.google.com/public/basic.ics
 
   viewDate: Date = new Date();
 
@@ -25,7 +26,7 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
   }
 
   ngOnInit() {
-    this._httpClient.get('https://www.airbnb.be/calendar/ical/12102270.ics?s=43d614d026f02aef4ac8431f625b3433', {responseType: 'text'})
+    this._httpClient.get('/assets/calendar.ics', {responseType: 'text'})
       .takeUntil(this.ngUnsubscribe$)
       .subscribe(value => this.initCalendar(value));
   }
