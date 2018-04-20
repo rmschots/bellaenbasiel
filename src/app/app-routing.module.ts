@@ -7,6 +7,9 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: OnepagerComponent
+  }, {
+    path: 'admin',
+    loadChildren: './admin/admin.module#AdminModule'
   }
 ];
 

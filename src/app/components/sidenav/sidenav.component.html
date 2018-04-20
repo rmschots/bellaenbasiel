@@ -4,7 +4,7 @@
 </div>
 <div class="nav-links" *ngIf="currentSection$ | async as currentSection">
   <ul>
-    <li *ngFor="let navItem of navItems">
+    <li *ngFor="let navItem of sections$ | async">
       <button mat-button
               [ngClass]="{ 'active-section': navItem.id === currentSection}" (click)="scrollTo(navItem.id)"
               pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true">
