@@ -30,6 +30,8 @@ import { SectionService } from './services/section/section.service';
 import { SectionComponent } from './components/section/section.component';
 import { AgmCoreModule } from '@agm/core';
 import { TranslationService } from './services/translation.service';
+import { FirebaseService } from './services/firebase.service';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 const DIALOGS = [];
 
@@ -42,6 +44,7 @@ const COMPONENTS = [
 
 const SERVICES = [
   SectionService,
+  FirebaseService,
   TranslationService,
   { provide: CalendarDateFormatter, useClass: ShortDateFormatter }
 ];
@@ -81,6 +84,7 @@ const MODULES = [
   NgxGalleryModule,
   CalendarModule,
   AgmCoreModule,
+  AngularFirestoreModule,
   ...MATERIAL_MODULES
 ];
 
