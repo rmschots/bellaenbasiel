@@ -1,3 +1,18 @@
-<bnb-section sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
+<div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px"
+     *ngIf="afAuth.authState | async as user; else showLogin">
+  <p>Logged in as {{ user.displayName }}!</p>
+  <div>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+  </div>
+</div>
+
+
+<bnb-section *ngIf="afAuth.authState | async" sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
   <bnb-guestbook-manager id="guestbook-manager"></bnb-guestbook-manager>
 </bnb-section>
+
+<ng-template #showLogin>
+  <div class="container" fxLayout="row" fxLayoutAlign="center">
+    <button mat-raised-button color="accent" (click)="login()">Login with Google</button>
+  </div>
+</ng-template>

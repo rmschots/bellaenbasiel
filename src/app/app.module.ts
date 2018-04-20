@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxPageScrollModule } from 'ngx-page-scroll';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { SharedModule } from './shared/shared.module';
 import { HeaderComponent } from './components/onepager/header/header.component';
 import { ContactComponent } from './components/onepager/contact/contact.component';
@@ -26,6 +25,7 @@ import { AgmCoreModule } from '@agm/core';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -33,7 +33,6 @@ const SINGLETON_MODULES = [
   HttpClientModule,
   AppRoutingModule,
   NgxPageScrollModule,
-  FlexLayoutModule,
   CalendarModule.forRoot(),
   SharedModule.forRoot(),
   TranslateModule.forRoot({
@@ -46,7 +45,8 @@ const SINGLETON_MODULES = [
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyDrpBxPtUDohgkjWSSNNmikZj0fXvcvX1c'
   }),
-  AngularFireModule.initializeApp(environment.firebase)
+  AngularFireModule.initializeApp(environment.firebase),
+  AngularFireAuthModule
 ];
 
 const CONTAINERS = [

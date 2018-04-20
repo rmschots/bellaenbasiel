@@ -31,6 +31,19 @@ export class SectionService {
     this.refreshCurrentSectionName();
   }
 
+  removeSection(sectionId: string) {
+    if (this._sectionIds$.getValue().includes(sectionId)) {
+      const updatedSectionNames = this._sectionIds$.getValue().filter(id => id !== sectionId);
+      updatedSectionNames.sort((a: string, b: string) => {
+        return this._sectionPositionMap.get(b) - this._sectionPositionMap.get(a);
+      });
+      this._sectionIds$.next(updatedSectionNames);
+      this._sectionPositionMap.delete(sectionId);
+      this._sectionNameMap.delete(sectionId);
+      this.refreshCurrentSectionName();
+    }
+  }
+
   get currentSectionId$(): Observable<string> {
     return this._currentSectionId$.distinctUntilChanged();
   }

@@ -1,4 +1,13 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, HostBinding, HostListener, Input } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  HostBinding,
+  HostListener,
+  Input,
+  OnDestroy
+} from '@angular/core';
 import { interval } from 'rxjs/observable/interval';
 import { SectionService } from '../../services/section/section.service';
 import { Unsubscribable } from '../../util/unsubscribable';
@@ -9,7 +18,7 @@ import { Unsubscribable } from '../../util/unsubscribable';
   styleUrls: ['./section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SectionComponent extends Unsubscribable implements AfterViewInit {
+export class SectionComponent extends Unsubscribable implements AfterViewInit, OnDestroy {
 
   @HostBinding('attr.id') @Input() sectionId: string;
   @Input() sectionName: string;
@@ -28,6 +37,11 @@ export class SectionComponent extends Unsubscribable implements AfterViewInit {
   @HostListener('window:resize', ['$event'])
   onResize() {
     this.notifyChangePosition();
+  }
+
+  ngOnDestroy(): void {
+    super.ngOnDestroy();
+    this._sectionService.removeSection(this.sectionId);
   }
 
   private notifyChangePosition() {
