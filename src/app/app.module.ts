@@ -24,6 +24,8 @@ import { AvailabilityCalendarComponent } from './components/onepager/contact/ava
 import { CalendarModule } from 'angular-calendar';
 import { AgmCoreModule } from '@agm/core';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment';
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -43,7 +45,8 @@ const SINGLETON_MODULES = [
   }),
   AgmCoreModule.forRoot({
     apiKey: 'AIzaSyDrpBxPtUDohgkjWSSNNmikZj0fXvcvX1c'
-  })
+  }),
+  AngularFireModule.initializeApp(environment.firebase)
 ];
 
 const CONTAINERS = [
