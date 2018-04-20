@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { GuestbookEntry } from '../../../shared/models/guestbook-entry';
 import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { GUESTBOOK_ENTRIES } from './guestbook-data';
+import { GuestbookEntry } from '../../../shared/models/firebase-data';
 
 @Component({
   selector: 'bnb-guestbook',

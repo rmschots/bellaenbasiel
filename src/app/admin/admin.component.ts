@@ -1,5 +1,8 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import * as firebase from '@firebase/app';
+import 'firebase/auth';
 
 @Component({
   selector: 'bnb-admin',
@@ -9,10 +12,20 @@ import { FirebaseService } from '../shared/services/firebase.service';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private _firebaseService: FirebaseService) {
+  @HostBinding('attr.id') id = 'home';
+
+  constructor(private _firebaseService: FirebaseService, public afAuth: AngularFireAuth) {
   }
 
   ngOnInit(): void {
     this._firebaseService.init();
+  }
+
+  login() {
+    this.afAuth.auth.signInWithPopup(new firebase.firebase.auth.GoogleAuthProvider());
+  }
+
+  logout() {
+    this.afAuth.auth.signOut();
   }
 }

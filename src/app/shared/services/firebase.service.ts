@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { FirebaseCalendar, FirebaseData } from '../models/firebase-data';
+import { FirebaseCalendar, FirebaseData, FirebaseGuestbook } from '../models/firebase-data';
 import { Observable } from 'rxjs/Observable';
 
 @Injectable()
@@ -11,6 +11,7 @@ export class FirebaseService {
 
   private _sectionsChange$: BehaviorSubject<DocumentChangeAction[]> = new BehaviorSubject<DocumentChangeAction[]>([]);
   private _calendarData$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
+  private _guestbookData$: BehaviorSubject<FirebaseGuestbook> = new BehaviorSubject<FirebaseGuestbook>(undefined);
 
   constructor(private _afs: AngularFirestore) {
     _afs.firestore.settings({timestampsInSnapshots: true});
@@ -30,6 +31,10 @@ export class FirebaseService {
 
   get calendarData$(): Observable<FirebaseCalendar> {
     return this._calendarData$.asObservable();
+  }
+
+  get guestbookData$(): Observable<FirebaseGuestbook> {
+    return this._guestbookData$.asObservable();
   }
 
   private findSection(actions: DocumentChangeAction[], sectionName: string) {

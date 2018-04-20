@@ -4,15 +4,15 @@ import { RouterModule } from '@angular/router';
 import {
   MatButtonModule,
   MatButtonToggleModule,
-  MatCardModule, MatChipsModule,
+  MatCardModule, MatChipsModule, MatDatepickerModule,
   MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatMenuModule,
+  MatInputModule, MatMenuModule, MatNativeDateModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSidenavModule,
+  MatSidenavModule, MatSliderModule,
   MatSortModule,
   MatStepperModule,
   MatTableModule,
@@ -32,6 +32,9 @@ import { AgmCoreModule } from '@agm/core';
 import { TranslationService } from './services/translation.service';
 import { FirebaseService } from './services/firebase.service';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { DpDatePickerModule } from 'ng2-date-picker';
 
 const DIALOGS = [];
 
@@ -46,6 +49,7 @@ const SERVICES = [
   SectionService,
   FirebaseService,
   TranslationService,
+  AngularFireAuth,
   { provide: CalendarDateFormatter, useClass: ShortDateFormatter }
 ];
 
@@ -72,7 +76,9 @@ const MATERIAL_MODULES = [
   MatTooltipModule,
   MatTabsModule,
   MatChipsModule,
-  MatMenuModule
+  MatMenuModule,
+  MatSliderModule,
+  DpDatePickerModule
 ];
 
 const MODULES = [
@@ -85,6 +91,7 @@ const MODULES = [
   CalendarModule,
   AgmCoreModule,
   AngularFirestoreModule,
+  FlexLayoutModule,
   ...MATERIAL_MODULES
 ];
 

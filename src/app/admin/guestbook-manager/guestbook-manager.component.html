@@ -1,3 +1,6 @@
-<p>
-  guestbook-manager works!
-</p>
+<div class="container">
+  <bnb-create-review></bnb-create-review>
+  <ul *ngIf="guestbookData$ | async as guestbook">
+    <li *ngFor="let entry of guestbook.entries">{{ entry | json }}</li>
+  </ul>
+</div>
