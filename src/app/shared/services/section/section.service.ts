@@ -2,42 +2,48 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
+import { NavItem } from '../../models/nav-item';
 
 @Injectable()
 export class SectionService {
 
   scrollRoot: HTMLElement;
 
-  private _currentSectionName$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
-  private _sectionNames$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
+  private _currentSectionId$: BehaviorSubject<string> = new BehaviorSubject<string>(undefined);
+  private _sectionIds$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private _sectionPositionMap: Map<string, number> = new Map<string, number>();
+  private _sectionNameMap: Map<string, string> = new Map<string, string>();
 
   constructor(private _pageScrollService: PageScrollService) {
   }
 
-  addSection(sectionName: string, position: number) {
-    this._sectionPositionMap.set(sectionName, position);
-    if (!this._sectionNames$.getValue().includes(sectionName)) {
-      const updatedSectionNames = this._sectionNames$.getValue().concat(sectionName);
+  addSection(sectionId: string, sectionName: string, position: number) {
+    this._sectionPositionMap.set(sectionId, position);
+    this._sectionNameMap.set(sectionId, sectionName);
+    if (!this._sectionIds$.getValue().includes(sectionId)) {
+      const updatedSectionNames = this._sectionIds$.getValue().concat(sectionId);
       updatedSectionNames.sort((a: string, b: string) => {
         return this._sectionPositionMap.get(b) - this._sectionPositionMap.get(a);
       });
-      this._sectionNames$.next(updatedSectionNames);
+      this._sectionIds$.next(updatedSectionNames);
     }
 
     this.refreshCurrentSectionName();
   }
 
-  get currentSectionName$(): Observable<string> {
-    return this._currentSectionName$.distinctUntilChanged();
+  get currentSectionId$(): Observable<string> {
+    return this._currentSectionId$.distinctUntilChanged();
   }
 
-  get sectionNames$(): Observable<string[]> {
-    return this._sectionNames$.map(names => names.slice());
+  get navItems$(): Observable<NavItem[]> {
+    return this._sectionIds$
+      .map(names =>
+        names.map(id => ({id: id, nameKey: this._sectionNameMap.get(id)}))
+      );
   }
 
   refreshCurrentSectionName(): void {
-    const currentSectionNames = this._sectionNames$.getValue();
+    const currentSectionNames = this._sectionIds$.getValue();
     //if the page has already been scrolled find the current name
     if (this.scrollRoot.scrollTop > 0) {
       const topSectionName = currentSectionNames.find(sectionName => {
@@ -45,14 +51,14 @@ export class SectionService {
       });
 
       if (topSectionName) {
-        this._currentSectionName$.next(topSectionName);
+        this._currentSectionId$.next(topSectionName);
       } else {
         const firstSectionName = currentSectionNames[currentSectionNames.length - 1];
-        this._currentSectionName$.next(firstSectionName ? firstSectionName : undefined);
+        this._currentSectionId$.next(firstSectionName ? firstSectionName : undefined);
       }
     } else {
       const firstSectionName = currentSectionNames[currentSectionNames.length - 1];
-      this._currentSectionName$.next(firstSectionName ? firstSectionName : undefined);
+      this._currentSectionId$.next(firstSectionName ? firstSectionName : undefined);
     }
   }
 

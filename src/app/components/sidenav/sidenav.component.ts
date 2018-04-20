@@ -12,22 +12,18 @@ import { TranslationService } from '../../shared/services/translation.service';
 })
 export class SidenavComponent {
 
-  navItems: NavItem[] = [
-    {id: 'welcome', nameKey: 'NAV.welcome'},
-    {id: 'room', nameKey: 'NAV.room'},
-    {id: 'pictures', nameKey: 'NAV.pictures'},
-    {id: 'activities', nameKey: 'NAV.activities'},
-    {id: 'contact', nameKey: 'NAV.contact'}
-  ];
-
   languages: Language[] = TranslationService.languages;
 
   constructor(private _sectionService: SectionService,
               private _translationService: TranslationService) {
   }
 
+  get sections$(): Observable<NavItem[]> {
+    return this._sectionService.navItems$.map(names => names.reverse());
+  }
+
   get currentSection$(): Observable<string> {
-    return this._sectionService.currentSectionName$;
+    return this._sectionService.currentSectionId$;
   }
 
   public scrollTo(sectionId: string): void {

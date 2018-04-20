@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
 import { PageScrollConfig } from 'ngx-page-scroll';
 import { ObservableMedia } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material';
@@ -7,7 +6,6 @@ import { SectionService } from './shared/services/section/section.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { TranslationService } from './shared/services/translation.service';
-import { FirebaseService } from './shared/services/firebase.service';
 
 @Component({
   selector: 'bnb-root',
@@ -23,8 +21,7 @@ export class AppComponent implements OnInit {
 
   constructor(public media: ObservableMedia,
               private _sectionService: SectionService,
-              private _translationService: TranslationService,
-              private _firebaseService: FirebaseService) {
+              private _translationService: TranslationService) {
     this._translationService.init();
     this.configurePageScroll();
   }
@@ -34,7 +31,6 @@ export class AppComponent implements OnInit {
     this.el.nativeElement.addEventListener('scroll', () => {
       this._sectionService.refreshCurrentSectionName();
     });
-    this._firebaseService.init();
   }
 
   get navBarClosed$(): Observable<boolean> {
