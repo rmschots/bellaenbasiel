@@ -38,7 +38,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
       .afterClosed().takeUntil(this.ngUnsubscribe$)
       .subscribe(result => {
         if (result) {
-          this._snackBar.open('Successfully created guestbook entry', '', {
+          this._snackBar.open('Successfully created guestbook entry', null, {
             duration: 5000,
           });
         }
@@ -50,7 +50,18 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
       data: {title: 'GUESTBOOK_MANAGER.delete.title', text: 'GUESTBOOK_MANAGER.delete.text'}
     }).afterClosed().takeUntil(this.ngUnsubscribe$).subscribe(result => {
       if (result) {
-        this._firebaseService.deleteGuestbookEntry(entry);
+        this._firebaseService.deleteGuestbookEntry(entry).takeUntil(this.ngUnsubscribe$)
+          .subscribe(() => {
+              this._snackBar.open('Deleted review', null, {
+                duration: 5000
+              });
+            },
+            error => {
+              console.error('Could not delete review: ', error);
+              this._snackBar.open('No Permissions to delete review', null, {
+                duration: 5000
+              });
+            });
       }
     });
   }
