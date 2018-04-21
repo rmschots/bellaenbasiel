@@ -15,15 +15,13 @@ h1 {
 
 .brace {
   background-color: transparent;
-  background-image:
-    radial-gradient(circle at 0 0, rgba($brace-color,0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color,0) 20.5px),
-    radial-gradient(circle at 35px 0, rgba($brace-color,0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color,0) 20.5px);
+  background-image: radial-gradient(circle at 0 0, rgba($brace-color, 0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color, 0) 20.5px), radial-gradient(circle at 35px 0, rgba($brace-color, 0) 14.5px, $brace-color 15.5px, $brace-color 19.5px, rgba($brace-color, 0) 20.5px);
   background-position: center bottom;
   background-repeat: no-repeat;
   background-size: 35px 20px;
   border: 0;
   color: $brace-color;
-  filter: drop-shadow(0 1px 1px rgba(black,.15));
+  filter: drop-shadow(0 1px 1px rgba(black, .15));
   font-size: 2em;
   font-style: italic;
   line-height: 2em;
@@ -39,7 +37,7 @@ h1 {
   &:before {
     border-left: 1px solid transparent;
     border-top: 5px solid $brace-color;
-    border-top-left-radius: 20% 30px; /* play with this until you like the look of it */
+    border-top-left-radius: 20% 30px;
     box-sizing: border-box;
     content: "";
     height: 100%;
@@ -53,7 +51,7 @@ h1 {
   &:after {
     border-right: 1px solid transparent;
     border-top: 5px solid $brace-color;
-    border-top-right-radius: 20% 30px; /* play with this until you like the look of it */
+    border-top-right-radius: 20% 30px;
     box-sizing: border-box;
     content: "";
     height: 100%;

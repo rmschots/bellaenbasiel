@@ -27,7 +27,8 @@
     <button mat-raised-button mat-dialog-close [disabled]="formsubmitting$ | async">
       CANCEL
     </button>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!createReviewGroup.valid || (formsubmitting$ | async)">
+    <button mat-raised-button color="primary" type="submit"
+            [disabled]="!createReviewGroup.valid || (formsubmitting$ | async)">
       CREATE
     </button>
   </mat-dialog-actions>

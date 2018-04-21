@@ -4,15 +4,19 @@ import { RouterModule } from '@angular/router';
 import {
   MatButtonModule,
   MatButtonToggleModule,
-  MatCardModule, MatChipsModule, MatDatepickerModule,
+  MatCardModule,
+  MatChipsModule,
   MatDialogModule,
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatMenuModule, MatNativeDateModule,
+  MatInputModule,
+  MatMenuModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSidenavModule, MatSliderModule, MatSnackBarModule,
+  MatSidenavModule,
+  MatSliderModule,
+  MatSnackBarModule,
   MatSortModule,
   MatStepperModule,
   MatTableModule,
@@ -54,7 +58,7 @@ const SERVICES = [
   FirebaseService,
   TranslationService,
   AngularFireAuth,
-  { provide: CalendarDateFormatter, useClass: ShortDateFormatter }
+  {provide: CalendarDateFormatter, useClass: ShortDateFormatter}
 ];
 
 const GUARDS = [];
