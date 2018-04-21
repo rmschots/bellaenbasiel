@@ -2,7 +2,10 @@
      *ngIf="afAuth.authState | async as user; else showLogin">
   <p>Logged in as {{ user.displayName }}!</p>
   <div>
-    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
+    <button mat-raised-button color="accent" (click)="logout()">
+      <span>Logout</span>
+      <mat-icon>exit_to_app</mat-icon>
+    </button>
   </div>
 </div>
 

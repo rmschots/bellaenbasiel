@@ -1,5 +1,4 @@
 import * as firebase from 'firebase';
-// import Timestamp = firebase.firestore.Timestamp;
 
 export type FirebaseData = FirebaseCalendar | FirebaseGuestbook;
 
@@ -19,6 +18,6 @@ export interface FirebaseGuestbook {
 export interface GuestbookEntry {
   author: string;
   stars: number;
-  date: string;
+  date: firebase.firestore.Timestamp | Date;
   content: string;
 }

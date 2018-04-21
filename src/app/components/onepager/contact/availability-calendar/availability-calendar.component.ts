@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { FirebaseService } from '../../../../shared/services/firebase.service';
 import { FirebaseCalendar } from '../../../../shared/models/firebase-data';
+import { TranslationService } from '../../../../shared/services/translation.service';
 
 
 @Component({
@@ -20,7 +21,9 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
 
   private _events$ = new BehaviorSubject<CalendarEvent[]>([]);
 
-  constructor(private _httpClient: HttpClient, private _firebaseService: FirebaseService) {
+  constructor(private _httpClient: HttpClient,
+              private _firebaseService: FirebaseService,
+              private _translationService: TranslationService) {
     super();
   }
 
@@ -28,6 +31,10 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
     this._firebaseService.calendarData$.takeUntil(this.ngUnsubscribe$)
       .filter(value => !!value)
       .subscribe(calendarData => this.updateCalendar(calendarData));
+  }
+
+  get language$() {
+    return this._translationService.currentLanguage$.map(lang => lang.code);
   }
 
   get events$(): Observable<CalendarEvent[]> {

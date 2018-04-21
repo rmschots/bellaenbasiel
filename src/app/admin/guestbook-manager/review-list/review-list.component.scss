@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+.mat-column-date, .mat-column-author {
+  max-width: 100px;
+}
+
+.mat-column-stars, .mat-column-delete {
+  max-width: 50px;
+}
+
+.single-line-text {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
