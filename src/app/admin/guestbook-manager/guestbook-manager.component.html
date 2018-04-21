@@ -1,6 +1,4 @@
+<bnb-section-title>{{ 'GUESTBOOK_MANAGER.title' | translate }}</bnb-section-title>
 <div class="container">
-  <bnb-create-review></bnb-create-review>
-  <ul *ngIf="guestbookData$ | async as guestbook">
-    <li *ngFor="let entry of guestbook.entries">{{ entry | json }}</li>
-  </ul>
+  <bnb-review-list></bnb-review-list>
 </div>

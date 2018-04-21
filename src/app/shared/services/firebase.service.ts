@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { FirebaseCalendar, FirebaseData, FirebaseGuestbook } from '../models/firebase-data';
+import { FirebaseCalendar, FirebaseData, FirebaseGuestbook, GuestbookEntry } from '../models/firebase-data';
 import { Observable } from 'rxjs/Observable';
+import { cloneDeep } from 'lodash';
+import { fromPromise } from 'rxjs/observable/fromPromise';
 
 @Injectable()
 export class FirebaseService {
@@ -27,6 +29,28 @@ export class FirebaseService {
       .subscribe(data => this._sectionsChange$.next(data));
     this._sectionsChange$.map(actions => this.findSection(actions, 'calendar') as FirebaseCalendar)
       .subscribe(data => this._calendarData$.next(data));
+    this._sectionsChange$.map(actions => this.findSection(actions, 'guestbook') as FirebaseGuestbook)
+      .subscribe(data => this._guestbookData$.next(data));
+  }
+
+  createGuestbookEntry(guestbookEntry: GuestbookEntry): Observable<any> {
+    const updatedGuestbook: FirebaseGuestbook = cloneDeep(this._guestbookData$.getValue());
+    if (!updatedGuestbook.entries) {
+      updatedGuestbook.entries = [];
+    }
+    updatedGuestbook.entries.push(guestbookEntry);
+    return fromPromise(
+      this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)
+        .set(updatedGuestbook)
+    );
+  }
+
+  deleteGuestbookEntry(entry: GuestbookEntry) {
+    const updatedGuestbook: FirebaseGuestbook = {entries: this._guestbookData$.getValue().entries.filter(e => e !== entry)};
+    return fromPromise(
+      this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)
+        .set(updatedGuestbook)
+    );
   }
 
   get calendarData$(): Observable<FirebaseCalendar> {
@@ -44,5 +68,4 @@ export class FirebaseService {
     }
     return foundSectionAction.payload.doc.data();
   }
-
 }

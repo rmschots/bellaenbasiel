@@ -12,7 +12,7 @@ import {
   MatInputModule, MatMenuModule, MatNativeDateModule,
   MatPaginatorModule,
   MatProgressSpinnerModule,
-  MatSidenavModule, MatSliderModule,
+  MatSidenavModule, MatSliderModule, MatSnackBarModule,
   MatSortModule,
   MatStepperModule,
   MatTableModule,
@@ -35,8 +35,12 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DpDatePickerModule } from 'ng2-date-picker';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+import { BnbDatePipe } from './pipes/bnb-date.pipe';
 
-const DIALOGS = [];
+const DIALOGS = [
+  ConfirmationDialogComponent
+];
 
 const COMPONENTS = [
   SectionTitleComponent,
@@ -55,7 +59,9 @@ const SERVICES = [
 
 const GUARDS = [];
 
-const PIPES = [];
+const PIPES = [
+  BnbDatePipe
+];
 
 
 const MATERIAL_MODULES = [
@@ -78,7 +84,8 @@ const MATERIAL_MODULES = [
   MatChipsModule,
   MatMenuModule,
   MatSliderModule,
-  DpDatePickerModule
+  DpDatePickerModule,
+  MatSnackBarModule
 ];
 
 const MODULES = [
@@ -106,7 +113,8 @@ const MODULES = [
   ],
   declarations: [
     ...COMPONENTS,
-    ...PIPES
+    ...PIPES,
+    ConfirmationDialogComponent
   ],
   entryComponents: [
     ...DIALOGS

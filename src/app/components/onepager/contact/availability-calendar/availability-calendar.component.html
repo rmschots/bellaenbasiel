@@ -1,7 +1,8 @@
 <div fxLayout="column" fxLayoutGap="8px">
   <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-    <h3 fxFlex fxFlexFill>{{ viewDate | calendarDate:('month' + 'ViewTitle'):'en' }}</h3>
-    <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate" [disabled]="preventClickPrevious">
+    <h3 fxFlex fxFlexFill>{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) }}</h3>
+    <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
+            [disabled]="preventClickPrevious">
       <mat-icon>navigate_before</mat-icon>
     </button>
     <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate">
@@ -12,12 +13,14 @@
     [weekStartsOn]="1"
     [viewDate]="viewDate"
     [events]="events$ | async"
-    [cellTemplate]="availabilityCellTemplate">
+    [cellTemplate]="availabilityCellTemplate"
+    [locale]="language$ | async">
   </mwl-calendar-month-view>
 </div>
 
 <ng-template #availabilityCellTemplate let-day="day" let-locale="locale">
-  <div class="date-cell" [ngClass]="{ occupied: day.events.length, free: !day.events.length, 'grayed-out': day.isPast, 'not-in-month': !day.inMonth }">
+  <div class="date-cell"
+       [ngClass]="{ occupied: day.events.length, free: !day.events.length, 'grayed-out': day.isPast, 'not-in-month': !day.inMonth }">
     {{ day.date | calendarDate:'monthViewDayNumber':locale }}
   </div>
 

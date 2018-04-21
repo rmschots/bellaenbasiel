@@ -1,0 +1,12 @@
+<h4 mat-dialog-title>{{ data.title | translate }}</h4>
+<mat-dialog-content>
+  {{ data.text | translate }}
+</mat-dialog-content>
+<mat-dialog-actions fxLayout="row" fxLayoutAlign="center center">
+  <button mat-raised-button color="warn" mat-dialog-close>
+    NO
+  </button>
+  <button mat-raised-button color="primary" type="submit" [mat-dialog-close]="true">
+    YES
+  </button>
+</mat-dialog-actions>

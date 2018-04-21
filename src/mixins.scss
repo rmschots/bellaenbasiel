@@ -26,6 +26,10 @@
   $app-link-hover: mat-color($app-foreground-palette, text, .3);
   $app-hover-background: mat-color($app-background-palette, hover);
 
+  .action-delete-color {
+    color: $app-warn;
+  }
+
   .text-alt {
     color: $app-foreground-alt;
   }
