@@ -1,6 +1,11 @@
-<div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px"
+<div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
      *ngIf="afAuth.authState | async as user; else showLogin">
-  <p>Logged in as {{ user.displayName }}!</p>
+  <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/">
+    <mat-icon>home</mat-icon>
+    <span>To website</span>
+  </a>
+  <span fxFlex="grow"></span>
+  <p>Logged in as {{ user.displayName }}</p>
   <div>
     <button mat-raised-button color="accent" (click)="logout()">
       <span>Logout</span>

@@ -27,6 +27,10 @@ export class NavbarComponent extends Unsubscribable implements OnInit {
       // hack to make navbar work on admin page
       this._cd.detectChanges();
     });
+    this.sections$.takeUntil(this.ngUnsubscribe$).subscribe(data => {
+      // hack to make navbar work on admin page
+      this._cd.detectChanges();
+    });
   }
 
   get sections$(): Observable<NavItem[]> {
