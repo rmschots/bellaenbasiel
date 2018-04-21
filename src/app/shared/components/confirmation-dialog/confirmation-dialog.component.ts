@@ -1,6 +1,5 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
-import { CreateReviewDialogComponent } from '../../../admin/guestbook-manager/create-review/create-review-dialog.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
   selector: 'bnb-confirmation-dialog',

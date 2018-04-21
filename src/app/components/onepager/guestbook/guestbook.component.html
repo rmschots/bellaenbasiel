@@ -1,20 +1,26 @@
 <div class="guestbook-background"></div>
 <div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
   <h1 class="text-center guestbook-title">{{ 'GUESTBOOK.title' | translate }}</h1>
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px" class="guestbook-entry-box mat-elevation-z6">
+  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px"
+       class="guestbook-entry-box mat-elevation-z6">
     <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
     <div *ngIf="currentEntry$ | async as currentEntry" fxFlex="stretch" fxLayout="column">
       <p>
         {{ currentEntry.content }}
       </p>
       <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between">
-        <div>{{ 'GUESTBOOK.by' | translate }} {{ currentEntry.author }}, {{ currentEntry.date.toDate() | bnbDate: 'MMMM yyyy' }}</div>
+        <div>
+          <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.author }},&nbsp;</span>
+          <span>{{ currentEntry.date.toDate() | bnbDate:'MMMM yyyy' }}</span>
+        </div>
         <bnb-star-rating [stars]="currentEntry.stars"></bnb-star-rating>
       </div>
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="8px">
-    <div class="review-count mat-elevation-z6">{{ 'GUESTBOOK.review' | translate }} {{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}</div>
+    <div class="review-count mat-elevation-z6">
+      {{ 'GUESTBOOK.review' | translate }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
+    </div>
     <button mat-mini-fab (click)="prevEntry()">
       <mat-icon>navigate_before</mat-icon>
     </button>
