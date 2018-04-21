@@ -45,7 +45,7 @@ export class FirebaseService {
     );
   }
 
-  deleteGuestbookEntry(entry: GuestbookEntry) {
+  deleteGuestbookEntry(entry: GuestbookEntry): Observable<any> {
     const updatedGuestbook: FirebaseGuestbook = {entries: this._guestbookData$.getValue().entries.filter(e => e !== entry)};
     return fromPromise(
       this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)

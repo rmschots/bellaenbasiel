@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { GuestbookEntry } from '../../../shared/models/firebase-data';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { MatDialogRef } from '@angular/material';
+import { MatDialogRef, MatSnackBar } from '@angular/material';
 
 @Component({
   selector: 'bnb-create-review',
@@ -24,7 +24,8 @@ export class CreateReviewDialogComponent extends Unsubscribable {
 
   constructor(fb: FormBuilder,
               private _firebaseService: FirebaseService,
-              private _dialogRef: MatDialogRef<CreateReviewDialogComponent>) {
+              private _dialogRef: MatDialogRef<CreateReviewDialogComponent>,
+              private _snackBar: MatSnackBar) {
     super();
     this.createReviewGroup = fb.group({
       name: ['', Validators.required],
@@ -46,9 +47,16 @@ export class CreateReviewDialogComponent extends Unsubscribable {
       } as GuestbookEntry;
       this._firebaseService.createGuestbookEntry(guestbookEntry).takeUntil(this.ngUnsubscribe$)
         .subscribe(() => {
-          console.log('guestbookentry created');
-          this._dialogRef.close(true);
-        });
+            console.log('guestbookentry created');
+            this._dialogRef.close(true);
+          },
+          error => {
+            console.error('Could not add review: ', error);
+            this.formsubmitting$.next(false);
+            this._snackBar.open('No Permissions to add review', null, {
+              duration: 5000
+            });
+          });
     }
   }
 
