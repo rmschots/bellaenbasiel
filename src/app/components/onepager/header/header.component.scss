@@ -3,7 +3,6 @@
   background-size: cover;
   color: white;
   display: block;
-  height: auto;
   width: 100%;
 }
 
@@ -20,6 +19,7 @@
   background-image: none;
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
   position: relative;
+  height: 100%;
 }
 
 .header-text-content {
@@ -34,6 +34,7 @@
   font-size: 60px;
   margin-bottom: 8px;
   margin-top: 8px;
+  max-width: 100vw;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.45);
 }
 
@@ -43,6 +44,10 @@
   margin-bottom: 16px;
   margin-top: 16px;
   text-shadow: 3px 3px rgba(0, 0, 0, 0.45);
+}
+
+.header-text {
+  max-width: 100vw;
 }
 
 .unclear-logo {
@@ -58,7 +63,7 @@
 }
 
 .external-links-pc {
-  position: absolute;
-  left: 8px;
   bottom: 8px;
+  left: 8px;
+  position: absolute;
 }

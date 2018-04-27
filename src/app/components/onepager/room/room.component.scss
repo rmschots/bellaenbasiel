@@ -16,7 +16,7 @@ h1 {
 }
 
 .room-info {
-  margin: 32px;
+  padding: 32px;
 }
 
 mat-tab-group img {
@@ -38,4 +38,12 @@ mat-tab-group img {
 
 ngx-gallery {
   display: block;
+}
+
+.extra-info span {
+  width: 100%;
+}
+
+.booking-conditions span {
+  width: 100%;
 }

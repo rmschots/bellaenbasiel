@@ -1,22 +1,22 @@
 <bnb-section-title>{{ 'WELCOME.title' | translate }}</bnb-section-title>
 <div class="container section-margin">
-  <div class="welcome-info" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center space-evenly"
+  <div class="welcome-info" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center space-evenly" fxLayoutAlign.lt-md="start"
        fxLayoutGap="32px">
-    <mat-card fxFlex="33">
+    <mat-card fxFlex.gt-sm="33">
       <mat-card-title>{{ 'WELCOME.hosts.title' | translate }}</mat-card-title>
       <img mat-card-image src="/assets/img/welkom_gastheervrouw.jpg">
       <mat-card-content>
         <p [innerHtml]="'WELCOME.hosts.text' | translate"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex="33">
+    <mat-card fxFlex.gt-sm="33">
       <mat-card-title>{{ 'WELCOME.house.title' | translate }}</mat-card-title>
       <img mat-card-image src="/assets/img/welkom_huis.jpg">
       <mat-card-content>
         <p [innerHtml]="'WELCOME.house.text' | translate"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex="33">
+    <mat-card fxFlex.gt-sm="33">
       <mat-card-title>{{ 'WELCOME.neighbourhood.title' | translate }}</mat-card-title>
       <img mat-card-image src="/assets/img/welkom_buurt.jpg">
       <mat-card-content>

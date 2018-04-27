@@ -4,3 +4,11 @@
   overflow: auto;
   width: 100%;
 }
+
+.header-with-sticky-navbar {
+  height: calc(100vh - 80px);
+}
+
+.header-without-navbar {
+  height: 100vh;
+}

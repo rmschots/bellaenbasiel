@@ -1,4 +1,7 @@
-<bnb-header id="home"></bnb-header>
+<bnb-header id="home" [ngClass]="{
+    'header-with-sticky-navbar': media.isActive('gt-sm'),
+    'header-without-navbar': media.isActive('lt-md')
+    }"></bnb-header>
 <bnb-section sectionId="welcome" sectionName="NAV.welcome">
   <bnb-welcome id="welcome"></bnb-welcome>
 </bnb-section>

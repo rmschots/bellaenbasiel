@@ -4,8 +4,8 @@
 
 .date-cell {
   color: #fff;
-  padding-left: 8px;
   font-size: 20px;
+  padding-left: 8px;
 
   &.occupied {
     background: #E44646;
@@ -24,3 +24,7 @@
   }
 }
 
+.calendar-title {
+  margin-bottom: 0;
+  margin-top: 0;
+}

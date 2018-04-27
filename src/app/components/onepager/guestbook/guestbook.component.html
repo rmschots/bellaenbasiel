@@ -4,7 +4,7 @@
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px"
        class="guestbook-entry-box mat-elevation-z6">
     <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
-    <div *ngIf="currentEntry$ | async as currentEntry" fxFlex="stretch" fxLayout="column">
+    <div *ngIf="currentEntry$ | async as currentEntry" fxLayout="column" class="full-width">
       <p>
         {{ currentEntry.content }}
       </p>

@@ -1,13 +1,15 @@
 <div fxLayout="column" fxLayoutGap="8px">
-  <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-    <h3 fxFlex fxFlexFill>{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) }}</h3>
-    <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
-            [disabled]="preventClickPrevious">
-      <mat-icon>navigate_before</mat-icon>
-    </button>
-    <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate">
-      <mat-icon>navigate_next</mat-icon>
-    </button>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
+    <h3 class="calendar-title">{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) }}</h3>
+    <div>
+      <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
+              [disabled]="preventClickPrevious">
+        <mat-icon>navigate_before</mat-icon>
+      </button>
+      <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate">
+        <mat-icon>navigate_next</mat-icon>
+      </button>
+    </div>
   </div>
   <mwl-calendar-month-view
     [weekStartsOn]="1"

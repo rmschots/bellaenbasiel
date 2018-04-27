@@ -53,11 +53,15 @@ body {
 }
 
 .cal-month-view .cal-day-cell {
-  min-height: unset;
+  min-height: 0;
 }
 
 a {
   color: #39bad2;
   outline: 0;
   text-decoration: none;
+}
+
+.full-width {
+  width: 100%;
 }
