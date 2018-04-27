@@ -3,7 +3,7 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gal
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
-    width: '558px',
+    width: '100%',
     height: '390px',
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,

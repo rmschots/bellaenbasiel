@@ -1,7 +1,7 @@
 <bnb-section-title>{{ 'CONTACT.title' | translate }}</bnb-section-title>
 <div class="container section-margin">
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="32px">
-    <div fxLayout="column" fxLayoutGap="16px" fxFlex="60">
+    <div fxLayout="column" fxLayoutGap="16px" fxFlex.gt-sm="60">
       <div>
         <h4>Bella en Basiel</h4>
         <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
@@ -17,7 +17,7 @@
           <span><a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel@telenet.be</a></span>
         </p>
       </div>
-      <div>
+      <div class="access">
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
           <mat-icon>accessibility</mat-icon>
           <h4>{{ 'CONTACT.access.title' | translate }}</h4>
@@ -40,7 +40,7 @@
         </div>
       </div>
     </div>
-    <div fxLayout="column" fxFlex="40">
+    <div fxLayout="column" fxFlex.gt-sm="40">
       <mat-card class="availability-data mat-elevation-z3">
         <mat-card-title fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
           <mat-icon color="primary">event_available</mat-icon>

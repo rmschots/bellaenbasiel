@@ -1,8 +1,8 @@
 <bnb-section-title>{{ 'ACTIVITIES.title' | translate }}</bnb-section-title>
 <div class="container section-margin">
-  <div fxLayout="column" fxLayoutGap="32px" class="text-center">
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="32px" fxFlex="50">
-      <div fxFlex.gt-sm="50">
+  <div class="text-center">
+    <div class="activities-first-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="64px">
+      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
         <img class="mat-elevation-z6" src="/assets/img/activiteiten_relax.jpg">
         <h3>{{ 'ACTIVITIES.relax.title' | translate }}</h3>
         <p [innerHtml]="'ACTIVITIES.relax.text' | translate"></p>
@@ -12,7 +12,7 @@
           <a href="http://virtualbruges.be">virtualbruges.be</a>
         </div>
       </div>
-      <div fxFlex.gt-sm="50">
+      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
         <img class="mat-elevation-z6" src="/assets/img/activiteiten_cultuur.jpg">
         <h3>{{ 'ACTIVITIES.culture.title' | translate }}</h3>
         <p [innerHtml]="'ACTIVITIES.culture.text' | translate"></p>
@@ -21,8 +21,8 @@
         </div>
       </div>
     </div>
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="32px" fxFlex="50">
-      <div fxFlex.gt-sm="50">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="64px">
+      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
         <img class="mat-elevation-z6" src="/assets/img/activiteiten_sportennatuur.jpg">
         <h3>{{ 'ACTIVITIES.sportsAndNature.title' | translate }}</h3>
         <p [innerHtml]="'ACTIVITIES.sportsAndNature.text' | translate"></p>
@@ -32,7 +32,7 @@
           <a href="http://horecagids.be">westtoer.be</a>
         </div>
       </div>
-      <div fxFlex.gt-sm="50">
+      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
         <img class="mat-elevation-z6" src="/assets/img/activiteiten_gastronomie.jpg">
         <h3>{{ 'ACTIVITIES.gastronomy.title' | translate }}</h3>
         <p [innerHtml]="'ACTIVITIES.gastronomy.text' | translate"></p>
