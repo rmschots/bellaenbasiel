@@ -5,7 +5,7 @@
   <div class="header-text-content" fxFlex="stretch" fxLayout="column" fxLayoutAlign="center center">
     <h1 class="header-title text-center">BELLA & BASIEL</h1>
     <div class="header-text">
-      <h2 class="text-center header-subtitle">{{ 'HEADER.subtitle' | translate }}</h2>
+      <h2 class="text-center header-subtitle" [innerHtml]="'HEADER.subtitle' | translate"></h2>
       <hr>
     </div>
     <div fxFlexOffset="32px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
@@ -35,8 +35,9 @@
         <img class="unclear-logo" src="/assets/svg/westtoer.svg">
       </a>
     </div>
-    <span>&reg; 2018 Bella en Basiel - {{ 'HEADER.contact' | translate }}: <a
-      href="tel:+32 472 643527">+32 472 643527</a></span>
+    <span>&reg; 2018 Bella en Basiel -
+      <span class="nowrap">{{ 'HEADER.contact' | translate }}: <a href="tel:+32 472 643527">+32 472 643527</a></span>
+    </span>
   </div>
   <div fxHide.lt-md="true" class="external-links-pc">
     <a href="https://www.airbnb.com/rooms/11550351" target="_blank">

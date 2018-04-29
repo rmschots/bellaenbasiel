@@ -32,7 +32,8 @@ const galleryOptions: NgxGalleryOptions[] = [
     imagePercent: 80,
     thumbnailsPercent: 20,
     thumbnailsMargin: 4,
-    thumbnailMargin: 0
+    thumbnailMargin: 0,
+    previewAnimation: false
   },
   // max-width 400
   {

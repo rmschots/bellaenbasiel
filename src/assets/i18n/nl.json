@@ -8,7 +8,7 @@
     "manageGuestbook": "Beheer gastenboek"
   },
   "HEADER": {
-    "subtitle": "Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES",
+    "subtitle": "Your Favorite <span class=\"nowrap\">Cosy and Quiet</span> <span class=\"nowrap\">Bed and Breakfast</span> <span class=\"nowrap\">in BRUGES</span>",
     "visitWebsite": "Meer info",
     "checkAvailability": "Bekijk beschikbaarheid",
     "contact": "Contact"
@@ -54,7 +54,7 @@
       "item3": "Toeristenbelasting stad Brugge = &euro;2 pppn",
       "item4": "Huisdieren niet toegelaten",
       "item5": "Roken kan in de tuin",
-      "item6": "Gebruik wasmachine of droogkast : &euro;5"
+      "item6": "Gebruik wasmachine en droogkast : &euro;10"
     },
     "booking": {
       "title": "Boeken",

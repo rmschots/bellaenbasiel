@@ -7,7 +7,7 @@
     "contact": "Contact"
   },
   "HEADER": {
-    "subtitle": "Your Favorite Cosy and Quiet Bed and Breakfast in BRUGES",
+    "subtitle": "Your Favorite <span class=\"nowrap\">Cosy and Quiet</span> <span class=\"nowrap\">Bed and Breakfast</span> <span class=\"nowrap\">in BRUGES</span>",
     "visitWebsite": "More information",
     "checkAvailability": "Check availability",
     "contact": "Contact"
@@ -53,7 +53,7 @@
       "item3": "Taxe touristique de la Ville de Bruges &euro;2 par personne et par nuit.",
       "item4": "Animaux non admis",
       "item5": "Il est permis de fumer dans le jardin",
-      "item6": "Usage du lave-linge ou séchoir: &euro;5"
+      "item6": "Usage du lave-linge et séchoir: &euro;10"
     },
     "booking": {
       "title": "Réserver",
