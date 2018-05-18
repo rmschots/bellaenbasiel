@@ -8,7 +8,6 @@ $header-height: 80px;
 
 bnb-navbar {
   height: $header-height;
-  position: fixed;
 }
 
 #content-wrapper {
@@ -23,7 +22,7 @@ bnb-navbar {
 
 .menu-button-overlay {
   left: 16px;
-  position: fixed;
+  position: absolute;
   top: 16px;
   z-index: 9999;
 }

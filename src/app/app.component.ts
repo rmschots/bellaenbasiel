@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PageScrollConfig } from 'ngx-page-scroll';
 import { ObservableMedia } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material';
@@ -6,12 +6,12 @@ import { SectionService } from './shared/services/section/section.service';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
 import { TranslationService } from './shared/services/translation.service';
+import { PictureService } from './shared/services/picture.service';
 
 @Component({
   selector: 'bnb-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav) sidenav;
@@ -21,7 +21,8 @@ export class AppComponent implements OnInit {
 
   constructor(public media: ObservableMedia,
               private _sectionService: SectionService,
-              private _translationService: TranslationService) {
+              private _translationService: TranslationService,
+              private _pictureService: PictureService) {
     this._translationService.init();
     this.configurePageScroll();
   }
@@ -35,6 +36,10 @@ export class AppComponent implements OnInit {
 
   get navBarClosed$(): Observable<boolean> {
     return this._navBarClosed$.asObservable();
+  }
+
+  get overlayShown$(): Observable<boolean> {
+    return this._pictureService.overlayShown$;
   }
 
   openSidenav() {

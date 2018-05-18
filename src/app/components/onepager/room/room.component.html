@@ -3,7 +3,8 @@
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
        class="room-details mat-elevation-z3">
     <div fxFlex.gt-sm="60" class="room-image-wrapper">
-      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+      <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (previewOpen)="onPreviewOpen()"
+                   (previewClose)="onPreviewClose()"></ngx-gallery>
       <mat-chip-list class="pricing-chips">
         <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '75'}"></mat-chip>
         <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.breakfast' | translate:{amount: '10'}"></mat-chip>
@@ -35,7 +36,8 @@
         <span>{{ 'ROOM.extraInfo.title' | translate }}</span>
       </mat-card-title>
       <mat-card-content>
-        <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let x of extraInfo; let i = index;">
+        <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
+             *ngFor="let x of extraInfo; let i = index;">
           <mat-icon color="accent">check</mat-icon>
           <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | translate"></span>
         </div>
@@ -49,7 +51,8 @@
       <mat-card-content>
         <p [innerHtml]="'ROOM.booking.text' | translate"></p>
         <h4>{{ 'ROOM.booking.conditions' | translate }}:</h4>
-        <div  class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px" *ngFor="let x of bookings; let i = index">
+        <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
+             *ngFor="let x of bookings; let i = index">
           <mat-icon color="accent">check</mat-icon>
           <span [innerHTML]="('ROOM.booking.item'+(i+1)) | translate"></span>
         </div>
