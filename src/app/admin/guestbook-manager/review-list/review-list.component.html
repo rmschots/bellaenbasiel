@@ -6,41 +6,28 @@
         <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
         </mat-form-field>
-        <button mat-raised-button color="accent" (click)="createReview()">
-          <mat-icon>add</mat-icon>
-          <span>New review</span>
-        </button>
       </div>
       <mat-table #table [dataSource]="dataSource" matSort>
 
         <ng-container matColumnDef="author">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Author</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.author }}</mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.reviewer.first_name }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="date">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Date</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.date.toDate() | date: 'MMMM yyyy' }}</mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.created_at.toDate() | date: 'd MMMM yyyy' }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="stars">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Stars</mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.stars }}</mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.rating }}</mat-cell>
         </ng-container>
 
 
         <ng-container matColumnDef="content">
           <mat-header-cell *matHeaderCellDef mat-sort-header>Text</mat-header-cell>
-          <mat-cell *matCellDef="let element" class="single-line-text"> {{ element.content }}</mat-cell>
-        </ng-container>
-
-        <ng-container matColumnDef="delete">
-          <mat-header-cell *matHeaderCellDef></mat-header-cell>
-          <mat-cell *matCellDef="let element">
-            <button mat-icon-button (click)="deleteReview(element)">
-              <mat-icon class="action-delete-color">delete</mat-icon>
-            </button>
-          </mat-cell>
+          <mat-cell *matCellDef="let element" class="single-line-text"> {{ element.comments }}</mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
