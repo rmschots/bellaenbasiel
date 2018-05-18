@@ -1,11 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { MatDialog, MatPaginator, MatSnackBar, MatSort, MatTableDataSource } from '@angular/material';
-import { SelectionModel } from '@angular/cdk/collections';
+import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
-import { GuestbookEntry } from '../../../shared/models/firebase-data';
-import { CreateReviewDialogComponent } from '../create-review/create-review-dialog.component';
-import { ConfirmationDialogComponent } from '../../../shared/components/confirmation-dialog/confirmation-dialog.component';
+import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 
 @Component({
   selector: 'bnb-review-list',
@@ -15,55 +12,16 @@ import { ConfirmationDialogComponent } from '../../../shared/components/confirma
 })
 export class ReviewListComponent extends Unsubscribable implements OnInit, AfterViewInit {
 
-  static dialogConfig = {
-    width: '90vw',
-    maxWidth: '1120px'
-  };
+  displayedColumns = ['author', 'date', 'stars', 'content'];
 
-  displayedColumns = ['author', 'date', 'stars', 'content', 'delete'];
+  dataSource: MatTableDataSource<FirebaseGuestbookReview> = new MatTableDataSource<FirebaseGuestbookReview>([]);
 
-  dataSource: MatTableDataSource<GuestbookEntry> = new MatTableDataSource<GuestbookEntry>([]);
-
-  selection = new SelectionModel<GuestbookEntry>();
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private _firebaseService: FirebaseService, private _dialog: MatDialog, private _snackBar: MatSnackBar) {
+  constructor(private _firebaseService: FirebaseService) {
     super();
-  }
-
-  createReview() {
-    this._dialog.open(CreateReviewDialogComponent, ReviewListComponent.dialogConfig)
-      .afterClosed().takeUntil(this.ngUnsubscribe$)
-      .subscribe(result => {
-        if (result) {
-          this._snackBar.open('Successfully created guestbook entry', null, {
-            duration: 5000,
-          });
-        }
-      });
-  }
-
-  deleteReview(entry: GuestbookEntry) {
-    this._dialog.open(ConfirmationDialogComponent, {
-      data: {title: 'GUESTBOOK_MANAGER.delete.title', text: 'GUESTBOOK_MANAGER.delete.text'}
-    }).afterClosed().takeUntil(this.ngUnsubscribe$).subscribe(result => {
-      if (result) {
-        this._firebaseService.deleteGuestbookEntry(entry).takeUntil(this.ngUnsubscribe$)
-          .subscribe(() => {
-              this._snackBar.open('Deleted review', null, {
-                duration: 5000
-              });
-            },
-            error => {
-              console.error('Could not delete review: ', error);
-              this._snackBar.open('No Permissions to delete review', null, {
-                duration: 5000
-              });
-            });
-      }
-    });
   }
 
   applyFilter(filterValue: string) {
@@ -80,7 +38,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
   ngOnInit(): void {
     this._firebaseService.guestbookData$
       .filter(data => !!data)
-      .map(data => data.entries)
+      .map(data => data.reviews)
       .takeUntil(this.ngUnsubscribe$)
       .subscribe(entries => {
         this.dataSource.data = entries;

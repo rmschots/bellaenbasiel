@@ -6,14 +6,14 @@
     <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
     <div *ngIf="currentEntry$ | async as currentEntry" fxLayout="column" class="full-width">
       <p>
-        {{ currentEntry.content }}
+        {{ currentEntry.comments }}
       </p>
       <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between">
         <div>
-          <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.author }},&nbsp;</span>
-          <span>{{ currentEntry.date.toDate() | bnbDate:'MMMM yyyy' }}</span>
+          <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
+          <span>{{ currentEntry.created_at.toDate() | bnbDate:'MMMM yyyy' }}</span>
         </div>
-        <bnb-star-rating [stars]="currentEntry.stars"></bnb-star-rating>
+        <bnb-star-rating [stars]="currentEntry.rating"></bnb-star-rating>
       </div>
     </div>
   </div>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { FirebaseCalendar, FirebaseData, FirebaseGuestbook, GuestbookEntry } from '../models/firebase-data';
+import { FirebaseCalendar, FirebaseData, FirebaseGuestbook } from '../models/firebase-data';
 import { Observable } from 'rxjs/Observable';
 import { cloneDeep } from 'lodash';
 import { fromPromise } from 'rxjs/observable/fromPromise';
@@ -33,23 +33,22 @@ export class FirebaseService {
       .subscribe(data => this._guestbookData$.next(data));
   }
 
-  createGuestbookEntry(guestbookEntry: GuestbookEntry): Observable<any> {
-    const updatedGuestbook: FirebaseGuestbook = cloneDeep(this._guestbookData$.getValue());
-    if (!updatedGuestbook.entries) {
-      updatedGuestbook.entries = [];
+  updateFirebaseGuestbook(updatedGuestbook: FirebaseGuestbook): Observable<void> {
+    let guestbookToSave: FirebaseGuestbook;
+    if (this._guestbookData$.getValue()) {
+      guestbookToSave = cloneDeep(this._guestbookData$.value);
+      guestbookToSave.metadata = updatedGuestbook.metadata;
+      const newReviewIds = updatedGuestbook.reviews.map(review => review.id);
+      guestbookToSave.reviews = guestbookToSave.reviews.filter(oldReview => {
+        return !newReviewIds.includes(oldReview.id);
+      });
+      updatedGuestbook.reviews.forEach(review => guestbookToSave.reviews.push(review));
+    } else {
+      guestbookToSave = updatedGuestbook;
     }
-    updatedGuestbook.entries.push(guestbookEntry);
     return fromPromise(
       this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)
-        .set(updatedGuestbook)
-    );
-  }
-
-  deleteGuestbookEntry(entry: GuestbookEntry): Observable<any> {
-    const updatedGuestbook: FirebaseGuestbook = {entries: this._guestbookData$.getValue().entries.filter(e => e !== entry)};
-    return fromPromise(
-      this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)
-        .set(updatedGuestbook)
+        .set(guestbookToSave)
     );
   }
 
