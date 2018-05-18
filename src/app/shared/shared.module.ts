@@ -41,6 +41,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
 import { BnbDatePipe } from './pipes/bnb-date.pipe';
+import { PictureService } from './services/picture.service';
+import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+
+export class CustomHammerConfig extends HammerGestureConfig {
+  overrides = <any>{
+    'pinch': {enable: false},
+    'rotate': {enable: false}
+  };
+}
 
 const DIALOGS = [
   ConfirmationDialogComponent
@@ -57,8 +66,10 @@ const SERVICES = [
   SectionService,
   FirebaseService,
   TranslationService,
+  PictureService,
   AngularFireAuth,
-  {provide: CalendarDateFormatter, useClass: ShortDateFormatter}
+  {provide: CalendarDateFormatter, useClass: ShortDateFormatter},
+  {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
 ];
 
 const GUARDS = [];

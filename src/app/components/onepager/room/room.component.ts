@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery';
+import { PictureService } from '../../../shared/services/picture.service';
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
@@ -8,10 +9,14 @@ const galleryOptions: NgxGalleryOptions[] = [
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,
     previewCloseOnEsc: true,
-    closeIcon: '',
+    previewFullscreen : true,
     imageSize: 'cover',
     thumbnails: false,
-    imageArrowsAutoHide: true
+    imageSwipe: true,
+    thumbnailsSwipe: true,
+    imageArrowsAutoHide: true,
+    previewSwipe: true,
+    previewAnimation: false
   },
   // max-width 600
   {
@@ -41,12 +46,14 @@ const galleryImages: NgxGalleryImage[] = [
 @Component({
   selector: 'bnb-room',
   templateUrl: './room.component.html',
-  styleUrls: ['./room.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./room.component.scss']
 })
 export class RoomComponent {
   galleryOptions: NgxGalleryOptions[] = galleryOptions;
   galleryImages: NgxGalleryImage[] = galleryImages;
+
+  constructor(private _pictureService: PictureService) {
+  }
 
   get extraInfo(): any[] {
     return Array(6);
@@ -54,5 +61,13 @@ export class RoomComponent {
 
   get bookings(): any[] {
     return Array(3);
+  }
+
+  onPreviewOpen() {
+    this._pictureService.overlayShown = true;
+  }
+
+  onPreviewClose() {
+    this._pictureService.overlayShown = false;
   }
 }

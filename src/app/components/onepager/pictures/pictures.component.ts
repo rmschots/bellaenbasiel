@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
-import { interval } from 'rxjs/observable/interval';
+import { PictureService } from '../../../shared/services/picture.service';
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
@@ -11,7 +11,7 @@ const galleryOptions: NgxGalleryOptions[] = [
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,
     previewCloseOnEsc: true,
-    closeIcon: '',
+    previewFullscreen : true,
     imageSize: 'contain',
     thumbnailsPercent: 15,
     imagePercent: 85,
@@ -21,7 +21,8 @@ const galleryOptions: NgxGalleryOptions[] = [
     thumbnailsSwipe: true,
     imageInfinityMove: true,
     thumbnailsArrowsAutoHide: true,
-    previewSwipe: true
+    previewSwipe: true,
+    previewAnimation: false
   },
   // max-width 800
   {
@@ -33,7 +34,7 @@ const galleryOptions: NgxGalleryOptions[] = [
     thumbnailsPercent: 20,
     thumbnailsMargin: 4,
     thumbnailMargin: 0,
-    previewAnimation: false
+    previewAnimation: true
   },
   // max-width 400
   {
@@ -56,18 +57,16 @@ export class PicturesComponent extends Unsubscribable {
   galleryImages: NgxGalleryImage[] = PicturesComponent.images;
 
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef) {
+  constructor(private _changeDetectorRef: ChangeDetectorRef, private _pictureService: PictureService) {
     super();
   }
 
   onPreviewOpen() {
-    interval(100).takeUntil(this.ngUnsubscribe$).subscribe(() => {
-      this._changeDetectorRef.detectChanges();
-    });
+    this._pictureService.overlayShown = true;
   }
 
   onPreviewClose() {
-    this.ngUnsubscribe$.next();
+    this._pictureService.overlayShown = false;
   }
 
   private static get images(): NgxGalleryImage[] {

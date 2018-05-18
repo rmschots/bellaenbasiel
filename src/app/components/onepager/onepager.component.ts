@@ -1,12 +1,11 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FirebaseService } from '../../shared/services/firebase.service';
 import { ObservableMedia } from '@angular/flex-layout';
 
 @Component({
   selector: 'bnb-onepager',
   templateUrl: './onepager.component.html',
-  styleUrls: ['./onepager.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./onepager.component.scss']
 })
 export class OnepagerComponent implements OnInit {
 

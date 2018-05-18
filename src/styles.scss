@@ -6,10 +6,14 @@
 @import '~angular-calendar/css/angular-calendar.css';
 @import '~font-awesome/css/font-awesome.css';
 
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+  transform: none !important;
+}
+
 body {
   display: block;
   font-family: 'Lato', sans-serif;
-  height: 100vh;
+  height: 100%;
   margin: 0;
   width: 100vw;
 }
