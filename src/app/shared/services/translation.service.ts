@@ -23,8 +23,12 @@ export class TranslationService {
     this.listenToLanguageChanges();
   }
 
-  set currentLanguage(language: Language) {
+  set currentLanguageOrBrowserLanguage(language: Language) {
     this._translateService.use(language.code);
+  }
+
+  get browserLanguage(): string {
+    return this._translateService.getBrowserLang();
   }
 
   get currentLanguage$(): Observable<Language> {

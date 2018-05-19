@@ -10,6 +10,8 @@ export class StarRatingComponent {
 
   @Input() maxStars = 5;
   @Input() stars: number;
+  @Input() size = 24;
+  @Input() hideEmptyStars = false;
 
   get amountOfFullStars(): number {
     return Math.floor(Math.round(this.stars * 2) / 2);

@@ -1,6 +1,26 @@
 <div class="guestbook-background"></div>
 <div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
   <h1 class="text-center guestbook-title">{{ 'GUESTBOOK.title' | translate }}</h1>
+  <div fxFlexAlign="center" class="guestbook-stars">
+    <bnb-star-rating [stars]="5" [hideEmptyStars]="true"></bnb-star-rating>
+  </div>
+  <div fxFlexAlign="center">
+    <mat-chip-list [selectable]="true" [multiple]="true">
+      <mat-chip *ngFor="let languageFilter of languageFilters$ | async" [value]="languageFilter" color="accent"
+                [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
+        {{ 'COMMON.LANGUAGES.'+languageFilter.language | translate }} ({{ languageFilter.count }})
+      </mat-chip>
+    </mat-chip-list>
+  </div>
+  <div fxFlexAlign="center">
+    <mat-chip-list [selectable]="true" [multiple]="true">
+      <mat-chip fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center" *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
+                [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
+        <bnb-star-rating [stars]="ratingFilter.stars" [size]="'13px'" [hideEmptyStars]="true"></bnb-star-rating>
+        <div>({{ ratingFilter.count }})</div>
+      </mat-chip>
+    </mat-chip-list>
+  </div>
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px"
        class="guestbook-entry-box mat-elevation-z6">
     <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
@@ -8,12 +28,17 @@
       <p>
         {{ currentEntry.comments }}
       </p>
-      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between">
-        <div>
-          <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
-          <span>{{ currentEntry.created_at.toDate() | bnbDate:'MMMM yyyy' }}</span>
+      <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
+          <img [src]="currentEntry.reviewer.picture_url" height="48" width="48" class="profile-picture">
+          <div>
+            <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
+            <span>{{ currentEntry.created_at.toDate() | bnbDate:'d MMMM yyyy' }}</span>
+          </div>
         </div>
-        <bnb-star-rating [stars]="currentEntry.rating"></bnb-star-rating>
+        <div>
+          <bnb-star-rating [stars]="currentEntry.rating"></bnb-star-rating>
+        </div>
       </div>
     </div>
   </div>
