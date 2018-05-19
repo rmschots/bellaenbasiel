@@ -5,7 +5,8 @@
     "pictures": "Foto's",
     "activities": "Activiteiten",
     "contact": "Contact",
-    "manageGuestbook": "Beheer gastenboek"
+    "manageGuestbook": "Beheer gastenboek",
+    "guestbook": "Gastenboek"
   },
   "HEADER": {
     "subtitle": "Your Favorite <span class=\"nowrap\">Cosy and Quiet</span> <span class=\"nowrap\">Bed and Breakfast</span> <span class=\"nowrap\">in BRUGES</span>",
@@ -98,6 +99,16 @@
     },
     "availability": {
       "title": "Beschikbaarheid"
+    }
+  },
+  "COMMON": {
+    "LANGUAGES": {
+      "de": "Duits",
+      "fr": "Frans",
+      "en": "Engels",
+      "es": "Spaans",
+      "nl": "Nederlands",
+      "it": "Italiaans"
     }
   }
 }

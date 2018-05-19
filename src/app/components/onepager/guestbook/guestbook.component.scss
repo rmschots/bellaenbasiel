@@ -14,6 +14,24 @@
   width: 100%;
 }
 
+.guestbook-stars {
+  padding-bottom: 32px;
+}
+
+mat-chip {
+  margin-bottom: 8px;
+}
+
+.filter-title {
+  margin-bottom: 8px;
+}
+
+.profile-picture {
+  border: 2px solid #fff;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
 .guestbook-content {
   padding-bottom: 32px;
   position: relative;

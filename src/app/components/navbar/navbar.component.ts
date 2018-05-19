@@ -46,7 +46,7 @@ export class NavbarComponent extends Unsubscribable implements OnInit {
   }
 
   languageSelected(language: Language) {
-    this._translationService.currentLanguage = language;
+    this._translationService.currentLanguageOrBrowserLanguage = language;
   }
 
   get currentLanguage$() {
