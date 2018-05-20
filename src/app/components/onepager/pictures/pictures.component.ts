@@ -11,7 +11,7 @@ const galleryOptions: NgxGalleryOptions[] = [
     imageAnimation: NgxGalleryAnimation.Fade,
     previewCloseOnClick: true,
     previewCloseOnEsc: true,
-    previewFullscreen : true,
+    previewFullscreen: true,
     imageSize: 'contain',
     thumbnailsPercent: 15,
     imagePercent: 85,
@@ -55,6 +55,7 @@ export class PicturesComponent extends Unsubscribable {
 
   galleryOptions: NgxGalleryOptions[] = galleryOptions;
   galleryImages: NgxGalleryImage[] = PicturesComponent.images;
+  imageIndex = 1;
 
 
   constructor(private _changeDetectorRef: ChangeDetectorRef, private _pictureService: PictureService) {
@@ -67,6 +68,10 @@ export class PicturesComponent extends Unsubscribable {
 
   onPreviewClose() {
     this._pictureService.overlayShown = false;
+  }
+
+  onGalleryChange(event: any) {
+    this.imageIndex = event.index + 1;
   }
 
   private static get images(): NgxGalleryImage[] {
