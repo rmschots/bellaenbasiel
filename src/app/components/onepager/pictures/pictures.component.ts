@@ -44,7 +44,7 @@ const galleryOptions: NgxGalleryOptions[] = [
   }
 ];
 
-const AMOUNT_OF_IMAGES = 31;
+const AMOUNT_OF_IMAGES = 32;
 
 @Component({
   selector: 'bnb-pictures',
