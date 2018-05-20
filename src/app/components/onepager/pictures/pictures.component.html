@@ -2,5 +2,6 @@
 <div fxLayout="column" fxLayoutAlign="center center" class="container pictures-content">
   <h1 class="pictures-title text-center">{{ 'PICTURES.title' | translate }}</h1>
   <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (previewOpen)="onPreviewOpen()"
-               (previewClose)="onPreviewClose()"></ngx-gallery>
+               (previewClose)="onPreviewClose()" (change)="onGalleryChange($event)"></ngx-gallery>
+  <h1>{{ imageIndex }}</h1>
 </div>
