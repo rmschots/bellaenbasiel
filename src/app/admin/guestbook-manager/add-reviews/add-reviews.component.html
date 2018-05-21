@@ -1,0 +1,20 @@
+<h2 class="text-center">Meeste recente reviews toevoegen</h2>
+<div class="add-reviews-row" fxLayout="row" fxLayoutGap="16px">
+  <ol fxFlex="45">
+    <li>ga naar <a
+      href="https://www.airbnb.com/api/v2/reviews?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&listing_id=12102270&role=guest&_format=for_p3&_limit=100&_offset=0&_order=recent"
+      target="_blank">engels gastenboek</a> / <a
+      href="https://www.airbnb.com/api/v2/reviews?key=d306zoyjsyarp7ifhu67rjxn52tv0t20&listing_id=11550351&role=guest&_format=for_p3&_limit=100&_offset=0&_order=recent"
+      target="_blank">nederlands gastenboek</a></li>
+    <li>alles selecteren (ctrl + a)</li>
+    <li>kopieren (ctrl + c)</li>
+    <li>plakken in tekstbox (ctrl + v)</li>
+    <li>klik op "Nieuwe reviews toevoegen"</li>
+  </ol>
+  <form [formGroup]="addReviewsFormGroup" fxFlex="45" fxLayout="column" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <textarea matInput formControlName="reviewsJson" placeholder="Plak de tekst hier" rows="5"></textarea>
+    </mat-form-field>
+    <button mat-raised-button color="primary">Nieuwe reviews toevoegen</button>
+  </form>
+</div>
