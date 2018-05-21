@@ -45,8 +45,6 @@ const galleryOptions: NgxGalleryOptions[] = [
   }
 ];
 
-const AMOUNT_OF_IMAGES = 32;
-
 @Component({
   selector: 'bnb-pictures',
   templateUrl: './pictures.component.html',
@@ -56,7 +54,6 @@ export class PicturesComponent extends Unsubscribable {
 
   galleryOptions: NgxGalleryOptions[] = galleryOptions;
   galleryImages: NgxGalleryImage[] = [];
-  imageIndex = 1;
 
 
   constructor(private _changeDetectorRef: ChangeDetectorRef,
@@ -81,21 +78,5 @@ export class PicturesComponent extends Unsubscribable {
 
   onPreviewClose() {
     this._pictureService.overlayShown = false;
-  }
-
-  onGalleryChange(event: any) {
-    this.imageIndex = event.index + 1;
-  }
-
-  private static get images(): NgxGalleryImage[] {
-    const images: NgxGalleryImage[] = [];
-    for (let i = 1; i <= AMOUNT_OF_IMAGES; i++) {
-      images.push({
-        small: `/assets/img/gallery/small/brugge${i}.jpg`,
-        medium: `/assets/img/gallery/medium/brugge${i}.jpg`,
-        big: `/assets/img/gallery/large/brugge${i}.jpg`
-      });
-    }
-    return images;
   }
 }
