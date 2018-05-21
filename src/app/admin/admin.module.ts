@@ -4,13 +4,19 @@ import { SharedModule } from '../shared/shared.module';
 import { AdminRoutingModule } from './admin-routing.module';
 import { GuestbookManagerComponent } from './guestbook-manager/guestbook-manager.component';
 import { ReviewListComponent } from './guestbook-manager/review-list/review-list.component';
+import { PictureManagerComponent } from './picture-manager/picture-manager.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { AddPicturesComponent } from './picture-manager/add-pictures/add-pictures.component';
+import { PictureListComponent } from './picture-manager/picture-list/picture-list.component';
 
 @NgModule({
   imports: [
     AdminRoutingModule,
-    SharedModule
+    SharedModule,
+    MaterialFileInputModule
   ],
-  declarations: [AdminComponent, GuestbookManagerComponent, ReviewListComponent]
+  declarations: [AdminComponent, GuestbookManagerComponent, ReviewListComponent, PictureManagerComponent,
+    AddPicturesComponent, PictureListComponent]
 })
 export class AdminModule {
 }

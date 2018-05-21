@@ -1,0 +1,69 @@
+<h2 class="text-center">Foto toevoegen</h2>
+<form [formGroup]="uploadFormGroup" (ngSubmit)="onSubmit()" fxLayout="column">
+  <mat-form-field class="full-width">
+    <ngx-mat-file-input formControlName="files" placeholder="Bestanden" [multiple]="true"></ngx-mat-file-input>
+  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
+    <button mat-raised-button color="primary" [disabled]="!uploadFormGroup.valid">Toevoegen</button>
+    <ng-container *ngIf="completionStatus$ | async as completionStatus">
+      <div *ngIf="completionStatus === 100">Foto's successvol toegevoegd</div>
+      <div *ngIf="completionStatus !== undefined && completionStatus !== 100">Foto's aan het verwerken...</div>
+      <mat-progress-bar *ngIf="completionStatus !== undefined && completionStatus != 100" mode="determinate"
+                        [value]="completionStatus">
+      </mat-progress-bar>
+    </ng-container>
+  </div>
+</form>
+
+<mat-card *ngIf="(completionStatus$ | async) !== undefined && (completionStatus$ | async) !== 100">
+  <mat-card-content>
+    <div>
+      <mat-table #table [dataSource]="processingFiles$">
+
+        <ng-container matColumnDef="image">
+          <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <img *ngIf="element.imageLoaded" [src]="element.image" height="32" width="32">
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="filename">
+          <mat-header-cell *matHeaderCellDef>Filename</mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.large.name }}</mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="resizedSmall">
+          <mat-header-cell *matHeaderCellDef>Resized small</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div *ngIf="!element.small">In progress...</div>
+            <mat-icon *ngIf="element.small">check</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+
+        <ng-container matColumnDef="resizedMedium">
+          <mat-header-cell *matHeaderCellDef>Resized medium</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <div *ngIf="!element.medium">In progress...</div>
+            <mat-icon *ngIf="element.medium">check</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="uploaded">
+          <mat-header-cell *matHeaderCellDef>Uploaded</mat-header-cell>
+          <mat-cell *matCellDef="let element">
+            <ng-container *ngIf="!element.isUploaded">
+              <div *ngIf="!element.isUploading">Waiting for resize</div>
+              <div *ngIf="element.isUploading">In progress...</div>
+            </ng-container>
+            <mat-icon *ngIf="element.isUploaded">check</mat-icon>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      </mat-table>
+    </div>
+  </mat-card-content>
+</mat-card>

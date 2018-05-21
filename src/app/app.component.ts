@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
               private _translationService: TranslationService,
               private _pictureService: PictureService) {
     this._translationService.init();
+    this._pictureService.init();
     this.configurePageScroll();
   }
 
