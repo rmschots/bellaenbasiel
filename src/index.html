@@ -12,6 +12,17 @@
   <style type="text/css">
     body, html {
       height: 100%;
+      margin: 0;
+    }
+    .app-loading-nav {
+      border-bottom: solid;
+      border-width: 1px;
+      box-sizing: border-box;
+      height: 80px;
+      width: 100%;
+      position: fixed;
+      background: #fff;
+      z-index: 999;
     }
     .app-loading {
       position: relative;
@@ -38,7 +49,7 @@
       stroke-dashoffset: 0;
       animation: dash 1.5s ease-in-out infinite;
       stroke-linecap: round;
-      stroke: #ddd;
+      stroke: #43a047;
     }
     @keyframes rotate {
       100% {
@@ -68,6 +79,7 @@
 <body>
 <bnb-root>
   <!-- loading layout replaced by app after startupp -->
+  <nav class="app-loading-nav"></nav>
   <div class="app-loading">
     <svg class="spinner" viewBox="25 25 50 50">
       <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"></circle>
@@ -88,5 +100,10 @@
     s.parentNode.insertBefore(wf, s);
   })(document);
 </script>
+<noscript>
+  <h3 style="color: #673ab7; font-family: Helvetica; margin: 2rem;">
+    Sorry, but app is not available without javascript
+  </h3>
+</noscript>
 </body>
 </html>
