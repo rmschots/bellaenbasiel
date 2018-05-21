@@ -8,6 +8,7 @@ import { PictureManagerComponent } from './picture-manager/picture-manager.compo
 import { MaterialFileInputModule } from 'ngx-material-file-input';
 import { AddPicturesComponent } from './picture-manager/add-pictures/add-pictures.component';
 import { PictureListComponent } from './picture-manager/picture-list/picture-list.component';
+import { AddReviewsComponent } from './guestbook-manager/add-reviews/add-reviews.component';
 
 @NgModule({
   imports: [
@@ -16,7 +17,7 @@ import { PictureListComponent } from './picture-manager/picture-list/picture-lis
     MaterialFileInputModule
   ],
   declarations: [AdminComponent, GuestbookManagerComponent, ReviewListComponent, PictureManagerComponent,
-    AddPicturesComponent, PictureListComponent]
+    AddPicturesComponent, PictureListComponent, AddReviewsComponent]
 })
 export class AdminModule {
 }
