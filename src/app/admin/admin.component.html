@@ -2,13 +2,13 @@
      *ngIf="afAuth.authState | async as user; else showLogin">
   <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/">
     <mat-icon>home</mat-icon>
-    <span>To website</span>
+    <span>{{ 'ADMIN.actions.toWebsite' | translate }}</span>
   </a>
   <span fxFlex="grow"></span>
-  <p>Logged in as {{ user.displayName }}</p>
+  <p>{{ 'ADMIN.loggedInAs' | translate }} {{ user.displayName }}</p>
   <div>
     <button mat-raised-button color="accent" (click)="logout()">
-      <span>Logout</span>
+      <span>{{ 'ADMIN.actions.logout' | translate }}</span>
       <mat-icon>exit_to_app</mat-icon>
     </button>
   </div>

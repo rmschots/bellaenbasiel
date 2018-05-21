@@ -1,13 +1,18 @@
-<h2 class="text-center">Foto toevoegen</h2>
+<h2 class="text-center">{{ 'PICTURE_MANAGER.ADD_PICTURES.title' | translate }}</h2>
 <form [formGroup]="uploadFormGroup" (ngSubmit)="onSubmit()" fxLayout="column">
   <mat-form-field class="full-width">
-    <ngx-mat-file-input formControlName="files" placeholder="Bestanden" [multiple]="true"></ngx-mat-file-input>
+    <ngx-mat-file-input formControlName="files" [placeholder]="'PICTURE_MANAGER.ADD_PICTURES.files' | translate"
+                        [multiple]="true"></ngx-mat-file-input>
   </mat-form-field>
   <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="16px">
-    <button mat-raised-button color="primary" [disabled]="!uploadFormGroup.valid">Toevoegen</button>
+    <button mat-raised-button color="primary" [disabled]="!uploadFormGroup.valid">
+      {{ 'PICTURE_MANAGER.ADD_PICTURES.actions.add' | translate }}
+    </button>
     <ng-container *ngIf="completionStatus$ | async as completionStatus">
-      <div *ngIf="completionStatus === 100">Foto's successvol toegevoegd</div>
-      <div *ngIf="completionStatus !== undefined && completionStatus !== 100">Foto's aan het verwerken...</div>
+      <div *ngIf="completionStatus === 100">{{ 'PICTURE_MANAGER.ADD_PICTURES.success' | translate }}</div>
+      <div *ngIf="completionStatus !== undefined && completionStatus !== 100">
+        {{ 'PICTURE_MANAGER.ADD_PICTURES.processing' | translate }}
+      </div>
       <mat-progress-bar *ngIf="completionStatus !== undefined && completionStatus != 100" mode="determinate"
                         [value]="completionStatus">
       </mat-progress-bar>
@@ -21,40 +26,42 @@
       <mat-table #table [dataSource]="processingFiles$">
 
         <ng-container matColumnDef="image">
-          <mat-header-cell *matHeaderCellDef>Image</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.image' | translate }}</mat-header-cell>
           <mat-cell *matCellDef="let element">
             <img *ngIf="element.imageLoaded" [src]="element.image" height="32" width="32">
           </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="filename">
-          <mat-header-cell *matHeaderCellDef>Filename</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.filename' | translate }}</mat-header-cell>
           <mat-cell *matCellDef="let element"> {{ element.large.name }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="resizedSmall">
-          <mat-header-cell *matHeaderCellDef>Resized small</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.resizeSmall' | translate }}
+          </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <div *ngIf="!element.small">In progress...</div>
+            <div *ngIf="!element.small">{{ 'PICTURE_MANAGER.ADD_PICTURES.inProgress' | translate }}</div>
             <mat-icon *ngIf="element.small">check</mat-icon>
           </mat-cell>
         </ng-container>
 
 
         <ng-container matColumnDef="resizedMedium">
-          <mat-header-cell *matHeaderCellDef>Resized medium</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.resizeMedium' | translate }}
+          </mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <div *ngIf="!element.medium">In progress...</div>
+            <div *ngIf="!element.medium">{{ 'PICTURE_MANAGER.ADD_PICTURES.inProgress' | translate }}</div>
             <mat-icon *ngIf="element.medium">check</mat-icon>
           </mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="uploaded">
-          <mat-header-cell *matHeaderCellDef>Uploaded</mat-header-cell>
+          <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.upload' | translate }}</mat-header-cell>
           <mat-cell *matCellDef="let element">
             <ng-container *ngIf="!element.isUploaded">
-              <div *ngIf="!element.isUploading">Waiting for resize</div>
-              <div *ngIf="element.isUploading">In progress...</div>
+              <div *ngIf="!element.isUploading">{{ 'PICTURE_MANAGER.ADD_PICTURES.waitForResize' | translate }}</div>
+              <div *ngIf="element.isUploading">{{ 'PICTURE_MANAGER.ADD_PICTURES.inProgress' | translate }}</div>
             </ng-container>
             <mat-icon *ngIf="element.isUploaded">check</mat-icon>
           </mat-cell>

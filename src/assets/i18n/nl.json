@@ -6,6 +6,7 @@
     "activities": "Activiteiten",
     "contact": "Contact",
     "manageGuestbook": "Beheer gastenboek",
+    "managePictures": "Beheer foto's",
     "guestbook": "Gastenboek"
   },
   "HEADER": {
@@ -99,6 +100,74 @@
     },
     "availability": {
       "title": "Beschikbaarheid"
+    }
+  },
+  "GUESTBOOK_MANAGER": {
+    "title": "Beheer gastenboek",
+    "delete": {
+      "title": "Delete?",
+      "text": "Are you sure you want to delete this review?"
+    },
+    "ADD_REVIEWS": {
+      "title": "Meeste recente reviews toevoegen",
+      "pasteHere": "Plak de tekst hier",
+      "steps": {
+        "step1": {
+          "text1": "Ga naar",
+          "text2": "engels gastenboek",
+          "text3": "nederlands gastenboek"
+        },
+        "step2": "Alles selecteren",
+        "step3": "Kopieren",
+        "step4": "Plakken in tekstbox",
+        "step5": "Klik op"
+      },
+      "actions": {
+        "add": "Nieuwe reviews toevoegen"
+      }
+    },
+    "REVIEW_LIST": {
+      "title": "Alle reviews",
+      "table": {
+        "filter": "filter",
+        "author": "Auteur",
+        "date": "Datum",
+        "stars": "Sterren",
+        "text": "Tekst"
+      }
+    }
+  },
+  "PICTURE_MANAGER": {
+    "title": "Beheer foto's",
+    "ADD_PICTURES": {
+      "title": "Foto's toevoegen",
+      "files": "selecteer 1 of meerdere bestanden...",
+      "success": "Foto's successvol toegevoegd",
+      "processing": "Foto's aan het verwerken...",
+      "image": "Afbeelding",
+      "filename": "Bestandsnaam",
+      "resizeSmall": "verkleinen small",
+      "resizeMedium": "verkleinen medium",
+      "upload": "Upload",
+      "inProgress": "Bezig...",
+      "waitForResize": "Wachten op verkleinen...",
+      "actions": {
+        "add": "Toevoegen"
+      }
+    },
+    "SORT_PICTURES": {
+      "title": "Foto's sorteren",
+      "actions": {
+        "delete": "Geselecteerde verwijderen",
+        "save": "Foto's opslaan"
+      }
+    }
+  },
+  "ADMIN": {
+    "loggedInAs": "Ingelogd als",
+    "actions": {
+      "toWebsite": "Naar website",
+      "logout": "Uitloggen"
     }
   },
   "COMMON": {
