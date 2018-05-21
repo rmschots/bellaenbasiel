@@ -207,7 +207,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.css$/,
         "use": [
@@ -226,7 +226,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.scss$|\.sass$/,
         "use": [
@@ -253,7 +253,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.less$/,
         "use": [
@@ -278,7 +278,7 @@ module.exports = {
       },
       {
         "exclude": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.styl$/,
         "use": [
@@ -304,7 +304,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.css$/,
         "loaders": ExtractTextPlugin.extract({
@@ -326,7 +326,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.scss$|\.sass$/,
         "loaders": ExtractTextPlugin.extract({
@@ -356,7 +356,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.less$/,
         "loaders": ExtractTextPlugin.extract({
@@ -384,7 +384,7 @@ module.exports = {
       },
       {
         "include": [
-          path.join(process.cwd(), "src\\styles.scss")
+          path.join(process.cwd(), "src/styles.scss")
         ],
         "test": /\.styl$/,
         "loaders": ExtractTextPlugin.extract({
@@ -432,7 +432,7 @@ module.exports = {
         "context": "src",
         "to": "",
         "from": {
-          "glob": "assets\\**\\*",
+          "glob": "assets/**/*",
           "dot": true
         }
       },
@@ -530,7 +530,7 @@ module.exports = {
         "license.txt"
       ],
       "perChunkOutput": false,
-      "outputTemplate": path.join(process.cwd(), "node_modules\\license-webpack-plugin\\output.template.ejs"),
+      "outputTemplate": path.join(process.cwd(), "node_modules/license-webpack-plugin/output.template.ejs"),
       "outputFilename": "3rdpartylicenses.txt",
       "suppressErrors": true,
       "includePackagesWithoutLicense": false,
@@ -576,7 +576,7 @@ module.exports = {
       "mainPath": "main.ts",
       "platform": 0,
       "hostReplacementPaths": {
-        "environments\\environment.ts": "environments\\environment.prod.ts"
+        "environments/environment.ts": "environments/environment.prod.ts"
       },
       "sourceMap": false,
       "tsConfigPath": "src\\tsconfig.app.json",
