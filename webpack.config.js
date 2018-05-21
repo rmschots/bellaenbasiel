@@ -151,13 +151,13 @@ module.exports = {
   },
   "entry": {
     "main": [
-      "./src\\main.ts"
+      "./src/main.ts"
     ],
     "polyfills": [
-      "./src\\polyfills.ts"
+      "./src/polyfills.ts"
     ],
     "styles": [
-      "./src\\styles.scss"
+      "./src/styles.scss"
     ]
   },
   "output": {
@@ -460,7 +460,7 @@ module.exports = {
       "cwd": projectRoot
     }),
     new HtmlWebpackPlugin({
-      "template": "./src\\index.html",
+      "template": "./src/index.html",
       "filename": "./index.html",
       "hash": false,
       "inject": true,
@@ -579,7 +579,7 @@ module.exports = {
         "environments/environment.ts": "environments/environment.prod.ts"
       },
       "sourceMap": false,
-      "tsConfigPath": "src\\tsconfig.app.json",
+      "tsConfigPath": "src/tsconfig.app.json",
       "compilerOptions": {}
     }),
     new ScriptExtHtmlWebpackPlugin({
