@@ -40,8 +40,9 @@ export class PictureService {
   }
 
   uploadPicture(pf: File, size: string): Observable<any> {
+    const parts = pf.name.split('.');
     const reference = this._storage.storage.ref(`pictures/${size}`);
-    const imageSmallRef = reference.child(uuid() + '.jpg');
+    const imageSmallRef = reference.child(`${uuid()}.${parts[parts.length - 1]}`);
     return fromPromise(imageSmallRef.put(pf));
   }
 
