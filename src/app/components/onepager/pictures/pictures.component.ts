@@ -2,6 +2,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gallery';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { PictureService } from '../../../shared/services/picture.service';
+import { FirebaseService } from '../../../shared/services/firebase.service';
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
@@ -54,12 +55,24 @@ const AMOUNT_OF_IMAGES = 32;
 export class PicturesComponent extends Unsubscribable {
 
   galleryOptions: NgxGalleryOptions[] = galleryOptions;
-  galleryImages: NgxGalleryImage[] = PicturesComponent.images;
+  galleryImages: NgxGalleryImage[] = [];
   imageIndex = 1;
 
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef, private _pictureService: PictureService) {
+  constructor(private _changeDetectorRef: ChangeDetectorRef,
+              private _pictureService: PictureService,
+              private _firebaseService: FirebaseService) {
     super();
+    _firebaseService.galleryData$
+      .takeUntil(this.ngUnsubscribe$)
+      .filter(data => !!data)
+      .subscribe(gallery => {
+        this.galleryImages = gallery.pictures.map(picture => ({
+          small: picture.small.url,
+          medium: picture.medium.url,
+          big: picture.large.url
+        }));
+      });
   }
 
   onPreviewOpen() {

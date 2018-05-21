@@ -1,0 +1,23 @@
+<h2 class="text-center">Foto's sorteren</h2>
+<div *ngIf="selectedPicture$ | async" class="sort-picture-buttons" fxLayout="row" fxLayoutAlign="center center"
+     fxLayoutGap="16px">
+  <button mat-raised-button color="warn" (click)="deleteSelected()">
+    <mat-icon>delete</mat-icon>
+    Gelecteerde verwijderen
+  </button>
+  <button mat-mini-fab [disabled]="preventClickMoveLeft" (click)="moveLeft()">
+    <mat-icon>navigate_before</mat-icon>
+  </button>
+  <button mat-mini-fab [disabled]="preventClickMoveRight" (click)="moveRight()">
+    <mat-icon>navigate_next</mat-icon>
+  </button>
+  <button mat-raised-button color="accent" (click)="saveChanges()">
+    <mat-icon>save</mat-icon>
+    <span>Foto's opslaan</span></button>
+</div>
+<div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="8px">
+  <div *ngFor="let picture of pictures$ | async">
+    <img [src]="picture.small.url" [ngClass]="{ 'selected-picture': picture === (selectedPicture$ | async) }"
+         (click)="selectPicture(picture)">
+  </div>
+</div>

@@ -53,3 +53,20 @@ export interface FirebaseGuestbook {
   reviews: FirebaseGuestbookReview[];
   metadata: FirebaseGuestbookMetadata;
 }
+
+export interface FirebaseGallery {
+  pictures: FirebasePicture[];
+}
+
+export interface FirebasePicture {
+  medium: FirebasePictureImage;
+  small: FirebasePictureImage;
+  large: FirebasePictureImage;
+  ordered: boolean;
+  order: number;
+}
+
+export interface FirebasePictureImage {
+  url: string;
+  ref: string;
+}

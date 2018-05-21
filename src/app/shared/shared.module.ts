@@ -21,7 +21,8 @@ import {
   MatStepperModule,
   MatTableModule,
   MatTabsModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatListModule, MatProgressBarModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
@@ -100,7 +101,9 @@ const MATERIAL_MODULES = [
   MatMenuModule,
   MatSliderModule,
   DpDatePickerModule,
-  MatSnackBarModule
+  MatSnackBarModule,
+  MatListModule,
+  MatProgressBarModule
 ];
 
 const MODULES = [

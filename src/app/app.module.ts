@@ -26,6 +26,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AngularFireModule } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { Ng2PicaModule } from 'ng2-pica';
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -46,7 +48,9 @@ const SINGLETON_MODULES = [
     apiKey: 'AIzaSyDrpBxPtUDohgkjWSSNNmikZj0fXvcvX1c'
   }),
   AngularFireModule.initializeApp(environment.firebase),
-  AngularFireAuthModule
+  AngularFireAuthModule,
+  AngularFireStorageModule,
+  Ng2PicaModule
 ];
 
 const CONTAINERS = [
