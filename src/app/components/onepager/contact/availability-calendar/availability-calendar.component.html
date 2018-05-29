@@ -3,10 +3,10 @@
     <h3 class="calendar-title">{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) }}</h3>
     <div>
       <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
-              [disabled]="preventClickPrevious">
+              [disabled]="preventClickPrevious" name="previous month">
         <mat-icon>navigate_before</mat-icon>
       </button>
-      <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate">
+      <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate" name="next month">
         <mat-icon>navigate_next</mat-icon>
       </button>
     </div>

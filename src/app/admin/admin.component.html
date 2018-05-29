@@ -1,6 +1,6 @@
 <div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
      *ngIf="afAuth.authState | async as user; else showLogin">
-  <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/">
+  <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/" aria-label="go to website">
     <mat-icon>home</mat-icon>
     <span>{{ 'ADMIN.actions.toWebsite' | translate }}</span>
   </a>

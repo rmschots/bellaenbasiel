@@ -28,7 +28,7 @@
         <ng-container matColumnDef="image">
           <mat-header-cell *matHeaderCellDef>{{ 'PICTURE_MANAGER.ADD_PICTURES.image' | translate }}</mat-header-cell>
           <mat-cell *matCellDef="let element">
-            <img *ngIf="element.imageLoaded" [src]="element.image" height="32" width="32">
+            <img *ngIf="element.imageLoaded" [src]="element.image" height="32" width="32" alt="">
           </mat-cell>
         </ng-container>
 

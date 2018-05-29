@@ -14,7 +14,8 @@
   </div>
   <div fxFlexAlign="center">
     <mat-chip-list [selectable]="true" [multiple]="true">
-      <mat-chip fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center" *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
+      <mat-chip fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center"
+                *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
                 [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
         <bnb-star-rating [stars]="ratingFilter.stars" [size]="'13px'" [hideEmptyStars]="true"></bnb-star-rating>
         <div>({{ ratingFilter.count }})</div>
@@ -30,7 +31,8 @@
       </p>
       <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-          <img [src]="currentEntry.reviewer.picture_url" height="48" width="48" class="profile-picture">
+          <img [src]="currentEntry.reviewer.picture_url" height="48" width="48" class="profile-picture"
+               alt="Profile picture of {{ currentEntry.reviewer.first_name }}">
           <div>
             <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
             <span>{{ currentEntry.created_at.toDate() | bnbDate:'d MMMM yyyy' }}</span>
@@ -46,10 +48,10 @@
     <div class="review-count mat-elevation-z6">
       {{ 'GUESTBOOK.review' | translate }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
     </div>
-    <button mat-mini-fab (click)="prevEntry()">
+    <button mat-mini-fab (click)="prevEntry()" name="previous review">
       <mat-icon>navigate_before</mat-icon>
     </button>
-    <button mat-mini-fab (click)="nextEntry()">
+    <button mat-mini-fab (click)="nextEntry()" name="next review">
       <mat-icon>navigate_next</mat-icon>
     </button>
   </div>

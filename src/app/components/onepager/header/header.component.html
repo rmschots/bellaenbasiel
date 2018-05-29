@@ -10,14 +10,12 @@
     </div>
     <div fxFlexOffset="32px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
-              pageScrollTarget="#welcome"
-              [pageScrollAdjustHash]="true">
+              pageScrollTarget="#welcome" [pageScrollAdjustHash]="true" name="scroll to first section">
         <mat-icon>arrow_downward</mat-icon>
         {{ 'HEADER.visitWebsite' | translate }}
       </button>
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('contact')" pageScroll
-              pageScrollTarget="#contact"
-              [pageScrollAdjustHash]="true">
+              pageScrollTarget="#contact" [pageScrollAdjustHash]="true" name="scroll to availability">
         <mat-icon>event_available</mat-icon>
         {{ 'HEADER.checkAvailability' | translate }}
       </button>
@@ -25,14 +23,14 @@
   </div>
   <div class="text-center header-copyright">
     <div fxHide.gt-sm="true">
-      <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
-        <img src="/assets/img/air-bnb.png">
+      <a href="https://www.airbnb.com/rooms/11550351" target="_blank" rel="noopener" aria-label="airbnb page">
+        <img src="/assets/img/air-bnb.png" alt="Airbnb logo">
       </a>
-      <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
-        <img class="unclear-logo" src="/assets/img/visit-bruges.png">
+      <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank" rel="noopener" aria-label="visitbruges page">
+        <img class="unclear-logo" src="/assets/img/visit-bruges.png" alt="visitbruges.be logo">
       </a>
-      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
-        <img class="unclear-logo" src="/assets/svg/westtoer.svg">
+      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank" rel="noopener" aria-label="westtoer page">
+        <img class="unclear-logo" src="/assets/svg/westtoer.svg" alt="westtoer.be logo">
       </a>
     </div>
     <span>&reg; 2018 Bella en Basiel -
@@ -40,14 +38,14 @@
     </span>
   </div>
   <div fxHide.lt-md="true" class="external-links-pc">
-    <a href="https://www.airbnb.com/rooms/11550351" target="_blank">
-      <img src="/assets/img/air-bnb.png">
+    <a href="https://www.airbnb.com/rooms/11550351" target="_blank" rel="noopener" aria-label="airbnb page">
+      <img src="/assets/img/air-bnb.png" alt="Airbnb logo">
     </a>
-    <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank">
-      <img class="unclear-logo" src="/assets/img/visit-bruges.png">
+    <a href="https://www.visitbruges.be/nl/ella--asiel" target="_blank" rel="noopener" aria-label="visitbruges page">
+      <img class="unclear-logo" src="/assets/img/visit-bruges.png" alt="visitbruges.be logo">
     </a>
-    <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank">
-      <img class="unclear-logo" src="/assets/svg/westtoer.svg">
+    <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank" rel="noopener" aria-label="westtoer page">
+      <img class="unclear-logo" src="/assets/svg/westtoer.svg" alt="westtoer.be logo">
     </a>
   </div>
 </div>
