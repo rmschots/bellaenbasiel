@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { NavItem } from '../../shared/models/nav-item';
 import { Language } from '../../shared/models/language';
 import { TranslationService } from '../../shared/services/translation.service';
+import { isEqual } from 'lodash';
 
 @Component({
   selector: 'bnb-sidenav',
@@ -19,7 +20,9 @@ export class SidenavComponent {
   }
 
   get sections$(): Observable<NavItem[]> {
-    return this._sectionService.navItems$.map(names => names.reverse());
+    return this._sectionService.navItems$.map(names => names.reverse())
+      .distinctUntilChanged((sections1: NavItem[], sections2: NavItem[]) =>
+        isEqual(sections1.map(section => section.nameKey), sections2.map(section => section.nameKey)));
   }
 
   get currentSection$(): Observable<string> {

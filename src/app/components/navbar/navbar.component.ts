@@ -5,6 +5,7 @@ import { NavItem } from '../../shared/models/nav-item';
 import { Language } from '../../shared/models/language';
 import { TranslationService } from '../../shared/services/translation.service';
 import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { isEqual } from 'lodash';
 
 @Component({
   selector: 'bnb-navbar',
@@ -34,7 +35,9 @@ export class NavbarComponent extends Unsubscribable implements OnInit {
   }
 
   get sections$(): Observable<NavItem[]> {
-    return this._sectionService.navItems$.map(names => names.reverse());
+    return this._sectionService.navItems$.map(names => names.reverse())
+      .distinctUntilChanged((sections1: NavItem[], sections2: NavItem[]) =>
+        isEqual(sections1.map(section => section.nameKey), sections2.map(section => section.nameKey)));
   }
 
   get currentSection$(): Observable<string> {
