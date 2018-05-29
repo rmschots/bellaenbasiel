@@ -32,7 +32,7 @@ export class AppComponent implements OnInit {
     this._sectionService.scrollRoot = this.el.nativeElement;
     this.el.nativeElement.addEventListener('scroll', () => {
       this._sectionService.refreshCurrentSectionName();
-    });
+    }, {passive: true});
   }
 
   get navBarClosed$(): Observable<boolean> {

@@ -1,25 +1,26 @@
 <div class="container" fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
   <a class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollAdjustHash]="true"
-     (click)="scrollTo('home')">
-    <img src="/assets/img/logo-header.png" alt="">
+     (click)="scrollTo('home')" aria-label="Go to top of page">
+    <img src="/assets/img/logo-header.png" alt="Bella en Basiel logo">
   </a>
   <div class="nav-links" *ngIf="currentSection$ | async as currentSection">
     <ul fxLayout="row">
       <li *ngFor="let navItem of sections$ | async">
         <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
-                (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}">
+                (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}"
+                name="navigate to {{ navItem.nameKey | translate }}">
           {{ navItem.nameKey | translate }}
         </button>
       </li>
     </ul>
   </div>
-  <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage">
-    <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg"/>
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage" name="change language">
+    <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg" alt="{{ currentLanguage.name }} flag"/>
   </button>
 </div>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)">
-    <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg"/></mat-icon>
+  <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)" name="set {{ language.name }} as current language">
+    <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg" alt="{{ language.name }} flag"/></mat-icon>
     <span>{{ language.name }}</span>
   </button>
 </mat-menu>

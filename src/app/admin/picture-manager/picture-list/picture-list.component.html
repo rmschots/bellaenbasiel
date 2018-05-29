@@ -19,6 +19,6 @@
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="8px">
   <div *ngFor="let picture of pictures$ | async">
     <img [src]="picture.small.url" [ngClass]="{ 'selected-picture': picture === (selectedPicture$ | async) }"
-         (click)="selectPicture(picture)">
+         (click)="selectPicture(picture)" alt="">
   </div>
 </div>
