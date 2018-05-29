@@ -1,6 +1,6 @@
 <div class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollDuration]="0"
      [pageScrollAdjustHash]="true" (click)="scrollTo('home')">
-  <img src="/assets/img/logo-header.png" alt="Bella en Basiel logo"
+  <img src="/assets/img/logo-header.png" alt="Bella en Basiel logo">
 </div>
 <div class="nav-links" *ngIf="currentSection$ | async as currentSection">
   <ul>
@@ -13,11 +13,13 @@
       </button>
     </li>
     <li>
-      <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage" name="change language">
+      <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage"
+              [attr.aria-label]="'change language'">
         <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg" alt="{{ currentLanguage.name }} flag"/>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)" name="set {{ language.name }} as current language">
+        <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)"
+                [attr.aria-label]="'set '+ language.name">
           <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg" alt="{{ language.name }} flag"/></mat-icon>
           <span>{{ language.name }}</span>
         </button>

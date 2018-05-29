@@ -48,10 +48,10 @@
     <div class="review-count mat-elevation-z6">
       {{ 'GUESTBOOK.review' | translate }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
     </div>
-    <button mat-mini-fab (click)="prevEntry()" name="previous review">
+    <button mat-mini-fab (click)="prevEntry()" [attr.aria-label]="'previous review'">
       <mat-icon>navigate_before</mat-icon>
     </button>
-    <button mat-mini-fab (click)="nextEntry()" name="next review">
+    <button mat-mini-fab (click)="nextEntry()" [attr.aria-label]="'next review'">
       <mat-icon>navigate_next</mat-icon>
     </button>
   </div>
