@@ -20,7 +20,7 @@ import { Unsubscribable } from '../../util/unsubscribable';
 })
 export class SectionComponent extends Unsubscribable implements AfterViewInit, OnDestroy {
 
-  @HostBinding('attr.id') @Input() sectionId: string;
+  @Input() sectionId: string;
   @Input() sectionName: string;
 
   constructor(private _element: ElementRef, private _sectionService: SectionService) {
