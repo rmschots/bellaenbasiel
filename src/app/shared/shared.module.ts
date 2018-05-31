@@ -44,6 +44,7 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { PictureService } from './services/picture.service';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
+import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -117,6 +118,7 @@ const MODULES = [
   AgmCoreModule,
   AngularFirestoreModule,
   FlexLayoutModule,
+  LazyLoadImagesModule,
   ...MATERIAL_MODULES
 ];
 

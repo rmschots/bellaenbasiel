@@ -10,10 +10,16 @@ h1 {
   margin-bottom: 64px;
 }
 
-img {
-  width: 300px;
-}
-
 p {
   width: 100%;
+}
+
+.activity-image-wrapper {
+  height: 280px;
+  width: 300px;
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
 }

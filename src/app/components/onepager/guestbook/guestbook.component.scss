@@ -5,13 +5,17 @@
 }
 
 .guestbook-background {
-  background: url('/assets/img/guestbook_background.jpg') no-repeat scroll center;
-  background-size: cover;
   filter: blur(5px);
   height: 100%;
   margin: 0 auto;
   position: absolute;
   width: 100%;
+
+  div {
+    background: #65BCFD no-repeat scroll center;
+    background-size: cover;
+    height: 100%;
+  }
 }
 
 .guestbook-stars {

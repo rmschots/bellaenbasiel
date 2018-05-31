@@ -2,23 +2,23 @@
 <div class="container section-margin">
   <div class="welcome-info" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center space-evenly" fxLayoutAlign.lt-md="start"
        fxLayoutGap="32px">
-    <mat-card fxFlex.gt-sm="33">
+    <mat-card fxFlex.gt-sm="33" lazy-load-images>
       <mat-card-title>{{ 'WELCOME.hosts.title' | translate }}</mat-card-title>
-      <img mat-card-image src="/assets/img/welkom_gastheervrouw.jpg" alt="Picture of the hosts">
+      <img mat-card-image data-src="/assets/img/welkom_gastheervrouw.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the hosts">
       <mat-card-content>
         <p [innerHtml]="'WELCOME.hosts.text' | translate"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex.gt-sm="33">
+    <mat-card fxFlex.gt-sm="33" lazy-load-images>
       <mat-card-title>{{ 'WELCOME.house.title' | translate }}</mat-card-title>
-      <img mat-card-image src="/assets/img/welkom_huis.jpg" alt="Picture of the house">
+      <img mat-card-image data-src="/assets/img/welkom_huis.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the house">
       <mat-card-content>
         <p [innerHtml]="'WELCOME.house.text' | translate"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex.gt-sm="33">
+    <mat-card fxFlex.gt-sm="33" lazy-load-images>
       <mat-card-title>{{ 'WELCOME.neighbourhood.title' | translate }}</mat-card-title>
-      <img mat-card-image src="/assets/img/welkom_buurt.jpg" alt="Picture of the neighbourhood">
+      <img mat-card-image data-src="/assets/img/welkom_buurt.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the neighbourhood">
       <mat-card-content>
         <p [innerHtml]="'WELCOME.neighbourhood.text' | translate"></p>
       </mat-card-content>
