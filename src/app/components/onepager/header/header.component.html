@@ -8,7 +8,7 @@
       <h2 class="text-center header-subtitle" [innerHtml]="'HEADER.subtitle' | translate"></h2>
       <hr>
     </div>
-    <div fxFlexOffset="32px" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
+    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
               pageScrollTarget="#welcome" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to first section'">
         <mat-icon>arrow_downward</mat-icon>
