@@ -26,4 +26,4 @@ Includes picture manager & guestbook utility for airbnb
 ## Browser compatibility
 * Latest version of all common browsers are supported with the help of [Browserstack](https://www.browserstack.com/)
 
-![browserstack](./browserstack-logo-600x315.png)
+[![browserstack](./browserstack-logo-600x315.png)](https://www.browserstack.com/)
