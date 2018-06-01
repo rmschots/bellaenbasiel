@@ -4,7 +4,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
-import { cloneDeep, countBy } from 'lodash';
+import { cloneDeep, countBy, isEqual } from 'lodash';
 import * as firebase from 'firebase';
 import { TranslationService } from '../../../shared/services/translation.service';
 
@@ -41,6 +41,7 @@ export class GuestbookComponent extends Unsubscribable {
     this._firebaseService.guestbookData$
       .filter(data => !!data)
       .takeUntil(this.ngUnsubscribe$)
+      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
       .subscribe(data => this.updateData(data));
     this._translationService.currentLanguage$
       .takeUntil(this.ngUnsubscribe$)
