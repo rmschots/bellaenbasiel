@@ -3,6 +3,7 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from 'ngx-gal
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { PictureService } from '../../../shared/services/picture.service';
 import { FirebaseService } from '../../../shared/services/firebase.service';
+import { isEqual } from 'lodash';
 
 const galleryOptions: NgxGalleryOptions[] = [
   {
@@ -63,12 +64,14 @@ export class PicturesComponent extends Unsubscribable {
     _firebaseService.galleryData$
       .takeUntil(this.ngUnsubscribe$)
       .filter(data => !!data)
-      .subscribe(gallery => {
-        this.galleryImages = gallery.pictures.map(picture => ({
-          small: picture.small.url,
-          medium: picture.medium.url,
-          big: picture.large.url
-        }));
+      .map(gallery => gallery.pictures.map(picture => ({
+        small: picture.small.url,
+        medium: picture.medium.url,
+        big: picture.large.url
+      })))
+      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
+      .subscribe(imgs => {
+        this.galleryImages = imgs;
       });
   }
 
