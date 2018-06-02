@@ -46,7 +46,10 @@
     },
     "room1": {
       "title": "Chambre double agréable et calme",
-      "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café."
+      "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
+      "image1": "Chambre à coucher",
+      "image2": "Salle de bains",
+      "image3": "Petit-déjeuner"
     },
     "extraInfo": {
       "title": "Infos supplémentaires",

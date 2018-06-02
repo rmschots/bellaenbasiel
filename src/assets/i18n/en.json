@@ -47,7 +47,10 @@
     },
     "room1": {
       "title": "Cosy and quiet 2 person room",
-      "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi."
+      "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
+      "image1": "Bedroom",
+      "image2": "Bathroom",
+      "image3": "Breakfast"
     },
     "extraInfo": {
       "title": "Extra info",

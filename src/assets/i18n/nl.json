@@ -47,7 +47,10 @@
     },
     "room1": {
       "title": "Gezellige en rustige 2-persoonskamer",
-      "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 1e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee."
+      "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 1e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee.",
+      "image1": "Slaapkamer",
+      "image2": "Badkamer",
+      "image3": "Ontbijt"
     },
     "extraInfo": {
       "title": "Extra info",

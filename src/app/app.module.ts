@@ -28,6 +28,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { Ng2PicaModule } from 'ng2-pica';
+import { ModalGalleryModule } from 'angular-modal-gallery';
+
 
 const SINGLETON_MODULES = [
   BrowserModule,
@@ -50,7 +52,8 @@ const SINGLETON_MODULES = [
   AngularFireModule.initializeApp(environment.firebase),
   AngularFireAuthModule,
   AngularFireStorageModule,
-  Ng2PicaModule
+  Ng2PicaModule,
+  ModalGalleryModule.forRoot()
 ];
 
 const CONTAINERS = [
