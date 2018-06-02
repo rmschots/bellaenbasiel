@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { FirebaseService } from '../../../../shared/services/firebase.service';
 import { FirebaseCalendar } from '../../../../shared/models/firebase-data';
 import { TranslationService } from '../../../../shared/services/translation.service';
+import { isEqual } from 'lodash';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
   ngOnInit() {
     this._firebaseService.calendarData$.takeUntil(this.ngUnsubscribe$)
       .filter(value => !!value)
+      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
       .subscribe(calendarData => this.updateCalendar(calendarData));
   }
 

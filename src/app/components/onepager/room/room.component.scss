@@ -23,21 +23,8 @@ mat-tab-group img {
   display: flex;
 }
 
-.pricing-chips {
-  bottom: 0;
-  left: 0;
-  margin-bottom: 16px;
-  margin-left: 16px;
-  position: absolute;
-  z-index: 3000;
-}
-
 .check-list {
   list-style: none;
-}
-
-ngx-gallery {
-  display: block;
 }
 
 .extra-info span {
@@ -46,4 +33,58 @@ ngx-gallery {
 
 .booking-conditions span {
   width: 100%;
+}
+
+figure {
+  margin: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+  }
+
+  figcaption {
+    text-align: center;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    padding: 8px;
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+  }
+
+  .pricing-chips {
+    bottom: 0;
+    left: 0;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    position: absolute;
+    z-index: 3000;
+  }
+
+  .image-nav {
+    position: absolute;
+    z-index: 3000;
+    top: 50%;
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    width: 36px;
+    height: 36px;
+    font-size: 36px;
+    cursor: pointer;
+    user-select: none;
+
+    &.image-nav-left {
+      left: 4px;
+    }
+
+    &.image-nav-right {
+      right: 4px;
+    }
+  }
 }

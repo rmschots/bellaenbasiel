@@ -45,6 +45,7 @@ import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { PictureService } from './services/picture.service';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
+import { ModalGalleryModule } from 'angular-modal-gallery';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = <any>{
@@ -119,6 +120,7 @@ const MODULES = [
   AngularFirestoreModule,
   FlexLayoutModule,
   LazyLoadImagesModule,
+  ModalGalleryModule,
   ...MATERIAL_MODULES
 ];
 

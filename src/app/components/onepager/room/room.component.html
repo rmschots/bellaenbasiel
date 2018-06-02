@@ -2,15 +2,28 @@
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
        class="room-details mat-elevation-z3">
-    <div fxFlex.gt-sm="60" class="room-image-wrapper">
-      <ngx-gallery [options]="galleryOptions" [images]="galleryImages" (previewOpen)="onPreviewOpen()"
-                   (previewClose)="onPreviewClose()"></ngx-gallery>
-      <mat-chip-list class="pricing-chips">
-        <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '75'}"></mat-chip>
-        <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.breakfast' | translate:{amount: '10'}"></mat-chip>
-      </mat-chip-list>
+    <div fxFlex.gt-sm="520px" class="room-image-wrapper">
+      <div class="my-app-custom-plain-container-with-desc">
+        <ng-container *ngIf="selectedImage$ | async as img">
+          <figure class="my-app-custom-image-with-desc" lazy-load-images>
+            <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img" [alt]="'ACTIVITIES.relax.title' | translate"
+                 (click)="openImageModal(img)"/>
+            <figcaption class="description">
+              {{ img.modal.description | translate }}
+            </figcaption>
+            <mat-chip-list class="pricing-chips">
+              <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '75'}"></mat-chip>
+              <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.breakfast' | translate:{amount: '10'}"></mat-chip>
+            </mat-chip-list>
+            <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
+            <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
+          </figure>
+        </ng-container>
+      </div>
+      <ks-modal-gallery [id]="1" [modalImages]="images" [plainGalleryConfig]="galleryConfig" [description]="galleryDescriptionConfig"
+                        (close)="onPreviewClose()"></ks-modal-gallery>
     </div>
-    <div fxFlex.gt-sm="40" fxLayout="column" class="room-info full-width">
+    <div fxLayout="column" class="room-info full-width">
       <h3>{{ 'ROOM.room1.title' | translate }}</h3>
       <p class="full-width" [innerHtml]="'ROOM.room1.text' | translate"></p>
       <div class="utilities-icons">
