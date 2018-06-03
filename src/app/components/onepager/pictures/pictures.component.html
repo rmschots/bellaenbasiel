@@ -16,7 +16,7 @@
       </div>
       <div class="thumbnails">
         <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4px" #scrollContainer id="scroll-container">
-          <figure *ngFor="let thumbnail of images" lazy-load-images>
+          <figure *ngFor="let thumbnail of images" lazy-load-images fxFlex="none">
             <img [ngClass]="{'selected-thumbnail': img === thumbnail}" src="/assets/svg/loading-image.svg" [attr.data-src]="thumbnail.plain.img"
                  (click)="selectImage(thumbnail)" [id]="'picture' + thumbnail.id"/>
           </figure>
