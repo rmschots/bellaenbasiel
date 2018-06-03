@@ -11,8 +11,10 @@ import {
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
+  MatListModule,
   MatMenuModule,
   MatPaginatorModule,
+  MatProgressBarModule,
   MatProgressSpinnerModule,
   MatSidenavModule,
   MatSliderModule,
@@ -21,14 +23,12 @@ import {
   MatStepperModule,
   MatTableModule,
   MatTabsModule,
-  MatTooltipModule,
-  MatListModule, MatProgressBarModule
+  MatTooltipModule
 } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
 import { SectionTitleComponent } from './components/section-title/section-title.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
-import { NgxGalleryModule } from 'ngx-gallery';
 import { CalendarDateFormatter, CalendarModule } from 'angular-calendar';
 import { ShortDateFormatter } from './util/short-date-formatter';
 import { SectionService } from './services/section/section.service';
@@ -114,7 +114,6 @@ const MODULES = [
   FormsModule,
   ReactiveFormsModule,
   TranslateModule,
-  NgxGalleryModule,
   CalendarModule,
   AgmCoreModule,
   AngularFirestoreModule,
