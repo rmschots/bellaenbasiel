@@ -1,0 +1,74 @@
+.room-image-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+h1 {
+  background: #8EBCAF;
+}
+
+.utilities-icons {
+  color: #9E9E9E;
+}
+
+.room-info {
+  padding: 32px;
+}
+
+mat-tab-group img {
+  display: flex;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  position: relative;
+
+  img {
+    cursor: pointer;
+    height: auto;
+    width: 100%;
+  }
+
+  figcaption {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    left: 0;
+    padding: 8px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 8px;
+  }
+
+  .pricing-chips {
+    bottom: 0;
+    left: 0;
+    margin-bottom: 16px;
+    margin-left: 16px;
+    position: absolute;
+    z-index: 3000;
+  }
+
+  .image-nav {
+    background: rgba(0, 0, 0, .5);
+    color: #fff;
+    cursor: pointer;
+    font-size: 36px;
+    height: 36px;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    width: 36px;
+    z-index: 3000;
+
+    &.image-nav-left {
+      left: 4px;
+    }
+
+    &.image-nav-right {
+      right: 4px;
+    }
+  }
+}
