@@ -31,6 +31,7 @@ export class FirebaseService {
 
   private _sectionsChange$: BehaviorSubject<DocumentChangeAction[]> = new BehaviorSubject<DocumentChangeAction[]>([]);
   private _calendarData$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
+  private _calendarData2$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
   private _guestbookData$: BehaviorSubject<FirebaseGuestbook> = new BehaviorSubject<FirebaseGuestbook>(undefined);
   private _galleryData$: BehaviorSubject<FirebaseGallery> = new BehaviorSubject<FirebaseGallery>(undefined);
 
@@ -48,6 +49,8 @@ export class FirebaseService {
       .subscribe(data => this._sectionsChange$.next(data));
     this._sectionsChange$.map(actions => this.findSection(actions, 'calendar') as FirebaseCalendar)
       .subscribe(data => this._calendarData$.next(data));
+    this._sectionsChange$.map(actions => this.findSection(actions, 'calendar2') as FirebaseCalendar)
+      .subscribe(data => this._calendarData2$.next(data));
     this._sectionsChange$.map(actions => this.findSection(actions, 'guestbook') as FirebaseGuestbook)
       .subscribe(data => this._guestbookData$.next(data));
     this._sectionsChange$.map(actions => this.findSection(actions, 'gallery') as FirebaseGallery)
@@ -103,6 +106,10 @@ export class FirebaseService {
 
   get calendarData$(): Observable<FirebaseCalendar> {
     return this._calendarData$.asObservable();
+  }
+
+  get calendarData2$(): Observable<FirebaseCalendar> {
+    return this._calendarData2$.asObservable();
   }
 
   get guestbookData$(): Observable<FirebaseGuestbook> {

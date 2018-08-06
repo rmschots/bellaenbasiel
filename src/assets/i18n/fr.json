@@ -36,6 +36,7 @@
   },
   "ROOM": {
     "title": "Chambres",
+    "subtitle": "Chambre {{counter}}",
     "night": "&euro;{{amount}} / nuit*",
     "breakfast": "breakfast &euro;{{amount}} pppn**",
     "tags": {

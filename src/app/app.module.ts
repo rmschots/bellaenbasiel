@@ -19,7 +19,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GuestbookComponent } from './components/onepager/guestbook/guestbook.component';
-import { AvailabilityCalendarComponent } from './components/onepager/contact/availability-calendar/availability-calendar.component';
+import { AvailabilityCalendarComponent } from './components/availability-calendar/availability-calendar.component';
 import { CalendarModule } from 'angular-calendar';
 import { AgmCoreModule } from '@agm/core';
 import { SidenavComponent } from './components/sidenav/sidenav.component';

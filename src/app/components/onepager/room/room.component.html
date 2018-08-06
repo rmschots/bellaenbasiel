@@ -1,11 +1,37 @@
 <bnb-section-title>{{ 'ROOM.title' | translate }}</bnb-section-title>
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
-  <bnb-room-details [images]="images" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
-       class="room-details mat-elevation-z3">
-  </bnb-room-details>
-  <bnb-room-details [images]="images2" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
+  <h2 class="text-center">{{ 'ROOM.subtitle' | translate:{counter: '1'} }}</h2>
+  <bnb-room-details [images]="images" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start"
+                    fxLayoutAlign.lt-md="center center"
                     class="room-details mat-elevation-z3">
   </bnb-room-details>
+  <mat-card class="availability-data mat-elevation-z3">
+    <mat-card-title class="text-center">
+      <mat-icon color="primary">event_available</mat-icon>
+      <span>{{ 'CONTACT.availability.title' | translate }}</span>
+    </mat-card-title>
+    <mat-card-content fxLayout="row" fxLayoutAlign="center start">
+      <bnb-availability-calendar fxFlex.gt-sm="50"
+                                 [firebaseCalendar]="firebaseCalendar1$ | async"></bnb-availability-calendar>
+    </mat-card-content>
+  </mat-card>
+
+  <h2 class="text-center">{{ 'ROOM.subtitle' | translate:{counter: '2'} }}</h2>
+  <bnb-room-details [images]="images2" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start"
+                    fxLayoutAlign.lt-md="center center"
+                    class="room-details mat-elevation-z3">
+  </bnb-room-details>
+  <mat-card class="availability-data mat-elevation-z3">
+    <mat-card-title class="text-center">
+      <mat-icon color="primary">event_available</mat-icon>
+      <span>{{ 'CONTACT.availability.title' | translate }}</span>
+    </mat-card-title>
+    <mat-card-content fxLayout="row" fxLayoutAlign="center start">
+      <bnb-availability-calendar fxFlex.gt-sm="50"
+                                 [firebaseCalendar]="firebaseCalendar2$ | async"></bnb-availability-calendar>
+    </mat-card-content>
+  </mat-card>
+
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap="16px">
     <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
       <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">

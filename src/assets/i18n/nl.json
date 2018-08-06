@@ -37,6 +37,7 @@
   },
   "ROOM": {
     "title": "Kamers",
+    "subtitle": "Kamer {{counter}}",
     "night": "&euro;{{amount}} / nacht*",
     "breakfast": "ontbijt &euro;{{amount}} pppn**",
     "tags": {
@@ -117,8 +118,9 @@
       "steps": {
         "step1": {
           "text1": "Ga naar",
-          "text2": "engels gastenboek",
-          "text3": "nederlands gastenboek"
+          "text2": "engels",
+          "text3": "engels 2",
+          "text4": "nederlands"
         },
         "step2": "Alles selecteren",
         "step3": "Kopieren",
