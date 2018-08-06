@@ -25,9 +25,9 @@ function parseCalendar(calData): CalendarEntry[] {
   });
 }
 
-function saveCalendarEntries(calendarEntries: CalendarEntry[]): Promise<any> {
+function saveCalendarEntries(calendarEntries: CalendarEntry[], calendarDoc: string): Promise<any> {
   console.info('saving ' + calendarEntries.length + ' calendar entries');
-  return db.collection('data').doc('calendar').set({entries: calendarEntries});
+  return db.collection('data').doc(calendarDoc).set({entries: calendarEntries});
 }
 
 exports.refreshAirbnbCalendar = functions.https.onRequest((req, res) => {
@@ -36,7 +36,7 @@ exports.refreshAirbnbCalendar = functions.https.onRequest((req, res) => {
     method: 'GET'
   }).then(calData => {
     const calendarEntries = parseCalendar(calData);
-    saveCalendarEntries(calendarEntries).then(() => {
+    saveCalendarEntries(calendarEntries, 'calendar').then(() => {
       res.status(200).send('saving calendar data complete');
     }).catch(error => {
       console.error('could not save calendar data: ', JSON.stringify(error));
@@ -45,5 +45,23 @@ exports.refreshAirbnbCalendar = functions.https.onRequest((req, res) => {
   }).catch(error => {
     console.error('fetching airbnb calendar failed: ', JSON.stringify(error));
     res.status(200).send('refresh failed: ' + JSON.stringify(error));
+  })
+});
+
+exports.refreshAirbnbCalendar2 = functions.https.onRequest((req, res) => {
+  rp({
+    uri: 'https://calendar.google.com/calendar/ical/lo809anhm07epg6v2ocgb58567lo70hs%40import.calendar.google.com/public/basic.ics',
+    method: 'GET'
+  }).then(calData => {
+    const calendarEntries = parseCalendar(calData);
+    saveCalendarEntries(calendarEntries, 'calendar2').then(() => {
+      res.status(200).send('saving calendar2 data complete');
+    }).catch(error => {
+      console.error('could not save calendar2 data: ', JSON.stringify(error));
+      res.status(200).send('could not save calendar2 data: ' + JSON.stringify(error));
+    });
+  }).catch(error => {
+    console.error('fetching airbnb calendar2 failed: ', JSON.stringify(error));
+    res.status(200).send('refresh2 failed: ' + JSON.stringify(error));
   })
 });
