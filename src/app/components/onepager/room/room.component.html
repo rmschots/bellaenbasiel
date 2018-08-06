@@ -1,47 +1,11 @@
 <bnb-section-title>{{ 'ROOM.title' | translate }}</bnb-section-title>
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
+  <bnb-room-details [images]="images" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
        class="room-details mat-elevation-z3">
-    <div fxFlex.gt-sm="520px" class="room-image-wrapper">
-      <ng-container *ngIf="selectedImage$ | async as img">
-        <figure lazy-load-images>
-          <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img"
-               (click)="openImageModal(img)"/>
-          <figcaption class="description">
-            {{ img.modal.description | translate }}
-          </figcaption>
-          <mat-chip-list class="pricing-chips">
-            <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '75'}"></mat-chip>
-            <mat-chip color="accent" selected="true"
-                      [innerHtml]="'ROOM.breakfast' | translate:{amount: '10'}"></mat-chip>
-          </mat-chip-list>
-          <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
-          <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
-        </figure>
-      </ng-container>
-      <ks-modal-gallery [id]="1" [modalImages]="images" [plainGalleryConfig]="galleryConfig"
-                        [description]="galleryDescriptionConfig"
-                        (close)="onPreviewClose()"></ks-modal-gallery>
-    </div>
-    <div fxLayout="column" class="room-info full-width">
-      <h3>{{ 'ROOM.room1.title' | translate }}</h3>
-      <p class="full-width" [innerHtml]="'ROOM.room1.text' | translate"></p>
-      <div class="utilities-icons">
-        <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | translate:{amount: '2'}" matTooltipPosition="above">
-          hotel
-        </mat-icon>
-        <mat-icon [matTooltip]="'ROOM.tags.wifi' | translate" matTooltipPosition="above">
-          wifi
-        </mat-icon>
-        <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | translate" matTooltipPosition="above">
-          free_breakfast
-        </mat-icon>
-        <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | translate" matTooltipPosition="above">
-          smoke_free
-        </mat-icon>
-      </div>
-    </div>
-  </div>
+  </bnb-room-details>
+  <bnb-room-details [images]="images2" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center start" fxLayoutAlign.lt-md="center center"
+                    class="room-details mat-elevation-z3">
+  </bnb-room-details>
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap="16px">
     <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
       <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">

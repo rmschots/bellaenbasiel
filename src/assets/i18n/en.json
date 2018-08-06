@@ -36,7 +36,7 @@
     "review": "review"
   },
   "ROOM": {
-    "title": "Room",
+    "title": "Rooms",
     "night": "&euro;{{amount}} / night*",
     "breakfast": "breakfast &euro;{{amount}} pppn**",
     "tags": {

@@ -29,6 +29,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireStorageModule } from 'angularfire2/storage';
 import { Ng2PicaModule } from 'ng2-pica';
 import { ModalGalleryModule } from 'angular-modal-gallery';
+import { RoomDetailsComponent } from './components/onepager/room/room-details/room-details.component';
 
 
 const SINGLETON_MODULES = [
@@ -63,6 +64,7 @@ const CONTAINERS = [
   ActivitiesComponent,
   PicturesComponent,
   RoomComponent,
+  RoomDetailsComponent,
   WelcomeComponent,
   OnepagerComponent,
   NavbarComponent,
