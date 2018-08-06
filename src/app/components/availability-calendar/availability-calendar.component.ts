@@ -1,13 +1,10 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Unsubscribable } from '../../../../shared/util/unsubscribable';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
-import { FirebaseService } from '../../../../shared/services/firebase.service';
-import { FirebaseCalendar } from '../../../../shared/models/firebase-data';
-import { TranslationService } from '../../../../shared/services/translation.service';
-import { isEqual } from 'lodash';
+import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { TranslationService } from '../../shared/services/translation.service';
+import { FirebaseCalendar } from '../../shared/models/firebase-data';
 
 
 @Component({
@@ -16,23 +13,22 @@ import { isEqual } from 'lodash';
   styleUrls: ['./availability-calendar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AvailabilityCalendarComponent extends Unsubscribable implements OnInit {
+export class AvailabilityCalendarComponent extends Unsubscribable {
 
   viewDate: Date = new Date();
 
   private _events$ = new BehaviorSubject<CalendarEvent[]>([]);
 
-  constructor(private _httpClient: HttpClient,
-              private _firebaseService: FirebaseService,
-              private _translationService: TranslationService) {
+  constructor(private _translationService: TranslationService,
+              private _changeDetectorRef: ChangeDetectorRef) {
     super();
   }
 
-  ngOnInit() {
-    this._firebaseService.calendarData$.takeUntil(this.ngUnsubscribe$)
-      .filter(value => !!value)
-      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
-      .subscribe(calendarData => this.updateCalendar(calendarData));
+  @Input()
+  set firebaseCalendar(firebaseCalendar: FirebaseCalendar) {
+    if (firebaseCalendar) {
+      this.updateCalendar(firebaseCalendar);
+    }
   }
 
   get language$() {
@@ -57,5 +53,6 @@ export class AvailabilityCalendarComponent extends Unsubscribable implements OnI
       cssClass: 'oi'
     } as CalendarEvent));
     this._events$.next(events);
+    this._changeDetectorRef.detectChanges();
   }
 }

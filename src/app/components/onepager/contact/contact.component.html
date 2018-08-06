@@ -1,60 +1,47 @@
 <bnb-section-title>{{ 'CONTACT.title' | translate }}</bnb-section-title>
 <div class="container section-margin">
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="32px">
-    <div fxLayout="column" fxLayoutGap="16px" fxFlex.gt-sm="60">
-      <div>
-        <h4>Bella en Basiel</h4>
-        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon>location_on</mat-icon>
-          <span>
+  <div fxLayout="column" fxLayoutGap="16px">
+    <div>
+      <h4>Bella en Basiel</h4>
+      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon>location_on</mat-icon>
+        <span>
             <a href="https://www.google.com/maps/place/Rijkepijndersstraat+7,+8000+Brugge" target="_blank"
                rel="noopener">
               Rijkepijndersstraat 7, 8000 Brugge
             </a>
           </span>
-        </p>
-        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon>phone</mat-icon>
-          <span><a href="tel:+32 472 64 35 27">+32 472 64 35 27</a></span>
-        </p>
-        <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon>email</mat-icon>
-          <span><a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel@telenet.be</a></span>
-        </p>
-      </div>
-      <div class="access">
-        <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon>accessibility</mat-icon>
-          <h4>{{ 'CONTACT.access.title' | translate }}</h4>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHtml]="'CONTACT.access.train' | translate"></span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHtml]="'CONTACT.access.bus' | translate"></span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHtml]="'CONTACT.access.taxi' | translate"></span>
-        </div>
-        <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHtml]="'CONTACT.access.car' | translate"></span>
-        </div>
-      </div>
+      </p>
+      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon>phone</mat-icon>
+        <span><a href="tel:+32 472 64 35 27">+32 472 64 35 27</a></span>
+      </p>
+      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon>email</mat-icon>
+        <span><a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel@telenet.be</a></span>
+      </p>
     </div>
-    <div fxLayout="column" fxFlex.gt-sm="40">
-      <mat-card class="availability-data mat-elevation-z3">
-        <mat-card-title fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-          <mat-icon color="primary">event_available</mat-icon>
-          <span>{{ 'CONTACT.availability.title' | translate }}</span>
-        </mat-card-title>
-        <mat-card-content>
-          <bnb-availability-calendar></bnb-availability-calendar>
-        </mat-card-content>
-      </mat-card>
+    <div class="access">
+      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+        <mat-icon>accessibility</mat-icon>
+        <h4>{{ 'CONTACT.access.title' | translate }}</h4>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+        <mat-icon color="accent">check</mat-icon>
+        <span [innerHtml]="'CONTACT.access.train' | translate"></span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+        <mat-icon color="accent">check</mat-icon>
+        <span [innerHtml]="'CONTACT.access.bus' | translate"></span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+        <mat-icon color="accent">check</mat-icon>
+        <span [innerHtml]="'CONTACT.access.taxi' | translate"></span>
+      </div>
+      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
+        <mat-icon color="accent">check</mat-icon>
+        <span [innerHtml]="'CONTACT.access.car' | translate"></span>
+      </div>
     </div>
   </div>
 </div>

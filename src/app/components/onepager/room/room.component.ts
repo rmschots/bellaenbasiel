@@ -1,5 +1,10 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Image } from 'angular-modal-gallery';
+import { FirebaseService } from '../../../shared/services/firebase.service';
+import { isEqual } from 'lodash';
+import { Unsubscribable } from '../../../shared/util/unsubscribable';
+import { FirebaseCalendar } from '../../../shared/models/firebase-data';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'bnb-room',
@@ -7,8 +12,7 @@ import { Image } from 'angular-modal-gallery';
   styleUrls: ['./room.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomComponent {
-
+export class RoomComponent extends Unsubscribable {
   images: Image[] = [
     new Image(1, {
       img: '/assets/img/room_img1.jpg',
@@ -38,6 +42,28 @@ export class RoomComponent {
       description: 'ROOM.room1.image3'
     }, {img: '/assets/img/room_img3.jpg'})
   ];
+
+  private _firebaseCalendar1$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
+  private _firebaseCalendar2$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
+  constructor(private _firebaseService: FirebaseService) {
+    super();
+    this._firebaseService.calendarData$.takeUntil(this.ngUnsubscribe$)
+      .filter(value => !!value)
+      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
+      .subscribe(data => this._firebaseCalendar1$.next(data));
+    this._firebaseService.calendarData2$.takeUntil(this.ngUnsubscribe$)
+      .filter(value => !!value)
+      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
+      .subscribe(data => this._firebaseCalendar2$.next(data));
+  }
+
+  get firebaseCalendar1$(): BehaviorSubject<FirebaseCalendar> {
+    return this._firebaseCalendar1$;
+  }
+  get firebaseCalendar2$(): BehaviorSubject<FirebaseCalendar> {
+    return this._firebaseCalendar2$;
+  }
+
 
   get extraInfo(): any[] {
     return Array(6);

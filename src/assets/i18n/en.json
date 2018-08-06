@@ -37,6 +37,7 @@
   },
   "ROOM": {
     "title": "Rooms",
+    "subtitle": "Room {{counter}}",
     "night": "&euro;{{amount}} / night*",
     "breakfast": "breakfast &euro;{{amount}} pppn**",
     "tags": {
@@ -97,7 +98,7 @@
     "access": {
       "title": "Access",
       "train": "<b>By train:</b> <a href=\"http://www.belgianrail.be\">belgianrail.be</a>",
-      "bus": "<b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop Carmersbrug. From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90. You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to walk.",
+      "bus": "<b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop Carmersbrug.<br>From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90.<br>You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to walk.",
       "taxi": "<b>By taxi:</b> ca &euro;10",
       "car": "<b>By car:</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space."
     },
@@ -117,8 +118,9 @@
       "steps": {
         "step1": {
           "text1": "Go to",
-          "text2": "English guestbook",
-          "text3": "Dutch guestbook"
+          "text2": "English",
+          "text3": "English 2",
+          "text4": "Dutch"
         },
         "step2": "Select everything",
         "step3": "Copy",
