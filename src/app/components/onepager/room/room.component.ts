@@ -15,32 +15,39 @@ import { BehaviorSubject } from 'rxjs';
 export class RoomComponent extends Unsubscribable {
   images: Image[] = [
     new Image(1, {
-      img: '/assets/img/room_img1.jpg',
-      description: 'ROOM.room1.image1'
-    }, {img: '/assets/img/room_img1.jpg'}),
+      img: '/assets/img/rooms/room1/bedroom.jpg',
+      description: 'ROOM.rooms.room1.image1'
+    }, {img: '/assets/img/rooms/room1/bedroom.jpg'}),
     new Image(2, {
-      img: '/assets/img/room_img2.jpg',
-      description: 'ROOM.room1.image2'
-    }, {img: '/assets/img/room_img2.jpg'}),
+      img: '/assets/img/rooms/room1/bathroom.jpg',
+      description: 'ROOM.rooms.room1.image2'
+    }, {img: '/assets/img/rooms/room1/bathroom.jpg'}),
     new Image(3, {
-      img: '/assets/img/room_img3.jpg',
-      description: 'ROOM.room1.image3'
-    }, {img: '/assets/img/room_img3.jpg'})
+      img: '/assets/img/rooms/breakfast.jpg',
+      description: 'ROOM.rooms.room1.image3'
+    }, {img: '/assets/img/rooms/breakfast.jpg'})
   ];
 
   images2: Image[] = [
     new Image(4, {
-      img: '/assets/img/room_img1.jpg',
-      description: 'ROOM.room1.image1'
-    }, {img: '/assets/img/room_img1.jpg'}),
-    new Image(5, {
-      img: '/assets/img/room_img2.jpg',
-      description: 'ROOM.room1.image2'
-    }, {img: '/assets/img/room_img2.jpg'}),
+      img: '/assets/img/rooms/room2/bedroom.jpg',
+      description: 'ROOM.rooms.room2.image1'
+    }, {img: '/assets/img/rooms/room2/bedroom.jpg'}),
     new Image(6, {
-      img: '/assets/img/room_img3.jpg',
-      description: 'ROOM.room1.image3'
-    }, {img: '/assets/img/room_img3.jpg'})
+      img: '/assets/img/rooms/breakfast.jpg',
+      description: 'ROOM.rooms.room2.image3'
+    }, {img: '/assets/img/rooms/breakfast.jpg'})
+  ];
+
+  images3: Image[] = [
+    new Image(7, {
+      img: '/assets/img/rooms/room3/bedroom.jpg',
+      description: 'ROOM.rooms.room3.image1'
+    }, {img: '/assets/img/rooms/room3/bedroom.jpg'}),
+    new Image(9, {
+      img: '/assets/img/rooms/breakfast.jpg',
+      description: 'ROOM.rooms.room3.image3'
+    }, {img: '/assets/img/rooms/breakfast.jpg'})
   ];
 
   private _firebaseCalendar1$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);

@@ -1,7 +1,7 @@
 {
   "NAV": {
     "welcome": "Welkom",
-    "room": "Kamer",
+    "room": "Kamers",
     "pictures": "Foto's",
     "activities": "Activiteiten",
     "contact": "Contact",
@@ -27,7 +27,7 @@
     },
     "neighbourhood": {
       "title": "Onze buurt",
-      "text": "Wij verwelkomen u graag in onze gastenkamer, gelegen in het rustige en groene Sint Annakwartier, een volksbuurt binnen de oude stadsomwalling van Brugge.<br>Op nauwelijks 10 minuten wandelen langs pittoreske straatjes bent u in hartje Brugge."
+      "text": "Wij verwelkomen u graag in onze 3 gastenkamers, gelegen in het rustige en groene Sint Annakwartier, een volksbuurt binnen de oude stadsomwalling van Brugge.<br>Op nauwelijks 10 minuten wandelen langs pittoreske straatjes bent u in hartje Brugge."
     }
   },
   "GUESTBOOK": {
@@ -44,29 +44,46 @@
       "maxOccupancy": "Maximum {{amount}} personen",
       "wifi": "WiFi beschikbaar",
       "breakfastOptional": "Ontbijt optioneel",
-      "nonSmoking": "Binnen niet roken"
+      "nonSmoking": "Binnen niet roken",
+      "tv": "TV"
     },
-    "room1": {
-      "title": "Gezellige en rustige 2-persoonskamer",
-      "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 1e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee.",
-      "image1": "Slaapkamer",
-      "image2": "Badkamer",
-      "image3": "Ontbijt"
+    "rooms": {
+      "room1": {
+        "title": "Gezellige, rustige 2-persoonskamer",
+        "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 1e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee.",
+        "image1": "Slaapkamer",
+        "image2": "Badkamer",
+        "image3": "Ontbijt"
+      },
+      "room2": {
+        "title": "Gezellige, rustige 2-persoonskamer met extra zetelbed 2 p.",
+        "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 2e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee. Gezellige hoek met tafel en zetel.",
+        "image1": "Slaapkamer",
+        "image2": "Badkamer",
+        "image3": "Ontbijt"
+      },
+      "room3": {
+        "title": "Gezellige, rustige 2-persoonskamer",
+        "text": "De ruime gastenkamer met comfortabel boxspringbed (1.80m) is gelegen op de 2e verdieping. U beschikt over een modern en warm ingerichte badkamer met inloopdouche, wc en lavabo. Er is een haardroger voorzien en gratis wifi. Er is ook mogelijkheid tot het zetten van koffie of thee.",
+        "image1": "Slaapkamer",
+        "image2": "Badkamer",
+        "image3": "Ontbijt"
+      }
     },
     "extraInfo": {
       "title": "Extra info",
       "item1": "*Minimum 2 nachten",
-      "item2": "**Vooraf te bespreken per mail",
+      "item2": "**Vooraf te bespreken per mail:<br><b>Ontbijt:</b> &euro;12 pppn<br><b>Garage:</b> &euro;12 per wagen/nacht",
       "item3": "Toeristenbelasting stad Brugge = &euro;2 pppn",
       "item4": "Huisdieren niet toegelaten",
       "item5": "Roken kan in de tuin",
-      "item6": "Gebruik wasmachine en droogkast : &euro;10"
+      "item6": "Gebruik wasmachine en droogkast : &euro;12"
     },
     "booking": {
       "title": "Boeken",
       "text": "Voorschot van 1 nacht is vereist als reservatie.<br>Betaling saldo in cash bij aankomst. Wij aanvaarden geen kredietkaarten.",
       "conditions": "Algemene Boekingsvoorwaarden",
-      "item1": "<b>Voorschot:</b> &euro;75 te storten op rekeningnr BE47 7512 0859 2880",
+      "item1": "<b>Voorschot:</b> &euro;76 te storten op rekeningnr BE14 3631 5869 6383",
       "item2": "<b>Saldo:</b> cash bij aankomst, of voorafgaandelijk met bankoverschrijving",
       "item3": "<b>Annuleren</b> is mogelijk zonder kosten tot 5 dagen voor de aankomstdatum. Wie later annuleert, wordt de eerste nacht en eventueel besteld ontbijt aangerekend. In geval van no-show, zal de totale som van de reservatie aangerekend worden."
     }
@@ -98,9 +115,9 @@
     "access": {
       "title": "Bereikbaarheid",
       "train": "<b>Per trein:</b> <a href=\"http://www.belgianrail.be\">belgianrail.be</a>",
-      "bus": "<b>Per bus:</b> Neem aan de voorzijde van het station bus nr 4,14, of 43 en vraag de chauffeur te stoppen aan de halte “Gouden Handrei ” of Carmersbrug. Vanaf 20.00 uur ‘s avonds rijdt de avondlijn Koolkerke -Dudzele nr 90",
+      "bus": "<b>Per bus:</b> Neem aan de voorzijde van het station bus nr 4 of 14 en vraag de chauffeur te stoppen aan de halte “Gouden Handrei ” of Carmersbrug. Vanaf 20.00 uur ‘s avonds rijdt de avondlijn Koolkerke -Dudzele nr 90",
       "taxi": "<b>Per taxi:</b> ca &euro;10",
-      "car": "<b>Per auto:</b> in- en uitladen kan gemakkelijk voor de deur. We helpen u dan verder zoeken naar een parkeerplaats."
+      "car": "<b>Per auto:</b> in- en uitladen kan gemakkelijk voor de deur. Wij beschikken over een garage indien u dat wenst: &euro;12/nacht."
     },
     "availability": {
       "title": "Beschikbaarheid"
