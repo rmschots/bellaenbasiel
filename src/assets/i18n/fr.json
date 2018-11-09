@@ -1,7 +1,7 @@
 {
   "NAV": {
     "welcome": "Bienvenue",
-    "room": "Chambre",
+    "room": "Chambres",
     "pictures": "Photos",
     "activities": "Activités",
     "contact": "Contact",
@@ -26,7 +26,7 @@
     },
     "neighbourhood": {
       "title": "Notre quartier",
-      "text": "Soyez bienvenue dans notre chambre d’hôtes, situé dans le quartier populaire St. Anna. Le B&B se trouve au milieu des vieux remparts de Bruges dans un environnement vert et serein.<br>Après une balade courte (10 min. au maximum) en passant des petites rues pittoresques, vous arrivez au coeur du centre ville de Bruges où vous pouvez admirer les bâtiments historiques, participer aux nombreux evenements, musées, festivals, expositions et cetera."
+      "text": "Soyez bienvenue dans nos 3 chambre d’hôtes, situé dans le quartier populaire St. Anna. Le B&B se trouve au milieu des vieux remparts de Bruges dans un environnement vert et serein.<br>Après une balade courte (10 min. au maximum) en passant des petites rues pittoresques, vous arrivez au coeur du centre ville de Bruges où vous pouvez admirer les bâtiments historiques, participer aux nombreux evenements, musées, festivals, expositions et cetera."
     }
   },
   "GUESTBOOK": {
@@ -38,34 +38,51 @@
     "title": "Chambres",
     "subtitle": "Chambre {{counter}}",
     "night": "&euro;{{amount}} / nuit*",
-    "breakfast": "breakfast &euro;{{amount}} pppn**",
+    "breakfast": "petit déjeuner &euro;{{amount}} pppn**",
     "tags": {
       "maxOccupancy": "{{amount}} personnen max",
       "wifi": "WiFi disponible",
       "breakfastOptional": "Petit-déjeuner en option",
-      "nonSmoking": "Ne pas fumer à l'intérieur"
+      "nonSmoking": "Ne pas fumer à l'intérieur",
+      "tv": "TV"
     },
-    "room1": {
-      "title": "Chambre double agréable et calme",
-      "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
-      "image1": "Chambre à coucher",
-      "image2": "Salle de bains",
-      "image3": "Petit-déjeuner"
+    "rooms": {
+      "room1": {
+        "title": "Chambre double agréable et calme",
+        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
+        "image1": "Chambre à coucher",
+        "image2": "Salle de bains",
+        "image3": "Petit-déjeuner"
+      },
+      "room2": {
+        "title": "Chambre double agréable et calme",
+        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café. Coin confortable avec table et siège.",
+        "image1": "Chambre à coucher",
+        "image2": "Salle de bains",
+        "image3": "Petit-déjeuner"
+      },
+      "room3": {
+        "title": "Chambre double agréable et calme",
+        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
+        "image1": "Chambre à coucher",
+        "image2": "Salle de bains",
+        "image3": "Petit-déjeuner"
+      }
     },
     "extraInfo": {
       "title": "Infos supplémentaires",
       "item1": "*Minimum 2 nuits",
-      "item2": "**A convenir d’avance par mail",
+      "item2": "**A convenir d’avance par mail:<br><b>Petit déjeuner:</b> &euro;12 pppn<br><b>Garage:</b> &euro;12 par voiture/nuit",
       "item3": "Taxe touristique de la Ville de Bruges &euro;2 par personne et par nuit.",
       "item4": "Animaux non admis",
       "item5": "Il est permis de fumer dans le jardin",
-      "item6": "Usage du lave-linge et séchoir: &euro;10"
+      "item6": "Usage du lave-linge et séchoir: &euro;12"
     },
     "booking": {
       "title": "Réserver",
       "text": "Une avance d’une nuit est obligatoire pour que la réservation soit valable.<br>Paiement solde en espèces à l’arrivée. Nous n’acceptons pas des cartes de crédits.",
       "conditions": "Conditions générales de réservation",
-      "item1": "<b>Avance:</b> &euro;75 à verser sur le compte BE47 7512 0859 2880",
+      "item1": "<b>Avance:</b> &euro;76 à verser sur le compte BE14 3631 5869 6383",
       "item2": "<b>Solde:</b> en espèces à l’arrivée ou en avance par virement bancaire",
       "item3": "C’est possible d’<b>annuler</b> votre réservation sans frais jusqu’à 5 jours avant la date d’arrivée. Si vous annulez plus tard, on vous facture la première nuit et eventuellement (si commandé) le petit déjeuner. En cas de no-show, on vous demande de payer le montant entier de la réservation."
     }

@@ -27,6 +27,9 @@ export class RoomDetailsComponent {
     strategy: DescriptionStrategy.ALWAYS_HIDDEN
   };
 
+  @Input()
+  roomId: string;
+
   private _images: Image[] = [];
   private _selectedImage$: BehaviorSubject<Image> = new BehaviorSubject<Image>(undefined);
 

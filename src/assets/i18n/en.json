@@ -1,7 +1,7 @@
 {
   "NAV": {
     "welcome": "Welcome",
-    "room": "Room",
+    "room": "Rooms",
     "pictures": "Pictures",
     "activities": "Activities",
     "contact": "Contact",
@@ -27,7 +27,7 @@
     },
     "neighbourhood": {
       "title": "Our neighborhood",
-      "text": "We gladly welcome you in our guestroom, situated in the quiet and green Saint Ann district, a working-class area within the old city walls of Bruges.<br>Via a 10-minute walk along picturesque small streets you will arrive at the city centre, from where you can enjoy numerous historic buildings, events, museums, festivals, exhibitions…"
+      "text": "We gladly welcome you in our 3 guestrooms, situated in the quiet and green Saint Ann district, a working-class area within the old city walls of Bruges.<br>Via a 10-minute walk along picturesque small streets you will arrive at the city centre, from where you can enjoy numerous historic buildings, events, museums, festivals, exhibitions…"
     }
   },
   "GUESTBOOK": {
@@ -44,29 +44,46 @@
       "maxOccupancy": "Max occupancy: {{amount}} persons",
       "wifi": "WiFi available",
       "breakfastOptional": "Breakfast optional",
-      "nonSmoking": "No smoking inside"
+      "nonSmoking": "No smoking inside",
+      "tv": "TV"
     },
-    "room1": {
-      "title": "Cosy and quiet 2 person room",
-      "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
-      "image1": "Bedroom",
-      "image2": "Bathroom",
-      "image3": "Breakfast"
+    "rooms": {
+      "room1": {
+        "title": "Cosy and quiet 2 person room",
+        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
+        "image1": "Bedroom",
+        "image2": "Bathroom",
+        "image3": "Breakfast"
+      },
+      "room2": {
+        "title": "Cosy and quiet 2 person room",
+        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi. Cozy corner with chair and table.",
+        "image1": "Bedroom",
+        "image2": "Bathroom",
+        "image3": "Breakfast"
+      },
+      "room3": {
+        "title": "Cosy and quiet 2 person room",
+        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
+        "image1": "Bedroom",
+        "image2": "Bathroom",
+        "image3": "Breakfast"
+      }
     },
     "extraInfo": {
       "title": "Extra info",
       "item1": "*Minimum 2 nights",
-      "item2": "**You can order breakfast by mail contact",
+      "item2": "**To be discussed in advance by mail:<br><b>Breakfast:</b> &euro;12 pppn<br><b>Garage:</b> &euro;12 per car/night",
       "item3": "Tourist tax city of Bruges = &euro;2 pppn",
       "item4": "No pets allowed",
       "item5": "Smoking is allowed in the garden",
-      "item6": "Usage of washing machine and dryer : &euro;10"
+      "item6": "Usage of washing machine and dryer : &euro;12"
     },
     "booking": {
       "title": "Booking",
       "text": "Deposit of 1 night is required as a reservation.<br>Balance payment in cash on arrival. We do not accept credit cards.",
       "conditions": "General booking conditions",
-      "item1": "<b>Deposit:</b> &euro;75 on BE47 7512 0859 2880",
+      "item1": "<b>Deposit:</b> &euro;76 on BE14 3631 5869 6383",
       "item2": "<b>Balance:</b> cash on arrival",
       "item3": "<b>Cancelling</b> is possible without penalty up to 5 days before the arrival date. For later cancellation, the first night and possibly ordered breakfast is charged. In case of no show, the total sum of the reservation will be charged."
     }
@@ -98,7 +115,7 @@
     "access": {
       "title": "Access",
       "train": "<b>By train:</b> <a href=\"http://www.belgianrail.be\">belgianrail.be</a>",
-      "bus": "<b>By bus:</b> In front of the station take bus nr 4, 14, or 43 and ask the driver to stop at the stop Carmersbrug.<br>From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90.<br>You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to walk.",
+      "bus": "<b>By bus:</b> In front of the station take bus nr 4 or 14 and ask the driver to stop at the stop Carmersbrug.<br>From 20.00 o’clock in the evening, you have to take the evening line koolkerke-Dudzele nr 90.<br>You walk over the Carmersbridge and you find our house in the 3th street on the left. This is only 200 m to walk.",
       "taxi": "<b>By taxi:</b> ca &euro;10",
       "car": "<b>By car:</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space."
     },
