@@ -10,6 +10,10 @@ phases:
     commands:
     - echo Build started on `date`
     - npm run build
+  post_build:
+    commands:
+    - aws s3 sync dist s3://rmangels.be --delete --acl public-read
+    - echo Build completed on `date`
 artifacts:
   files:
   - '**/*'
