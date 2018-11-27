@@ -9,12 +9,13 @@ phases:
   install:
     commands:
     - echo Installing source NPM dependencies...
+    - npm --version
+    - node --version
     - npm install
-    - npm install -g @angular/cli
   build:
     commands:
     - echo Build started on `date`
-    - ng build --${BUILD_ENV}
+    - npm run build
   post_build:
     commands:
     - aws s3 cp ${BUILD_FOLDER} s3://${S3_BUCKET} --recursive --acl public-read --cache-control "max-age=${CACHE_CONTROL}"
