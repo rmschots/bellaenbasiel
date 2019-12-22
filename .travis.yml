@@ -8,5 +8,6 @@ script:
   - npm run build -- --prod
 deploy:
   provider: firebase
+  edge: true
   project: bellaenbasiel
   only: hosting
