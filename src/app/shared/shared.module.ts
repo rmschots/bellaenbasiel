@@ -36,8 +36,8 @@ import { SectionComponent } from './components/section/section.component';
 import { AgmCoreModule } from '@agm/core';
 import { TranslationService } from './services/translation.service';
 import { FirebaseService } from './services/firebase.service';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -45,12 +45,12 @@ import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { PictureService } from './services/picture.service';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
-import { ModalGalleryModule } from 'angular-modal-gallery';
+import { GalleryModule } from '@ks89/angular-modal-gallery';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = <any>{
-    'pinch': {enable: false},
-    'rotate': {enable: false}
+    'pinch': { enable: false },
+    'rotate': { enable: false }
   };
 }
 
@@ -71,8 +71,8 @@ const SERVICES = [
   TranslationService,
   PictureService,
   AngularFireAuth,
-  {provide: CalendarDateFormatter, useClass: ShortDateFormatter},
-  {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
+  { provide: CalendarDateFormatter, useClass: ShortDateFormatter },
+  { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
 ];
 
 const GUARDS = [];
@@ -119,7 +119,7 @@ const MODULES = [
   AngularFirestoreModule,
   FlexLayoutModule,
   LazyLoadImagesModule,
-  ModalGalleryModule,
+  GalleryModule,
   ...MATERIAL_MODULES
 ];
 
