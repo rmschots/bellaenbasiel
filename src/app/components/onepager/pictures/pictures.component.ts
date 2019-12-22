@@ -3,23 +3,25 @@ import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { PictureService } from '../../../shared/services/picture.service';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { isEqual } from 'lodash';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject } from 'rxjs';
 import {
   AdvancedLayout,
   Description,
   DescriptionStrategy,
   Image,
+  ModalImage,
   PlainGalleryConfig,
-  PlainGalleryStrategy
-} from 'angular-modal-gallery';
-import { ImageData, ModalImage, PlainImage } from 'angular-modal-gallery/src/model/image.class';
-import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
+  PlainGalleryStrategy,
+  PlainImage
+} from '@ks89/angular-modal-gallery';
+import { PageScrollOptions, PageScrollService } from 'ngx-page-scroll-core';
 import { DOCUMENT } from '@angular/common';
+import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 
 export class CustomImage extends Image {
-  showcase: ImageData;
+  showcase: PlainImage;
 
-  constructor(id: number, modal: ModalImage, plain?: PlainImage, showcase?: ImageData) {
+  constructor(id: number, modal: ModalImage, plain?: PlainImage, showcase?: PlainImage) {
     super(id, modal, plain);
     this.showcase = showcase;
   }
@@ -33,7 +35,7 @@ export class CustomImage extends Image {
 })
 export class PicturesComponent extends Unsubscribable {
 
-  @ViewChild('scrollContainer') scrollContainer;
+  @ViewChild('scrollContainer', { static: false }) scrollContainer;
 
   images: CustomImage[] = [];
 
@@ -56,18 +58,18 @@ export class PicturesComponent extends Unsubscribable {
               private _pageScrollService: PageScrollService,
               @Inject(DOCUMENT) private _document: any) {
     super();
-    _firebaseService.galleryData$
-      .takeUntil(this.ngUnsubscribe$)
-      .filter(data => !!data)
-      .map(gallery => gallery.pictures.map(picture =>
+    _firebaseService.galleryData$.pipe(
+      takeUntil(this.ngUnsubscribe$),
+      filter(data => !!data),
+      map(gallery => gallery.pictures.map(picture =>
         new CustomImage(picture.order, {
           img: picture.large.url
         }, {
           img: picture.small.url
         }, {
           img: picture.medium.url
-        })))
-      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
+        }))),
+      distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
       .subscribe(imgs => {
         this.images = imgs;
         if (imgs.length) {
@@ -95,7 +97,7 @@ export class PicturesComponent extends Unsubscribable {
   openImageModal(image: Image) {
     this.onPreviewOpen();
     const index: number = this.getCurrentImageIndex(image, this.images);
-    this.galleryConfig = Object.assign({}, this.galleryConfig, {layout: new AdvancedLayout(index, true)});
+    this.galleryConfig = Object.assign({}, this.galleryConfig, { layout: new AdvancedLayout(index, true) });
   }
 
   gotoPreviousImage() {
@@ -134,20 +136,20 @@ export class PicturesComponent extends Unsubscribable {
 
   scrollToImage(): void {
     const img = this._document.getElementById(`picture${this._selectedImage$.value.id}`);
-    const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+    const pageScrollInstance: PageScrollOptions = {
       document: this._document,
       scrollTarget: `#picture${this._selectedImage$.value.id}`,
       verticalScrolling: false,
-      scrollingViews: [this.scrollContainer.nativeElement],
-      pageScrollDuration: 0,
-      pageScrollOffset: this.scrollContainer.nativeElement.clientWidth / 2 - img.clientWidth / 2
-    });
-    this._pageScrollService.start(pageScrollInstance);
+      scrollViews: [this.scrollContainer.nativeElement],
+      duration: 0,
+      scrollOffset: this.scrollContainer.nativeElement.clientWidth / 2 - img.clientWidth / 2
+    };
+    this._pageScrollService.scroll(pageScrollInstance);
   }
 
   private getCurrentImageIndex = (image: Image, images: Image[]): number => {
     return image ? images.indexOf(image) : -1;
-  }
+  };
 
   private refreshImage() {
     this._isChangingImage$.next(true);

@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { CalendarEvent } from 'angular-calendar';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Unsubscribable } from '../../shared/util/unsubscribable';
 import { TranslationService } from '../../shared/services/translation.service';
 import { FirebaseCalendar } from '../../shared/models/firebase-data';
+import { map } from 'rxjs/operators';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class AvailabilityCalendarComponent extends Unsubscribable {
   }
 
   get language$() {
-    return this._translationService.currentLanguage$.map(lang => lang.code);
+    return this._translationService.currentLanguage$.pipe(map(lang => lang.code));
   }
 
   get events$(): Observable<CalendarEvent[]> {

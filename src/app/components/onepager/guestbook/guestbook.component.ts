@@ -1,12 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { cloneDeep, countBy, isEqual } from 'lodash';
 import * as firebase from 'firebase';
 import { TranslationService } from '../../../shared/services/translation.service';
+import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
 
 interface Filter {
   count: number;
@@ -38,13 +38,13 @@ export class GuestbookComponent extends Unsubscribable {
 
   constructor(private _firebaseService: FirebaseService, private _translationService: TranslationService) {
     super();
-    this._firebaseService.guestbookData$
-      .filter(data => !!data)
-      .takeUntil(this.ngUnsubscribe$)
-      .distinctUntilChanged((data1, data2) => isEqual(data1, data2))
+    this._firebaseService.guestbookData$.pipe(
+      filter(data => !!data),
+      takeUntil(this.ngUnsubscribe$),
+      distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
       .subscribe(data => this.updateData(data));
-    this._translationService.currentLanguage$
-      .takeUntil(this.ngUnsubscribe$)
+    this._translationService.currentLanguage$.pipe(
+      takeUntil(this.ngUnsubscribe$))
       .subscribe(lang => this.updateLanguage(lang));
   }
 
@@ -61,11 +61,11 @@ export class GuestbookComponent extends Unsubscribable {
   }
 
   get entryIndex$(): Observable<number> {
-    return this._entryIndex$.map(index => index + 1);
+    return this._entryIndex$.pipe(map(index => index + 1));
   }
 
   get amountOfEntries$(): Observable<number> {
-    return this._entries$.map(entries => entries.length);
+    return this._entries$.pipe(map(entries => entries.length));
   }
 
   prevEntry() {
@@ -104,7 +104,7 @@ export class GuestbookComponent extends Unsubscribable {
 
   private guestbookEntryComparator = (entry1: FirebaseGuestbookReview, entry2: FirebaseGuestbookReview) => {
     return (<firebase.firestore.Timestamp>entry2.created_at).toMillis() - (<firebase.firestore.Timestamp>entry1.created_at).toMillis();
-  }
+  };
 
   private changeSelected(indexOffset: number) {
     const nextIndex = this._entryIndex$.getValue() + indexOffset;

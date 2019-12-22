@@ -6,8 +6,8 @@ import {
   Image,
   PlainGalleryConfig,
   PlainGalleryStrategy
-} from 'angular-modal-gallery';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+} from '@ks89/angular-modal-gallery';
+import { BehaviorSubject } from 'rxjs';
 import { PictureService } from '../../../../shared/services/picture.service';
 
 @Component({
@@ -28,7 +28,7 @@ export class RoomDetailsComponent {
   };
 
   @Input()
-  roomId: string;
+  roomId: number;
 
   private _images: Image[] = [];
   private _selectedImage$: BehaviorSubject<Image> = new BehaviorSubject<Image>(undefined);
@@ -61,7 +61,7 @@ export class RoomDetailsComponent {
   openImageModal(image: Image) {
     this.onPreviewOpen();
     const index: number = this.getCurrentImageIndex(image, this.images);
-    this.galleryConfig = Object.assign({}, this.galleryConfig, {layout: new AdvancedLayout(index, true)});
+    this.galleryConfig = Object.assign({}, this.galleryConfig, { layout: new AdvancedLayout(index, true) });
   }
 
   gotoPreviousImage() {
@@ -80,6 +80,6 @@ export class RoomDetailsComponent {
 
   private getCurrentImageIndex = (image: Image, images: Image[]): number => {
     return image ? images.indexOf(image) : -1;
-  }
+  };
 
 }

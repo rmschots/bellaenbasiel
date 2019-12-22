@@ -68,7 +68,8 @@
     "radix": true,
     "semicolon": [
       true,
-      "always"
+      "always",
+      "strict-bound-class-methods"
     ],
     "trailing-comma": true,
     "triple-equals": [

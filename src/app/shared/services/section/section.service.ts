@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { PageScrollInstance, PageScrollService } from 'ngx-page-scroll';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { NavItem } from '../../models/nav-item';
+import { PageScrollOptions, PageScrollService } from 'ngx-page-scroll-core';
+import { distinctUntilChanged, map } from 'rxjs/operators';
 
 @Injectable()
 export class SectionService {
@@ -45,14 +45,13 @@ export class SectionService {
   }
 
   get currentSectionId$(): Observable<string> {
-    return this._currentSectionId$.distinctUntilChanged();
+    return this._currentSectionId$.pipe(distinctUntilChanged());
   }
 
   get navItems$(): Observable<NavItem[]> {
-    return this._sectionIds$
-      .map(names =>
-        names.map(id => ({id: id, nameKey: this._sectionNameMap.get(id)}))
-      );
+    return this._sectionIds$.pipe(map(names =>
+      names.map(id => ({ id: id, nameKey: this._sectionNameMap.get(id) }))
+    ));
   }
 
   refreshCurrentSectionName(): void {
@@ -76,11 +75,11 @@ export class SectionService {
   }
 
   scrollTo(anchorId: string) {
-    const pageScrollInstance: PageScrollInstance = PageScrollInstance.newInstance({
+    const pageScrollInstance: PageScrollOptions = {
       document: document,
       scrollTarget: `#${anchorId}`,
-      scrollingViews: [this.scrollRoot]
-    });
-    this._pageScrollService.start(pageScrollInstance);
+      scrollViews: [this.scrollRoot]
+    };
+    this._pageScrollService.scroll(pageScrollInstance);
   }
 }

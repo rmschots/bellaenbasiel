@@ -1,28 +1,29 @@
 <div fxFlex.gt-sm="520px" class="room-image-wrapper">
-  <ng-container *ngIf="selectedImage$ | async as img">
-    <figure lazy-load-images>
-      <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img"
-           (click)="openImageModal(img)"/>
-      <figcaption class="description">
-        {{ img.modal.description | translate }}
-      </figcaption>
-      <mat-chip-list class="pricing-chips">
-        <mat-chip color="accent" selected="true" [innerHtml]="'ROOM.night' | translate:{amount: '76'}"></mat-chip>
-        <mat-chip color="accent" selected="true"
-                  [innerHtml]="'ROOM.breakfast' | translate:{amount: '12'}"></mat-chip>
-      </mat-chip-list>
-      <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
-      <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
-    </figure>
-  </ng-container>
-  <ks-modal-gallery [id]="roomId" [modalImages]="images" [plainGalleryConfig]="galleryConfig"
-                    [description]="galleryDescriptionConfig"
-                    (close)="onPreviewClose()"></ks-modal-gallery>
+    <ng-container *ngIf="selectedImage$ | async as img">
+        <figure lazy-load-images>
+            <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img"
+                 (click)="openImageModal(img)"/>
+            <figcaption class="description">
+                {{ img.modal.description | translate }}
+            </figcaption>
+            <mat-chip-list class="pricing-chips">
+                <mat-chip color="accent" selected="true"
+                          [innerHtml]="'ROOM.night' | translate:{amount: '76'}"></mat-chip>
+                <mat-chip color="accent" selected="true"
+                          [innerHtml]="'ROOM.breakfast' | translate:{amount: '12'}"></mat-chip>
+            </mat-chip-list>
+            <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
+            <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
+        </figure>
+    </ng-container>
+    <ks-modal-gallery [id]="roomId" [modalImages]="images" [plainGalleryConfig]="galleryConfig"
+                      [currentImageConfig]="{description: galleryDescriptionConfig}"
+                      (close)="onPreviewClose()"></ks-modal-gallery>
 </div>
 <div fxLayout="column" class="room-info full-width">
-  <h3>{{ 'ROOM.rooms.'+roomId+'.title' | translate }}</h3>
-  <p class="full-width" [innerHtml]="'ROOM.rooms.'+roomId+'.text' | translate"></p>
-  <div class="utilities-icons">
-    <ng-content></ng-content>
-  </div>
+    <h3>{{ 'ROOM.rooms.room' + roomId + '.title' | translate }}</h3>
+    <p class="full-width" [innerHtml]="'ROOM.rooms.room'+roomId+'.text' | translate"></p>
+    <div class="utilities-icons">
+        <ng-content></ng-content>
+    </div>
 </div>
