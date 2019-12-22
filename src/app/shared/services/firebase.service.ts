@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, DocumentChangeAction } from 'angularfire2/firestore';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
+import { BehaviorSubject, Observable } from 'rxjs';
 import {
   FirebaseCalendar,
   FirebaseData,
@@ -8,10 +8,10 @@ import {
   FirebaseGuestbook,
   FirebasePicture
 } from '../models/firebase-data';
-import { Observable } from 'rxjs/Observable';
 import { cloneDeep } from 'lodash';
-import { fromPromise } from 'rxjs/observable/fromPromise';
 import { PictureService } from './picture.service';
+import { fromPromise } from 'rxjs/internal-compatibility';
+import { map, tap } from 'rxjs/operators';
 
 export const pictureComparator = (a, b) => {
   return a.ordered ? b.ordered ? a.order - b.order : -1 : b.ordered ? 1 : 0;
@@ -29,14 +29,14 @@ export class FirebaseService {
 
   private _initialized = false;
 
-  private _sectionsChange$: BehaviorSubject<DocumentChangeAction[]> = new BehaviorSubject<DocumentChangeAction[]>([]);
+  private _sectionsChange$: BehaviorSubject<DocumentChangeAction<FirebaseData>[]>
+    = new BehaviorSubject<DocumentChangeAction<FirebaseData>[]>([]);
   private _calendarData$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
   private _calendarData2$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
   private _guestbookData$: BehaviorSubject<FirebaseGuestbook> = new BehaviorSubject<FirebaseGuestbook>(undefined);
   private _galleryData$: BehaviorSubject<FirebaseGallery> = new BehaviorSubject<FirebaseGallery>(undefined);
 
   constructor(private _afs: AngularFirestore, private _pictureService: PictureService) {
-    _afs.firestore.settings({timestampsInSnapshots: true});
   }
 
   init() {
@@ -47,16 +47,18 @@ export class FirebaseService {
     this._initialized = true;
     this._afs.collection<FirebaseData>('data').snapshotChanges()
       .subscribe(data => this._sectionsChange$.next(data));
-    this._sectionsChange$.map(actions => this.findSection(actions, 'calendar') as FirebaseCalendar)
+    this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'calendar') as FirebaseCalendar))
       .subscribe(data => this._calendarData$.next(data));
-    this._sectionsChange$.map(actions => this.findSection(actions, 'calendar2') as FirebaseCalendar)
+    this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'calendar2') as FirebaseCalendar))
       .subscribe(data => this._calendarData2$.next(data));
-    this._sectionsChange$.map(actions => this.findSection(actions, 'guestbook') as FirebaseGuestbook)
+    this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'guestbook') as FirebaseGuestbook))
       .subscribe(data => this._guestbookData$.next(data));
-    this._sectionsChange$.map(actions => this.findSection(actions, 'gallery') as FirebaseGallery)
-      .map(data => data && data.pictures ? data : {pictures: []})
-      .do(data => data.pictures.sort(pictureComparator))
-      .do(data => assignPictureOrders(data.pictures))
+    this._sectionsChange$.pipe(
+      map(actions => this.findSection(actions, 'gallery') as FirebaseGallery),
+      map(data => data && data.pictures ? data : { pictures: [] }),
+      tap(data => data.pictures.sort(pictureComparator)),
+      tap(data => assignPictureOrders(data.pictures))
+    )
       .subscribe(data => this._galleryData$.next(data));
   }
 
@@ -124,7 +126,7 @@ export class FirebaseService {
     return this._galleryData$.getValue();
   }
 
-  private findSection(actions: DocumentChangeAction[], sectionName: string) {
+  private findSection(actions: DocumentChangeAction<FirebaseData>[], sectionName: string) {
     const foundSectionAction = actions.find(action => action.payload.doc.id === sectionName);
     if (!foundSectionAction) {
       return null;

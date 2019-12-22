@@ -7,9 +7,10 @@ import {
   Input,
   OnDestroy
 } from '@angular/core';
-import { interval } from 'rxjs/observable/interval';
+import { interval } from 'rxjs';
 import { SectionService } from '../../services/section/section.service';
 import { Unsubscribable } from '../../util/unsubscribable';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'bnb-section',
@@ -28,12 +29,12 @@ export class SectionComponent extends Unsubscribable implements AfterViewInit, O
 
   ngAfterViewInit() {
     this.notifyChangePosition();
-    interval(1000).takeUntil(this.ngUnsubscribe$)
+    interval(1000).pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe(() => this.notifyChangePosition());
   }
 
 
-  @HostListener('window:resize', ['$event'])
+  @HostListener('window:resize')
   onResize() {
     this.notifyChangePosition();
   }

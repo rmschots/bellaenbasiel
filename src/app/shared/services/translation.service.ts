@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import { Language } from '../models/language';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs';
+import { Observable } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable()
 export class TranslationService {
@@ -32,7 +33,7 @@ export class TranslationService {
   }
 
   get currentLanguage$(): Observable<Language> {
-    return this._currentLanguage$.distinctUntilChanged();
+    return this._currentLanguage$.pipe(distinctUntilChanged());
   }
 
   private initializeLanguage() {

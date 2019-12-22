@@ -3,9 +3,9 @@ import { assignPictureOrders, FirebaseService } from '../../../shared/services/f
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseGallery, FirebasePicture } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { MatSnackBar } from '@angular/material';
+import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'bnb-picture-list',
@@ -39,8 +39,7 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
   }
 
   ngOnInit() {
-    this._firebaseService.galleryData$
-      .takeUntil(this.ngUnsubscribe$)
+    this._firebaseService.galleryData$.pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe((gallery: FirebaseGallery) => {
         const firebasePictures = cloneDeep(gallery.pictures);
         this._pictures$.next(firebasePictures);
@@ -89,8 +88,8 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
   }
 
   saveChanges() {
-    this._firebaseService.updateGallery({pictures: this._pictures$.value})
-      .takeUntil(this.ngUnsubscribe$)
+    this._firebaseService.updateGallery({ pictures: this._pictures$.value })
+      .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe(
         () => {
           console.log('update success');
