@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bellaenbasiel2": {
+    "bellaenbasiel": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -36,7 +36,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bellaenbasiel2",
+            "outputPath": "dist/bellaenbasiel",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -86,21 +86,33 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bellaenbasiel2:build"
+            "browserTarget": "bellaenbasiel:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "bellaenbasiel2:build:production"
+              "browserTarget": "bellaenbasiel:build:production"
             }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "tsconfig.app.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bellaenbasiel2:build"
+            "browserTarget": "bellaenbasiel:build"
           }
         }
       }
-    }},
-  "defaultProject": "bellaenbasiel2"
+    }
+  },
+  "defaultProject": "bellaenbasiel"
 }
