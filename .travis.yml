@@ -9,3 +9,4 @@ script:
 deploy:
   provider: firebase
   project: bellaenbasiel
+  only: hosting
