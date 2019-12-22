@@ -1,12 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Observable } from 'rxjs/Observable';
-import { AngularFireStorage } from 'angularfire2/storage';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { Ng2PicaService } from 'ng2-pica';
 import { v4 as uuid } from 'uuid';
-import { fromPromise } from 'rxjs/observable/fromPromise';
 import { FirebasePicture } from '../models/firebase-data';
-import { forkJoin } from 'rxjs/observable/forkJoin';
+import { fromPromise } from 'rxjs/internal-compatibility';
 
 @Injectable()
 export class PictureService {

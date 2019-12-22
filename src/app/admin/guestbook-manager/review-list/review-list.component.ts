@@ -5,6 +5,7 @@ import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
 import * as firebase from 'firebase';
+import { filter, map, takeUntil } from 'rxjs/operators';
 
 
 @Component({
@@ -19,9 +20,9 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
 
   dataSource: MatTableDataSource<FirebaseGuestbookReview> = new MatTableDataSource<FirebaseGuestbookReview>([]);
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   private _originalData: FirebaseGuestbookReview[] = [];
 
@@ -41,10 +42,11 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
   }
 
   ngOnInit(): void {
-    this._firebaseService.guestbookData$
-      .filter(data => !!data)
-      .map(data => data.reviews)
-      .takeUntil(this.ngUnsubscribe$)
+    this._firebaseService.guestbookData$.pipe(
+      filter(data => !!data),
+      map(data => data.reviews),
+      takeUntil(this.ngUnsubscribe$)
+    )
       .subscribe(entries => {
         this._originalData = entries.sort((a, b) => this.compare(
           (<firebase.firestore.Timestamp>a.created_at).toMillis(),
@@ -58,7 +60,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
 
   trackByFunction = (index: number, item: Element) => {
     return item.id;
-  }
+  };
 
   sortData(sort: Sort) {
     const data = cloneDeep(this._originalData);

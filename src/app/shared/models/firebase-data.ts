@@ -1,6 +1,6 @@
 import * as firebase from 'firebase';
 
-export type FirebaseData = FirebaseCalendar | FirebaseGuestbook;
+export type FirebaseData = FirebaseCalendar | FirebaseGuestbook | FirebaseGallery;
 
 export interface FirebaseCalendar {
   entries: CalendarEntry[];
