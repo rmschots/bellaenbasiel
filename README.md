@@ -3,6 +3,8 @@
 b&b Angular 5 project, served on bellaenbasiel.be
 Includes picture manager & guestbook utility for airbnb
 
+[![Build Status](https://travis-ci.com/rmschots/bellaenbasiel.svg?branch=master)](https://travis-ci.com/rmschots/bellaenbasiel)
+
 ## Technologies
 
 * Angular 5 (Angular CLI)
