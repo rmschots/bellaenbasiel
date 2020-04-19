@@ -1,7 +1,7 @@
 <ng-container *ngIf="roomConfig$ | async as roomConfig">
   <div fxFlex.gt-sm="520px" class="room-image-wrapper">
     <ng-container *ngIf="selectedImage$ | async as img">
-      <figure lazy-load-images>
+      <figure bnbLazyLoadImages>
         <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img"
              (click)="openImageModal(img)"/>
         <figcaption class="description">
