@@ -35,7 +35,7 @@ export class CustomImage extends Image {
 })
 export class PicturesComponent extends Unsubscribable {
 
-  @ViewChild('scrollContainer', { static: false }) scrollContainer;
+  @ViewChild('scrollContainer') scrollContainer;
 
   images: CustomImage[] = [];
 
