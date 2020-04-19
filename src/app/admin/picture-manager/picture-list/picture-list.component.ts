@@ -4,7 +4,7 @@ import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseGallery, FirebasePicture } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { MatSnackBar } from '@angular/material';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({

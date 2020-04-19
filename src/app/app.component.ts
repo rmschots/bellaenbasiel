@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MediaObserver } from '@angular/flex-layout';
-import { MatSidenav } from '@angular/material';
+import { MatSidenav } from '@angular/material/sidenav';
 import { SectionService } from './shared/services/section/section.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { TranslationService } from './shared/services/translation.service';
