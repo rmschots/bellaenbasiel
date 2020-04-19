@@ -1,4 +1,4 @@
-<div class="pictures-background" lazy-load-images>
+<div class="pictures-background" bnbLazyLoadImages>
     <div data-background-src="/assets/img/pictures_background.jpg"></div>
 </div>
 <div fxLayout="column" fxLayoutAlign="center center" class="container pictures-content">
@@ -7,7 +7,7 @@
     <ng-container *ngIf="selectedImage$ | async as img">
         <div fxLayout="column" fxLayoutGap="16px" class="full-width">
             <div class="showcase">
-                <figure lazy-load-images>
+                <figure bnbLazyLoadImages>
                     <img *ngIf="!(isChangingImage$ | async)" src="/assets/svg/loading-image.svg"
                          [attr.data-src]="img.showcase.img"
                          (click)="openImageModal(img)"/>
@@ -18,7 +18,7 @@
             <div class="thumbnails">
                 <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="4px" #scrollContainer
                      id="scroll-container">
-                    <figure *ngFor="let thumbnail of images" lazy-load-images fxFlex="none">
+                    <figure *ngFor="let thumbnail of images" bnbLazyLoadImages fxFlex="none">
                         <img [ngClass]="{'selected-thumbnail': img === thumbnail}" src="/assets/svg/loading-image.svg"
                              [attr.data-src]="thumbnail.plain.img"
                              (click)="selectImage(thumbnail)" [id]="'picture' + thumbnail.id"/>

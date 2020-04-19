@@ -42,15 +42,19 @@ import { ConfirmationDialogComponent } from './components/confirmation-dialog/co
 import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { PictureService } from './services/picture.service';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
-import { LazyLoadImagesModule } from 'ngx-lazy-load-images';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
+import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = <any>{
-    'pinch': { enable: false },
-    'rotate': { enable: false }
+    'pinch': {enable: false},
+    'rotate': {enable: false}
   };
 }
+
+const DIRECTIVES = [
+  LazyLoadImagesDirective
+];
 
 const DIALOGS = [
   ConfirmationDialogComponent
@@ -60,6 +64,7 @@ const COMPONENTS = [
   SectionTitleComponent,
   StarRatingComponent,
   SectionComponent,
+  ConfirmationDialogComponent,
   ...DIALOGS
 ];
 
@@ -69,8 +74,8 @@ const SERVICES = [
   TranslationService,
   PictureService,
   AngularFireAuth,
-  { provide: CalendarDateFormatter, useClass: ShortDateFormatter },
-  { provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig }
+  {provide: CalendarDateFormatter, useClass: ShortDateFormatter},
+  {provide: HAMMER_GESTURE_CONFIG, useClass: CustomHammerConfig}
 ];
 
 const GUARDS = [];
@@ -116,7 +121,6 @@ const MODULES = [
   AgmCoreModule,
   AngularFirestoreModule,
   FlexLayoutModule,
-  LazyLoadImagesModule,
   GalleryModule,
   ...MATERIAL_MODULES
 ];
@@ -128,12 +132,13 @@ const MODULES = [
   exports: [
     ...MODULES,
     ...COMPONENTS,
+    ...DIRECTIVES,
     ...PIPES
   ],
   declarations: [
     ...COMPONENTS,
+    ...DIRECTIVES,
     ...PIPES,
-    ConfirmationDialogComponent
   ],
   entryComponents: [
     ...DIALOGS

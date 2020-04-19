@@ -1,4 +1,4 @@
-<div class="guestbook-background" lazy-load-images>
+<div class="guestbook-background" bnbLazyLoadImages>
   <div data-background-src="/assets/img/guestbook_background.jpg"></div>
 </div>
 <div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
@@ -19,7 +19,7 @@
       <mat-chip fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center"
                 *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
                 [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
-        <bnb-star-rating [stars]="ratingFilter.stars" [size]="'13px'" [hideEmptyStars]="true"></bnb-star-rating>
+        <bnb-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></bnb-star-rating>
         <div>({{ ratingFilter.count }})</div>
       </mat-chip>
     </mat-chip-list>
