@@ -22,13 +22,6 @@ export class PictureService {
     return this._overlayShown.asObservable();
   }
 
-  init() {
-    const storageRef = this._storage.storage.ref();
-    const picturesRef = storageRef.child('pictures');
-    console.log(picturesRef);
-
-  }
-
   resizeImageForThumbnail(files: File[]): Observable<any> {
     return this._ng2PicaService.resize(files, 100, 100, true);
   }
