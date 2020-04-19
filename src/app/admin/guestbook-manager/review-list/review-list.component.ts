@@ -1,6 +1,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { MatPaginator, MatSort, MatTableDataSource, Sort } from '@angular/material';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort, Sort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
