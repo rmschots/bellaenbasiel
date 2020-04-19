@@ -7,8 +7,11 @@ import {
   PlainGalleryConfig,
   PlainGalleryStrategy
 } from '@ks89/angular-modal-gallery';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
 import { PictureService } from '../../../../shared/services/picture.service';
+import { RoomConfig } from '../../../../shared/models/room-config';
+import { map, take, takeUntil } from 'rxjs/operators';
+import { Unsubscribable } from '../../../../shared/util/unsubscribable';
 
 @Component({
   selector: 'bnb-room-details',
@@ -16,7 +19,7 @@ import { PictureService } from '../../../../shared/services/picture.service';
   styleUrls: ['./room-details.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomDetailsComponent {
+export class RoomDetailsComponent extends Unsubscribable {
 
   galleryConfig: PlainGalleryConfig = {
     strategy: PlainGalleryStrategy.CUSTOM,
@@ -28,22 +31,20 @@ export class RoomDetailsComponent {
   };
 
   @Input()
-  roomId: number;
+  set roomConfig(config: RoomConfig) {
+    this._roomConfig$.next(config);
+    this._selectedImage$.next(config.images[0]);
+  }
 
-  private _images: Image[] = [];
   private _selectedImage$: BehaviorSubject<Image> = new BehaviorSubject<Image>(undefined);
+  private _roomConfig$: ReplaySubject<RoomConfig> = new ReplaySubject<RoomConfig>(1);
 
   constructor(private _pictureService: PictureService) {
+    super();
   }
 
-  @Input()
-  set images(images: Image[]) {
-    this._images = images;
-    this._selectedImage$.next(images[0]);
-  }
-
-  get images(): Image[] {
-    return this._images;
+  get roomConfig$(): Observable<RoomConfig> {
+    return this._roomConfig$.asObservable();
   }
 
   get selectedImage$() {
@@ -59,23 +60,46 @@ export class RoomDetailsComponent {
   }
 
   openImageModal(image: Image) {
-    this.onPreviewOpen();
-    const index: number = this.getCurrentImageIndex(image, this.images);
-    this.galleryConfig = Object.assign({}, this.galleryConfig, { layout: new AdvancedLayout(index, true) });
+    this._roomConfig$.pipe(
+      map(config => {
+        return this.getCurrentImageIndex(image, config.images);
+      }),
+      take(1),
+      takeUntil(this.ngUnsubscribe$)
+    ).subscribe(currentImageIndex => {
+      this.onPreviewOpen();
+      this.galleryConfig = Object.assign({}, this.galleryConfig, {layout: new AdvancedLayout(currentImageIndex, true)});
+    });
   }
 
   gotoPreviousImage() {
-    let idx = this.getCurrentImageIndex(this._selectedImage$.value, this.images) - 1;
-    const length = this.images.length;
-    idx = ((idx % length) + length) % length;
-    this._selectedImage$.next(this.images[idx]);
+    this._roomConfig$.pipe(
+      map(config => {
+        let idx = this.getCurrentImageIndex(this._selectedImage$.value, config.images) - 1;
+        const length = config.images.length;
+        idx = ((idx % length) + length) % length;
+        return config.images[idx];
+      }),
+      take(1),
+      takeUntil(this.ngUnsubscribe$)
+    ).subscribe(nextImage => {
+      this._selectedImage$.next(nextImage);
+    });
   }
 
   gotoNextImage() {
-    let idx = this.getCurrentImageIndex(this._selectedImage$.value, this.images) + 1;
-    const length = this.images.length;
-    idx = ((idx % length) + length) % length;
-    this._selectedImage$.next(this.images[idx]);
+    this._roomConfig$.pipe(
+      map(config => {
+        let idx = this.getCurrentImageIndex(this._selectedImage$.value, config.images) + 1;
+        const length = config.images.length;
+        idx = ((idx % length) + length) % length;
+        return config.images[idx];
+      }),
+      take(1),
+      takeUntil(this.ngUnsubscribe$)
+    ).subscribe(nextImage => {
+      this._selectedImage$.next(nextImage);
+    });
   }
 
   private getCurrentImageIndex = (image: Image, images: Image[]): number => {
