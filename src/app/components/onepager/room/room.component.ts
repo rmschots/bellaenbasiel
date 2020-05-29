@@ -87,7 +87,7 @@ export class RoomComponent extends Unsubscribable {
 
 
   get extraInfo(): any[] {
-    return Array(7);
+    return Array(6);
   }
 
   get bookings(): any[] {
