@@ -19,15 +19,15 @@
     "title": "Welkom",
     "hosts": {
       "title": "Gastheer en –vrouw",
-      "text": "Als geboren en getogen Bruggelingen kennen we onze stad en dat willen we graag delen.<br>Nog steeds ontdekken we romantische plekjes,lekkere restaurantjes, gezellige caféétjes,…. We adviseren u ook over fietstochten, uitstappen, evenementen."
+      "text": "Als geboren en getogen Bruggelingen kennen we onze stad en dat willen we graag delen.<br>Nog steeds ontdekken we romantische plekjes, lekkere restaurantjes, gezellige cafeetjes,…. We adviseren u ook over fiets- en wandeltochten in en rond de stad, naar zee, in de polders, uitstapjes, romantische wandelingen in de stad, evenementen..."
     },
     "house": {
       "title": "Ons huis",
-      "text": "Naast een eigen slaap- en badkamer hebben onze gasten toegang tot de eetkamer waar het ontbijt genomen wordt.<br>Bij goed weer kan genoten worden van onze zonnige en bloemrijke stadstuin. Onze stadskippen houden niet van andere huisdieren. Roken kan in de tuin."
+      "text": "Naast een eigen slaap- en badkamer bieden wij onze gasten toegang tot de eetkamer waar het ontbijt geserveerd wordt.<br>Bij goed weer kan genoten worden van onze zonnige en bloemrijke stadstuin. Onze stadskippen houden niet van andere huisdieren, alleen van onze lieve hond en die houdt wél van onze gasten.<br>Roken kan in de tuin."
     },
     "neighbourhood": {
       "title": "Onze buurt",
-      "text": "Wij verwelkomen u graag in onze 3 gastenkamers, gelegen in het rustige en groene Sint Annakwartier, een volksbuurt binnen de oude stadsomwalling van Brugge.<br>Op nauwelijks 10 minuten wandelen langs pittoreske straatjes bent u in hartje Brugge."
+      "text": "Wij verwelkomen u graag in onze 3 gastenkamers, gelegen in het pitoreske Sint Annakwartier, een rustige, groene volksbuurt binnen de oude stadsomwalling van Brugge.<br>Op nauwelijks 10 minuten wandelen bent u in hartje Brugge. Op 3 km wandelen of fietsen bereikt U de groene omgeving rond de stad, die reikt tot de Zee."
     }
   },
   "GUESTBOOK": {
@@ -73,19 +73,18 @@
     "extraInfo": {
       "title": "Extra info",
       "item1": "*Minimum 2 nachten (prijs excl. toeristentaks)",
-      "item2": "**Vooraf te bespreken per mail:<br><b>Ontbijt:</b> &euro;12 pppn<br><b>Garage:</b> &euro;12 per wagen/nacht",
-      "item3": "Toeristenbelasting stad Brugge = &euro;2,5 pppn",
-      "item4": "Huisdieren niet toegelaten",
+      "item2": "**Vooraf te reserveren per mail :<br><b>Ontbijt :</b> &euro;12 pppn<br><b>Garage :</b> &euro;12 per wagen/nacht<br><b>Wasmachine en droogkast :</b> &euro;12<br><b>Kamer 2 ,  Zetelbed :</b> &euro;20 pppn<br><b>Toeristentaks Brugge :</b> &euro;2,5 pppn",
+      "item3": "Gratis kinderbed en kinderstoel",
+      "item4": "Huisdieren niet toegelaten (er is wel een brave hond)",
       "item5": "Roken kan in de tuin",
-      "item6": "Gebruik wasmachine en droogkast : &euro;12",
-      "item7": "<b>Kamer 2:</b> Gebruik van zetelbed: &euro;20 pppn"
+      "item6": "KORTINGEN :<br>Reservering van 3 kamers : -10 %<br>Reservering van 7 nachten : - 20 %<br>Kortingen zijn niet cumuleerbaar."
     },
     "booking": {
       "title": "Boeken",
       "text": "Voorschot van 1 nacht is vereist als reservatie.<br>Betaling saldo in cash bij aankomst. Wij aanvaarden geen kredietkaarten.",
       "conditions": "Algemene Boekingsvoorwaarden",
-      "item1": "<b>Voorschot:</b> &euro;76 te storten op rekeningnr BE14 3631 5869 6383",
-      "item2": "<b>Saldo:</b> cash bij aankomst, of voorafgaandelijk met bankoverschrijving",
+      "item1": "<b>Voorschot :</b> &euro;80/kamer te storten op rekeningnr BE14 3631 5869 6383",
+      "item2": "<b>Saldo :</b> cash bij aankomst, of voorafgaandelijk met bankoverschrijving",
       "item3": "<b>Annuleren</b> is mogelijk zonder kosten tot 5 dagen voor de aankomstdatum. Wie later annuleert, wordt de eerste nacht en eventueel besteld ontbijt aangerekend. In geval van no-show, zal de totale som van de reservatie aangerekend worden."
     }
   },
@@ -96,7 +95,7 @@
     "title": "Activiteiten",
     "relax": {
       "title": "Relax Brugge",
-      "text": "Een romantische wandeling langs de feeëriek verlichte Brugse Reien, een smakelijk biertje in een bruine kroeg of een frivool festival op de mooie pleinen, brengen u in de perfecte vakantiestemming.<br>Uiteraard hoort daar ook wat shoppen en chocolade bij !"
+      "text": "Een romantische wandeling langs de feeëriek verlichte Brugse Reien, een smakelijk biertje in een bruine kroeg of een frivool festival op de mooie pleinen, brengen u in de perfecte vakantiestemming.<br>Uiteraard hoort daar ook wat shoppen en chocolade bij ! Wij geven onze gasten alle suggesties."
     },
     "culture": {
       "title": "Cultuur",
@@ -104,21 +103,21 @@
     },
     "sportsAndNature": {
       "title": "Sport en natuur",
-      "text": "Rond Brugge hebben we belangrijke groene wegen en natuurgebieden. Zo kan je het Brugs Ommeland fietsen. Ook de kust (het Zwin en de Uitkerkse polders) is op fietsafstand en bereik je via schilderachtige polderdorpjes. Eveneens Sluis (NL) is amper 20 km ver.<br>Het boekendorpje Damme is zelfs op wandelafstand."
+      "text": "Rond Brugge hebben we belangrijke groene wegen en natuurgebieden. Zo kan je het Brugs Ommeland fietsen. Ook de kust, het Zwin en de Uitkerkse polders zijn op fietsafstand en bereik je via schilderachtige polderdorpjes. Het oude vestingstadje Sluis (NL) is amper 20 km ver.<br>Het boekendorpje Damme is zelfs op wandelafstand.<br>Wij zorgen voor fiets- en wandelkaarten en geven onze gasten de beste en aangepaste suggesties, ook voor unieke pick-nick plaatsjes, heerlijk stille avondwandelingen,…"
     },
     "gastronomy": {
       "title": "Gastronomie",
-      "text": "Lekker tafelen hoort bij onze Bourgondische cultuur van genieten. Zo vind je in Brugge eetgelegenheden van friettent tot sterrenrestaurants.<br><br>We raden je aan op voorhand een restaurant te reserveren, indien gewenst."
+      "text": "Lekker tafelen hoort bij onze Bourgondische cultuur van genieten. Zo vind je in Brugge eetgelegenheden van friettent tot sterrenrestaurants.<br><br>We laten onze gasten graag genieten van onze “favorieten” en helpen bij een reservering wanneer nodig."
     }
   },
   "CONTACT": {
     "title": "Contact",
     "access": {
       "title": "Bereikbaarheid",
-      "train": "<b>Per trein:</b> <a href=\"http://www.belgianrail.be\">belgianrail.be</a>",
-      "bus": "<b>Per bus:</b> Neem aan de voorzijde van het station bus nr 4 of 14 en vraag de chauffeur te stoppen aan de halte “Gouden Handrei ” of Carmersbrug. Vanaf 20.00 uur ‘s avonds rijdt de avondlijn Koolkerke -Dudzele nr 90",
-      "taxi": "<b>Per taxi:</b> ca &euro;10",
-      "car": "<b>Per auto:</b> in- en uitladen kan gemakkelijk voor de deur. Wij beschikken over een garage indien u dat wenst: &euro;12/nacht."
+      "train": "<b>Per trein :</b> <a href=\"http://www.belgiantrain.be\">belgiantrain.be</a>",
+      "bus": "<b>Per bus :</b> Neem aan de voorzijde van het station bus nr 4 of 14 en vraag de chauffeur te stoppen aan de halte “Gouden Handrei ” of Carmersbrug. Vanaf 20.00 uur ‘s avonds rijdt de avondlijn Koolkerke -Dudzele nr 90",
+      "taxi": "<b>Per taxi :</b> ca &euro;10-15",
+      "car": "<b>Per auto :</b> in- en uitladen kan gemakkelijk voor de deur. Wij beschikken over een garage indien u dat wenst : &euro;12/nacht."
     },
     "availability": {
       "title": "Beschikbaarheid"
