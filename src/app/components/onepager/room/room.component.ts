@@ -28,9 +28,9 @@ export class RoomComponent extends Unsubscribable {
         description: 'ROOM.rooms.room1.image2'
       }, {img: '/assets/img/rooms/room1/bathroom.jpg'}),
       new Image(3, {
-        img: '/assets/img/rooms/breakfast.jpg',
+        img: '/assets/img/rooms/room1/breakfast.jpg',
         description: 'ROOM.rooms.room1.image3'
-      }, {img: '/assets/img/rooms/breakfast.jpg'})
+      }, {img: '/assets/img/rooms/room1/breakfast.jpg'})
     ]
   };
   roomConfig2: RoomConfig = {
@@ -41,10 +41,14 @@ export class RoomComponent extends Unsubscribable {
         img: '/assets/img/rooms/room2/bedroom.jpg',
         description: 'ROOM.rooms.room2.image1'
       }, {img: '/assets/img/rooms/room2/bedroom.jpg'}),
+      new Image(5, {
+        img: '/assets/img/rooms/bathroom.jpg',
+        description: 'ROOM.rooms.room2.image2'
+      }, {img: '/assets/img/rooms/room2/bathroom.jpg'}),
       new Image(6, {
         img: '/assets/img/rooms/breakfast.jpg',
         description: 'ROOM.rooms.room2.image3'
-      }, {img: '/assets/img/rooms/breakfast.jpg'})
+      }, {img: '/assets/img/rooms/room2/breakfast.jpg'})
     ]
   };
   roomConfig3: RoomConfig = {
@@ -55,10 +59,14 @@ export class RoomComponent extends Unsubscribable {
         img: '/assets/img/rooms/room3/bedroom.jpg',
         description: 'ROOM.rooms.room3.image1'
       }, {img: '/assets/img/rooms/room3/bedroom.jpg'}),
+      new Image(8, {
+        img: '/assets/img/rooms/room3/bathroom.jpg',
+        description: 'ROOM.rooms.room3.image2'
+      }, {img: '/assets/img/rooms/room3/bathroom.jpg'}),
       new Image(9, {
-        img: '/assets/img/rooms/breakfast.jpg',
+        img: '/assets/img/rooms/room3/breakfast.jpg',
         description: 'ROOM.rooms.room3.image3'
-      }, {img: '/assets/img/rooms/breakfast.jpg'})
+      }, {img: '/assets/img/rooms/room3/breakfast.jpg'})
     ]
   };
 
