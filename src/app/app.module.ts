@@ -21,7 +21,6 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { GuestbookComponent } from './components/onepager/guestbook/guestbook.component';
 import { AvailabilityCalendarComponent } from './components/availability-calendar/availability-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { AgmCoreModule } from '@agm/core';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -35,6 +34,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeNl from '@angular/common/locales/nl';
+import { AgmCoreModule } from '@agm/core';
 
 
 const SINGLETON_MODULES = [
