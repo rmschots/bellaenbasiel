@@ -139,9 +139,6 @@ const MODULES = [
     ...COMPONENTS,
     ...DIRECTIVES,
     ...PIPES,
-  ],
-  entryComponents: [
-    ...DIALOGS
   ]
 })
 export class SharedModule {
