@@ -18,6 +18,9 @@
         "ignore-pattern": "^import |^export {(.*?)}"
       }
     ],
+    "deprecation": {
+      "severity": "warning"
+    },
     "member-ordering": [
       true,
       "public-before-private",
