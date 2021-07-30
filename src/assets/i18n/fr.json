@@ -72,11 +72,11 @@
     "extraInfo": {
       "title": "Infos supplémentaires",
       "item1": "*Minimum 2 nuits (prix excl. taxe touristique)",
-      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;12 pppn<br><b>Garage :</b> &euro;12 par voiture/nuit<br><b>Usage du lave-linge et séchoir :</b> &euro;12<br><b>Chambre 2, Usage du canapé lit :</b> &euro;20 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;2,5 pppn",
+      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;15 pppn<br><b>Garage :</b> &euro;15 par voiture/nuit<br><b>Usage du lave-linge et séchoir :</b> &euro;12<br><b>Chambre 2, Usage du canapé lit :</b> &euro;20 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;3 pppn",
       "item3": "Lit d’enfant et chaise haute gratuits",
       "item4": "Les animaux domestiques ne sont pas autorisés (nous avons notre propre jolie chien)",
       "item5": "Il est permis de fumer dans le jardin",
-      "item6": "RÉDUCTIONS :<br>Réservation de 3 chambres : -10 %.<br>Réservation de 7 nuits : - 20%.<br>Les réductions ne sont pas cumulables."
+      "item6": "RÉDUCTIONS :<br>Réservation de 3 chambres : -10 %.<br>Réservation de 7 nuits : -10%.<br>Les réductions ne sont pas cumulables."
     },
     "booking": {
       "title": "Réserver",
@@ -116,7 +116,7 @@
       "train": "<b>En trein :</b> <a href=\"https://www.belgiantrain.be\">belgiantrain.be</a>",
       "bus": "<b>En bus :</b> Prenez le bus 4 ou 14 et demandez au chauffeur de s’arrêter à la halte ‘Carmersbrug‘.<br>Vous traversez le pont et continuez tout droit jusqu’au le Rijkepijndersstraat, la 3ième rue à gauche (200 m)<br>C’est moins cher d’acheter un billet par SMS le code de commande ‘DL’ au numéro court 4884<br>Aprés 20.00h prenez le bus nr 90 Koolkerke-Dudzele",
       "taxi": "<b>Taxi :</b> Le prix d’un taxi coûte environ &euro;10-15",
-      "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;12/jour."
+      "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;15/jour."
     },
     "availability": {
       "title": "Disponibilité"
