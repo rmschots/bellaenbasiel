@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, DocumentChangeAction } from '@angular/fire/firestore';
 import { BehaviorSubject, Observable } from 'rxjs';
 import {
   FirebaseCalendar,
@@ -12,6 +11,7 @@ import { cloneDeep } from 'lodash';
 import { PictureService } from './picture.service';
 import { fromPromise } from 'rxjs/internal-compatibility';
 import { map, tap } from 'rxjs/operators';
+import { AngularFirestore, DocumentChangeAction } from '@angular/fire/compat/firestore';
 
 export const pictureComparator = (a, b) => {
   return a.ordered ? b.ordered ? a.order - b.order : -1 : b.ordered ? 1 : 0;

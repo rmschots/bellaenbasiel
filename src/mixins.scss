@@ -1,4 +1,5 @@
 // Import all the tools needed to customize the theme and extract parts of it
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 
 // Define a mixin that accepts a theme and outputs the color styles for the component.
@@ -10,21 +11,21 @@
   $app-accent-palette: map-get($theme, accent);
   $app-warn-palette: map-get($theme, warn);
 
-  $app-primary: mat-color($app-primary-palette);
-  $app-accent: mat-color($app-accent-palette);
-  $app-warn: mat-color($app-warn-palette);
-  $app-foreground: mat-color($app-foreground-palette, text);
-  $app-background: mat-color($app-background-palette, background);
+  $app-primary: mat.get-color-from-palette($app-primary-palette);
+  $app-accent: mat.get-color-from-palette($app-accent-palette);
+  $app-warn: mat.get-color-from-palette($app-warn-palette);
+  $app-foreground: mat.get-color-from-palette($app-foreground-palette, text);
+  $app-background: mat.get-color-from-palette($app-background-palette, background);
   $app-header-background: #1c92d2;
   $app-header-foreground: #fff;
-  $app-nav-background: mat-color($app-background-palette, app-bar);
+  $app-nav-background: mat.get-color-from-palette($app-background-palette, app-bar);
   $app-background-alt: $app-primary;
-  $app-background-card: mat-color($app-background-palette, card);
+  $app-background-card: mat.get-color-from-palette($app-background-palette, card);
   $app-foreground-alt: #fff;
-  $app-foreground-sub: mat-color($app-foreground-palette, secondary-text);
-  $app-link: mat-color($app-foreground-palette, text);
-  $app-link-hover: mat-color($app-foreground-palette, text, .3);
-  $app-hover-background: mat-color($app-background-palette, hover);
+  $app-foreground-sub: mat.get-color-from-palette($app-foreground-palette, secondary-text);
+  $app-link: mat.get-color-from-palette($app-foreground-palette, text);
+  $app-link-hover: mat.get-color-from-palette($app-foreground-palette, text, .3);
+  $app-hover-background: mat.get-color-from-palette($app-background-palette, hover);
 
   .action-delete-color {
     color: $app-warn;

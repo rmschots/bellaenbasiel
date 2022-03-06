@@ -4,9 +4,10 @@ import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { cloneDeep, countBy, isEqual } from 'lodash';
-import * as firebase from 'firebase';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
+import firebase from 'firebase/compat';
+import Timestamp = firebase.firestore.Timestamp;
 
 interface Filter {
   count: number;
@@ -103,7 +104,7 @@ export class GuestbookComponent extends Unsubscribable {
   }
 
   private guestbookEntryComparator = (entry1: FirebaseGuestbookReview, entry2: FirebaseGuestbookReview) => {
-    return (<firebase.firestore.Timestamp>entry2.created_at).toMillis() - (<firebase.firestore.Timestamp>entry1.created_at).toMillis();
+    return (<Timestamp>entry2.created_at).toMillis() - (<Timestamp>entry1.created_at).toMillis();
   };
 
   private changeSelected(indexOffset: number) {

@@ -6,8 +6,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
-import * as firebase from 'firebase';
 import { filter, map, takeUntil } from 'rxjs/operators';
+import firebase from 'firebase/compat';
+import Timestamp = firebase.firestore.Timestamp;
 
 
 @Component({
@@ -51,8 +52,8 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
     )
       .subscribe(entries => {
         this._originalData = entries.sort((a, b) => this.compare(
-          (<firebase.firestore.Timestamp>a.created_at).toMillis(),
-          (<firebase.firestore.Timestamp>b.created_at).toMillis(),
+          (<Timestamp>a.created_at).toMillis(),
+          (<Timestamp>b.created_at).toMillis(),
           false)
         );
         this.dataSource.data = cloneDeep(entries);

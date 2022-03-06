@@ -1,4 +1,5 @@
-import * as firebase from 'firebase';
+import firebase from 'firebase/compat';
+import Timestamp = firebase.firestore.Timestamp;
 
 export type FirebaseData = FirebaseCalendar | FirebaseGuestbook | FirebaseGallery;
 
@@ -7,8 +8,8 @@ export interface FirebaseCalendar {
 }
 
 export interface CalendarEntry {
-  startDate: firebase.firestore.Timestamp;
-  endDate: firebase.firestore.Timestamp;
+  startDate: Timestamp;
+  endDate: Timestamp;
 }
 
 export interface FirebaseGuestbookReviewee {
@@ -34,7 +35,7 @@ export interface FirebaseGuestbookReviewer {
 export interface FirebaseGuestbookReview {
   collection_tag?: any;
   comments: string;
-  created_at: Date | firebase.firestore.Timestamp;
+  created_at: Date | Timestamp;
   id: number;
   language: string;
   localized_date: string;

@@ -5,11 +5,12 @@ import { PictureService } from '../../../shared/services/picture.service';
 import { FileInput } from 'ngx-material-file-input';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { ProcessingFile } from '../../../shared/models/processing-file';
-import * as firebase from 'firebase';
 import { FirebasePicture } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { sumBy } from 'lodash';
 import { distinctUntilChanged, filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import firebase from 'firebase/compat';
+import UploadTaskSnapshot = firebase.storage.UploadTaskSnapshot;
 
 interface UploadResult {
   size: string;
@@ -30,12 +31,12 @@ export class AddPicturesComponent extends Unsubscribable {
   displayedColumns = ['image', 'filename', 'resizedSmall', 'resizedMedium', 'uploaded'];
   completionStatus$: Observable<number>;
 
-  constructor(fb: FormBuilder,
+  constructor(private _fb: FormBuilder,
               private _pictureService: PictureService,
               private _firebaseService: FirebaseService,
               private _changeDetector: ChangeDetectorRef) {
     super();
-    this.uploadFormGroup = fb.group({
+    this.uploadFormGroup = _fb.group({
       files: ['', Validators.required]
     });
     this.completionStatus$ = this.processingFiles$.pipe(
@@ -58,18 +59,18 @@ export class AddPicturesComponent extends Unsubscribable {
     ).subscribe(pfs => {
       pfs.forEach(pf => {
         forkJoin(
-          this.uploadImage(pf.small, 'small'),
-          this.uploadImage(pf.medium, 'medium'),
-          this.uploadImage(pf.large, 'large'))
+          [this.uploadImage(pf.small, 'small'),
+            this.uploadImage(pf.medium, 'medium'),
+            this.uploadImage(pf.large, 'large')])
           .pipe(takeUntil(this.ngUnsubscribe$))
           .subscribe((result: UploadResult[]) => {
             const smallImage = result.find(ur => ur.size === 'small');
             const mediumImage = result.find(ur => ur.size === 'medium');
             const largeImage = result.find(ur => ur.size === 'large');
             const picture: FirebasePicture = {
-              small: { url: smallImage.url, ref: smallImage.ref },
-              medium: { url: mediumImage.url, ref: mediumImage.ref },
-              large: { url: largeImage.url, ref: largeImage.ref },
+              small: {url: smallImage.url, ref: smallImage.ref},
+              medium: {url: mediumImage.url, ref: mediumImage.ref},
+              large: {url: largeImage.url, ref: largeImage.ref},
               ordered: false,
               order: -1
             };
@@ -130,11 +131,11 @@ export class AddPicturesComponent extends Unsubscribable {
     return this._pictureService.uploadPicture(file, key)
       .pipe(
         takeUntil(this.ngUnsubscribe$),
-        switchMap((result: firebase.storage.UploadTaskSnapshot) => {
+        switchMap((result: UploadTaskSnapshot) => {
           smallRef = result.metadata.fullPath;
           return result.ref.getDownloadURL();
         }),
-        map(url => ({ size: key, url: url, ref: smallRef })));
+        map(url => ({size: key, url: url, ref: smallRef})));
   }
 
 }
