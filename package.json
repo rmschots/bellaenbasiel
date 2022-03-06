@@ -37,7 +37,7 @@
     "firebase": "^9.6.8",
     "font-awesome": "^4.7.0",
     "ical.js": "^1.4.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mousetrap": "^1.6.3",
     "ng2-date-picker": "^9.0.0",
     "ngx-material-file-input": "^2.1.1",
