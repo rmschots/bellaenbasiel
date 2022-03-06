@@ -11,19 +11,19 @@
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "~11.2.14",
+    "@angular/animations": "~12.2.16",
     "@angular/cdk": "^11.2.13",
-    "@angular/common": "~11.2.14",
-    "@angular/compiler": "~11.2.14",
-    "@angular/core": "~11.2.14",
+    "@angular/common": "~12.2.16",
+    "@angular/compiler": "~12.2.16",
+    "@angular/core": "~12.2.16",
     "@angular/fire": "^5.2.3",
     "@angular/flex-layout": "^9.0.0-beta.29",
-    "@angular/forms": "~11.2.14",
+    "@angular/forms": "~12.2.16",
     "@angular/google-maps": "^13.2.5",
     "@angular/material": "^11.2.13",
-    "@angular/platform-browser": "~11.2.14",
-    "@angular/platform-browser-dynamic": "~11.2.14",
-    "@angular/router": "~11.2.14",
+    "@angular/platform-browser": "~12.2.16",
+    "@angular/platform-browser-dynamic": "~12.2.16",
+    "@angular/router": "~12.2.16",
     "@firebase/app": "^0.6.2",
     "@ks89/angular-modal-gallery": "^7.2.5",
     "@ngx-translate/core": "^12.1.2",
@@ -48,18 +48,18 @@
     "rxjs": "~6.5.5",
     "tslib": "^2.0.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.10.2"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.18",
-    "@angular/cli": "~11.2.18",
-    "@angular/compiler-cli": "~11.2.14",
-    "@angular/language-service": "~11.2.14",
+    "@angular-devkit/build-angular": "~12.2.16",
+    "@angular/cli": "~12.2.16",
+    "@angular/compiler-cli": "~12.2.16",
+    "@angular/language-service": "~12.2.16",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
     "intersection-observer": "^0.9.0",
     "ts-node": "~7.0.0",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.8"
+    "typescript": "~4.3.5"
   }
 }
