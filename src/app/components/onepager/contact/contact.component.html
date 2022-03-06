@@ -45,6 +45,6 @@
     </div>
   </div>
 </div>
-<agm-map class="map-footer" [latitude]="lat" [longitude]="lng" [zoom]="zoom">
-  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-</agm-map>
+<google-map [center]="center" [zoom]="zoom">
+  <map-marker [position]="center"></map-marker>
+</google-map>

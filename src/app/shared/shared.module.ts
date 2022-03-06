@@ -31,7 +31,6 @@ import { CalendarDateFormatter, CalendarModule } from 'angular-calendar';
 import { ShortDateFormatter } from './util/short-date-formatter';
 import { SectionService } from './services/section/section.service';
 import { SectionComponent } from './components/section/section.component';
-import { AgmCoreModule } from '@agm/core';
 import { TranslationService } from './services/translation.service';
 import { FirebaseService } from './services/firebase.service';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -118,7 +117,6 @@ const MODULES = [
   ReactiveFormsModule,
   TranslateModule,
   CalendarModule,
-  AgmCoreModule,
   AngularFirestoreModule,
   FlexLayoutModule,
   GalleryModule,

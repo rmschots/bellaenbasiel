@@ -11,7 +11,6 @@
   },
   "private": true,
   "dependencies": {
-    "@agm/core": "^1.1.0",
     "@angular/animations": "~10.2.5",
     "@angular/cdk": "^9.2.1",
     "@angular/common": "~10.2.5",
@@ -20,6 +19,7 @@
     "@angular/fire": "^5.2.3",
     "@angular/flex-layout": "^9.0.0-beta.29",
     "@angular/forms": "~10.2.5",
+    "@angular/google-maps": "^13.2.5",
     "@angular/material": "^9.2.1",
     "@angular/platform-browser": "~10.2.5",
     "@angular/platform-browser-dynamic": "~10.2.5",
