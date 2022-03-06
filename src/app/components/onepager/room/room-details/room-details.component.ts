@@ -30,14 +30,14 @@ export class RoomDetailsComponent extends Unsubscribable {
     strategy: DescriptionStrategy.ALWAYS_HIDDEN
   };
 
+  private _selectedImage$: BehaviorSubject<Image> = new BehaviorSubject<Image>(undefined);
+  private _roomConfig$: ReplaySubject<RoomConfig> = new ReplaySubject<RoomConfig>(1);
+
   @Input()
   set roomConfig(config: RoomConfig) {
     this._roomConfig$.next(config);
     this._selectedImage$.next(config.images[0]);
   }
-
-  private _selectedImage$: BehaviorSubject<Image> = new BehaviorSubject<Image>(undefined);
-  private _roomConfig$: ReplaySubject<RoomConfig> = new ReplaySubject<RoomConfig>(1);
 
   constructor(private _pictureService: PictureService) {
     super();

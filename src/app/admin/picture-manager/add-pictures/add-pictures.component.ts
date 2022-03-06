@@ -31,12 +31,12 @@ export class AddPicturesComponent extends Unsubscribable {
   displayedColumns = ['image', 'filename', 'resizedSmall', 'resizedMedium', 'uploaded'];
   completionStatus$: Observable<number>;
 
-  constructor(fb: FormBuilder,
+  constructor(private _fb: FormBuilder,
               private _pictureService: PictureService,
               private _firebaseService: FirebaseService,
               private _changeDetector: ChangeDetectorRef) {
     super();
-    this.uploadFormGroup = fb.group({
+    this.uploadFormGroup = _fb.group({
       files: ['', Validators.required]
     });
     this.completionStatus$ = this.processingFiles$.pipe(
@@ -59,18 +59,18 @@ export class AddPicturesComponent extends Unsubscribable {
     ).subscribe(pfs => {
       pfs.forEach(pf => {
         forkJoin(
-          this.uploadImage(pf.small, 'small'),
-          this.uploadImage(pf.medium, 'medium'),
-          this.uploadImage(pf.large, 'large'))
+          [this.uploadImage(pf.small, 'small'),
+            this.uploadImage(pf.medium, 'medium'),
+            this.uploadImage(pf.large, 'large')])
           .pipe(takeUntil(this.ngUnsubscribe$))
           .subscribe((result: UploadResult[]) => {
             const smallImage = result.find(ur => ur.size === 'small');
             const mediumImage = result.find(ur => ur.size === 'medium');
             const largeImage = result.find(ur => ur.size === 'large');
             const picture: FirebasePicture = {
-              small: { url: smallImage.url, ref: smallImage.ref },
-              medium: { url: mediumImage.url, ref: mediumImage.ref },
-              large: { url: largeImage.url, ref: largeImage.ref },
+              small: {url: smallImage.url, ref: smallImage.ref},
+              medium: {url: mediumImage.url, ref: mediumImage.ref},
+              large: {url: largeImage.url, ref: largeImage.ref},
               ordered: false,
               order: -1
             };
@@ -135,7 +135,7 @@ export class AddPicturesComponent extends Unsubscribable {
           smallRef = result.metadata.fullPath;
           return result.ref.getDownloadURL();
         }),
-        map(url => ({ size: key, url: url, ref: smallRef })));
+        map(url => ({size: key, url: url, ref: smallRef})));
   }
 
 }
