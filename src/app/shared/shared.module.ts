@@ -33,8 +33,6 @@ import { SectionService } from './services/section/section.service';
 import { SectionComponent } from './components/section/section.component';
 import { TranslationService } from './services/translation.service';
 import { FirebaseService } from './services/firebase.service';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DpDatePickerModule } from 'ng2-date-picker';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -43,6 +41,8 @@ import { PictureService } from './services/picture.service';
 import { HAMMER_GESTURE_CONFIG, HammerGestureConfig } from '@angular/platform-browser';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 
 export class CustomHammerConfig extends HammerGestureConfig {
   overrides = <any>{

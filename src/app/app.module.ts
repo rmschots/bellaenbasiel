@@ -22,11 +22,7 @@ import { GuestbookComponent } from './components/onepager/guestbook/guestbook.co
 import { AvailabilityCalendarComponent } from './components/availability-calendar/availability-calendar.component';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
-import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-import { AngularFireAuthModule } from '@angular/fire/auth';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { Ng2PicaModule } from 'ng2-pica';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { RoomDetailsComponent } from './components/onepager/room/room-details/room-details.component';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
@@ -35,6 +31,9 @@ import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
 import localeNl from '@angular/common/locales/nl';
 import { GoogleMapsModule } from '@angular/google-maps';
+import { AngularFireModule } from '@angular/fire/compat';
+import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 const SINGLETON_MODULES = [
@@ -62,7 +61,6 @@ const SINGLETON_MODULES = [
   AngularFireModule.initializeApp(environment.firebase),
   AngularFireAuthModule,
   AngularFireStorageModule,
-  Ng2PicaModule,
   GalleryModule.forRoot()
 ];
 
@@ -104,7 +102,6 @@ registerLocaleData(localeNl);
   imports: [
     ...SINGLETON_MODULES
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

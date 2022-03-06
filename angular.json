@@ -35,6 +35,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "@ks89/angular-modal-gallery"
+            ],
             "outputPath": "dist/bellaenbasiel",
             "index": "src/index.html",
             "main": "src/main.ts",

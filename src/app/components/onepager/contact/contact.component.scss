@@ -2,12 +2,6 @@
   display: block;
 }
 
-.map-footer {
-  background: #c6c6c6;
-  height: 300px;
-  text-align: center;
-}
-
 h1 {
   background: #8EBCAF;
 }
@@ -18,4 +12,9 @@ h1 {
 
 .access span {
   width: 100%;
+}
+
+google-map {
+  background: #c6c6c6;
+  text-align: center;
 }

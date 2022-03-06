@@ -5,11 +5,12 @@ import { PictureService } from '../../../shared/services/picture.service';
 import { FileInput } from 'ngx-material-file-input';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { ProcessingFile } from '../../../shared/models/processing-file';
-import * as firebase from 'firebase';
 import { FirebasePicture } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { sumBy } from 'lodash';
 import { distinctUntilChanged, filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import firebase from 'firebase/compat';
+import UploadTaskSnapshot = firebase.storage.UploadTaskSnapshot;
 
 interface UploadResult {
   size: string;
@@ -130,7 +131,7 @@ export class AddPicturesComponent extends Unsubscribable {
     return this._pictureService.uploadPicture(file, key)
       .pipe(
         takeUntil(this.ngUnsubscribe$),
-        switchMap((result: firebase.storage.UploadTaskSnapshot) => {
+        switchMap((result: UploadTaskSnapshot) => {
           smallRef = result.metadata.fullPath;
           return result.ref.getDownloadURL();
         }),
