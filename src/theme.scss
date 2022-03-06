@@ -1,11 +1,12 @@
+@use '~@angular/material' as mat;
 @import '~@angular/material/theming';
 @import './mixins';
 
-$app-primary-palette: mat-palette($mat-green, 600);
-$app-accent-palette: mat-palette($mat-light-blue);
-$app-warn-palette: mat-palette($mat-deep-orange);
+$app-primary-palette: mat.define-palette(mat.$green-palette, 600);
+$app-accent-palette: mat.define-palette(mat.$light-blue-palette);
+$app-warn-palette: mat.define-palette(mat.$deep-orange-palette);
 
-$app-theme: mat-light-theme($app-primary-palette, $app-accent-palette, $app-warn-palette);
+$app-theme: mat.define-light-theme($app-primary-palette, $app-accent-palette, $app-warn-palette);
 
-@include angular-material-theme($app-theme);
+@include mat.all-component-themes($app-theme);
 @include body-theme($app-theme);
