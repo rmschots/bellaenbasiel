@@ -39,7 +39,7 @@
     "title": "Rooms",
     "subtitle": "Room {{counter}}",
     "night": "&euro;{{amount}} / night*",
-    "breakfast": "breakfast &euro;{{amount}} pppn**",
+    "breakfast": "breakfast &euro;{{amount}} pppd**",
     "tags": {
       "maxOccupancy": "Max occupancy : {{amount}} persons",
       "wifi": "WiFi available",
@@ -73,7 +73,7 @@
     "extraInfo": {
       "title": "Extra info",
       "item1": "*Minimum 2 nights (price excl. tourist tax)",
-      "item2": "**To be discussed in advance by mail :<br><b>Breakfast :</b> &euro;15 pppn<br><b>Garage :</b> &euro;15 per car/night<br><b>Washing machine and dryer :</b> &euro;15<br><b>Room 2, Use of the sofa bed :</b> &euro;20 pppn<br><b>Tourist tax Bruges :</b> &euro;3 pppn",
+      "item2": "**To be discussed in advance by mail :<br><b>Breakfast :</b> &euro;18 pppd<br><b>Garage :</b> &euro;18 pn<br><b>Washing machine and dryer :</b> &euro;15<br><b>Room 2, Use of the sofa bed :</b> &euro;20 pppn<br><b>Tourist tax Bruges :</b> &euro;3 pppn",
       "item3": "Free cot and high child chair",
       "item4": "No pets allowed (We have our own pretty dog)",
       "item5": "Smoking is allowed in the garden",
