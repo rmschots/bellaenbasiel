@@ -2,12 +2,17 @@ language: node_js
 node_js: 16
 branches:
   only:
-    - master
+  - master
 script:
-  - npm run lint
-  - npm run build -- --prod
+- npm run lint
+- npm run build -- --prod
 deploy:
   provider: firebase
   edge: true
   project: bellaenbasiel
   only: hosting
+  token:
+    secure: VOji04U81tAOAkNV4mF1ZiPIoMbMneBRLqcjOVN1rjzJFXbLvcOzgAbobszlGuSwdJ9D2Mq4uuCwdCCZdmOX+UFOqIfZCpErk12C+Cxlo27T5Lfj5rGnzHSaby8mSBdnq9P7H8/1pXKq5OMJDUaDwEBFLrYtQuJB0YoUvZdOOZKIXZb7fQSEKdzCKAfHqwgPxQZq4iL6NsRr/hQIr1oUKWoYnRMOUChpKJGTpIzMsmCTgYmR9AogndOhpt4h/jNa/knjPd8ZoCh64edW3gsxfRhT0WcHwaIGrf/pdYgjdXA0JSY2hyuhiNIoQrEBbrTFoZtcdAyQRXl9SGSXyLnO+vPtETZD+fq+zrvpk65b3eNPlBdkSXeT/a+BchHMQngBslQVNMT8/qxwx2b8rTW8v3Nz1Q8eOMwHUBd/3yESHIBUdDQMLDqs6ERBwf4/VRWbu4uXGrZjNXUps8sYvvek/LRfVWK6lGFincQsrqfjNkil+5349H4rf3IGaH0I60f7NHxbajtMIKE2TcU/z7vMT+tEYHUHfj+iNym94SESsMcRX7TCj0K+bvgSUSIf6pXZGH85Dv6oDedtLhXqTN4fgabifK7F6NSHImNWJiWUvLWK8QIifDDDoMLDKx2drQQtlHS6rGVAGSlQZt7kD/5i3Gh6kOgV+0k9FX+ABFoOacA=
+env:
+  global:
+    secure: VOji04U81tAOAkNV4mF1ZiPIoMbMneBRLqcjOVN1rjzJFXbLvcOzgAbobszlGuSwdJ9D2Mq4uuCwdCCZdmOX+UFOqIfZCpErk12C+Cxlo27T5Lfj5rGnzHSaby8mSBdnq9P7H8/1pXKq5OMJDUaDwEBFLrYtQuJB0YoUvZdOOZKIXZb7fQSEKdzCKAfHqwgPxQZq4iL6NsRr/hQIr1oUKWoYnRMOUChpKJGTpIzMsmCTgYmR9AogndOhpt4h/jNa/knjPd8ZoCh64edW3gsxfRhT0WcHwaIGrf/pdYgjdXA0JSY2hyuhiNIoQrEBbrTFoZtcdAyQRXl9SGSXyLnO+vPtETZD+fq+zrvpk65b3eNPlBdkSXeT/a+BchHMQngBslQVNMT8/qxwx2b8rTW8v3Nz1Q8eOMwHUBd/3yESHIBUdDQMLDqs6ERBwf4/VRWbu4uXGrZjNXUps8sYvvek/LRfVWK6lGFincQsrqfjNkil+5349H4rf3IGaH0I60f7NHxbajtMIKE2TcU/z7vMT+tEYHUHfj+iNym94SESsMcRX7TCj0K+bvgSUSIf6pXZGH85Dv6oDedtLhXqTN4fgabifK7F6NSHImNWJiWUvLWK8QIifDDDoMLDKx2drQQtlHS6rGVAGSlQZt7kD/5i3Gh6kOgV+0k9FX+ABFoOacA=
