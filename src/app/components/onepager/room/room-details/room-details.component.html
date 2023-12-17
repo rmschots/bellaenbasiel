@@ -1,29 +1,31 @@
 <ng-container *ngIf="roomConfig$ | async as roomConfig">
   <div fxFlex.gt-sm="520px" class="room-image-wrapper">
     <ng-container *ngIf="selectedImage$ | async as img">
-      <figure bnbLazyLoadImages>
-        <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain.img"
+      <figure appLazyLoadImages>
+        <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain?.img"
              (click)="openImageModal(img)"/>
         <figcaption class="description">
-          {{ img.modal.description | translate }}
+          {{ img.modal.description | transloco }}
         </figcaption>
-        <mat-chip-list class="pricing-chips">
-          <mat-chip color="accent" selected="true"
-                    [innerHtml]="'ROOM.night' | translate:{amount: roomConfig.price}"></mat-chip>
-          <mat-chip color="accent" selected="true"
-                    [innerHtml]="'ROOM.breakfast' | translate:{amount: '18'}"></mat-chip>
-        </mat-chip-list>
+        <mat-chip-listbox class="pricing-chips" [selectable]="false">
+          <mat-chip-option color="accent" selected="true">
+            <span [innerHTML]="'ROOM.night' | transloco: { amount: roomConfig.price }"></span>
+          </mat-chip-option>
+          <mat-chip-option color="accent" selected="true" selectable="false">
+            <span [innerHTML]="'ROOM.breakfast' | transloco:{amount: '18'}"></span>
+          </mat-chip-option>
+        </mat-chip-listbox>
         <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
         <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
       </figure>
     </ng-container>
-    <ks-modal-gallery [id]="roomConfig.id" [modalImages]="roomConfig.images" [plainGalleryConfig]="galleryConfig"
-                      [currentImageConfig]="{description: galleryDescriptionConfig}"
-                      (close)="onPreviewClose()"></ks-modal-gallery>
+    <!--    <ks-modal-gallery [id]="roomConfig.id" [modalImages]="roomConfig.images" [plainGalleryConfig]="galleryConfig"-->
+    <!--                      [currentImageConfig]="{description: galleryDescriptionConfig}"-->
+    <!--                      (close)="onPreviewClose()"></ks-modal-gallery>-->
   </div>
   <div fxLayout="column" class="room-info full-width">
-    <h3>{{ 'ROOM.rooms.room' + roomConfig.id + '.title' | translate }}</h3>
-    <p class="full-width" [innerHtml]="'ROOM.rooms.room'+roomConfig.id+'.text' | translate"></p>
+    <h3>{{ 'ROOM.rooms.room' + roomConfig.id + '.title' | transloco }}</h3>
+    <p class="full-width" [innerHtml]="'ROOM.rooms.room'+roomConfig.id+'.text' | transloco"></p>
     <div class="utilities-icons">
       <ng-content></ng-content>
     </div>

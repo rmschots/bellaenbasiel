@@ -1,19 +1,19 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
 import { MatSidenav } from '@angular/material/sidenav';
-import { SectionService } from './shared/services/section/section.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { MediaObserver } from '@angular/flex-layout';
 import { TranslationService } from './shared/services/translation.service';
+import { SectionService } from './shared/services/section.service';
 import { PictureService } from './shared/services/picture.service';
 
 @Component({
-  selector: 'bnb-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @ViewChild(MatSidenav, { static: true }) sidenav;
-  @ViewChild('contentWrapper', { static: true }) el: ElementRef;
+  @ViewChild(MatSidenav, {static: true}) sidenav!: MatSidenav;
+  @ViewChild('contentWrapper', {static: true}) el!: ElementRef;
 
   private _navBarClosed$ = new BehaviorSubject<boolean>(true);
 
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
     this._sectionService.scrollRoot = this.el.nativeElement;
     this.el.nativeElement.addEventListener('scroll', () => {
       this._sectionService.refreshCurrentSectionName();
-    }, { passive: true });
+    }, {passive: true});
   }
 
   get navBarClosed$(): Observable<boolean> {

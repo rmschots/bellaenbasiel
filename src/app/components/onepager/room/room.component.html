@@ -1,121 +1,132 @@
-<bnb-section-title>{{ 'ROOM.title' | translate }}</bnb-section-title>
+<app-section-title>{{ 'ROOM.title' | transloco }}</app-section-title>
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
-  <h2 class="text-center">{{ 'ROOM.subtitle' | translate:{counter: '1'} }}</h2>
-  <bnb-room-details [roomConfig]="roomConfig1" fxLayout="row" fxLayout.lt-md="column"
+  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '1'} }}</h2>
+  <app-room-details [roomConfig]="roomConfig1" fxLayout="row" fxLayout.lt-md="column"
                     fxLayoutAlign="center start"
                     fxLayoutAlign.lt-md="center center"
                     class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | translate:{amount: '2'}" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
       wifi
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
       free_breakfast
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
       smoke_free
     </mat-icon>
-  </bnb-room-details>
+  </app-room-details>
   <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-title class="text-center">
-      <mat-icon color="primary">event_available</mat-icon>
-      <span>{{ 'CONTACT.availability.title' | translate }}</span>
-    </mat-card-title>
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title fxLayoutAlign="center center">
+        <mat-icon color="primary">event_available</mat-icon>
+        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
+      </mat-card-title>
+    </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <bnb-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar1$ | async"></bnb-availability-calendar>
+      <app-availability-calendar fxFlex.gt-sm="50"
+                                 [firebaseCalendar]="firebaseCalendar1$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
-  <h2 class="text-center">{{ 'ROOM.subtitle' | translate:{counter: '2'} }}</h2>
-  <bnb-room-details [roomConfig]="roomConfig2" fxLayout="row" fxLayout.lt-md="column"
+  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '2'} }}</h2>
+  <app-room-details [roomConfig]="roomConfig2" fxLayout="row" fxLayout.lt-md="column"
                     fxLayoutAlign="center start"
                     fxLayoutAlign.lt-md="center center"
                     class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | translate:{amount: '2'}" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
       wifi
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
       free_breakfast
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
       smoke_free
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.tv' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.tv' | transloco" matTooltipPosition="above">
       tv
     </mat-icon>
-  </bnb-room-details>
+  </app-room-details>
   <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-title class="text-center">
-      <mat-icon color="primary">event_available</mat-icon>
-      <span>{{ 'CONTACT.availability.title' | translate }}</span>
-    </mat-card-title>
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title fxLayoutAlign="center center">
+        <mat-icon color="primary">event_available</mat-icon>
+        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
+      </mat-card-title>
+    </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <bnb-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar2$ | async"></bnb-availability-calendar>
+      <app-availability-calendar fxFlex.gt-sm="50"
+                                 [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
-  <h2 class="text-center">{{ 'ROOM.subtitle' | translate:{counter: '3'} }}</h2>
-  <bnb-room-details [roomConfig]="roomConfig3" fxLayout="row" fxLayout.lt-md="column"
+  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '3'} }}</h2>
+  <app-room-details [roomConfig]="roomConfig3" fxLayout="row" fxLayout.lt-md="column"
                     fxLayoutAlign="center start"
                     fxLayoutAlign.lt-md="center center"
                     class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | translate:{amount: '2'}" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
       wifi
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
       free_breakfast
     </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | translate" matTooltipPosition="above">
+    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
       smoke_free
     </mat-icon>
-  </bnb-room-details>
+  </app-room-details>
   <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-title class="text-center">
-      <mat-icon color="primary">event_available</mat-icon>
-      <span>{{ 'CONTACT.availability.title' | translate }}</span>
-    </mat-card-title>
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title fxLayoutAlign="center center">
+        <mat-icon color="primary">event_available</mat-icon>
+        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
+      </mat-card-title>
+    </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <bnb-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar2$ | async"></bnb-availability-calendar>
+      <app-availability-calendar fxFlex.gt-sm="50"
+                                 [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap="16px">
     <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
-      <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon color="primary">info_outline</mat-icon>
-        <span>{{ 'ROOM.extraInfo.title' | translate }}</span>
-      </mat-card-title>
+      <mat-card-header>
+        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon color="primary">info_outline</mat-icon>
+          <span>{{ 'ROOM.extraInfo.title' | transloco }}</span>
+        </mat-card-title>
+      </mat-card-header>
+
       <mat-card-content>
         <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
              *ngFor="let x of extraInfo; let i = index;">
           <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | translate"></span>
+          <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | transloco"></span>
         </div>
       </mat-card-content>
     </mat-card>
     <mat-card fxFlex.gt-sm="67" class="mat-elevation-z3">
-      <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon color="primary">attach_money</mat-icon>
-        <span>{{ 'ROOM.booking.title' | translate }}</span>
-      </mat-card-title>
+      <mat-card-header>
+        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
+          <mat-icon color="primary">attach_money</mat-icon>
+          <span>{{ 'ROOM.booking.title' | transloco }}</span>
+        </mat-card-title>
+      </mat-card-header>
       <mat-card-content>
-        <p [innerHtml]="'ROOM.booking.text' | translate"></p>
-        <h4>{{ 'ROOM.booking.conditions' | translate }}:</h4>
+        <p [innerHtml]="'ROOM.booking.text' | transloco"></p>
+        <h4>{{ 'ROOM.booking.conditions' | transloco }}:</h4>
         <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
              *ngFor="let x of bookings; let i = index">
           <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="('ROOM.booking.item'+(i+1)) | translate"></span>
+          <span [innerHTML]="('ROOM.booking.item'+(i+1)) | transloco"></span>
         </div>
       </mat-card-content>
     </mat-card>

@@ -1,28 +1,30 @@
-<div class="guestbook-background" bnbLazyLoadImages>
+<div class="guestbook-background" appLazyLoadImages>
   <div data-background-src="/assets/img/guestbook_background.jpg"></div>
 </div>
 <div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
-  <h1 class="text-center guestbook-title">{{ 'GUESTBOOK.title' | translate }}</h1>
+  <h1 class="text-center guestbook-title">{{ 'GUESTBOOK.title' | transloco }}</h1>
   <div fxFlexAlign="center" class="guestbook-stars">
-    <bnb-star-rating [stars]="5" [hideEmptyStars]="true"></bnb-star-rating>
+    <app-star-rating [stars]="5" [hideEmptyStars]="true"></app-star-rating>
   </div>
   <div fxFlexAlign="center">
-    <mat-chip-list [selectable]="true" [multiple]="true">
-      <mat-chip *ngFor="let languageFilter of languageFilters$ | async" [value]="languageFilter" color="accent"
+    <mat-chip-listbox [selectable]="true" [multiple]="true">
+      <mat-chip-option *ngFor="let languageFilter of languageFilters$ | async" [value]="languageFilter" color="accent"
                 [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
-        {{ 'COMMON.LANGUAGES.'+languageFilter.language | translate }} ({{ languageFilter.count }})
-      </mat-chip>
-    </mat-chip-list>
+        {{ 'COMMON.LANGUAGES.'+languageFilter.language | transloco }} ({{ languageFilter.count }})
+      </mat-chip-option>
+    </mat-chip-listbox>
   </div>
   <div fxFlexAlign="center">
-    <mat-chip-list [selectable]="true" [multiple]="true">
-      <mat-chip fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center"
-                *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
+    <mat-chip-listbox [selectable]="true" [multiple]="true">
+      <mat-chip-option *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
                 [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
-        <bnb-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></bnb-star-rating>
-        <div>({{ ratingFilter.count }})</div>
-      </mat-chip>
-    </mat-chip-list>
+        <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center">
+          <app-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></app-star-rating>
+          <div>({{ ratingFilter.count }})</div>
+        </div>
+
+      </mat-chip-option>
+    </mat-chip-listbox>
   </div>
   <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px"
        class="guestbook-entry-box mat-elevation-z6">
@@ -36,19 +38,19 @@
           <img [src]="currentEntry.reviewer.picture_url" height="48" width="48" class="profile-picture"
                alt="Profile picture of {{ currentEntry.reviewer.first_name }}">
           <div>
-            <span>{{ 'GUESTBOOK.by' | translate }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
-            <span>{{ currentEntry.created_at.toDate() | bnbDate:'d MMMM yyyy' }}</span>
+            <span>{{ 'GUESTBOOK.by' | transloco }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
+            <span>{{ currentEntry.created_at | bnbDate:'d MMMM yyyy' }}</span>
           </div>
         </div>
         <div>
-          <bnb-star-rating [stars]="currentEntry.rating"></bnb-star-rating>
+          <app-star-rating [stars]="currentEntry.rating"></app-star-rating>
         </div>
       </div>
     </div>
   </div>
   <div fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="8px">
     <div class="review-count mat-elevation-z6">
-      {{ 'GUESTBOOK.review' | translate }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
+      {{ 'GUESTBOOK.review' | transloco }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
     </div>
     <button mat-mini-fab (click)="prevEntry()" [attr.aria-label]="'previous review'">
       <mat-icon>navigate_before</mat-icon>

@@ -1,12 +1,35 @@
-@use '~@angular/material' as mat;
-@import '~@angular/material/theming';
+@use '@angular/material' as mat;
+@import '@angular/material/theming';
 @import './mixins';
+
+$custom-typography: mat.define-typography-config(
+  $font-family: 'Lato, sans-serif',
+  $headline-1: mat.define-typography-level(102px, 102px, 700),
+  $headline-2: mat.define-typography-level(64px, 64px, 700),
+  $headline-3: mat.define-typography-level(51px, 56px, 700),
+  $headline-4: mat.define-typography-level(36px, 40px, 700),
+  $headline-5: mat.define-typography-level(25px, 32px, 700),
+  $headline-6: mat.define-typography-level(21px, 32px, 700),
+  $subtitle-1: mat.define-typography-level(17px, 28px, 700),
+  $subtitle-2: mat.define-typography-level(15px, 24px, 700),
+  $body-1: mat.define-typography-level(17px, 24px, 400),
+  $body-2: mat.define-typography-level(15px, 20px, 400),
+  $caption: mat.define-typography-level(13px, 20px, 400),
+  $overline: mat.define-typography-level(11px, 14px, 400),
+);
 
 $app-primary-palette: mat.define-palette(mat.$green-palette, 600);
 $app-accent-palette: mat.define-palette(mat.$light-blue-palette);
 $app-warn-palette: mat.define-palette(mat.$deep-orange-palette);
 
-$app-theme: mat.define-light-theme($app-primary-palette, $app-accent-palette, $app-warn-palette);
+$app-theme: mat.define-light-theme((
+  color: (
+    primary: $app-primary-palette,
+    accent: $app-accent-palette,
+    warn: $app-warn-palette,
+  ),
+  typography: $custom-typography,
+));
 
 @include mat.all-component-themes($app-theme);
 @include body-theme($app-theme);

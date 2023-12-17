@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { FirebaseService } from '../../shared/services/firebase.service';
 import { MediaObserver } from '@angular/flex-layout';
+import { FirebaseService } from '../../shared/services/firebase.service';
 
 @Component({
-  selector: 'bnb-onepager',
+  selector: 'app-onepager',
   templateUrl: './onepager.component.html',
   styleUrls: ['./onepager.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

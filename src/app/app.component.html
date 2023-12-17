@@ -1,4 +1,4 @@
-<bnb-navbar class="mat-elevation-z6" *ngIf="media.isActive('gt-sm')"></bnb-navbar>
+<app-navbar class="mat-elevation-z6" *ngIf="media.isActive('gt-sm')"></app-navbar>
 <div class="menu-button-overlay" *ngIf="media.isActive('lt-md') && (navBarClosed$ | async) && !(overlayShown$ | async)">
   <button aria-label="button that opens the sidenav" mat-fab (click)="openSidenav()">
     <mat-icon>menu</mat-icon>
@@ -9,7 +9,7 @@
     'sidenav-container-without-navbar': media.isActive('lt-md')
     }">
   <mat-sidenav role="directory" [fixedInViewport]="false" (closedStart)="onSidenavClose()">
-    <bnb-sidenav></bnb-sidenav>
+    <app-sidenav></app-sidenav>
   </mat-sidenav>
   <mat-sidenav-content>
     <div #contentWrapper id="content-wrapper">

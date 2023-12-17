@@ -1,11 +1,12 @@
-<mat-icon *ngFor="let star of starList(amountOfFullStars)" [ngStyle]="{ 'font-size': size, height: size, width: size }">
-  star
+<mat-icon *ngFor="let star of starList(amountOfFullStars)"
+          [ngStyle]="{ 'font-size': size+'px', height: size+'px', width: size+'px' }">
+  star {{size}}
 </mat-icon>
-<mat-icon *ngIf="hasHalfStar" [ngStyle]="{ 'font-size': size, height: size, width: size }">
+<mat-icon *ngIf="hasHalfStar" [ngStyle]="{ 'font-size': size+'px', height: size+'px', width: size+'px' }">
   star_half
 </mat-icon>
 <ng-container *ngIf="!hideEmptyStars">
   <mat-icon *ngFor="let star of starList(amountOfEmptyStars)"
-            [ngStyle]="{ 'font-size': size, height: size, width: size }">star_border
+            [ngStyle]="{ 'font-size': size+'px', height: size+'px', width: size+'px' }">star_border
   </mat-icon>
 </ng-container>

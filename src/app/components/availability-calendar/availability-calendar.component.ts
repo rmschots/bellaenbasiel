@@ -1,38 +1,41 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
-import { CalendarEvent } from 'angular-calendar';
-import { BehaviorSubject } from 'rxjs';
-import { Observable } from 'rxjs';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { UntilDestroy } from '@ngneat/until-destroy';
+import { BehaviorSubject, map, Observable } from 'rxjs';
+import { CalendarDateFormatter, CalendarEvent } from 'angular-calendar';
 import { TranslationService } from '../../shared/services/translation.service';
 import { FirebaseCalendar } from '../../shared/models/firebase-data';
-import { map } from 'rxjs/operators';
+import { CustomDateFormatter } from './custom-date-formatter.provider';
 
-
+@UntilDestroy()
 @Component({
-  selector: 'bnb-availability-calendar',
+  selector: 'app-availability-calendar',
   templateUrl: './availability-calendar.component.html',
   styleUrls: ['./availability-calendar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    {
+      provide: CalendarDateFormatter,
+      useClass: CustomDateFormatter,
+    },
+  ],
 })
-export class AvailabilityCalendarComponent extends Unsubscribable {
-
+export class AvailabilityCalendarComponent {
   viewDate: Date = new Date();
 
   private _events$ = new BehaviorSubject<CalendarEvent[]>([]);
 
   constructor(private _translationService: TranslationService,
               private _changeDetectorRef: ChangeDetectorRef) {
-    super();
   }
 
   @Input()
-  set firebaseCalendar(firebaseCalendar: FirebaseCalendar) {
+  set firebaseCalendar(firebaseCalendar: FirebaseCalendar | null) {
     if (firebaseCalendar) {
       this.updateCalendar(firebaseCalendar);
     }
   }
 
-  get language$() {
+  get language$(): Observable<string> {
     return this._translationService.currentLanguage$.pipe(map(lang => lang.code));
   }
 

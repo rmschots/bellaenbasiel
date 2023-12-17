@@ -1,14 +1,12 @@
 import { Directive, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
-declare var require: any;
-
 @Directive({
-  selector: '[bnbLazyLoadImages]'
+  selector: '[appLazyLoadImages]'
 })
 export class LazyLoadImagesDirective implements OnInit, OnDestroy {
 
-  intersectionObserver: IntersectionObserver;
+  intersectionObserver!: IntersectionObserver;
   rootElement: HTMLElement;
 
   constructor(
@@ -76,7 +74,7 @@ export class LazyLoadImagesDirective implements OnInit, OnDestroy {
     return observer;
   }
 
-  getAllImagesToLazyLoad(pageNode: HTMLElement) {
+  getAllImagesToLazyLoad(pageNode: HTMLElement): HTMLElement[] {
     return Array.from(pageNode.querySelectorAll('img[data-src], [data-srcset], [data-background-src]'));
   }
 

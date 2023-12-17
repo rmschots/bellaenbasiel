@@ -1,35 +1,34 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
-import { SectionService } from '../../shared/services/section/section.service';
-import { Observable } from 'rxjs';
-import { NavItem } from '../../shared/models/nav-item';
-import { Language } from '../../shared/models/language';
+import { SectionService } from '../../shared/services/section.service';
 import { TranslationService } from '../../shared/services/translation.service';
-import { Unsubscribable } from '../../shared/util/unsubscribable';
+import { Language } from '../../shared/models/language';
+import { distinctUntilChanged, map, Observable } from 'rxjs';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { NavItem } from '../../shared/models/nav-item';
 import { isEqual } from 'lodash';
-import { distinctUntilChanged, map, takeUntil } from 'rxjs/operators';
 
+@UntilDestroy()
 @Component({
-  selector: 'bnb-navbar',
+  selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class NavbarComponent extends Unsubscribable implements OnInit {
+export class NavbarComponent implements OnInit {
 
   languages: Language[] = TranslationService.languages;
 
   constructor(private _sectionService: SectionService,
               private _translationService: TranslationService,
               private _cd: ChangeDetectorRef) {
-    super();
   }
 
   ngOnInit(): void {
-    this.currentSection$.pipe(takeUntil(this.ngUnsubscribe$)).subscribe(data => {
+    this.currentSection$.pipe(untilDestroyed(this)).subscribe(data => {
       // hack to make navbar work on admin page
       this._cd.detectChanges();
     });
-    this.sections$.pipe(takeUntil(this.ngUnsubscribe$)).subscribe(data => {
+    this.sections$.pipe(untilDestroyed(this)).subscribe(data => {
       // hack to make navbar work on admin page
       this._cd.detectChanges();
     });
@@ -41,7 +40,7 @@ export class NavbarComponent extends Unsubscribable implements OnInit {
         isEqual(sections1.map(section => section.nameKey), sections2.map(section => section.nameKey))));
   }
 
-  get currentSection$(): Observable<string> {
+  get currentSection$(): Observable<string | undefined> {
     return this._sectionService.currentSectionId$;
   }
 

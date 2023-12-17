@@ -8,8 +8,8 @@
       <button mat-button
               [ngClass]="{ 'active-section': navItem.id === currentSection}" (click)="scrollTo(navItem.id)"
               pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
-              name="navigate to {{ navItem.nameKey | translate }}">
-        {{ navItem.nameKey | translate }}
+              name="navigate to {{ navItem.nameKey | transloco }}">
+        {{ navItem.nameKey | transloco }}
       </button>
     </li>
     <li>

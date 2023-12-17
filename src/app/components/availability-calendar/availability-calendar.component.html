@@ -1,6 +1,6 @@
 <div fxLayout="column" fxLayoutGap="8px">
   <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-    <h3 class="calendar-title">{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) }}</h3>
+    <h3 class="calendar-title">{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) || 'en' }}</h3>
     <div>
       <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
               [disabled]="preventClickPrevious" [attr.aria-label]="'previous month'">
@@ -14,9 +14,9 @@
   <mwl-calendar-month-view
     [weekStartsOn]="1"
     [viewDate]="viewDate"
-    [events]="events$ | async"
+    [events]="(events$ | async) || []"
     [cellTemplate]="availabilityCellTemplate"
-    [locale]="language$ | async">
+    [locale]="(language$ | async) || 'en'">
   </mwl-calendar-month-view>
 </div>
 

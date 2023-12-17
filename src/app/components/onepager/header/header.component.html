@@ -5,19 +5,19 @@
   <div class="header-text-content" fxFlex="stretch" fxLayout="column" fxLayoutAlign="center center">
     <h1 class="header-title text-center">BELLA & BASIEL</h1>
     <div class="header-text">
-      <h2 class="text-center header-subtitle" [innerHtml]="'HEADER.subtitle' | translate"></h2>
+      <h2 class="text-center header-subtitle" [innerHtml]="'HEADER.subtitle' | transloco"></h2>
       <hr>
     </div>
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
               pageScrollTarget="#welcome" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to first section'">
         <mat-icon>arrow_downward</mat-icon>
-        {{ 'HEADER.visitWebsite' | translate }}
+        {{ 'HEADER.visitWebsite' | transloco }}
       </button>
       <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('room')" pageScroll
               pageScrollTarget="#room" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to availability'">
         <mat-icon>event_available</mat-icon>
-        {{ 'HEADER.checkAvailability' | translate }}
+        {{ 'HEADER.checkAvailability' | transloco }}
       </button>
     </div>
   </div>
@@ -44,7 +44,7 @@
       </a>
     </div>
     <span>&reg; 2018 Bella en Basiel -
-      <span class="nowrap">{{ 'HEADER.contact' | translate }}: <a href="tel:+32 472 643527">+32 472 643527</a></span>
+      <span class="nowrap">{{ 'HEADER.contact' | transloco }}: <a href="tel:+32 472 643527">+32 472 643527</a></span>
     </span>
   </div>
 </div>

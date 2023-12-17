@@ -1,13 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
-import { FirebaseService } from '../../../shared/services/firebase.service';
-import { Unsubscribable } from '../../../shared/util/unsubscribable';
-import { cloneDeep, countBy, isEqual } from 'lodash';
 import { TranslationService } from '../../../shared/services/translation.service';
-import { distinctUntilChanged, filter, map, takeUntil } from 'rxjs/operators';
-import firebase from 'firebase/compat';
-import Timestamp = firebase.firestore.Timestamp;
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { BehaviorSubject, distinctUntilChanged, filter, map, Observable, ReplaySubject } from 'rxjs';
+import { FirebaseGuestbook, FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
+import { FirebaseService } from '../../../shared/services/firebase.service';
+import { cloneDeep, countBy, isEqual } from 'lodash';
+import { Language } from '../../../shared/models/language';
+import { Timestamp } from '@firebase/firestore';
 
 interface Filter {
   count: number;
@@ -22,30 +21,30 @@ interface RatingFilter extends Filter {
   stars: number;
 }
 
+@UntilDestroy()
 @Component({
-  selector: 'bnb-guestbook',
+  selector: 'app-guestbook',
   templateUrl: './guestbook.component.html',
   styleUrls: ['./guestbook.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GuestbookComponent extends Unsubscribable {
+export class GuestbookComponent {
 
   private originalEntries: FirebaseGuestbookReview[] = [];
   private _languageFilters$: BehaviorSubject<LanguageFilter[]> = new BehaviorSubject<LanguageFilter[]>([]);
   private _ratingFilters$: BehaviorSubject<RatingFilter[]> = new BehaviorSubject<RatingFilter[]>([]);
   private _entries$: BehaviorSubject<FirebaseGuestbookReview[]> = new BehaviorSubject<FirebaseGuestbookReview[]>([]);
   private _entryIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private _currentEntry$: BehaviorSubject<FirebaseGuestbookReview> = new BehaviorSubject<FirebaseGuestbookReview>(undefined);
+  private _currentEntry$: ReplaySubject<FirebaseGuestbookReview> = new ReplaySubject<FirebaseGuestbookReview>(1);
 
   constructor(private _firebaseService: FirebaseService, private _translationService: TranslationService) {
-    super();
     this._firebaseService.guestbookData$.pipe(
       filter(data => !!data),
-      takeUntil(this.ngUnsubscribe$),
+      untilDestroyed(this),
       distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
       .subscribe(data => this.updateData(data));
     this._translationService.currentLanguage$.pipe(
-      takeUntil(this.ngUnsubscribe$))
+      untilDestroyed(this))
       .subscribe(lang => this.updateLanguage(lang));
   }
 
@@ -82,7 +81,7 @@ export class GuestbookComponent extends Unsubscribable {
     this.applyFilters();
   }
 
-  private updateLanguage(lang) {
+  private updateLanguage(lang: Language) {
     const currentFilters: LanguageFilter[] = cloneDeep(this._languageFilters$.getValue());
     this.updateFiltersForLanguage(currentFilters, lang.code);
     this._languageFilters$.next(currentFilters);
@@ -125,7 +124,7 @@ export class GuestbookComponent extends Unsubscribable {
     }
   }
 
-  private updateData(data) {
+  private updateData(data: FirebaseGuestbook) {
     const entriesCpy: FirebaseGuestbookReview[] = cloneDeep(data.reviews);
     entriesCpy.sort((entry1, entry2) => this.guestbookEntryComparator(entry1, entry2));
     this.originalEntries = entriesCpy;

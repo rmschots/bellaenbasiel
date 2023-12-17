@@ -1,26 +1,32 @@
-<bnb-section-title>{{ 'WELCOME.title' | translate }}</bnb-section-title>
+<app-section-title>{{ 'WELCOME.title' | transloco }}</app-section-title>
 <div class="container section-margin">
   <div class="welcome-info" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center space-evenly" fxLayoutAlign.lt-md="start"
        fxLayoutGap="32px">
-    <mat-card fxFlex.gt-sm="33" bnbLazyLoadImages>
-      <mat-card-title>{{ 'WELCOME.hosts.title' | translate }}</mat-card-title>
+    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
+      <mat-card-header>
+        <mat-card-title>{{ 'WELCOME.hosts.title' | transloco }}</mat-card-title>
+      </mat-card-header>
       <img mat-card-image data-src="/assets/img/welkom_gastheervrouw.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the hosts">
       <mat-card-content>
-        <p [innerHtml]="'WELCOME.hosts.text' | translate"></p>
+        <p [innerHtml]="'WELCOME.hosts.text' | transloco"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex.gt-sm="33" bnbLazyLoadImages>
-      <mat-card-title>{{ 'WELCOME.house.title' | translate }}</mat-card-title>
+    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
+      <mat-card-header>
+        <mat-card-title>{{ 'WELCOME.house.title' | transloco }}</mat-card-title>
+      </mat-card-header>
       <img mat-card-image data-src="/assets/img/welkom_huis.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the house">
       <mat-card-content>
-        <p [innerHtml]="'WELCOME.house.text' | translate"></p>
+        <p [innerHtml]="'WELCOME.house.text' | transloco"></p>
       </mat-card-content>
     </mat-card>
-    <mat-card fxFlex.gt-sm="33" bnbLazyLoadImages>
-      <mat-card-title>{{ 'WELCOME.neighbourhood.title' | translate }}</mat-card-title>
+    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
+      <mat-card-header>
+        <mat-card-title>{{ 'WELCOME.neighbourhood.title' | transloco }}</mat-card-title>
+      </mat-card-header>
       <img mat-card-image data-src="/assets/img/welkom_buurt.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the neighbourhood">
       <mat-card-content>
-        <p [innerHtml]="'WELCOME.neighbourhood.text' | translate"></p>
+        <p [innerHtml]="'WELCOME.neighbourhood.text' | transloco"></p>
       </mat-card-content>
     </mat-card>
   </div>

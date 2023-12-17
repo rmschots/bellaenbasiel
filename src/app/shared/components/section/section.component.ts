@@ -7,29 +7,28 @@ import {
   Input,
   OnDestroy
 } from '@angular/core';
+import { SectionService } from '../../services/section.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { interval } from 'rxjs';
-import { SectionService } from '../../services/section/section.service';
-import { Unsubscribable } from '../../util/unsubscribable';
-import { takeUntil } from 'rxjs/operators';
 
+@UntilDestroy()
 @Component({
-  selector: 'bnb-section',
+  selector: 'app-section',
   templateUrl: './section.component.html',
   styleUrls: ['./section.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SectionComponent extends Unsubscribable implements AfterViewInit, OnDestroy {
+export class SectionComponent implements AfterViewInit, OnDestroy {
 
-  @Input() sectionId: string;
-  @Input() sectionName: string;
+  @Input() sectionId!: string;
+  @Input() sectionName!: string;
 
   constructor(private _element: ElementRef, private _sectionService: SectionService) {
-    super();
   }
 
   ngAfterViewInit() {
     this.notifyChangePosition();
-    interval(1000).pipe(takeUntil(this.ngUnsubscribe$))
+    interval(1000).pipe(untilDestroyed(this))
       .subscribe(() => this.notifyChangePosition());
   }
 
@@ -40,7 +39,6 @@ export class SectionComponent extends Unsubscribable implements AfterViewInit, O
   }
 
   ngOnDestroy(): void {
-    super.ngOnDestroy();
     this._sectionService.removeSection(this.sectionId);
   }
 

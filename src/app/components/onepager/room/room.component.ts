@@ -1,20 +1,20 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Image } from '@ks89/angular-modal-gallery';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { isEqual } from 'lodash';
-import { Unsubscribable } from '../../../shared/util/unsubscribable';
+import { distinctUntilChanged, filter, ReplaySubject } from 'rxjs';
 import { FirebaseCalendar } from '../../../shared/models/firebase-data';
-import { BehaviorSubject } from 'rxjs';
-import { distinctUntilChanged, filter, takeUntil } from 'rxjs/operators';
 import { RoomConfig } from '../../../shared/models/room-config';
+import { Image } from '@ks89/angular-modal-gallery';
+import { isEqual } from 'lodash';
 
+@UntilDestroy()
 @Component({
-  selector: 'bnb-room',
+  selector: 'app-room',
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class RoomComponent extends Unsubscribable {
+export class RoomComponent {
   roomConfig1: RoomConfig = {
     id: 1,
     price: 90,
@@ -70,26 +70,25 @@ export class RoomComponent extends Unsubscribable {
     ]
   };
 
-  private _firebaseCalendar1$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
-  private _firebaseCalendar2$: BehaviorSubject<FirebaseCalendar> = new BehaviorSubject<FirebaseCalendar>(undefined);
+  private _firebaseCalendar1$: ReplaySubject<FirebaseCalendar> = new ReplaySubject<FirebaseCalendar>(1);
+  private _firebaseCalendar2$: ReplaySubject<FirebaseCalendar> = new ReplaySubject<FirebaseCalendar>(1);
 
   constructor(private _firebaseService: FirebaseService) {
-    super();
-    this._firebaseService.calendarData$.pipe(takeUntil(this.ngUnsubscribe$),
+    this._firebaseService.calendarData$.pipe(untilDestroyed(this),
       filter(value => !!value),
       distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
       .subscribe(data => this._firebaseCalendar1$.next(data));
-    this._firebaseService.calendarData2$.pipe(takeUntil(this.ngUnsubscribe$),
+    this._firebaseService.calendarData2$.pipe(untilDestroyed(this),
       filter(value => !!value),
       distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
       .subscribe(data => this._firebaseCalendar2$.next(data));
   }
 
-  get firebaseCalendar1$(): BehaviorSubject<FirebaseCalendar> {
+  get firebaseCalendar1$(): ReplaySubject<FirebaseCalendar> {
     return this._firebaseCalendar1$;
   }
 
-  get firebaseCalendar2$(): BehaviorSubject<FirebaseCalendar> {
+  get firebaseCalendar2$(): ReplaySubject<FirebaseCalendar> {
     return this._firebaseCalendar2$;
   }
 

@@ -1,19 +1,18 @@
-import { Component } from '@angular/core';
-import { SectionService } from '../../shared/services/section/section.service';
-import { Observable } from 'rxjs';
-import { NavItem } from '../../shared/models/nav-item';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Language } from '../../shared/models/language';
 import { TranslationService } from '../../shared/services/translation.service';
+import { SectionService } from '../../shared/services/section.service';
+import { distinctUntilChanged, map, Observable } from 'rxjs';
+import { NavItem } from '../../shared/models/nav-item';
 import { isEqual } from 'lodash';
-import { distinctUntilChanged, map } from 'rxjs/operators';
 
 @Component({
-  selector: 'bnb-sidenav',
+  selector: 'app-sidenav',
   templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  styleUrls: ['./sidenav.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SidenavComponent {
-
   languages: Language[] = TranslationService.languages;
 
   constructor(private _sectionService: SectionService,
@@ -23,12 +22,15 @@ export class SidenavComponent {
   get sections$(): Observable<NavItem[]> {
     return this._sectionService.navItems$.pipe(
       map(names => names.reverse()),
-      distinctUntilChanged((sections1: NavItem[], sections2: NavItem[]) =>
-        isEqual(sections1.map(section => section.nameKey), sections2.map(section => section.nameKey)))
+      distinctUntilChanged((sections1: NavItem[], sections2: NavItem[]) => {
+        const value1 = sections1.map(section => section.nameKey);
+        const value2 = sections2.map(section => section.nameKey);
+        return isEqual(value1, value2);
+      }),
     );
   }
 
-  get currentSection$(): Observable<string> {
+  get currentSection$(): Observable<string | undefined> {
     return this._sectionService.currentSectionId$;
   }
 

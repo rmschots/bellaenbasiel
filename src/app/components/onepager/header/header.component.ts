@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { SectionService } from '../../../shared/services/section/section.service';
 import { MediaObserver } from '@angular/flex-layout';
+import { SectionService } from '../../../shared/services/section.service';
 
 @Component({
-  selector: 'bnb-header',
+  selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })

@@ -1,13 +1,11 @@
 # Bellaenbasiel
 
-b&b Angular 5 project, served on bellaenbasiel.be
+b&b Angular 15 project, served on bellaenbasiel.be
 Includes picture manager & guestbook utility for airbnb
-
-[![Build Status](https://travis-ci.com/rmschots/bellaenbasiel.svg?branch=master)](https://travis-ci.com/rmschots/bellaenbasiel)
 
 ## Technologies
 
-* Angular 5 (Angular CLI)
+* Angular 15 (Angular CLI)
   * [Angular Material](https://material.angular.io/) + [Flex Layout](https://github.com/angular/flex-layout)
   * [ngx-page-scroll](https://github.com/Nolanus/ngx-page-scroll)
   * [angular-calendar](https://github.com/mattlewis92/angular-calendar)
@@ -15,6 +13,7 @@ Includes picture manager & guestbook utility for airbnb
   * [angularfire2](https://github.com/angular/angularfire2)
   * [ng2-date-picker](https://github.com/vlio20/angular-datepicker)
   * [angular-modal-gallery](https://github.com/Ks89/angular-modal-gallery)
+  * [lightGallery](https://github.com/sachinchoolur/lightGallery)
   * [ngx-lazy-load-images](https://github.com/jesusbotella/ngx-lazy-load-images)
   * [ngx-material-file-input](https://github.com/merlosy/ngx-material-file-input)
   * [ng2-pica](https://github.com/bergben/ng2-pica)

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'bnb-star-rating',
+  selector: 'app-star-rating',
   templateUrl: './star-rating.component.html',
   styleUrls: ['./star-rating.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -9,7 +9,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 export class StarRatingComponent {
 
   @Input() maxStars = 5;
-  @Input() stars: number;
+  @Input() stars!: number;
   @Input() size = 24;
   @Input() hideEmptyStars = false;
 

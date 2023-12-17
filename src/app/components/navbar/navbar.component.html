@@ -8,8 +8,9 @@
       <li *ngFor="let navItem of sections$ | async">
         <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
                 (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}"
-                [attr.aria-label]="'navigate to ' + (navItem.nameKey | translate)">
-          {{ navItem.nameKey | translate }}
+                [attr.aria-label]="'navigate to ' + (navItem.nameKey | transloco)">
+          <b>{{ navItem.nameKey | transloco }}</b>
+
         </button>
       </li>
     </ul>
