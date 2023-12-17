@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "bellaenbasiel"
-  }
+  },
+  "targets": {
+    "bellaenbasiel": {
+      "hosting": {
+        "bellaenbasiel": [
+          "bellaenbasiel"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
