@@ -17,7 +17,7 @@ import { isEqual } from 'lodash';
 export class RoomComponent {
   roomConfig1: RoomConfig = {
     id: 1,
-    price: 90,
+    price: 100,
     images: [
       new Image(1, {
         img: '/assets/img/rooms/room1/bedroom.jpg',
@@ -35,7 +35,7 @@ export class RoomComponent {
   };
   roomConfig2: RoomConfig = {
     id: 2,
-    price: 95,
+    price: 110,
     images: [
       new Image(4, {
         img: '/assets/img/rooms/room2/bedroom.jpg',
@@ -53,7 +53,7 @@ export class RoomComponent {
   };
   roomConfig3: RoomConfig = {
     id: 3,
-    price: 85,
+    price: 90,
     images: [
       new Image(7, {
         img: '/assets/img/rooms/room3/bedroom.jpg',

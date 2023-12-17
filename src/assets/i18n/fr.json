@@ -31,9 +31,9 @@
   },
   "CONTACT": {
     "access": {
-      "bus": "<b>En bus :</b> Prenez le bus 4 ou 14 et demandez au chauffeur de s’arrêter à la halte ‘Carmersbrug‘.<br>Vous traversez le pont et continuez tout droit jusqu’au le Rijkepijndersstraat, la 3ième rue à gauche (200 m)<br>C’est moins cher d’acheter un billet par SMS le code de commande ‘DL’ au numéro court 4884<br>Aprés 20.00h prenez le bus nr 90 Koolkerke-Dudzele",
+      "bus": "<b>En bus :</b> A la gare, sortie “Centrum”, prendre le BUS 2 sur le quai A1",
       "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;18/nuit.",
-      "taxi": "<b>Taxi :</b> Le prix d’un taxi coûte environ &euro;10-15",
+      "taxi": "<b>Taxi :</b> Le prix d’un taxi coûte environ &euro;12-16",
       "title": "Accessibilité",
       "train": "<b>En trein :</b> <a href=\"https://www.belgiantrain.be\">belgiantrain.be</a>"
     },
@@ -69,15 +69,15 @@
     "booking": {
       "conditions": "Conditions générales de réservation",
       "item1": "<b>Avance :</b> &euro;100/chambre à verser sur le compte BE14 3631 5869 6383",
-      "item2": "<b>Solde :</b> en espèces à l’arrivée ou en avance par virement bancaire",
+      "item2": "<b>Solde :</b> en espèces ou par carte de crédit à l’arrivée ou en avance par virement bancaire",
       "item3": "C’est possible d’<b>annuler</b> votre réservation sans frais jusqu’à 10 jours avant la date d’arrivée. Si vous annulez plus tard, on vous facture la première nuit et eventuellement (si commandé) le petit déjeuner. En cas de no-show, on vous demande de payer le montant entier de la réservation.",
-      "text": "Une avance d’une nuit est obligatoire pour que la réservation soit valable.<br>Paiement solde en espèces à l’arrivée. Nous n’acceptons pas des cartes de crédits.",
+      "text": "Une avance d’une nuit est obligatoire pour que la réservation soit valable.<br>Paiement solde en espèces à l’arrivée. Nous acceptons des cartes de crédits.",
       "title": "Réserver"
     },
     "breakfast": "petit déjeuner &euro;{{amount}} pppj**",
     "extraInfo": {
       "item1": "*Minimum 2 nuits (prix excl. taxe touristique)",
-      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;18 pppj<br><b>Garage :</b> &euro;18 pn<br><b>Usage du lave-linge et séchoir :</b> &euro;15<br><b>Chambre 2, Usage du canapé lit :</b> &euro;25 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;4 pppn",
+      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;18 pppj<br><b>Garage :</b> &euro;18 pn<br><b>Usage du lave-linge et séchoir :</b> &euro;15 / 7kg<br><b>Chambre 2, Usage du canapé lit :</b> &euro;25 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;4 pppn",
       "item3": "Lit d’enfant et chaise haute gratuits",
       "item4": "Les animaux domestiques ne sont pas autorisés (nous avons notre propre jolie chien)",
       "item5": "Il est permis de fumer dans le jardin",
