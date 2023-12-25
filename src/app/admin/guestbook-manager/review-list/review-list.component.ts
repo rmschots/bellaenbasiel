@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit, TrackByFunction, ViewChild } from '@angular/core';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -12,7 +12,7 @@ import Timestamp = firebase.firestore.Timestamp;
 
 
 @Component({
-  selector: 'bnb-review-list',
+  selector: 'app-review-list',
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -23,9 +23,9 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
 
   dataSource: MatTableDataSource<FirebaseGuestbookReview> = new MatTableDataSource<FirebaseGuestbookReview>([]);
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  @ViewChild(MatSort, {static: true}) sort!: MatSort;
 
   private _originalData: FirebaseGuestbookReview[] = [];
 
@@ -33,10 +33,11 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
     super();
   }
 
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim();
-    filterValue = filterValue.toLowerCase();
-    this.dataSource.filter = filterValue;
+  applyFilter(filterValue: EventTarget | null) {
+    if (filterValue) {
+      const elem = filterValue as HTMLInputElement;
+      this.dataSource.filter = elem.value.trim().toLowerCase();
+    }
   }
 
   ngAfterViewInit() {
@@ -61,7 +62,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
       });
   }
 
-  trackByFunction = (index: number, item: Element) => {
+  trackByFunction: TrackByFunction<FirebaseGuestbookReview> = (index: number, item: FirebaseGuestbookReview) => {
     return item.id;
   };
 
@@ -94,7 +95,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
     console.log(this.dataSource.data);
   }
 
-  compare(a, b, isAsc) {
+  compare(a: string | number, b: string | number, isAsc: boolean) {
     return (a < b ? -1 : a > b ? 1 : 0) * (isAsc ? 1 : -1);
   }
 

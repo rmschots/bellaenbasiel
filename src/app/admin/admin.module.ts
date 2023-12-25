@@ -8,16 +8,24 @@ import { PictureManagerComponent } from './picture-manager/picture-manager.compo
 import { AddPicturesComponent } from './picture-manager/add-pictures/add-pictures.component';
 import { PictureListComponent } from './picture-manager/picture-list/picture-list.component';
 import { AddReviewsComponent } from './guestbook-manager/add-reviews/add-reviews.component';
-import { MaterialFileInputModule } from 'ngx-material-file-input';
+import { AuthModule, getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   imports: [
     AdminRoutingModule,
+    AuthModule,
     SharedModule,
-    MaterialFileInputModule
+    provideAuth(() => getAuth()),
   ],
-  declarations: [AdminComponent, GuestbookManagerComponent, ReviewListComponent, PictureManagerComponent,
-    AddPicturesComponent, PictureListComponent, AddReviewsComponent]
+  declarations: [
+    AdminComponent,
+    GuestbookManagerComponent,
+    ReviewListComponent,
+    PictureManagerComponent,
+    AddPicturesComponent,
+    PictureListComponent,
+    AddReviewsComponent
+  ]
 })
 export class AdminModule {
 }

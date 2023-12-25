@@ -32,12 +32,13 @@ export class PictureService {
     return of([]);
   }
 
-  // uploadPicture(pf: File, size: string): Observable<any> {
-  //   const parts = pf.name.split('.');
-  //   const reference = ref(this._storage, `pictures/${size}`);
-  //   const imageSmallRef = reference.child(`${uuid()}.${parts[parts.length - 1]}`);
-  //   return from(imageSmallRef.put(pf));
-  // }
+  uploadPicture(pf: File, size: string): Observable<any> {
+    // const parts = pf.name.split('.');
+    // const reference = ref(this._storage, `pictures/${size}`);
+    // const imageSmallRef = reference.child(`${uuid()}.${parts[parts.length - 1]}`);
+    // return from(imageSmallRef.put(pf));
+    return of();
+  }
 
   deletePicture(firebasePicture: FirebasePicture): Observable<[void, void, void]> {
     const referenceSmall = ref(this._storage, firebasePicture.small.ref);

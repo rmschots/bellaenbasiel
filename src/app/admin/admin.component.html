@@ -1,26 +1,26 @@
 <div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
-     *ngIf="afAuth.authState | async as user; else showLogin">
+     *ngIf="authState | async as user; else showLogin">
   <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/" aria-label="go to website">
     <mat-icon>home</mat-icon>
-    <span>{{ 'ADMIN.actions.toWebsite' | translate }}</span>
+    <span>{{ 'ADMIN.actions.toWebsite' | transloco }}</span>
   </a>
   <span fxFlex="grow"></span>
-  <p>{{ 'ADMIN.loggedInAs' | translate }} {{ user.displayName }}</p>
+  <p>{{ 'ADMIN.loggedInAs' | transloco }} {{ user.displayName }}</p>
   <div>
     <button mat-raised-button color="accent" (click)="logout()">
-      <span>{{ 'ADMIN.actions.logout' | translate }}</span>
+      <span>{{ 'ADMIN.actions.logout' | transloco }}</span>
       <mat-icon>exit_to_app</mat-icon>
     </button>
   </div>
 </div>
 
 
-<bnb-section *ngIf="afAuth.authState | async" sectionId="picture-manager" sectionName="NAV.managePictures">
-  <bnb-picture-manager id="picture-manager"></bnb-picture-manager>
-</bnb-section>
-<bnb-section *ngIf="afAuth.authState | async" sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
-  <bnb-guestbook-manager id="guestbook-manager"></bnb-guestbook-manager>
-</bnb-section>
+<!--<app-section *ngIf="afAuth.authState | async" sectionId="picture-manager" sectionName="NAV.managePictures">-->
+<!--  <app-picture-manager id="picture-manager"></app-picture-manager>-->
+<!--</app-section>-->
+<app-section *ngIf="authState | async" sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
+  <app-guestbook-manager id="guestbook-manager"></app-guestbook-manager>
+</app-section>
 
 
 <ng-template #showLogin>

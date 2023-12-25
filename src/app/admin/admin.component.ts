@@ -1,19 +1,20 @@
-import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, inject, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
-import firebase from 'firebase/compat/app';
+import { Auth, GoogleAuthProvider, signInWithPopup, authState } from '@angular/fire/auth';
 
 @Component({
-  selector: 'bnb-admin',
+  selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminComponent implements OnInit {
+  public afAuth = inject(Auth);
 
   @HostBinding('attr.id') id = 'home';
 
-  constructor(private _firebaseService: FirebaseService, public afAuth: AngularFireAuth) {
+  authState = authState(this.afAuth);
+  constructor(private _firebaseService: FirebaseService) {
   }
 
   ngOnInit(): void {
@@ -21,7 +22,11 @@ export class AdminComponent implements OnInit {
   }
 
   login() {
-    this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+    signInWithPopup(this.afAuth, new GoogleAuthProvider()).then(
+      result => console.log(result)
+    ).catch(
+      error => console.error(error)
+    );
   }
 
   logout() {

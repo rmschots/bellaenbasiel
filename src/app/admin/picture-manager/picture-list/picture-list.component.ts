@@ -8,7 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { takeUntil } from 'rxjs/operators';
 
 @Component({
-  selector: 'bnb-picture-list',
+  selector: 'app-picture-list',
   templateUrl: './picture-list.component.html',
   styleUrls: ['./picture-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -16,7 +16,7 @@ import { takeUntil } from 'rxjs/operators';
 export class PictureListComponent extends Unsubscribable implements OnInit {
 
   private _pictures$: BehaviorSubject<FirebasePicture[]> = new BehaviorSubject<FirebasePicture[]>([]);
-  private _selectedPicture$: BehaviorSubject<FirebasePicture> = new BehaviorSubject<FirebasePicture>(undefined);
+  private _selectedPicture$: BehaviorSubject<FirebasePicture | undefined> = new BehaviorSubject<FirebasePicture | undefined>(undefined);
 
   constructor(private _firebaseService: FirebaseService, private _snackBar: MatSnackBar) {
     super();
@@ -26,16 +26,16 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
     return this._pictures$.asObservable();
   }
 
-  get selectedPicture$(): Observable<FirebasePicture> {
+  get selectedPicture$(): Observable<FirebasePicture| undefined> {
     return this._selectedPicture$.asObservable();
   }
 
   get preventClickMoveLeft() {
-    return this._selectedPicture$.getValue().order === 1;
+    return this._selectedPicture$.getValue()?.order === 1;
   }
 
   get preventClickMoveRight() {
-    return this._selectedPicture$.getValue().order === this._pictures$.getValue().length;
+    return this._selectedPicture$.getValue()?.order === this._pictures$.getValue().length;
   }
 
   ngOnInit() {
@@ -52,20 +52,20 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
   }
 
   moveLeft() {
-    const indexOfPrevious = this._selectedPicture$.value.order - 2;
+    const indexOfPrevious = this._selectedPicture$.value!.order - 2;
     const pictures = this._pictures$.value;
     pictures[indexOfPrevious + 1] = pictures[indexOfPrevious];
-    pictures[indexOfPrevious] = this._selectedPicture$.value;
+    pictures[indexOfPrevious] = this._selectedPicture$.value!;
     pictures[indexOfPrevious + 1].order = indexOfPrevious + 2;
     pictures[indexOfPrevious].order = indexOfPrevious + 1;
     this._pictures$.next(this._pictures$.value);
   }
 
   moveRight() {
-    const indexOfNext = this._selectedPicture$.value.order;
+    const indexOfNext = this._selectedPicture$.value!.order;
     const pictures = this._pictures$.value;
     pictures[indexOfNext - 1] = pictures[indexOfNext];
-    pictures[indexOfNext] = this._selectedPicture$.value;
+    pictures[indexOfNext] = this._selectedPicture$.value!;
     pictures[indexOfNext - 1].order = indexOfNext;
     pictures[indexOfNext].order = indexOfNext + 1;
     this._pictures$.next(this._pictures$.value);
@@ -73,14 +73,14 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
 
   deleteSelected() {
     let pictures = cloneDeep(this._pictures$.getValue());
-    pictures = pictures.filter(picture => picture.large.ref !== this._selectedPicture$.getValue().large.ref);
+    pictures = pictures.filter(picture => picture.large.ref !== this._selectedPicture$.getValue()!.large.ref);
     assignPictureOrders(pictures);
     this._pictures$.next(pictures);
-    if (pictures.length >= this._selectedPicture$.value.order) {
-      this._selectedPicture$.next(pictures[this._selectedPicture$.value.order - 1]);
+    if (pictures.length >= this._selectedPicture$.value!.order) {
+      this._selectedPicture$.next(pictures[this._selectedPicture$.value!.order - 1]);
     } else {
       if (pictures.length > 0) {
-        this._selectedPicture$.next(pictures[this._selectedPicture$.value.order - 2]);
+        this._selectedPicture$.next(pictures[this._selectedPicture$.value!.order - 2]);
       } else {
         this._selectedPicture$.next(undefined);
       }
@@ -88,18 +88,18 @@ export class PictureListComponent extends Unsubscribable implements OnInit {
   }
 
   saveChanges() {
-    this._firebaseService.updateGallery({ pictures: this._pictures$.value })
+    this._firebaseService.updateGallery({pictures: this._pictures$.value})
       .pipe(takeUntil(this.ngUnsubscribe$))
       .subscribe(
         () => {
           console.log('update success');
-          this._snackBar.open('Foto\'s updaten voltooid', null, {
+          this._snackBar.open('Foto\'s updaten voltooid', 'success', {
             duration: 5000
           });
         },
         error => {
           console.error('error updating guestbook', error);
-          this._snackBar.open('Geen rechten om foto\'s te wijzigen', null, {
+          this._snackBar.open('Geen rechten om foto\'s te wijzigen', 'error', {
             duration: 5000
           });
         }

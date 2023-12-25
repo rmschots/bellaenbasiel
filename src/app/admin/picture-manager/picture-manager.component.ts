@@ -3,7 +3,7 @@ import { Unsubscribable } from '../../shared/util/unsubscribable';
 
 
 @Component({
-  selector: 'bnb-picture-manager',
+  selector: 'app-picture-manager',
   templateUrl: './picture-manager.component.html',
   styleUrls: ['./picture-manager.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

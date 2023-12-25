@@ -7,10 +7,10 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: OnepagerComponent
-  }/*, {
+  }, {
     path: 'admin',
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-  }*/
+  }
 ];
 
 @NgModule({

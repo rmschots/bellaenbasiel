@@ -1,8 +1,10 @@
 import { inject, Injectable } from '@angular/core';
 import { FirebaseCalendar, FirebaseGallery, FirebaseGuestbook, FirebasePicture } from '../models/firebase-data';
-import { BehaviorSubject, map, Observable, ReplaySubject, tap } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, of, ReplaySubject, tap } from 'rxjs';
 import { PictureService } from './picture.service';
-import { collection, DocumentChange, DocumentData, Firestore, onSnapshot } from '@angular/fire/firestore';
+import { collection, doc, DocumentChange, DocumentData, Firestore, onSnapshot, setDoc } from '@angular/fire/firestore';
+import { switchMap } from 'rxjs/operators';
+import { cloneDeep } from 'lodash';
 
 export const pictureComparator = (a: any, b: any) => {
   return a.ordered ? b.ordered ? a.order - b.order : -1 : b.ordered ? 1 : 0;
@@ -64,56 +66,55 @@ export class FirebaseService {
       });
   }
 
-  // updateFirebaseGuestbook(updatedGuestbook: FirebaseGuestbook): Observable<void> {
-  //   let guestbookToSave: FirebaseGuestbook;
-  //   return this._guestbookData$.pipe(switchMap(value => {
-  //     if (value) {
-  //       guestbookToSave = cloneDeep(value);
-  //       guestbookToSave.metadata = updatedGuestbook.metadata;
-  //       const newReviewIds = updatedGuestbook.reviews.map(review => review.id);
-  //       guestbookToSave.reviews = guestbookToSave.reviews.filter(oldReview => {
-  //         return !newReviewIds.includes(oldReview.id);
-  //       });
-  //       updatedGuestbook.reviews.forEach(review => guestbookToSave.reviews.push(review));
-  //     } else {
-  //       guestbookToSave = updatedGuestbook;
-  //     }
-  //     return from(
-  //       this._afs.collection('data').doc<FirebaseGuestbook>(`guestbook`)
-  //         .set(guestbookToSave)
-  //     );
-  //   }));
-  // }
-  //
-  // createPicture(picture: FirebasePicture): Observable<void> {
-  //   return this._galleryData$.pipe(switchMap(value => {
-  //     const galleryToSave = cloneDeep(value);
-  //     if (!galleryToSave.pictures) {
-  //       galleryToSave.pictures = [];
-  //     }
-  //     galleryToSave.pictures.push(picture);
-  //     return from(
-  //       this._afs.collection('data').doc<FirebaseGallery>(`gallery`)
-  //         .set(galleryToSave)
-  //     );
-  //   }));
-  // }
-  //
-  // updateGallery(updatedGallery: FirebaseGallery): Observable<void> {
-  //   const updatedLargeRefs = updatedGallery.pictures.map(picture => picture.large.ref);
-  //   return this._galleryData$.pipe(switchMap(value => {
-  //     value.pictures
-  //       .filter(picture => !updatedLargeRefs.includes(picture.large.ref))
-  //       .forEach(picture => {
-  //         this._pictureService.deletePicture(picture);
-  //       });
-  //     return from(
-  //       this._afs.collection('data').doc<FirebaseGallery>(`gallery`)
-  //         .set(updatedGallery)
-  //     );
-  //   }));
-  // }
-  //
+  updateFirebaseGuestbook(updatedGuestbook: FirebaseGuestbook): Observable<unknown> {
+    let guestbookToSave: FirebaseGuestbook;
+    return this._guestbookData$.pipe(switchMap(value => {
+      if (value) {
+        guestbookToSave = cloneDeep(value);
+        guestbookToSave.metadata = updatedGuestbook.metadata;
+        const newReviewIds = updatedGuestbook.reviews.map(review => review.id);
+        guestbookToSave.reviews = guestbookToSave.reviews.filter(oldReview => {
+          return !newReviewIds.includes(oldReview.id);
+        });
+        updatedGuestbook.reviews.forEach(review => guestbookToSave.reviews.push(review));
+      } else {
+        guestbookToSave = updatedGuestbook;
+      }
+      return from(setDoc(doc(collection(this._afs, 'data'), 'guestbook'), guestbookToSave));
+    }));
+  }
+
+  createPicture(picture: FirebasePicture): Observable<void> {
+    // return this._galleryData$.pipe(switchMap(value => {
+    //   const galleryToSave = cloneDeep(value);
+    //   if (!galleryToSave.pictures) {
+    //     galleryToSave.pictures = [];
+    //   }
+    //   galleryToSave.pictures.push(picture);
+    //   return from(
+    //     this._afs.collection('data').doc<FirebaseGallery>(`gallery`)
+    //       .set(galleryToSave)
+    //   );
+    // }));
+    return of();
+  }
+
+  updateGallery(updatedGallery: FirebaseGallery): Observable<void> {
+    // const updatedLargeRefs = updatedGallery.pictures.map(picture => picture.large.ref);
+    // return this._galleryData$.pipe(switchMap(value => {
+    //   value.pictures
+    //     .filter(picture => !updatedLargeRefs.includes(picture.large.ref))
+    //     .forEach(picture => {
+    //       this._pictureService.deletePicture(picture);
+    //     });
+    //   return from(
+    //     this._afs.collection('data').doc<FirebaseGallery>(`gallery`)
+    //       .set(updatedGallery)
+    //   );
+    // }));
+    return of();
+  }
+
   get calendarData$(): Observable<FirebaseCalendar> {
     return this._calendarData$.asObservable();
   }

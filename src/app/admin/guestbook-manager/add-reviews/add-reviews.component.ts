@@ -5,7 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AirbnbReviews } from '../../../shared/models/airbnb-reviews';
 
 @Component({
-  selector: 'bnb-add-reviews',
+  selector: 'app-add-reviews',
   templateUrl: './add-reviews.component.html',
   styleUrls: ['./add-reviews.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -21,7 +21,7 @@ export class AddReviewsComponent {
   }
 
   onSubmit() {
-    const reviewsString = this.addReviewsFormGroup.get('reviewsJson').value;
+    const reviewsString = this.addReviewsFormGroup.get('reviewsJson')!.value;
     const airbnbReviews: AirbnbReviews = JSON.parse(reviewsString);
     airbnbReviews.reviews.forEach(review => {
       if (review.rating === 0) {
@@ -31,18 +31,19 @@ export class AddReviewsComponent {
     });
     this._firebaseService
       .updateFirebaseGuestbook(airbnbReviews)
-      .subscribe(
-        () => {
-          console.log('update success');
-          this._snackBar.open('Reviews updaten voltooid', null, {
-            duration: 5000
-          });
-        },
-        error => {
-          console.error('error updating guestbook', error);
-          this._snackBar.open('Geen rechten om review toe te voegen', null, {
-            duration: 5000
-          });
+      .subscribe({
+          next: () => {
+            console.log('update success');
+            this._snackBar.open('Reviews updaten voltooid', 'success', {
+              duration: 5000
+            });
+          },
+          error: error => {
+            console.error('error updating guestbook', error);
+            this._snackBar.open('Geen rechten om review toe te voegen', 'error', {
+              duration: 5000
+            });
+          }
         }
       );
   }

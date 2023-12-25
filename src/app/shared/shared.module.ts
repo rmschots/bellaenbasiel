@@ -7,7 +7,7 @@ import { SectionComponent } from './components/section/section.component';
 import { SectionTitleComponent } from './components/section-title/section-title.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
@@ -78,7 +78,9 @@ const MATERIAL_MODULES = [
 const MODULES = [
   CommonModule,
   FormsModule,
+  ReactiveFormsModule,
   GalleryModule,
+  TranslocoModule,
   ...MATERIAL_MODULES,
 ]
 
@@ -95,8 +97,7 @@ const MODULES = [
     ...PIPES
   ],
   imports: [
-    ...MODULES,
-    TranslocoModule
+    ...MODULES
   ]
 })
 export class SharedModule {

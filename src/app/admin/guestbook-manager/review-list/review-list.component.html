@@ -1,12 +1,12 @@
-<h2 class="text-center">{{ 'GUESTBOOK_MANAGER.REVIEW_LIST.title' | translate }}</h2>
+<h2 class="text-center">{{ 'GUESTBOOK_MANAGER.REVIEW_LIST.title' | transloco }}</h2>
 <mat-card>
   <mat-card-content>
     <div>
       <div fxLayout="row" fxLayout.lt-sm="column-reverse" fxLayoutAlign="space-between center"
            fxLayoutAlign.lt-sm="center" fxLayoutGap="16px">
         <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target.value)"
-                 [placeholder]="'GUESTBOOK_MANAGER.REVIEW_LIST.table.filter' | translate">
+          <input matInput (keyup)="applyFilter($event.target)"
+                 [placeholder]="'GUESTBOOK_MANAGER.REVIEW_LIST.table.filter' | transloco">
         </mat-form-field>
       </div>
       <mat-table #table [dataSource]="dataSource" matSort (matSortChange)="sortData($event)"
@@ -14,28 +14,28 @@
 
         <ng-container matColumnDef="author">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
-            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.author' | translate }}
+            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.author' | transloco }}
           </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{ element.reviewer.first_name }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="date">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
-            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.date' | translate }}
+            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.date' | transloco }}
           </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{ element.created_at.toDate() | date: 'd MMMM yyyy' }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="stars">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
-            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.stars' | translate }}
+            {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.stars' | transloco }}
           </mat-header-cell>
           <mat-cell *matCellDef="let element"> {{ element.rating }}</mat-cell>
         </ng-container>
 
 
         <ng-container matColumnDef="content">
-          <mat-header-cell *matHeaderCellDef>{{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.text' | translate }}
+          <mat-header-cell *matHeaderCellDef>{{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.text' | transloco }}
           </mat-header-cell>
           <mat-cell *matCellDef="let element" class="single-line-text"> {{ element.comments }}</mat-cell>
         </ng-container>
