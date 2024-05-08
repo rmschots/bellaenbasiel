@@ -12,7 +12,7 @@ import Timestamp = firebase.firestore.Timestamp;
 
 
 @Component({
-  selector: 'app-review-list',
+  selector: 'bnb-review-list',
   templateUrl: './review-list.component.html',
   styleUrls: ['./review-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -33,11 +33,12 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
     super();
   }
 
-  applyFilter(filterValue: EventTarget | null) {
-    if (filterValue) {
-      const elem = filterValue as HTMLInputElement;
-      this.dataSource.filter = elem.value.trim().toLowerCase();
-    }
+  applyFilter(event: Event) {
+    const target = event.target as HTMLInputElement;
+    let filterValue = target.value;
+    filterValue = filterValue.trim();
+    filterValue = filterValue.toLowerCase();
+    this.dataSource.filter = filterValue;
   }
 
   ngAfterViewInit() {
@@ -95,7 +96,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
     console.log(this.dataSource.data);
   }
 
-  compare(a: string | number, b: string | number, isAsc: boolean) {
+  compare(a: number | string, b: number | string, isAsc: boolean) {
     return (a < b ? -1 : a > b ? 1 : 0) * (isAsc ? 1 : -1);
   }
 

@@ -29,7 +29,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
-import { TranslocoModule } from '@ngneat/transloco';
+import { TranslocoModule } from '@jsverse/transloco';
 import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
@@ -82,7 +82,7 @@ const MODULES = [
   GalleryModule,
   TranslocoModule,
   ...MATERIAL_MODULES,
-]
+];
 
 @NgModule({
   declarations: [

@@ -1,35 +1,42 @@
-import { ChangeDetectionStrategy, Component, HostBinding, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, OnInit } from '@angular/core';
 import { FirebaseService } from '../shared/services/firebase.service';
-import { Auth, GoogleAuthProvider, signInWithPopup, authState } from '@angular/fire/auth';
+import { Auth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angular/fire/auth';
+import * as fbAuth from 'firebase/auth';
 
 @Component({
-  selector: 'app-admin',
+  selector: 'bnb-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AdminComponent implements OnInit {
-  public afAuth = inject(Auth);
-
+  user$;
   @HostBinding('attr.id') id = 'home';
 
-  authState = authState(this.afAuth);
-  constructor(private _firebaseService: FirebaseService) {
+  constructor(private _firebaseService: FirebaseService, public auth: Auth) {
+    this.user$ = user(auth as fbAuth.Auth);
   }
+
 
   ngOnInit(): void {
     this._firebaseService.init();
   }
 
   login() {
-    signInWithPopup(this.afAuth, new GoogleAuthProvider()).then(
-      result => console.log(result)
-    ).catch(
-      error => console.error(error)
-    );
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(this.auth, provider)
+      .then((result) => {
+        console.log('login success', result);
+      }).catch((error) => {
+      console.error('login error', error);
+    });
   }
 
   logout() {
-    this.afAuth.signOut();
+    signOut(this.auth).then(() => {
+      console.log('Sign-out successful.');
+    }).catch((error) => {
+      console.error('An error happened.');
+    });
   }
 }

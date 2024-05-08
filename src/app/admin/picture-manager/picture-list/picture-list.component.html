@@ -1,8 +1,8 @@
-<h2 class="text-center">{{ 'PICTURE_MANAGER.SORT_PICTURES.title' | transloco }}</h2>
+<h2 class="text-center">{{ 'PICTURE_MANAGER.SORT_PICTURES.title' | translate }}</h2>
 <div *ngIf="selectedPicture$ | async" class="sort-picture-buttons" fxLayout="row" fxLayoutAlign="space-between center">
   <button mat-raised-button color="warn" (click)="deleteSelected()">
     <mat-icon>delete</mat-icon>
-    {{ 'PICTURE_MANAGER.SORT_PICTURES.actions.delete' | transloco }}
+    {{ 'PICTURE_MANAGER.SORT_PICTURES.actions.delete' | translate }}
   </button>
   <div fxLayout="row" fxLayoutGap="32px">
     <button mat-mini-fab [disabled]="preventClickMoveLeft" (click)="moveLeft()">
@@ -14,7 +14,7 @@
   </div>
   <button mat-raised-button color="accent" (click)="saveChanges()">
     <mat-icon>save</mat-icon>
-    <span>{{ 'PICTURE_MANAGER.SORT_PICTURES.actions.save' | transloco }}</span></button>
+    <span>{{ 'PICTURE_MANAGER.SORT_PICTURES.actions.save' | translate }}</span></button>
 </div>
 <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap="8px">
   <div *ngFor="let picture of pictures$ | async">

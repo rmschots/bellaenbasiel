@@ -1,6 +1,6 @@
 // Import all the tools needed to customize the theme and extract parts of it
 @use '@angular/material' as mat;
-@import '@angular/material/theming';
+@import '@angular/material';
 
 // Define a mixin that accepts a theme and outputs the color styles for the component.
 @mixin body-theme($theme) {

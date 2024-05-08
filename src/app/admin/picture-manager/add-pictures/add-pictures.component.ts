@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 import { PictureService } from '../../../shared/services/picture.service';
+import { FileInput } from 'ngx-material-file-input';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { ProcessingFile } from '../../../shared/models/processing-file';
 import { FirebasePicture } from '../../../shared/models/firebase-data';
@@ -18,7 +19,7 @@ interface UploadResult {
 }
 
 @Component({
-  selector: 'app-add-pictures',
+  selector: 'bnb-add-pictures',
   templateUrl: './add-pictures.component.html',
   styleUrls: ['./add-pictures.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -28,7 +29,7 @@ export class AddPicturesComponent extends Unsubscribable {
   uploadFormGroup: FormGroup;
   processingFiles$: BehaviorSubject<ProcessingFile[]> = new BehaviorSubject<ProcessingFile[]>([]);
   displayedColumns = ['image', 'filename', 'resizedSmall', 'resizedMedium', 'uploaded'];
-  completionStatus$: Observable<number | undefined>;
+  completionStatus$: Observable<number>;
 
   constructor(private _fb: FormBuilder,
               private _pictureService: PictureService,
@@ -67,9 +68,9 @@ export class AddPicturesComponent extends Unsubscribable {
             const mediumImage = result.find(ur => ur.size === 'medium');
             const largeImage = result.find(ur => ur.size === 'large');
             const picture: FirebasePicture = {
-              small: {url: smallImage!.url, ref: smallImage!.ref},
-              medium: {url: mediumImage!.url, ref: mediumImage!.ref},
-              large: {url: largeImage!.url, ref: largeImage!.ref},
+              small: {url: smallImage.url, ref: smallImage.ref},
+              medium: {url: mediumImage.url, ref: mediumImage.ref},
+              large: {url: largeImage.url, ref: largeImage.ref},
               ordered: false,
               order: -1
             };
@@ -87,42 +88,42 @@ export class AddPicturesComponent extends Unsubscribable {
   }
 
   onSubmit() {
-    // const files: FileInput = this.uploadFormGroup.getRawValue().files;
-    // this.processingFiles$.next(files.files.map((file: File) => {
-    //   return {
-    //     large: file,
-    //     small: null,
-    //     medium: null,
-    //     imageLoaded: false,
-    //     isUploaded: false,
-    //     isUploading: false
-    //   };
-    // }));
-    // this.uploadFormGroup.get('files')!.setValue('');
-    // console.log(this.processingFiles$.getValue());
-    // this._pictureService.resizeImageForThumbnail(files.files)
-    //   .pipe(takeUntil(this.ngUnsubscribe$))
-    //   .subscribe((resizedFile: File) => {
-    //     this.processingFiles$.getValue()!.find(pf => pf.large.name === resizedFile.name)!.small = resizedFile;
-    //     this.processingFiles$.next(this.processingFiles$.value);
-    //     this._changeDetector.detectChanges();
-    //
-    //     const fileReader = new FileReader();
-    //     fileReader.onload = () => {
-    //       this.processingFiles$.getValue()!.find(pf => pf.large.name === resizedFile.name)!.image = fileReader.result;
-    //       this.processingFiles$.getValue()!.find(pf => pf.large.name === resizedFile.name)!.imageLoaded = true;
-    //       this.processingFiles$.next(this.processingFiles$.value);
-    //       this._changeDetector.detectChanges();
-    //     };
-    //     fileReader.readAsDataURL(resizedFile);
-    //   });
-    // this._pictureService.resizeImageForShowcase(files.files)
-    //   .pipe(takeUntil(this.ngUnsubscribe$))
-    //   .subscribe((resizedBlob: File) => {
-    //     this.processingFiles$.getValue()!.find(pf => pf.large.name === resizedBlob.name)!.medium = resizedBlob;
-    //     this.processingFiles$.next(this.processingFiles$.value);
-    //     this._changeDetector.detectChanges();
-    //   });
+    const files: FileInput = this.uploadFormGroup.getRawValue().files;
+    this.processingFiles$.next(files.files.map(file => {
+      return {
+        large: file,
+        small: null,
+        medium: null,
+        imageLoaded: false,
+        isUploaded: false,
+        isUploading: false
+      };
+    }));
+    this.uploadFormGroup.get('files').setValue('');
+    console.log(this.processingFiles$.getValue());
+    this._pictureService.resizeImageForThumbnail(files.files)
+      .pipe(takeUntil(this.ngUnsubscribe$))
+      .subscribe((resizedFile: File) => {
+        this.processingFiles$.getValue().find(pf => pf.large.name === resizedFile.name).small = resizedFile;
+        this.processingFiles$.next(this.processingFiles$.value);
+        this._changeDetector.detectChanges();
+
+        const fileReader = new FileReader();
+        fileReader.onload = () => {
+          this.processingFiles$.getValue().find(pf => pf.large.name === resizedFile.name).image = fileReader.result;
+          this.processingFiles$.getValue().find(pf => pf.large.name === resizedFile.name).imageLoaded = true;
+          this.processingFiles$.next(this.processingFiles$.value);
+          this._changeDetector.detectChanges();
+        };
+        fileReader.readAsDataURL(resizedFile);
+      });
+    this._pictureService.resizeImageForShowcase(files.files)
+      .pipe(takeUntil(this.ngUnsubscribe$))
+      .subscribe((resizedBlob: File) => {
+        this.processingFiles$.getValue().find(pf => pf.large.name === resizedBlob.name).medium = resizedBlob;
+        this.processingFiles$.next(this.processingFiles$.value);
+        this._changeDetector.detectChanges();
+      });
   }
 
   private uploadImage(file: File, key: string): Observable<UploadResult> {

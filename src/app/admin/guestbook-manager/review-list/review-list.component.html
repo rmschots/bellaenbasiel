@@ -5,7 +5,7 @@
       <div fxLayout="row" fxLayout.lt-sm="column-reverse" fxLayoutAlign="space-between center"
            fxLayoutAlign.lt-sm="center" fxLayoutGap="16px">
         <mat-form-field>
-          <input matInput (keyup)="applyFilter($event.target)"
+          <input matInput (keyup)="applyFilter($event)"
                  [placeholder]="'GUESTBOOK_MANAGER.REVIEW_LIST.table.filter' | transloco">
         </mat-form-field>
       </div>

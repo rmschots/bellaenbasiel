@@ -1,11 +1,11 @@
 # Bellaenbasiel
 
-b&b Angular 15 project, served on bellaenbasiel.be
+b&b Angular 17 project, served on bellaenbasiel.be
 Includes picture manager & guestbook utility for airbnb
 
 ## Technologies
 
-* Angular 15 (Angular CLI)
+* Angular 17 (Angular CLI)
   * [Angular Material](https://material.angular.io/) + [Flex Layout](https://github.com/angular/flex-layout)
   * [ngx-page-scroll](https://github.com/Nolanus/ngx-page-scroll)
   * [angular-calendar](https://github.com/mattlewis92/angular-calendar)

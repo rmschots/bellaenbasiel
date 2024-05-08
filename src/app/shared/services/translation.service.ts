@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { distinctUntilChanged, Observable, ReplaySubject } from 'rxjs';
 import { Language } from '../models/language';
-import { getBrowserLang, TranslocoService } from '@ngneat/transloco';
+import { getBrowserLang, TranslocoService } from '@jsverse/transloco';
 
 @Injectable({
   providedIn: 'root'

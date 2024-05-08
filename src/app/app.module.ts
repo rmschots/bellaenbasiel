@@ -39,6 +39,7 @@ import localeNlExtra from '@angular/common/locales/extra/nl';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import localeEnExtra from '@angular/common/locales/extra/en';
 import { LightgalleryModule } from 'lightgallery/angular';
+import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -70,14 +71,14 @@ import { LightgalleryModule } from 'lightgallery/angular';
     GoogleMapsModule,
     SharedModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore()),
+    provideFirestore(() => getFirestore('firestore-eu')),
     provideFunctions(() => getFunctions()),
-    provideStorage(() => getStorage()),
+    provideStorage(() => getStorage(initializeApp(environment.firebase), 'gs://bellaenbasiel')),
+    provideAuth(() => getAuth()),
     CalendarModule.forRoot({provide: DateAdapter, useFactory: adapterFactory}),
     GalleryModule,
     LightgalleryModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

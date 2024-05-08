@@ -5,7 +5,7 @@ export const environment = {
     authDomain: 'bellaenbasiel.firebaseapp.com',
     databaseURL: 'https://bellaenbasiel.firebaseio.com',
     projectId: 'bellaenbasiel',
-    storageBucket: 'bellaenbasiel.appspot.com',
+    storageBucket: 'bellaenbasiel',
     messagingSenderId: '904733919586'
   }
 };

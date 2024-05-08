@@ -1,5 +1,5 @@
 @use '@angular/material' as mat;
-@import '@angular/material/theming';
+@import '@angular/material';
 @import './mixins';
 
 $custom-typography: mat.define-typography-config(
