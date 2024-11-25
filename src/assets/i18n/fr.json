@@ -32,7 +32,7 @@
   "CONTACT": {
     "access": {
       "bus": "<b>En bus :</b> A la gare, sortie “Centrum”, prendre le BUS 2 sur le quai A1",
-      "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;18/nuit.",
+      "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;20/nuit.",
       "taxi": "<b>Taxi :</b> Le prix d’un taxi coûte environ &euro;12-16",
       "title": "Accessibilité",
       "train": "<b>En trein :</b> <a href=\"https://www.belgiantrain.be\">belgiantrain.be</a>"
@@ -77,7 +77,7 @@
     "breakfast": "petit déjeuner &euro;{{amount}} pppj**",
     "extraInfo": {
       "item1": "*Minimum 2 nuits (prix excl. taxe touristique)",
-      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;18 pppj<br><b>Garage :</b> &euro;18 pn<br><b>Usage du lave-linge et séchoir :</b> &euro;15 / 7kg<br><b>Chambre 2, Usage du canapé lit :</b> &euro;25 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;4 pppn",
+      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;20 pppj<br><b>Garage :</b> &euro;20 pn<br><b>Usage du lave-linge et séchoir :</b> &euro;15 / 7kg<br><b>Chambre 2, Usage du canapé lit :</b> &euro;25 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;4 pppn",
       "item3": "Lit d’enfant et chaise haute gratuits",
       "item4": "Les animaux domestiques ne sont pas autorisés (nous avons notre propre jolie chien)",
       "item5": "Il est permis de fumer dans le jardin",

@@ -39,7 +39,7 @@
   "CONTACT": {
     "access": {
       "bus": "<b>Per bus :</b> Neem aan het station, uitgang “Centrum”, BUS 2 op perron/platform A1",
-      "car": "<b>Per auto :</b> in- en uitladen kan gemakkelijk voor de deur. Wij beschikken over een garage indien u dat wenst : &euro;18/nacht.",
+      "car": "<b>Per auto :</b> in- en uitladen kan gemakkelijk voor de deur. Wij beschikken over een garage indien u dat wenst : &euro;20/nacht.",
       "taxi": "<b>Per taxi :</b> ca &euro;12-16",
       "title": "Bereikbaarheid",
       "train": "<b>Per trein :</b> <a href=\"http://www.belgiantrain.be\">belgiantrain.be</a>"
@@ -147,7 +147,7 @@
     "breakfast": "ontbijt &euro;{{amount}} pppd**",
     "extraInfo": {
       "item1": "*Minimum 2 nachten (prijs excl. toeristentaks)",
-      "item2": "**Vooraf te reserveren per mail :<br><b>Ontbijt :</b> &euro;18 pppd<br><b>Garage :</b> &euro;18 pn<br><b>Wasmachine en droogkast :</b> &euro;20 / 7kg<br><b>Kamer 2 ,  Zetelbed :</b> &euro;25 pppn<br><b>Toeristentaks Brugge :</b> &euro;4 pppn",
+      "item2": "**Vooraf te reserveren per mail :<br><b>Ontbijt :</b> &euro;20 pppd<br><b>Garage :</b> &euro;20 pn<br><b>Wasmachine en droogkast :</b> &euro;20 / 7kg<br><b>Kamer 2 ,  Zetelbed :</b> &euro;25 pppn<br><b>Toeristentaks Brugge :</b> &euro;4 pppn",
       "item3": "Gratis kinderbed en kinderstoel",
       "item4": "Huisdieren niet toegelaten (er is wel een brave hond)",
       "item5": "Roken kan in de tuin",
