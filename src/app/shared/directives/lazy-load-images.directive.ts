@@ -31,7 +31,6 @@ export class LazyLoadImagesDirective implements OnInit, OnDestroy {
       return;
     }
 
-    require('intersection-observer');
     this.ngZone.runOutsideAngular(() => this.init());
   }
 
