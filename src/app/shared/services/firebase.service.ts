@@ -1,5 +1,11 @@
 import { inject, Injectable } from '@angular/core';
-import { FirebaseCalendar, FirebaseGallery, FirebaseGuestbook, FirebasePicture } from '../models/firebase-data';
+import {
+  FirebaseCalendar,
+  FirebaseGallery,
+  FirebaseGuestbook,
+  FirebaseGuestbookV2,
+  FirebasePicture
+} from '../models/firebase-data';
 import { BehaviorSubject, from, map, Observable, ReplaySubject, switchMap, tap } from 'rxjs';
 import { PictureService } from './picture.service';
 import { collection, doc, DocumentChange, DocumentData, Firestore, onSnapshot, setDoc } from '@angular/fire/firestore';
@@ -31,6 +37,7 @@ export class FirebaseService {
   private _calendarData$: ReplaySubject<FirebaseCalendar> = new ReplaySubject<FirebaseCalendar>(1);
   private _calendarData2$: ReplaySubject<FirebaseCalendar> = new ReplaySubject<FirebaseCalendar>(1);
   private _guestbookData$: ReplaySubject<FirebaseGuestbook> = new ReplaySubject<FirebaseGuestbook>(1);
+  private _guestbookDataV2$: ReplaySubject<FirebaseGuestbookV2> = new ReplaySubject<FirebaseGuestbookV2>(1);
 
   private _galleryData$: ReplaySubject<FirebaseGallery> = new ReplaySubject<FirebaseGallery>(1);
 
@@ -54,7 +61,13 @@ export class FirebaseService {
     this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'calendar2') as FirebaseCalendar))
       .subscribe(data => this._calendarData2$.next(data));
     this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'guestbook') as FirebaseGuestbook))
-      .subscribe(data => this._guestbookData$.next(data));
+      .subscribe(data => {
+        this._guestbookData$.next(data);
+      });
+    this._sectionsChange$.pipe(map(actions => this.findSection(actions, 'guestbookV2') as FirebaseGuestbookV2))
+      .subscribe(data => {
+        this._guestbookDataV2$.next(data);
+      });
     this._sectionsChange$.pipe(
       map(actions => this.findSection(actions, 'gallery') as FirebaseGallery),
       map(data => data?.pictures ? data : {pictures: []}),
@@ -124,6 +137,10 @@ export class FirebaseService {
 
   get guestbookData$(): Observable<FirebaseGuestbook> {
     return this._guestbookData$.asObservable();
+  }
+
+  get guestbookDataV2$(): Observable<FirebaseGuestbookV2> {
+    return this._guestbookDataV2$.asObservable();
   }
 
 

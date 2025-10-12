@@ -2,7 +2,12 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, distinctUntilChanged, filter, map, Observable, ReplaySubject } from 'rxjs';
-import { FirebaseGuestbook, FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
+import {
+  FirebaseGuestbook,
+  FirebaseGuestbookReview,
+  FirebaseGuestbookV2,
+  GuestbookEntry
+} from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 import { cloneDeep, countBy, isEqual } from 'lodash';
 import { Language } from '../../../shared/models/language';
@@ -30,15 +35,15 @@ interface RatingFilter extends Filter {
 })
 export class GuestbookComponent {
 
-  private originalEntries: FirebaseGuestbookReview[] = [];
+  private originalEntries: GuestbookEntry[] = [];
   private _languageFilters$: BehaviorSubject<LanguageFilter[]> = new BehaviorSubject<LanguageFilter[]>([]);
   private _ratingFilters$: BehaviorSubject<RatingFilter[]> = new BehaviorSubject<RatingFilter[]>([]);
-  private _entries$: BehaviorSubject<FirebaseGuestbookReview[]> = new BehaviorSubject<FirebaseGuestbookReview[]>([]);
+  private _entries$: BehaviorSubject<GuestbookEntry[]> = new BehaviorSubject<GuestbookEntry[]>([]);
   private _entryIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(0);
-  private _currentEntry$: ReplaySubject<FirebaseGuestbookReview> = new ReplaySubject<FirebaseGuestbookReview>(1);
+  private _currentEntry$: ReplaySubject<GuestbookEntry> = new ReplaySubject<GuestbookEntry>(1);
 
   constructor(private _firebaseService: FirebaseService, private _translationService: TranslationService) {
-    this._firebaseService.guestbookData$.pipe(
+    this._firebaseService.guestbookDataV2$.pipe(
       filter(data => !!data),
       untilDestroyed(this),
       distinctUntilChanged((data1, data2) => isEqual(data1, data2)))
@@ -56,7 +61,7 @@ export class GuestbookComponent {
     return this._ratingFilters$.asObservable();
   }
 
-  get currentEntry$(): Observable<FirebaseGuestbookReview> {
+  get currentEntry$(): Observable<GuestbookEntry> {
     return this._currentEntry$.asObservable();
   }
 
@@ -102,8 +107,8 @@ export class GuestbookComponent {
     this._currentEntry$.next(entries[this._entryIndex$.getValue()]);
   }
 
-  private guestbookEntryComparator = (entry1: FirebaseGuestbookReview, entry2: FirebaseGuestbookReview) => {
-    return (<Timestamp>entry2.created_at).toMillis() - (<Timestamp>entry1.created_at).toMillis();
+  private guestbookEntryComparator = (entry1: GuestbookEntry, entry2: GuestbookEntry) => {
+    return (<Timestamp>entry2.createdAt).toMillis() - (<Timestamp>entry1.createdAt).toMillis();
   };
 
   private changeSelected(indexOffset: number) {
@@ -124,8 +129,8 @@ export class GuestbookComponent {
     }
   }
 
-  private updateData(data: FirebaseGuestbook) {
-    const entriesCpy: FirebaseGuestbookReview[] = cloneDeep(data.reviews);
+  private updateData(data: FirebaseGuestbookV2) {
+    const entriesCpy: GuestbookEntry[] = cloneDeep(data.entries);
     entriesCpy.sort((entry1, entry2) => this.guestbookEntryComparator(entry1, entry2));
     this.originalEntries = entriesCpy;
     const languageDictionary = countBy(entriesCpy.map(review => review.language));
@@ -151,5 +156,9 @@ export class GuestbookComponent {
     this._languageFilters$.next(languageFilters);
     this._ratingFilters$.next(ratingFilters);
     this.applyFilters();
+  }
+
+  changeSource($event: ErrorEvent, svg: string) {
+    ($event.target! as HTMLImageElement).src = svg;
   }
 }

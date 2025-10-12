@@ -9,15 +9,15 @@
   <div fxFlexAlign="center">
     <mat-chip-listbox [selectable]="true" [multiple]="true">
       <mat-chip-option *ngFor="let languageFilter of languageFilters$ | async" [value]="languageFilter" color="accent"
-                [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
-        {{ 'COMMON.LANGUAGES.'+languageFilter.language | transloco }} ({{ languageFilter.count }})
+                       [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
+        {{ 'COMMON.LANGUAGES.' + languageFilter.language | transloco }} ({{ languageFilter.count }})
       </mat-chip-option>
     </mat-chip-listbox>
   </div>
   <div fxFlexAlign="center">
     <mat-chip-listbox [selectable]="true" [multiple]="true">
       <mat-chip-option *ngFor="let ratingFilter of ratingFilters$ | async" [value]="ratingFilter" color="accent"
-                [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
+                       [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
         <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center">
           <app-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></app-star-rating>
           <div>({{ ratingFilter.count }})</div>
@@ -35,11 +35,14 @@
       </p>
       <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
         <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-          <img [src]="currentEntry.reviewer.picture_url" height="48" width="48" class="profile-picture"
-               alt="Profile picture of {{ currentEntry.reviewer.first_name }}">
-          <div>
-            <span>{{ 'GUESTBOOK.by' | transloco }}&nbsp;{{ currentEntry.reviewer.first_name }},&nbsp;</span>
-            <span>{{ currentEntry.created_at | bnbDate:'d MMMM yyyy' }}</span>
+          <img [src]="currentEntry.reviewer.pictureUrl"
+               height="48" width="48" class="profile-picture"
+               alt="Profile picture of {{ currentEntry.reviewer.firstName }}"
+               (error)="changeSource($event, 'assets/svg/profile-default.svg')">
+          <div *transloco="let t">
+            <span>{{ t('GUESTBOOK.by', {name: currentEntry.reviewer.firstName}) }},&nbsp;</span>
+            <span>{{ t('GUESTBOOK.SOURCE.' + currentEntry.source) }}</span><br>
+            <span>{{ currentEntry.createdAt | bnbDate:'d MMMM yyyy' }}</span>
           </div>
         </div>
         <div>

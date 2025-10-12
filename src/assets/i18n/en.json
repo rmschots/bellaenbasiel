@@ -27,13 +27,19 @@
   },
   "COMMON": {
     "LANGUAGES": {
+      "cs": "Czech",
       "de": "German",
+      "el": "Greek",
       "en": "English",
       "es": "Spanish",
       "fr": "French",
       "it": "Italian",
       "nl": "Dutch",
-      "pt": "Portuguese"
+      "pl": "Polish",
+      "pt": "Portuguese",
+      "ru": "Russian",
+      "tr": "Turkish",
+      "zh": "Chinese"
     }
   },
   "CONTACT": {
@@ -50,9 +56,13 @@
     "title": "Contact"
   },
   "GUESTBOOK": {
-    "by": "by",
+    "by": "by {{name}}",
     "review": "review",
-    "title": "Guestbook"
+    "title": "Guestbook",
+    "SOURCE": {
+      "BOOKING": "booking.com",
+      "AIRBNB": "airbnb"
+    }
   },
   "GUESTBOOK_MANAGER": {
     "ADD_REVIEWS": {

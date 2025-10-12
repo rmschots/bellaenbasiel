@@ -1,6 +1,6 @@
 import { Timestamp } from '@firebase/firestore';
 
-export type FirebaseData = FirebaseCalendar | FirebaseGuestbook | FirebaseGallery;
+export type FirebaseData = FirebaseCalendar | FirebaseGuestbook | FirebaseGallery | FirebaseGuestbookV2;
 
 export interface FirebaseCalendar {
   entries: CalendarEntry[];
@@ -52,6 +52,24 @@ export interface FirebaseGuestbookMetadata {
 export interface FirebaseGuestbook {
   reviews: FirebaseGuestbookReview[];
   metadata: FirebaseGuestbookMetadata;
+}
+
+export interface FirebaseGuestbookV2 {
+  entries: GuestbookEntry[];
+}
+
+export interface GuestbookEntry {
+  source: string,
+  id: string,
+  language: string,
+  comments: string,
+  originalRating: number,
+  rating: number,
+  createdAt: Timestamp,
+  reviewer: {
+    firstName: string,
+    pictureUrl: string,
+  },
 }
 
 export interface FirebaseGallery {

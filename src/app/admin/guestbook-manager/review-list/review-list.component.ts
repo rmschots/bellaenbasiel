@@ -4,7 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
-import { FirebaseGuestbookReview } from '../../../shared/models/firebase-data';
+import { GuestbookEntry } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import firebase from 'firebase/compat';
@@ -21,13 +21,13 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
 
   displayedColumns = ['author', 'date', 'stars', 'content'];
 
-  dataSource: MatTableDataSource<FirebaseGuestbookReview> = new MatTableDataSource<FirebaseGuestbookReview>([]);
+  dataSource: MatTableDataSource<GuestbookEntry> = new MatTableDataSource<GuestbookEntry>([]);
 
   @ViewChild(MatPaginator, {static: true}) paginator!: MatPaginator;
 
   @ViewChild(MatSort, {static: true}) sort!: MatSort;
 
-  private _originalData: FirebaseGuestbookReview[] = [];
+  private _originalData: GuestbookEntry[] = [];
 
   constructor(private _firebaseService: FirebaseService) {
     super();
@@ -47,15 +47,15 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
   }
 
   ngOnInit(): void {
-    this._firebaseService.guestbookData$.pipe(
+    this._firebaseService.guestbookDataV2$.pipe(
       filter(data => !!data),
-      map(data => data.reviews),
+      map(data => data.entries),
       takeUntil(this.ngUnsubscribe$)
     )
       .subscribe(entries => {
         this._originalData = entries.sort((a, b) => this.compare(
-          (<Timestamp>a.created_at).toMillis(),
-          (<Timestamp>b.created_at).toMillis(),
+          (<Timestamp>a.createdAt).toMillis(),
+          (<Timestamp>b.createdAt).toMillis(),
           false)
         );
         this.dataSource.data = cloneDeep(entries);
@@ -63,7 +63,7 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
       });
   }
 
-  trackByFunction: TrackByFunction<FirebaseGuestbookReview> = (index: number, item: FirebaseGuestbookReview) => {
+  trackByFunction: TrackByFunction<GuestbookEntry> = (index: number, item: GuestbookEntry) => {
     return item.id;
   };
 
@@ -78,11 +78,11 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'author':
-          return this.compare(a.reviewer.first_name, b.reviewer.first_name, isAsc);
+          return this.compare(a.reviewer.firstName, b.reviewer.firstName, isAsc);
         case 'date':
           return this.compare(
-            (<firebase.firestore.Timestamp>a.created_at).toMillis(),
-            (<firebase.firestore.Timestamp>b.created_at).toMillis(),
+            (<firebase.firestore.Timestamp>a.createdAt).toMillis(),
+            (<firebase.firestore.Timestamp>b.createdAt).toMillis(),
             isAsc
           );
         case 'stars':

@@ -7,7 +7,6 @@ import { ReviewListComponent } from './guestbook-manager/review-list/review-list
 // import { PictureManagerComponent } from './picture-manager/picture-manager.component';
 // import { AddPicturesComponent } from './picture-manager/add-pictures/add-pictures.component';
 // import { PictureListComponent } from './picture-manager/picture-list/picture-list.component';
-import { AddReviewsComponent } from './guestbook-manager/add-reviews/add-reviews.component';
 
 // import { MaterialFileInputModule } from 'ngx-material-file-input';
 
@@ -23,8 +22,7 @@ import { AddReviewsComponent } from './guestbook-manager/add-reviews/add-reviews
     ReviewListComponent,
     // PictureManagerComponent,
     // AddPicturesComponent,
-    // PictureListComponent,
-    AddReviewsComponent
+    // PictureListComponent
   ]
 })
 export class AdminModule {

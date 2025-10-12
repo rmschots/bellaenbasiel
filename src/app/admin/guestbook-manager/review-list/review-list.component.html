@@ -16,14 +16,14 @@
           <mat-header-cell *matHeaderCellDef mat-sort-header>
             {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.author' | transloco }}
           </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.reviewer.first_name }}</mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.reviewer.firstName }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="date">
           <mat-header-cell *matHeaderCellDef mat-sort-header>
             {{ 'GUESTBOOK_MANAGER.REVIEW_LIST.table.date' | transloco }}
           </mat-header-cell>
-          <mat-cell *matCellDef="let element"> {{ element.created_at.toDate() | date: 'd MMMM yyyy' }}</mat-cell>
+          <mat-cell *matCellDef="let element"> {{ element.createdAt.toDate() | date: 'dd-MM-yyyy' }}</mat-cell>
         </ng-container>
 
         <ng-container matColumnDef="stars">

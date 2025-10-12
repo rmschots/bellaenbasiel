@@ -20,13 +20,19 @@
   },
   "COMMON": {
     "LANGUAGES": {
+      "cs": "Tchèque",
       "de": "Allemand",
+      "el": "Grec",
       "en": "Anglais",
       "es": "Espagnol",
       "fr": "Français",
       "it": "Italien",
       "nl": "Néerlandais",
-      "pt": "Portugais"
+      "pl": "Polonais",
+      "pt": "Portugais",
+      "ru": "Russe",
+      "tr": "Turc",
+      "zh": "Chinois"
     }
   },
   "CONTACT": {
@@ -43,9 +49,13 @@
     "title": "Contact"
   },
   "GUESTBOOK": {
-    "by": "par",
+    "by": "par {{name}}",
     "review": "critique",
-    "title": "Livre d'Or"
+    "title": "Livre d'Or",
+    "SOURCE": {
+      "BOOKING": "booking.com",
+      "AIRBNB": "airbnb"
+    }
   },
   "HEADER": {
     "checkAvailability": "Disponibilité",
