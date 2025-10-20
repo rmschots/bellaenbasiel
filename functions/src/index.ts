@@ -119,7 +119,7 @@ exports.refreshBookingCalendarRoom23 = onSchedule('0 * * * *', async () => {
   });
 });
 
-exports.syncReviews = onSchedule('0 * * * *', async () => {
+exports.syncReviews = onSchedule('0 0 * * *', async () => {
   rp({
     uri: 'https://mobile-apps.booking.com/json/bookings.getHotelReviews?include_avatar=1&show_title=1&show_review_id=1&hotel_ids=6788656&offset=0&rows=100&use_new_group_sorting=1&use_new_customer_types=1&user_sort=sort_recent_desc&notification_auth_status=1&user_version=60.2.1-android&device_id=bda26227-0e57-4fde-845b-f5e4f9aacd2b',
     method: 'GET',
