@@ -9,6 +9,10 @@ import { BookingReviewsResponse, GuestbookEntry } from './booking';
 
 const ICAL = require('ical.js');
 
+functions.setGlobalOptions({
+  region: 'europe-west1',
+});
+
 initializeApp();
 const db = getFirestore('firestore-eu');
 
