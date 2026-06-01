@@ -4,7 +4,8 @@ import { TranslocoService } from '@jsverse/transloco';
 import { Timestamp } from '@firebase/firestore';
 
 @Pipe({
-  name: 'bnbDate'
+    name: 'bnbDate',
+    standalone: false
 })
 export class BnbDatePipe implements PipeTransform {
   constructor(private _translateService: TranslocoService) {

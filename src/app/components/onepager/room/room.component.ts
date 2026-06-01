@@ -9,10 +9,11 @@ import { isEqual } from 'lodash';
 
 @UntilDestroy()
 @Component({
-  selector: 'app-room',
-  templateUrl: './room.component.html',
-  styleUrls: ['./room.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-room',
+    templateUrl: './room.component.html',
+    styleUrls: ['./room.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class RoomComponent {
   roomConfig1: RoomConfig = {

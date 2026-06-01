@@ -12,10 +12,11 @@ import Timestamp = firebase.firestore.Timestamp;
 
 
 @Component({
-  selector: 'bnb-review-list',
-  templateUrl: './review-list.component.html',
-  styleUrls: ['./review-list.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'bnb-review-list',
+    templateUrl: './review-list.component.html',
+    styleUrls: ['./review-list.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ReviewListComponent extends Unsubscribable implements OnInit, AfterViewInit {
 

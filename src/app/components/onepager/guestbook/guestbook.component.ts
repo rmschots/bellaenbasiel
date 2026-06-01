@@ -28,10 +28,11 @@ interface RatingFilter extends Filter {
 
 @UntilDestroy()
 @Component({
-  selector: 'app-guestbook',
-  templateUrl: './guestbook.component.html',
-  styleUrls: ['./guestbook.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-guestbook',
+    templateUrl: './guestbook.component.html',
+    styleUrls: ['./guestbook.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class GuestbookComponent {
 

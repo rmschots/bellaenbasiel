@@ -13,10 +13,11 @@ import { GalleryItem } from 'lightgallery/lg-utils';
 
 @UntilDestroy()
 @Component({
-  selector: 'app-pictures',
-  templateUrl: './pictures.component.html',
-  styleUrls: ['./pictures.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-pictures',
+    templateUrl: './pictures.component.html',
+    styleUrls: ['./pictures.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PicturesComponent {
   private lightGallery!: LightGallery;

@@ -7,9 +7,10 @@ import { SectionService } from './shared/services/section.service';
 import { PictureService } from './shared/services/picture.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss'],
+    standalone: false
 })
 export class AppComponent implements OnInit {
   @ViewChild(MatSidenav, {static: true}) sidenav!: MatSidenav;

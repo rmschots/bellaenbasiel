@@ -2,7 +2,8 @@ import { Directive, ElementRef, Inject, NgZone, OnDestroy, OnInit, PLATFORM_ID, 
 import { isPlatformBrowser } from '@angular/common';
 
 @Directive({
-  selector: '[appLazyLoadImages]'
+    selector: '[appLazyLoadImages]',
+    standalone: false
 })
 export class LazyLoadImagesDirective implements OnInit, OnDestroy {
 
