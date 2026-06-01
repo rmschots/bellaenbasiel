@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MediaObserver } from '@angular/flex-layout';
+import { MediaObserver } from '@ngbracket/ngx-layout';
 import { SectionService } from '../../../shared/services/section.service';
 
 @Component({
