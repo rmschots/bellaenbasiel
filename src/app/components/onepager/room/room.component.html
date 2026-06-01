@@ -118,7 +118,6 @@
         </mat-card-title>
       </mat-card-header>
       <mat-card-content>
-        <p [innerHtml]="'ROOM.booking.text' | transloco"></p>
         <h4>{{ 'ROOM.booking.conditions' | transloco }}:</h4>
         <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
              *ngFor="let x of bookings; let i = index">
