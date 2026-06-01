@@ -7,8 +7,7 @@ import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { GuestbookEntry } from '../../../shared/models/firebase-data';
 import { cloneDeep } from 'lodash';
 import { filter, map, takeUntil } from 'rxjs/operators';
-import firebase from 'firebase/compat';
-import Timestamp = firebase.firestore.Timestamp;
+import { Timestamp } from '@firebase/firestore';
 
 
 @Component({
@@ -82,8 +81,8 @@ export class ReviewListComponent extends Unsubscribable implements OnInit, After
           return this.compare(a.reviewer.firstName, b.reviewer.firstName, isAsc);
         case 'date':
           return this.compare(
-            (<firebase.firestore.Timestamp>a.createdAt).toMillis(),
-            (<firebase.firestore.Timestamp>b.createdAt).toMillis(),
+            (<Timestamp>a.createdAt).toMillis(),
+            (<Timestamp>b.createdAt).toMillis(),
             isAsc
           );
         case 'stars':
