@@ -4,10 +4,11 @@ import { Auth, GoogleAuthProvider, signInWithPopup, signOut, user } from '@angul
 import * as fbAuth from 'firebase/auth';
 
 @Component({
-  selector: 'bnb-admin',
-  templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'bnb-admin',
+    templateUrl: './admin.component.html',
+    styleUrls: ['./admin.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class AdminComponent implements OnInit {
   user$;

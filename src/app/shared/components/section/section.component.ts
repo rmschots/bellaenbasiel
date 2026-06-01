@@ -13,10 +13,11 @@ import { interval } from 'rxjs';
 
 @UntilDestroy()
 @Component({
-  selector: 'app-section',
-  templateUrl: './section.component.html',
-  styleUrls: ['./section.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-section',
+    templateUrl: './section.component.html',
+    styleUrls: ['./section.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class SectionComponent implements AfterViewInit, OnDestroy {
 

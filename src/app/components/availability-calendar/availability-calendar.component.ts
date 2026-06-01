@@ -8,16 +8,17 @@ import { CustomDateFormatter } from './custom-date-formatter.provider';
 
 @UntilDestroy()
 @Component({
-  selector: 'app-availability-calendar',
-  templateUrl: './availability-calendar.component.html',
-  styleUrls: ['./availability-calendar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [
-    {
-      provide: CalendarDateFormatter,
-      useClass: CustomDateFormatter,
-    },
-  ],
+    selector: 'app-availability-calendar',
+    templateUrl: './availability-calendar.component.html',
+    styleUrls: ['./availability-calendar.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [
+        {
+            provide: CalendarDateFormatter,
+            useClass: CustomDateFormatter,
+        },
+    ],
+    standalone: false
 })
 export class AvailabilityCalendarComponent {
   viewDate: Date = new Date();

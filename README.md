@@ -1,12 +1,12 @@
 # Bellaenbasiel
 
-b&b Angular 17 project, served on bellaenbasiel.be
+b&b Angular 21 project, served on bellaenbasiel.be
 Includes picture manager & guestbook utility for airbnb
 
 ## Technologies
 
-* Angular 17 (Angular CLI)
-  * [Angular Material](https://material.angular.io/) + [Flex Layout](https://github.com/angular/flex-layout)
+* Angular 21 (Angular CLI)
+  * [Angular Material](https://material.angular.io/) + [ngx-layout](https://github.com/ngbracket/ngx-layout)
   * [Angular Google Maps](https://github.com/angular/components/tree/main/src/google-maps)
   * [ngx-page-scroll](https://github.com/Nolanus/ngx-page-scroll)
   * [angular-calendar](https://github.com/mattlewis92/angular-calendar)
@@ -22,7 +22,7 @@ Includes picture manager & guestbook utility for airbnb
   * [Cloud Firestore](https://firebase.google.com/products/firestore/)
   * [Cloud Functions](https://firebase.google.com/products/functions/)
   * [Cloud Storage](https://firebase.google.com/products/storage/)
-  * [Authentication](https://firebase.google.com/products/auth/) ([FirebaseUI](https://github.com/firebase/firebaseui-web))
+  * [Authentication](https://firebase.google.com/products/auth/)
 
 ## Browser compatibility
 * Latest version of all common browsers are supported with the help of [Browserstack](https://www.browserstack.com/)

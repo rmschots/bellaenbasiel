@@ -2,9 +2,9 @@
 <div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
   <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '1'} }}</h2>
   <app-room-details [roomConfig]="roomConfig1" fxLayout="row" fxLayout.lt-md="column"
-                    fxLayoutAlign="center start"
-                    fxLayoutAlign.lt-md="center center"
-                    class="room-details mat-elevation-z3">
+    fxLayoutAlign="center start"
+    fxLayoutAlign.lt-md="center center"
+    class="room-details mat-elevation-z3">
     <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
@@ -27,15 +27,15 @@
     </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
       <app-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar1$ | async"></app-availability-calendar>
+      [firebaseCalendar]="firebaseCalendar1$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
   <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '2'} }}</h2>
   <app-room-details [roomConfig]="roomConfig2" fxLayout="row" fxLayout.lt-md="column"
-                    fxLayoutAlign="center start"
-                    fxLayoutAlign.lt-md="center center"
-                    class="room-details mat-elevation-z3">
+    fxLayoutAlign="center start"
+    fxLayoutAlign.lt-md="center center"
+    class="room-details mat-elevation-z3">
     <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
@@ -58,15 +58,15 @@
     </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
       <app-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
+      [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
   <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '3'} }}</h2>
   <app-room-details [roomConfig]="roomConfig3" fxLayout="row" fxLayout.lt-md="column"
-                    fxLayoutAlign="center start"
-                    fxLayoutAlign.lt-md="center center"
-                    class="room-details mat-elevation-z3">
+    fxLayoutAlign="center start"
+    fxLayoutAlign.lt-md="center center"
+    class="room-details mat-elevation-z3">
     <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
       hotel
     </mat-icon>
@@ -89,7 +89,7 @@
     </mat-card-header>
     <mat-card-content fxLayout="row" fxLayoutAlign="center start">
       <app-availability-calendar fxFlex.gt-sm="50"
-                                 [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
+      [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
     </mat-card-content>
   </mat-card>
 
@@ -103,11 +103,13 @@
       </mat-card-header>
 
       <mat-card-content>
-        <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
-             *ngFor="let x of extraInfo; let i = index;">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | transloco"></span>
-        </div>
+        @for (x of extraInfo; track x; let i = $index) {
+          <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
+            >
+            <mat-icon color="accent">check</mat-icon>
+            <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | transloco"></span>
+          </div>
+        }
       </mat-card-content>
     </mat-card>
     <mat-card fxFlex.gt-sm="67" class="mat-elevation-z3">
@@ -119,11 +121,13 @@
       </mat-card-header>
       <mat-card-content>
         <h4>{{ 'ROOM.booking.conditions' | transloco }}:</h4>
-        <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
-             *ngFor="let x of bookings; let i = index">
-          <mat-icon color="accent">check</mat-icon>
-          <span [innerHTML]="('ROOM.booking.item'+(i+1)) | transloco"></span>
-        </div>
+        @for (x of bookings; track x; let i = $index) {
+          <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
+            >
+            <mat-icon color="accent">check</mat-icon>
+            <span [innerHTML]="('ROOM.booking.item'+(i+1)) | transloco"></span>
+          </div>
+        }
       </mat-card-content>
     </mat-card>
   </div>

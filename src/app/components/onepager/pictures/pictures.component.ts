@@ -1,8 +1,8 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, DOCUMENT } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, distinctUntilChanged, filter } from 'rxjs';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { DOCUMENT } from '@angular/common';
+
 import { isEqual } from 'lodash';
 import { LightGallerySettings } from 'lightgallery/lg-settings';
 import { InitDetail } from 'lightgallery/lg-events';
@@ -13,10 +13,11 @@ import { GalleryItem } from 'lightgallery/lg-utils';
 
 @UntilDestroy()
 @Component({
-  selector: 'app-pictures',
-  templateUrl: './pictures.component.html',
-  styleUrls: ['./pictures.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'app-pictures',
+    templateUrl: './pictures.component.html',
+    styleUrls: ['./pictures.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class PicturesComponent {
   private lightGallery!: LightGallery;
