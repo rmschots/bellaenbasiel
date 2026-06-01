@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
-import { FlexLayoutModule } from '@ngbracket/ngx-layout';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
 import { SharedModule } from './shared/shared.module';
 import { OnepagerComponent } from './components/onepager/onepager.component';
@@ -62,7 +61,6 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
     AppRoutingModule,
     BrowserAnimationsModule,
     TranslocoRootModule,
-    FlexLayoutModule,
     NgxPageScrollCoreModule.forRoot({
       duration: 750, easingLogic: easingLogic
     }),

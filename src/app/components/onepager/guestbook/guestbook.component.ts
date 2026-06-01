@@ -2,14 +2,9 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { TranslationService } from '../../../shared/services/translation.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, distinctUntilChanged, filter, map, Observable, ReplaySubject } from 'rxjs';
-import {
-  FirebaseGuestbook,
-  FirebaseGuestbookReview,
-  FirebaseGuestbookV2,
-  GuestbookEntry
-} from '../../../shared/models/firebase-data';
+import { FirebaseGuestbookV2, GuestbookEntry } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-import { cloneDeep, countBy, isEqual } from 'lodash';
+import { cloneDeep, countBy, isEqual } from 'lodash-es';
 import { Language } from '../../../shared/models/language';
 import { Timestamp } from '@firebase/firestore';
 
@@ -28,11 +23,11 @@ interface RatingFilter extends Filter {
 
 @UntilDestroy()
 @Component({
-    selector: 'app-guestbook',
-    templateUrl: './guestbook.component.html',
-    styleUrls: ['./guestbook.component.scss'],
-    changeDetection: ChangeDetectionStrategy.OnPush,
-    standalone: false
+  selector: 'app-guestbook',
+  templateUrl: './guestbook.component.html',
+  styleUrls: ['./guestbook.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class GuestbookComponent {
 

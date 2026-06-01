@@ -9,9 +9,7 @@ import {
 import { BehaviorSubject, from, map, Observable, ReplaySubject, switchMap, tap } from 'rxjs';
 import { PictureService } from './picture.service';
 import { collection, doc, DocumentChange, DocumentData, Firestore, onSnapshot, setDoc } from '@angular/fire/firestore';
-import { cloneDeep } from 'lodash';
-import { set } from '@angular/fire/database';
-import { ref } from '@angular/fire/storage';
+import { cloneDeep } from 'lodash-es';
 
 export const pictureComparator = (a: any, b: any) => {
   return a.ordered ? b.ordered ? a.order - b.order : -1 : b.ordered ? 1 : 0;

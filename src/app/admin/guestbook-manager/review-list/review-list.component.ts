@@ -5,7 +5,7 @@ import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Unsubscribable } from '../../../shared/util/unsubscribable';
 import { GuestbookEntry } from '../../../shared/models/firebase-data';
-import { cloneDeep } from 'lodash';
+import { cloneDeep } from 'lodash-es';
 import { filter, map, takeUntil } from 'rxjs/operators';
 import { Timestamp } from '@firebase/firestore';
 

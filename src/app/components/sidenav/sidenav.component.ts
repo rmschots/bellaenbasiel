@@ -4,7 +4,7 @@ import { TranslationService } from '../../shared/services/translation.service';
 import { SectionService } from '../../shared/services/section.service';
 import { distinctUntilChanged, map, Observable } from 'rxjs';
 import { NavItem } from '../../shared/models/nav-item';
-import { isEqual } from 'lodash';
+import { isEqual } from 'lodash-es';
 
 @Component({
     selector: 'app-sidenav',

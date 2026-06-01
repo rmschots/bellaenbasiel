@@ -1,5 +1,4 @@
 import 'hammerjs';
-import 'mousetrap';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
@@ -33,6 +32,13 @@ import { TranslocoModule } from '@jsverse/transloco';
 import { BnbDatePipe } from './pipes/bnb-date.pipe';
 import { GalleryModule } from '@ks89/angular-modal-gallery';
 import { LazyLoadImagesDirective } from './directives/lazy-load-images.directive';
+import {
+  FlexAlignDirective,
+  FlexDirective,
+  LayoutAlignDirective,
+  LayoutDirective,
+  LayoutGapDirective
+} from '@ngbracket/ngx-layout';
 
 const COMPONENTS = [
   ConfirmationDialogComponent,
@@ -84,6 +90,17 @@ const MODULES = [
   ...MATERIAL_MODULES,
 ];
 
+// Standalone ngx-layout directives (replacements for the deprecated `Default*`
+// directives that `FlexLayoutModule` pulled in). Imported and re-exported so
+// every module that imports SharedModule can use fxLayout/fxFlex/etc.
+const NGX_LAYOUT_DIRECTIVES = [
+  LayoutDirective,
+  LayoutAlignDirective,
+  LayoutGapDirective,
+  FlexDirective,
+  FlexAlignDirective
+];
+
 @NgModule({
   declarations: [
     ...COMPONENTS,
@@ -92,12 +109,14 @@ const MODULES = [
   ],
   exports: [
     ...MODULES,
+    ...NGX_LAYOUT_DIRECTIVES,
     ...COMPONENTS,
     ...DIRECTIVES,
     ...PIPES
   ],
   imports: [
-    ...MODULES
+    ...MODULES,
+    ...NGX_LAYOUT_DIRECTIVES
   ]
 })
 export class SharedModule {

@@ -3,7 +3,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, distinctUntilChanged, filter } from 'rxjs';
 import { FirebaseService } from '../../../shared/services/firebase.service';
 
-import { isEqual } from 'lodash';
+import { isEqual } from 'lodash-es';
 import { LightGallerySettings } from 'lightgallery/lg-settings';
 import { InitDetail } from 'lightgallery/lg-events';
 import { LightGallery } from 'lightgallery/lightgallery';

@@ -5,7 +5,7 @@ import { distinctUntilChanged, filter, ReplaySubject } from 'rxjs';
 import { FirebaseCalendar } from '../../../shared/models/firebase-data';
 import { RoomConfig } from '../../../shared/models/room-config';
 import { Image } from '@ks89/angular-modal-gallery';
-import { isEqual } from 'lodash';
+import { isEqual } from 'lodash-es';
 
 @UntilDestroy()
 @Component({

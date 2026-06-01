@@ -1,14 +1,14 @@
 @use '@angular/material' as mat;
+@use './theme';
+@use './variables';
+@use 'lightgallery/scss/lightgallery';
+@use 'lightgallery/scss/lg-zoom';
+@use 'lightgallery/scss/lg-thumbnail';
 
 @include mat.elevation-classes();
 @include mat.app-background();
-@import './theme';
-@import './variables';
 @import '~node_modules/angular-calendar/css/angular-calendar.css';
 @import '~node_modules/font-awesome/css/font-awesome.css';
-@import 'lightgallery/scss/lightgallery';
-@import 'lightgallery/scss/lg-zoom';
-@import 'lightgallery/scss/lg-thumbnail';
 
 .lg-backdrop {
   background: url("/assets/img/pictures_background.jpg") no-repeat scroll center;

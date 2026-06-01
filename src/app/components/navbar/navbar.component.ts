@@ -5,7 +5,7 @@ import { Language } from '../../shared/models/language';
 import { distinctUntilChanged, map, Observable } from 'rxjs';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { NavItem } from '../../shared/models/nav-item';
-import { isEqual } from 'lodash';
+import { isEqual } from 'lodash-es';
 
 @UntilDestroy()
 @Component({
