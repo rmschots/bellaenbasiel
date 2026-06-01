@@ -1,9 +1,13 @@
-<app-navbar class="mat-elevation-z6" *ngIf="media.isActive('gt-sm')"></app-navbar>
-<div class="menu-button-overlay" *ngIf="media.isActive('lt-md') && (navBarClosed$ | async) && !(overlayShown$ | async)">
-  <button aria-label="button that opens the sidenav" mat-fab (click)="openSidenav()">
-    <mat-icon>menu</mat-icon>
-  </button>
-</div>
+@if (media.isActive('gt-sm')) {
+  <app-navbar class="mat-elevation-z6"></app-navbar>
+}
+@if (media.isActive('lt-md') && (navBarClosed$ | async) && !(overlayShown$ | async)) {
+  <div class="menu-button-overlay">
+    <button aria-label="button that opens the sidenav" mat-fab (click)="openSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+}
 <mat-sidenav-container [ngClass]="{
     'sidenav-container-with-sticky-navbar': media.isActive('gt-sm'),
     'sidenav-container-without-navbar': media.isActive('lt-md')

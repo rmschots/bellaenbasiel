@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Overview
 
-Angular 17 single-page website for the Bella & Basiel B&B (served at bellaenbasiel.be). It is a public one-pager plus a lazy-loaded `/admin` area, backed by Firebase. Content (calendar availability, guestbook reviews, gallery) is stored in Firestore and synced from booking.com by scheduled Cloud Functions.
+Angular 21 single-page website for the Bella & Basiel B&B (served at bellaenbasiel.be). It is a public one-pager plus a lazy-loaded `/admin` area, backed by Firebase. Content (calendar availability, guestbook reviews, gallery) is stored in Firestore and synced from booking.com by scheduled Cloud Functions.
 
 ## Commands
 
@@ -22,7 +22,7 @@ Cloud Functions (run from `functions/`):
 - `npm run deploy` — `firebase deploy --only functions`
 - `npm run logs` — tail deployed function logs
 
-Functions target Node 22; the frontend toolchain is Angular CLI 17 / TypeScript 5.4.
+Functions target Node 22; the frontend toolchain is Angular CLI 21 / TypeScript 5.9. The app is still NgModule-based (not standalone) and uses the `@angular-devkit/build-angular:browser` (webpack) builder. Layout uses `@ngbracket/ngx-layout` (the maintained fork of the deprecated `@angular/flex-layout`), so `fxLayout`/`fxFlex` directives and `MediaObserver` remain available.
 
 ## Architecture
 

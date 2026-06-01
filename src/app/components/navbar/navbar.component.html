@@ -1,29 +1,36 @@
 <div class="container" fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
   <a class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollAdjustHash]="true"
-     (click)="scrollTo('home')" aria-label="Go to top of page">
+    (click)="scrollTo('home')" aria-label="Go to top of page">
     <img src="/assets/img/logo-header.png" alt="Bella en Basiel logo">
   </a>
-  <div class="nav-links" *ngIf="currentSection$ | async as currentSection">
-    <ul fxLayout="row">
-      <li *ngFor="let navItem of sections$ | async">
-        <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
-                (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}"
-                [attr.aria-label]="'navigate to ' + (navItem.nameKey | transloco)">
-          <b>{{ navItem.nameKey | transloco }}</b>
-
-        </button>
-      </li>
-    </ul>
-  </div>
-  <button mat-button [matMenuTriggerFor]="menu" *ngIf="currentLanguage$ | async as currentLanguage"
-          [attr.aria-label]="'change language'">
-    <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg" alt="{{ currentLanguage.name }} flag"/>
-  </button>
+  @if (currentSection$ | async; as currentSection) {
+    <div class="nav-links">
+      <ul fxLayout="row">
+        @for (navItem of sections$ | async; track navItem) {
+          <li>
+            <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
+              (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}"
+              [attr.aria-label]="'navigate to ' + (navItem.nameKey | transloco)">
+              <b>{{ navItem.nameKey | transloco }}</b>
+            </button>
+          </li>
+        }
+      </ul>
+    </div>
+  }
+  @if (currentLanguage$ | async; as currentLanguage) {
+    <button mat-button [matMenuTriggerFor]="menu"
+      [attr.aria-label]="'change language'">
+      <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg" alt="{{ currentLanguage.name }} flag"/>
+    </button>
+  }
 </div>
 <mat-menu #menu="matMenu">
-  <button mat-menu-item *ngFor="let language of languages" (click)="languageSelected(language)"
-          [attr.aria-label]="'set '+ language.name">
-    <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg" alt="{{ language.name }} flag"/></mat-icon>
-    <span>{{ language.name }}</span>
-  </button>
+  @for (language of languages; track language) {
+    <button mat-menu-item (click)="languageSelected(language)"
+      [attr.aria-label]="'set '+ language.name">
+      <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg" alt="{{ language.name }} flag"/></mat-icon>
+      <span>{{ language.name }}</span>
+    </button>
+  }
 </mat-menu>

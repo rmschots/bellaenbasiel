@@ -1,26 +1,26 @@
-<ng-container *ngIf="roomConfig$ | async as roomConfig">
+@if (roomConfig$ | async; as roomConfig) {
   <div fxFlex.gt-sm="520px" class="room-image-wrapper">
-    <ng-container *ngIf="selectedImage$ | async as img">
+    @if (selectedImage$ | async; as img) {
       <figure appLazyLoadImages>
         <img src="/assets/svg/loading-image.svg" [attr.data-src]="img.plain?.img"
-             (click)="openImageModal(img)"/>
-        <figcaption class="description">
-          {{ img.modal.description | transloco }}
-        </figcaption>
-        <mat-chip-listbox class="pricing-chips" [selectable]="false">
-          <mat-chip-option color="accent" selected="true">
-            <span [innerHTML]="'ROOM.night' | transloco: { amount: roomConfig.price }"></span>
-          </mat-chip-option>
-          <mat-chip-option color="accent" selected="true" selectable="false">
-            <span [innerHTML]="'ROOM.breakfast' | transloco:{amount: '20'}"></span>
-          </mat-chip-option>
-        </mat-chip-listbox>
-        <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
-        <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
-      </figure>
-    </ng-container>
-    <!--    <ks-modal-gallery [id]="roomConfig.id" [modalImages]="roomConfig.images" [plainGalleryConfig]="galleryConfig"-->
-    <!--                      [currentImageConfig]="{description: galleryDescriptionConfig}"-->
+          (click)="openImageModal(img)"/>
+          <figcaption class="description">
+            {{ img.modal.description | transloco }}
+          </figcaption>
+          <mat-chip-listbox class="pricing-chips" [selectable]="false">
+            <mat-chip-option color="accent" selected="true">
+              <span [innerHTML]="'ROOM.night' | transloco: { amount: roomConfig.price }"></span>
+            </mat-chip-option>
+            <mat-chip-option color="accent" selected="true" selectable="false">
+              <span [innerHTML]="'ROOM.breakfast' | transloco:{amount: '20'}"></span>
+            </mat-chip-option>
+          </mat-chip-listbox>
+          <mat-icon class="image-nav image-nav-left" (click)="gotoPreviousImage()">chevron_left</mat-icon>
+          <mat-icon class="image-nav image-nav-right" (click)="gotoNextImage()">chevron_right</mat-icon>
+        </figure>
+      }
+      <!--    <ks-modal-gallery [id]="roomConfig.id" [modalImages]="roomConfig.images" [plainGalleryConfig]="galleryConfig"-->
+      <!--                      [currentImageConfig]="{description: galleryDescriptionConfig}"-->
     <!--                      (close)="onPreviewClose()"></ks-modal-gallery>-->
   </div>
   <div fxLayout="column" class="room-info full-width">
@@ -30,5 +30,4 @@
       <ng-content></ng-content>
     </div>
   </div>
-
-</ng-container>
+}

@@ -1,30 +1,33 @@
-<div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
-     *ngIf="user$ | async as user; else showLogin">
-  <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/" aria-label="go to website">
-    <mat-icon>home</mat-icon>
-    <span>{{ 'ADMIN.actions.toWebsite' | transloco }}</span>
-  </a>
-  <span fxFlex="grow"></span>
-  <p>{{ 'ADMIN.loggedInAs' | transloco }} {{ user.displayName }}</p>
-  <div>
-    <button mat-raised-button color="accent" (click)="logout()">
-      <span>{{ 'ADMIN.actions.logout' | transloco }}</span>
-      <mat-icon>exit_to_app</mat-icon>
-    </button>
+@if (user$ | async; as user) {
+  <div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
+    >
+    <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/" aria-label="go to website">
+      <mat-icon>home</mat-icon>
+      <span>{{ 'ADMIN.actions.toWebsite' | transloco }}</span>
+    </a>
+    <span fxFlex="grow"></span>
+    <p>{{ 'ADMIN.loggedInAs' | transloco }} {{ user.displayName }}</p>
+    <div>
+      <button mat-raised-button color="accent" (click)="logout()">
+        <span>{{ 'ADMIN.actions.logout' | transloco }}</span>
+        <mat-icon>exit_to_app</mat-icon>
+      </button>
+    </div>
   </div>
-</div>
+} @else {
+  <div class="container" fxLayout="row" fxLayoutAlign="center">
+    <button mat-raised-button color="accent" (click)="login()">Login with Google</button>
+  </div>
+}
 
 
 <!--<bnb-section *ngIf="afAuth.authState | async" sectionId="picture-manager" sectionName="NAV.managePictures">-->
 <!--  <bnb-picture-manager id="picture-manager"></bnb-picture-manager>-->
 <!--</bnb-section>-->
-<app-section *ngIf="user$ | async" sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
-  <bnb-guestbook-manager id="guestbook-manager"></bnb-guestbook-manager>
-</app-section>
+@if (user$ | async) {
+  <app-section sectionId="guestbook-manager" sectionName="NAV.manageGuestbook">
+    <bnb-guestbook-manager id="guestbook-manager"></bnb-guestbook-manager>
+  </app-section>
+}
 
 
-<ng-template #showLogin>
-  <div class="container" fxLayout="row" fxLayoutAlign="center">
-    <button mat-raised-button color="accent" (click)="login()">Login with Google</button>
-  </div>
-</ng-template>
