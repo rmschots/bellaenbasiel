@@ -1,35 +1,39 @@
 @use '@angular/material' as mat;
-@import '@angular/material';
-@import './mixins';
+@use './theme-colors' as theme-colors;
+@use './mixins' as mixins;
 
-$custom-typography: mat.m2-define-typography-config(
-  $font-family: 'Lato, sans-serif',
-  $headline-1: mat.m2-define-typography-level(102px, 102px, 700),
-  $headline-2: mat.m2-define-typography-level(64px, 64px, 700),
-  $headline-3: mat.m2-define-typography-level(51px, 56px, 700),
-  $headline-4: mat.m2-define-typography-level(36px, 40px, 700),
-  $headline-5: mat.m2-define-typography-level(25px, 32px, 700),
-  $headline-6: mat.m2-define-typography-level(21px, 32px, 700),
-  $subtitle-1: mat.m2-define-typography-level(17px, 28px, 700),
-  $subtitle-2: mat.m2-define-typography-level(15px, 24px, 700),
-  $body-1: mat.m2-define-typography-level(17px, 24px, 400),
-  $body-2: mat.m2-define-typography-level(15px, 20px, 400),
-  $caption: mat.m2-define-typography-level(13px, 20px, 400),
-  $overline: mat.m2-define-typography-level(11px, 14px, 400),
-);
-
-$app-primary-palette: mat.m2-define-palette(mat.$m2-green-palette, 600);
-$app-accent-palette: mat.m2-define-palette(mat.$m2-light-blue-palette);
-$app-warn-palette: mat.m2-define-palette(mat.$m2-deep-orange-palette);
-
-$app-theme: mat.m2-define-light-theme((
+// Material 3 theme. Palettes are generated from the brand seed colours
+// (primary #43A047 green, tertiary #03A9F4 light-blue, error #FF5722 deep-orange)
+// in `_theme-colors.scss` via `ng generate @angular/material:theme-color`.
+$app-theme: mat.define-theme((
   color: (
-    primary: $app-primary-palette,
-    accent: $app-accent-palette,
-    warn: $app-warn-palette,
+    theme-type: light,
+    primary: theme-colors.$primary-palette,
+    tertiary: theme-colors.$tertiary-palette,
   ),
-  typography: $custom-typography,
+  typography: (
+    plain-family: 'Lato, sans-serif',
+    brand-family: 'Lato, sans-serif',
+  ),
+  density: (
+    scale: 0,
+  ),
 ));
 
-@include mat.all-component-themes($app-theme);
-@include body-theme($app-theme);
+html {
+  @include mat.all-component-themes($app-theme);
+
+  // Restore the legacy `color="accent"` (-> tertiary) and `color="warn"`
+  // (-> error) inputs used throughout the templates; M3 does not emit these
+  // by default.
+  @include mat.color-variants-backwards-compatibility($app-theme);
+
+  // M3 defaults the nav drawer to a fixed 360px wide; M2 sized it to its
+  // content. Restore `auto` so the mobile drawer stays narrow and keeps the
+  // logo centred.
+  @include mat.sidenav-overrides((
+    container-width: auto,
+  ));
+}
+
+@include mixins.body-theme($app-theme);
