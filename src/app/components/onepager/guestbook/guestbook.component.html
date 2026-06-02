@@ -9,7 +9,7 @@
   <div fxFlexAlign="center">
     <mat-chip-listbox [selectable]="true" [multiple]="true">
       @for (languageFilter of languageFilters$ | async; track languageFilter) {
-        <mat-chip-option [value]="languageFilter" color="accent"
+        <mat-chip-option [value]="languageFilter" class="chip-tertiary"
           [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
           {{ 'COMMON.LANGUAGES.' + languageFilter.language | transloco }} ({{ languageFilter.count }})
         </mat-chip-option>
@@ -19,7 +19,7 @@
   <div fxFlexAlign="center">
     <mat-chip-listbox [selectable]="true" [multiple]="true">
       @for (ratingFilter of ratingFilters$ | async; track ratingFilter) {
-        <mat-chip-option [value]="ratingFilter" color="accent"
+        <mat-chip-option [value]="ratingFilter" class="chip-tertiary"
           [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
           <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center">
             <app-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></app-star-rating>

@@ -21,7 +21,7 @@
   <mat-card class="availability-data mat-elevation-z3">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title fxLayoutAlign="center center">
-        <mat-icon color="primary">event_available</mat-icon>
+        <mat-icon class="icon-primary">event_available</mat-icon>
         <span>{{ 'CONTACT.availability.title' | transloco }}</span>
       </mat-card-title>
     </mat-card-header>
@@ -52,7 +52,7 @@
   <mat-card class="availability-data mat-elevation-z3">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title fxLayoutAlign="center center">
-        <mat-icon color="primary">event_available</mat-icon>
+        <mat-icon class="icon-primary">event_available</mat-icon>
         <span>{{ 'CONTACT.availability.title' | transloco }}</span>
       </mat-card-title>
     </mat-card-header>
@@ -83,7 +83,7 @@
   <mat-card class="availability-data mat-elevation-z3">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title fxLayoutAlign="center center">
-        <mat-icon color="primary">event_available</mat-icon>
+        <mat-icon class="icon-primary">event_available</mat-icon>
         <span>{{ 'CONTACT.availability.title' | transloco }}</span>
       </mat-card-title>
     </mat-card-header>
@@ -97,7 +97,7 @@
     <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
       <mat-card-header>
         <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon color="primary">info_outline</mat-icon>
+          <mat-icon class="icon-primary">info_outline</mat-icon>
           <span>{{ 'ROOM.extraInfo.title' | transloco }}</span>
         </mat-card-title>
       </mat-card-header>
@@ -106,7 +106,7 @@
         @for (x of extraInfo; track x; let i = $index) {
           <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
             >
-            <mat-icon color="accent">check</mat-icon>
+            <mat-icon class="icon-tertiary">check</mat-icon>
             <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | transloco"></span>
           </div>
         }
@@ -115,7 +115,7 @@
     <mat-card fxFlex.gt-sm="67" class="mat-elevation-z3">
       <mat-card-header>
         <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon color="primary">attach_money</mat-icon>
+          <mat-icon class="icon-primary">attach_money</mat-icon>
           <span>{{ 'ROOM.booking.title' | transloco }}</span>
         </mat-card-title>
       </mat-card-header>
@@ -124,7 +124,7 @@
         @for (x of bookings; track x; let i = $index) {
           <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
             >
-            <mat-icon color="accent">check</mat-icon>
+            <mat-icon class="icon-tertiary">check</mat-icon>
             <span [innerHTML]="('ROOM.booking.item'+(i+1)) | transloco"></span>
           </div>
         }

@@ -1,14 +1,14 @@
 @if (user$ | async; as user) {
   <div class="container" fxLayout="row" fxLayoutAlign="end center" fxLayoutGap="16px" fxLayout.lt-md="column"
     >
-    <a fxFlex="noshrink" mat-raised-button color="primary" routerLink="/" aria-label="go to website">
+    <a fxFlex="noshrink" mat-raised-button class="button-primary" routerLink="/" aria-label="go to website">
       <mat-icon>home</mat-icon>
       <span>{{ 'ADMIN.actions.toWebsite' | transloco }}</span>
     </a>
     <span fxFlex="grow"></span>
     <p>{{ 'ADMIN.loggedInAs' | transloco }} {{ user.displayName }}</p>
     <div>
-      <button mat-raised-button color="accent" (click)="logout()">
+      <button mat-raised-button class="button-tertiary" (click)="logout()">
         <span>{{ 'ADMIN.actions.logout' | transloco }}</span>
         <mat-icon>exit_to_app</mat-icon>
       </button>
@@ -16,7 +16,7 @@
   </div>
 } @else {
   <div class="container" fxLayout="row" fxLayoutAlign="center">
-    <button mat-raised-button color="accent" (click)="login()">Login with Google</button>
+    <button mat-raised-button class="button-tertiary" (click)="login()">Login with Google</button>
   </div>
 }
 

@@ -9,12 +9,12 @@
       <hr>
     </div>
     <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
-      <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('welcome')" pageScroll
+      <button mat-raised-button class="header-button button-primary" (click)="scrollTo('welcome')" pageScroll
               pageScrollTarget="#welcome" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to first section'">
         <mat-icon>arrow_downward</mat-icon>
         {{ 'HEADER.visitWebsite' | transloco }}
       </button>
-      <button mat-raised-button color="primary" class="header-button" (click)="scrollTo('room')" pageScroll
+      <button mat-raised-button class="header-button button-primary" (click)="scrollTo('room')" pageScroll
               pageScrollTarget="#room" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to availability'">
         <mat-icon>event_available</mat-icon>
         {{ 'HEADER.checkAvailability' | transloco }}

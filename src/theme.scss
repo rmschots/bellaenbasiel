@@ -23,11 +23,6 @@ $app-theme: mat.define-theme((
 html {
   @include mat.all-component-themes($app-theme);
 
-  // Restore the legacy `color="accent"` (-> tertiary) and `color="warn"`
-  // (-> error) inputs used throughout the templates; M3 does not emit these
-  // by default.
-  @include mat.color-variants-backwards-compatibility($app-theme);
-
   // M3 defaults the nav drawer to a fixed 360px wide; M2 sized it to its
   // content. Restore `auto` so the mobile drawer stays narrow and keeps the
   // logo centred.
@@ -37,3 +32,55 @@ html {
 }
 
 @include mixins.body-theme($app-theme);
+
+// Per-instance colour variants that replace the deprecated, M2-only
+// `color="primary|accent|warn"` input (and its backwards-compatibility shim).
+// M3 maps accent -> tertiary and warn -> error. These are applied as classes
+// directly on the element via the public `*-overrides` design-token API.
+$_primary: mat.get-theme-color($app-theme, primary);
+$_on-primary: mat.get-theme-color($app-theme, on-primary);
+$_tertiary: mat.get-theme-color($app-theme, tertiary);
+$_on-tertiary: mat.get-theme-color($app-theme, on-tertiary);
+$_error: mat.get-theme-color($app-theme, error);
+$_on-error: mat.get-theme-color($app-theme, on-error);
+
+// Raised / "protected" buttons (filled with a palette colour).
+.button-primary {
+  @include mat.button-overrides((
+    protected-container-color: $_primary,
+    protected-label-text-color: $_on-primary,
+  ));
+}
+
+.button-tertiary {
+  @include mat.button-overrides((
+    protected-container-color: $_tertiary,
+    protected-label-text-color: $_on-tertiary,
+  ));
+}
+
+.button-error {
+  @include mat.button-overrides((
+    protected-container-color: $_error,
+    protected-label-text-color: $_on-error,
+  ));
+}
+
+// Icons.
+.icon-primary {
+  @include mat.icon-overrides((color: $_primary));
+}
+
+.icon-tertiary {
+  @include mat.icon-overrides((color: $_tertiary));
+}
+
+// Selected chip options.
+.chip-tertiary {
+  @include mat.chips-overrides((
+    elevated-selected-container-color: $_tertiary,
+    selected-label-text-color: $_on-tertiary,
+    with-icon-selected-icon-color: $_on-tertiary,
+    selected-trailing-icon-color: $_on-tertiary,
+  ));
+}
