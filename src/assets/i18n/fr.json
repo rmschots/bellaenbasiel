@@ -1,22 +1,24 @@
 {
   "ACTIVITIES": {
     "culture": {
-      "text": "Grâce à ses bâtiments historiques et les portes de villes impressionantes Bruges est reconnue patrimoine mondial de l’Unesco. Les passionés de culture trouvent ici de nombreux musées et nombreuses expositions. Cette année, de mai à octobre, on déroule la \"Triennale d'art de Bruges\", où 13 artistes et architectes exposent leurs œuvres monumentales sur et autour des canaux. Le thème de la triennale d’art 2021 : \"TraumA\"",
-      "title": "De la culture"
+      "text": "Bâtiments historiques, portes de ville imposantes et patrimoine mondial de l'Unesco — musées et expositions toute l'année.",
+      "title": "Culture"
     },
     "gastronomy": {
-      "text": "Vous ne trouvez pas seulement des activités culturelles à Bruges. En plus vous avez aussi la possibilité de faire des balades romantiques. Les restaurants variées ne vous laissent pas la chance d’être affamés. Il y a vraiment de tout : des bistros jusqu’à un restaurant étoilé. Afin que votre visite à Bruges soie complète, il faut rendre une visite dans les bars nombreux qui servent au moins une centaine de différentes bières.<br><br>Nous aimons laisser nos clients profiter de nos “favoris” et les aider à réserver si nécessaire.",
-      "title": "De la gastronomie"
+      "text": "De la baraque à frites au restaurant étoilé. Nous partageons nos favoris et aidons à réserver si nécessaire.",
+      "title": "Gastronomie"
     },
+    "heading": "Bruges, à votre rythme",
+    "lede": "Chaque hôte reçoit des suggestions personnalisées — des coins pique-nique uniques aux belles promenades tranquilles en soirée.",
     "relax": {
-      "text": "Une balade romantique parmi les canaux de Bruges éclairé et féerique, une bière délicieuse dans un endroit sympa ou un festival frivole sur les places belles… c’est tout ce que tu as besoin d’avoir un bien esprit de vacances. N’oubliez pas de goûter du vrai chocolat Belge et de faire du shopping! Nous donnons à nos invités toutes les suggestions.",
-      "title": "Une pause relaxante à Bruges"
+      "text": "Une balade romantique le long des canaux illuminés, une bonne bière dans un café — sans oublier le chocolat belge et les gaufres.",
+      "title": "Détente"
     },
     "sportsAndNature": {
-      "text": "Bruges est entouré des routes vertes et des réserves naturelles très importantes. Ca vous donne la possibilité de découvrir l’Arrière-Pays de Bruges en vélo. La vieille ville fortifiée de Sluis (NL) est à peine à 20 km.<br>Le village du livre, Damme, est même à distance faisable à pied.<br>Nous fournissons des cartes de cyclisme et de marche et donnons à nos hôtes les meilleures suggestions adaptées, également pour des lieux de pique-nique uniques, de belles promenades tranquilles en soirée,...",
-      "title": "Du sport et la nature"
+      "text": "Rejoignez à vélo la côte, la réserve naturelle du Zwin et les polders en toute sécurité. Damme est accessible à pied — nous fournissons les cartes.",
+      "title": "Sport & nature"
     },
-    "title": "ACTIVITÉS"
+    "title": "Activités"
   },
   "COMMON": {
     "LANGUAGES": {
@@ -37,19 +39,47 @@
   },
   "CONTACT": {
     "access": {
-      "bus": "<b>En bus :</b> A la gare, sortie “Centrum”, prendre le BUS 2 sur le quai A1",
-      "car": "<b>A voiture :</b> Eventuellement après le check-in :<br>Le Parking “Station” (&euro;3,5/jour, ticket pour l’autobus aller/retour vers le centre-ville est inclu)<br>Des parkings souterrain au centre-ville (entre &euro;8 et &euro;14/jour). On peut vous aider à trouver le parking le plus proche.<br>le garage chez nous, souterrain, &euro;20/nuit.",
-      "taxi": "<b>Taxi :</b> Le prix d’un taxi coûte environ &euro;12-16",
-      "title": "Accessibilité",
-      "train": "<b>En trein :</b> <a href=\"https://www.belgiantrain.be\">belgiantrain.be</a>"
+      "bus": {
+        "label": "En bus",
+        "text": "Sortie « Centrum », bus 2 sur le quai A1"
+      },
+      "car": {
+        "label": "En voiture",
+        "text": "Chargement/déchargement devant la maison ; nous vous aidons à trouver un parking"
+      },
+      "taxi": {
+        "label": "En taxi",
+        "text": "env. €12–16 depuis la gare"
+      },
+      "title": "Comment venir",
+      "train": {
+        "label": "En train",
+        "text": "<a href=\"https://www.belgiantrain.be\" target=\"_blank\" rel=\"noopener\">belgiantrain.be</a> jusqu'à la gare de Bruges"
+      }
     },
     "availability": {
+      "available": "Libre",
+      "bookDirect": "Réservation directe :",
+      "booked": "Réservé",
+      "call": "appeler",
+      "copied": "copié ✓",
+      "copy": "copier",
+      "synced": "Synchronisé toutes les heures avec booking.com",
       "title": "Disponibilité"
+    },
+    "heading": "Retrouvez-nous à Sainte-Anne",
+    "reach": {
+      "address": "Adresse",
+      "email": "E-mail",
+      "phone": "Téléphone",
+      "title": "Nous joindre"
     },
     "title": "Contact"
   },
   "GUESTBOOK": {
     "by": "par {{name}}",
+    "filterAll": "Tous",
+    "heading": "Ce que disent nos hôtes",
     "review": "critique",
     "title": "Livre d'Or",
     "SOURCE": {
@@ -60,11 +90,13 @@
   "HEADER": {
     "checkAvailability": "Disponibilité",
     "contact": "Contact",
-    "subtitle": "Your Favorite <span class=\"nowrap\">Cosy and Quiet</span> <span class=\"nowrap\">Bed and Breakfast</span> <span class=\"nowrap\">in BRUGES</span>",
-    "visitWebsite": "Plus d'information"
+    "discoverHouse": "Découvrez la maison",
+    "kicker": "Bed & Breakfast · Bruges",
+    "subtitle": "Un séjour calme et chaleureux dans le quartier vert de Sainte-Anne, à dix minutes à pied du cœur de Bruges."
   },
   "NAV": {
-    "activities": "Activités",
+    "activities": "Bruges",
+    "bookDirect": "Réserver en direct",
     "contact": "Contact",
     "guestbook": "Livre d'Or",
     "manageGuestbook": "Gérer le Livre d'Or",
@@ -73,72 +105,79 @@
     "welcome": "Bienvenue"
   },
   "PICTURES": {
+    "heading": "Un regard à l'intérieur",
+    "showAll": "Voir les {{count}} photos",
+    "showFewer": "Voir moins de photos",
     "title": "Photos"
   },
   "ROOM": {
     "booking": {
-      "conditions": "Conditions générales de réservation",
       "item1": "<b>Avance :</b> &euro;100/chambre à verser sur le compte BE14 3631 5869 6383 (Bella en Basiel)",
       "item2": "<b>Solde :</b> en espèces ou par carte de crédit à l’arrivée ou en avance par virement bancaire",
       "item3": "C’est possible d’<b>annuler</b> votre réservation sans frais jusqu’à 10 jours avant la date d’arrivée. Si vous annulez plus tard, on vous facture la première nuit et eventuellement (si commandé) le petit déjeuner. En cas de no-show, on vous demande de payer le montant entier de la réservation.",
       "title": "Réserver"
     },
-    "breakfast": "petit déjeuner &euro;{{amount}} pppj**",
-    "extraInfo": {
-      "item1": "*Minimum 2 nuits (prix excl. taxe touristique)",
-      "item2": "**A convenir d’avance par mail :<br><b>Petit déjeuner :</b> &euro;20 pppj<br><b>Garage :</b> &euro;20 pn<br><b>Usage du lave-linge et séchoir :</b> &euro;15 / 7kg<br><b>Chambre 2, Usage du canapé lit :</b> &euro;27 pppn<br><b>Taxe touristique Ville de Bruges :</b> &euro;4,5 pppn",
-      "item3": "Lit d’enfant et chaise haute gratuits",
-      "item4": "Les animaux domestiques ne sont pas autorisés (nous avons notre propre jolie chien)",
-      "item5": "Il est permis de fumer dans le jardin",
-      "item6": "RÉDUCTIONS :<br>Réservation de 3 chambres : -10 %.<br>Réservation de 7 nuits : -10%.<br>Les réductions ne sont pas cumulables.",
-      "title": "Infos supplémentaires"
+    "eyebrow": "Chambres & tarifs",
+    "goodToKnow": {
+      "item1": "*Minimum 2 nuits, prix hors taxe de séjour (€4,5 pppn)",
+      "item2": "<b>Petit-déjeuner</b> €20 pppj · <b>Garage</b> €20 pn · <b>Canapé-lit (chambre 2)</b> €27 pppn",
+      "item3": "Lit d'enfant et chaise haute gratuits · pas d'animaux (nous avons notre propre joli chien) · fumer uniquement au jardin",
+      "item4": "<b>Réductions :</b> 3 chambres −10% · 7 nuits −10% (non cumulables)",
+      "title": "Bon à savoir"
     },
-    "night": "&euro;{{amount}} / nuit*",
+    "heading": "Trois chambres d'hôtes chaleureuses",
+    "lede": "Chacune avec un confortable lit boxspring de 1,80 m, une salle de bains privée moderne avec douche à l'italienne, wifi gratuit et TV. Petit-déjeuner en option.",
+    "perNight": "/ nuit*",
     "rooms": {
       "room1": {
         "image1": "Chambre à coucher",
         "image2": "Salle de bains",
         "image3": "Petit-déjeuner",
-        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
+        "text": "Chambre d'hôtes spacieuse avec lit boxspring confortable (1,80 m) au deuxième étage. Salle de bains moderne et chaleureuse avec douche à l'italienne.",
         "title": "Chambre double agréable et calme"
       },
       "room2": {
         "image1": "Chambre à coucher",
         "image2": "Salle de bains",
         "image3": "Petit-déjeuner",
-        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café. Coin confortable avec table et siège.",
-        "title": "Chambre double agréable et calme"
+        "text": "Le même confort que la chambre 1, plus un coin agréable avec table et fauteuil. Canapé-lit en option pour un troisième hôte.",
+        "title": "Chambre double cosy avec coin salon"
       },
       "room3": {
         "image1": "Chambre à coucher",
         "image2": "Salle de bains",
         "image3": "Petit-déjeuner",
-        "text": "La chambre d’hôte spacieuse avec un lit boxspring comfortable (1.80m) se trouve au premier étage. Vous disposez d’une salle de bains moderne et chaude, aménagé avec une douche italienne, toilettes et lavabo. Un sèche-cheveux est prévu comme le wifi gratuit. Il y a aussi la possibilité de faire du thé ou café.",
+        "text": "Chambre d'hôtes spacieuse avec lit boxspring confortable (1,80 m) au deuxième étage. Salle de bains moderne avec douche à l'italienne, sèche-cheveux et wifi gratuit.",
         "title": "Chambre double agréable et calme"
       }
     },
+    "rooms23": "Chambres 2 & 3",
     "subtitle": "Chambre {{counter}}",
     "tags": {
       "breakfastOptional": "Petit-déjeuner en option",
-      "maxOccupancy": "{{amount}} personnen max",
-      "nonSmoking": "Ne pas fumer à l'intérieur",
+      "persons": "{{amount}} personnes",
+      "sofaBed": "Canapé-lit",
       "tv": "TV",
-      "wifi": "WiFi disponible"
+      "wifi": "WiFi"
     },
     "title": "Chambres"
   },
   "WELCOME": {
+    "heading": "Séjournez chez des locaux,<br>vivez comme eux",
     "hosts": {
-      "text": "Né(e)s et élévé(e)s à Bruges, la ville n’a pas des secrets pour nous. On aime bien de partager avec vous les endroits romantiques, des restaurants trop bons, des cafés agréables… On peut aussi vous conseiller des parcours à vélo, à pied dans et autour de la ville, à la mer, dans les polders, promenades romantiques dans la ville, événements...",
-      "title": "Hôte et Hôtesse"
+      "kicker": "Vos hôtes",
+      "text": "Nés et élevés à Bruges, nous connaissons notre ville et nous adorons la partager. Nous découvrons encore des endroits romantiques, de bons restaurants et des cafés chaleureux — et nous vous conseillons volontiers des balades à pied ou à vélo, dans et autour de la ville, vers la mer, à travers les polders, ou une promenade romantique en soirée.",
+      "title": "Nés et élevés à Bruges"
     },
     "house": {
-      "text": "En plus d’une propre chambre à coucher et salle de bains, nos invitées ont accès à la salle à manger où nous vous servons le petit déjeuner.<br>Quand il fait beau, vous pouvez séjourner dans le jardin ensoleillé et plein de fleurs. Nos poules de ville n’aiment pas d’autres animaux de compagnie, seulement notre cher chien et lui,  il aime nos invités.<br>Il est permis de fumer dans le jardin.",
-      "title": "Notre maison"
+      "kicker": "La maison",
+      "text": "Chaque hôte dispose de sa propre chambre et salle de bains. Le petit-déjeuner est servi dans la salle à manger ou dehors, dans notre jardin ensoleillé et fleuri. Nos poules n'aiment pas les autres animaux — seulement notre cher chien, et lui adore nos hôtes. Il est permis de fumer au jardin.",
+      "title": "Votre chambre, notre jardin ensoleillé"
     },
     "neighbourhood": {
-      "text": "Soyez bienvenue dans nos 3 chambre d’hôtes, situées dans le pittoresque quartier Sainte Anna, un quartier populaire,  calme et verdoyant à l'intérieur des vieux murs de la ville de Bruges.<br>Après une balade courte (10 min. au maximum) en passant des rues pittoresques, vous êtes au cœur de Bruges où vous pouvez admirer les bâtiments historiques, participer aux nombreux evenements, musées, festivals, expositions et cetera. 3 km plus loin, à pied ou à vélo, vous atteignez les environs verdoyants de la ville, qui s'étendent jusqu'à la mer.",
-      "title": "Notre quartier"
+      "kicker": "Le quartier",
+      "text": "Nos trois chambres d'hôtes se situent dans le quartier calme et verdoyant de Sainte-Anne, un quartier populaire à l'intérieur des anciens remparts. Une promenade de dix minutes par de petites rues pittoresques vous mène au centre-ville — bâtiments historiques, musées, festivals et expositions. Trois kilomètres plus loin, à pied ou à vélo, la verdure autour de la ville s'étend jusqu'à la mer.",
+      "title": "Sainte-Anne, calme et verdoyant"
     },
     "title": "Bienvenue"
   }

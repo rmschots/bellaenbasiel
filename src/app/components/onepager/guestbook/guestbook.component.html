@@ -1,70 +1,48 @@
-<div class="guestbook-background" appLazyLoadImages>
-  <div data-background-src="/assets/img/guestbook_background.jpg"></div>
-</div>
-<div fxLayout="column" fxLayoutGap="8px" class="container guestbook-content">
-  <h1 class="text-center guestbook-title">{{ 'GUESTBOOK.title' | transloco }}</h1>
-  <div fxFlexAlign="center" class="guestbook-stars">
-    <app-star-rating [stars]="5" [hideEmptyStars]="true"></app-star-rating>
-  </div>
-  <div fxFlexAlign="center">
-    <mat-chip-listbox [selectable]="true" [multiple]="true">
-      @for (languageFilter of languageFilters$ | async; track languageFilter) {
-        <mat-chip-option [value]="languageFilter" class="chip-tertiary"
-          [selectable]="true" [selected]="languageFilter.selected" (click)="toggleFilter(languageFilter)">
-          {{ 'COMMON.LANGUAGES.' + languageFilter.language | transloco }} ({{ languageFilter.count }})
-        </mat-chip-option>
-      }
-    </mat-chip-listbox>
-  </div>
-  <div fxFlexAlign="center">
-    <mat-chip-listbox [selectable]="true" [multiple]="true">
-      @for (ratingFilter of ratingFilters$ | async; track ratingFilter) {
-        <mat-chip-option [value]="ratingFilter" class="chip-tertiary"
-          [selectable]="true" [selected]="ratingFilter.selected" (click)="toggleFilter(ratingFilter)">
-          <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="center center">
-            <app-star-rating [stars]="ratingFilter.stars" [size]="13" [hideEmptyStars]="true"></app-star-rating>
-            <div>({{ ratingFilter.count }})</div>
-          </div>
-        </mat-chip-option>
-      }
-    </mat-chip-listbox>
-  </div>
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center center" fxLayoutGap="16px"
-    class="guestbook-entry-box mat-elevation-z6">
-    <mat-icon class="guestbook-entry-quote-icon">format_quote</mat-icon>
-    @if (currentEntry$ | async; as currentEntry) {
-      <div fxLayout="column" class="full-width">
-        <p>
-          {{ currentEntry.comments }}
-        </p>
-        <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="space-between center">
-          <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="8px">
-            <img [src]="currentEntry.reviewer.pictureUrl"
-              height="48" width="48" class="profile-picture"
-              alt="Profile picture of {{ currentEntry.reviewer.firstName }}"
-              (error)="changeSource($event, 'assets/svg/profile-default.svg')">
-              <div *transloco="let t">
-                <span>{{ t('GUESTBOOK.by', {name: currentEntry.reviewer.firstName}) }},&nbsp;</span>
-                <span>{{ t('GUESTBOOK.SOURCE.' + currentEntry.source) }}</span><br>
-                <span>{{ currentEntry.createdAt | bnbDate:'d MMMM yyyy' }}</span>
-              </div>
-            </div>
-            <div>
-              <app-star-rating [stars]="currentEntry.rating"></app-star-rating>
-            </div>
-          </div>
-        </div>
-      }
-    </div>
-    <div fxLayout="row" fxLayoutAlign="flex-end center" fxLayoutGap="8px">
-      <div class="review-count mat-elevation-z6">
-        {{ 'GUESTBOOK.review' | transloco }}&nbsp;{{ entryIndex$ | async }}/{{ amountOfEntries$ | async }}
+<div class="sec gbsec">
+  <div class="wrap1100">
+    <div class="eyebrow">{{ 'GUESTBOOK.title' | transloco }}</div>
+    <h2 class="h2">{{ 'GUESTBOOK.heading' | transloco }}</h2>
+    @if (selectedLanguage$ | async; as selectedLanguage) {
+      <div class="gbfilter">
+        @for (languageFilter of languageFilters$ | async; track languageFilter.language) {
+          <button class="gbchip" [class.on]="languageFilter.language === selectedLanguage"
+                  (click)="selectLanguage(languageFilter.language)">
+            {{ (languageFilter.language === allLanguages
+                ? 'GUESTBOOK.filterAll'
+                : 'COMMON.LANGUAGES.' + languageFilter.language) | transloco }}
+            ({{ languageFilter.count }})
+          </button>
+        }
       </div>
-      <button mat-mini-fab (click)="prevEntry()" [attr.aria-label]="'previous review'">
-        <mat-icon>navigate_before</mat-icon>
-      </button>
-      <button mat-mini-fab (click)="nextEntry()" [attr.aria-label]="'next review'">
-        <mat-icon>navigate_next</mat-icon>
-      </button>
+    }
+    @if (currentEntry$ | async; as entry) {
+      <div class="gbquote">
+        <blockquote class="quote">“{{ entry.comments.trim() }}”</blockquote>
+        <div class="gbmeta">
+          <span class="gbstars">{{ stars(entry) }}</span>
+          <span class="gbname">{{ entry.reviewer.firstName }}</span>
+          <span class="gbsrc">via {{ ('GUESTBOOK.SOURCE.' + entry.source) | transloco }}</span>
+        </div>
+        <div class="gbnav">
+          <button class="gbbtn" (click)="prevEntry()" aria-label="previous review">←</button>
+          <button class="gbbtn" (click)="nextEntry()" aria-label="next review">→</button>
+        </div>
+      </div>
+    }
+    <div class="gbscore">
+      <a class="gbsitem" href="https://www.booking.com/hotel/be/b-amp-b-bella-en-basiel" target="_blank"
+         rel="noopener">
+        <img class="gbslogo" src="/assets/svg/bookingcom.svg" alt="booking.com">
+        <span class="gbsval">9.7 / 10</span>
+      </a>
+      <div class="gbsitem">
+        <img class="gbslogo" src="/assets/svg/airbnb-logo.svg" alt="Airbnb">
+        <span class="gbsval">Superhost</span>
+      </div>
+      <a class="gbsitem" href="https://maps.app.goo.gl/4EJjqJp1sA3AG3ys8" target="_blank" rel="noopener">
+        <img class="gbslogo" src="/assets/svg/google-wordmark.svg" alt="Google">
+        <span class="gbsval">5.0 ★★★★★</span>
+      </a>
     </div>
   </div>
+</div>

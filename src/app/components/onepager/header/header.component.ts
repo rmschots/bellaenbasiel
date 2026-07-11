@@ -1,18 +1,20 @@
-import { Component } from '@angular/core';
-import { MediaObserver } from '@ngbracket/ngx-layout';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { SectionService } from '../../../shared/services/section.service';
 
 @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: ['./header.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class HeaderComponent {
-  constructor(private _sectionService: SectionService, public media: MediaObserver) {
+
+  constructor(private _sectionService: SectionService) {
   }
 
-  public scrollTo(sectionId: string): void {
+  scrollTo(sectionId: string, event: Event): void {
+    event.preventDefault();
     this._sectionService.scrollTo(sectionId);
   }
 }

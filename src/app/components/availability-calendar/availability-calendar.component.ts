@@ -1,63 +1,87 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
-import { UntilDestroy } from '@ngneat/until-destroy';
-import { BehaviorSubject, map, Observable } from 'rxjs';
-import { CalendarDateFormatter, CalendarEvent } from 'angular-calendar';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { BehaviorSubject, combineLatest, map, Observable } from 'rxjs';
 import { TranslationService } from '../../shared/services/translation.service';
 import { FirebaseCalendar } from '../../shared/models/firebase-data';
-import { CustomDateFormatter } from './custom-date-formatter.provider';
 
-@UntilDestroy()
+export interface CalendarCell {
+  day: string;
+  state: 'blank' | 'past' | 'booked' | 'free';
+}
+
 @Component({
     selector: 'app-availability-calendar',
     templateUrl: './availability-calendar.component.html',
     styleUrls: ['./availability-calendar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [
-        {
-            provide: CalendarDateFormatter,
-            useClass: CustomDateFormatter,
-        },
-    ],
     standalone: false
 })
 export class AvailabilityCalendarComponent {
-  viewDate: Date = new Date();
+  @Input() name = '';
 
-  private _events$ = new BehaviorSubject<CalendarEvent[]>([]);
+  private _calendar$ = new BehaviorSubject<FirebaseCalendar | null>(null);
+  private _monthOffset$ = new BehaviorSubject<number>(0);
 
-  constructor(private _translationService: TranslationService,
-              private _changeDetectorRef: ChangeDetectorRef) {
+  constructor(private _translationService: TranslationService) {
   }
 
   @Input()
   set firebaseCalendar(firebaseCalendar: FirebaseCalendar | null) {
-    if (firebaseCalendar) {
-      this.updateCalendar(firebaseCalendar);
-    }
+    this._calendar$.next(firebaseCalendar);
   }
 
-  get language$(): Observable<string> {
-    return this._translationService.currentLanguage$.pipe(map(lang => lang.code));
+  @Input()
+  set monthOffset(monthOffset: number | null) {
+    this._monthOffset$.next(monthOffset ?? 0);
   }
 
-  get events$(): Observable<CalendarEvent[]> {
-    return this._events$.asObservable();
+  get weekdays$(): Observable<string[]> {
+    return this._translationService.currentLanguage$.pipe(map(language => {
+      const format = new Intl.DateTimeFormat(language.code, {weekday: 'short'});
+      // 2024-01-01 is a Monday; render a Monday-first header row
+      return Array.from({length: 7}, (_, i) => {
+        const weekday = format.format(new Date(2024, 0, 1 + i)).replace('.', '').slice(0, 2);
+        return weekday.charAt(0).toUpperCase() + weekday.slice(1);
+      });
+    }));
   }
 
-  get preventClickPrevious(): boolean {
+  get cells$(): Observable<CalendarCell[]> {
+    return combineLatest([this._calendar$, this._monthOffset$]).pipe(
+      map(([calendar, offset]) => this.buildCells(calendar, offset))
+    );
+  }
+
+  private buildCells(calendar: FirebaseCalendar | null, offset: number): CalendarCell[] {
     const now = new Date();
-    return this.viewDate.getFullYear() <= now.getFullYear()
-      && this.viewDate.getMonth() <= now.getMonth();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+    const first = new Date(now.getFullYear(), now.getMonth() + offset, 1);
+    const daysInMonth = new Date(first.getFullYear(), first.getMonth() + 1, 0).getDate();
+    const bookedRanges = (calendar?.entries || []).map(entry => ({
+      start: this.startOfDay(entry.startDate.toDate()),
+      end: this.startOfDay(entry.endDate.toDate())
+    }));
+
+    const cells: CalendarCell[] = [];
+    const leadingBlanks = (first.getDay() + 6) % 7;
+    for (let i = 0; i < leadingBlanks; i++) {
+      cells.push({day: '', state: 'blank'});
+    }
+    for (let day = 1; day <= daysInMonth; day++) {
+      const date = new Date(first.getFullYear(), first.getMonth(), day).getTime();
+      let state: CalendarCell['state'];
+      if (date < today) {
+        state = 'past';
+      } else if (bookedRanges.some(range => date >= range.start && date <= range.end)) {
+        state = 'booked';
+      } else {
+        state = 'free';
+      }
+      cells.push({day: String(day), state});
+    }
+    return cells;
   }
 
-  private updateCalendar(firebaseCalendar: FirebaseCalendar) {
-    const events: CalendarEvent[] = firebaseCalendar.entries.map(calendarEntry => ({
-      start: calendarEntry.startDate.toDate(),
-      end: calendarEntry.endDate.toDate(),
-      allDay: true,
-      cssClass: 'oi'
-    } as CalendarEvent));
-    this._events$.next(events);
-    this._changeDetectorRef.detectChanges();
+  private startOfDay(date: Date): number {
+    return new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
   }
 }

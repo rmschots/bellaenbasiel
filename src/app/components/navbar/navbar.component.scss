@@ -1,38 +1,146 @@
+// Sticky (not fixed) so the scroll container's scrollbar stays beside the bar
+// instead of running underneath it.
 :host {
-  border-bottom: solid;
-  border-width: 1px;
-  box-sizing: border-box;
   display: block;
-  width: 100%;
-  z-index: 500;
+  position: sticky;
+  top: 0;
+  z-index: 50;
 }
 
-.nav-links {
-  > ul {
-    list-style: none;
-    margin: 0;
-    button {
-      font-weight: 500;
-    }
+.nav {
+  backdrop-filter: blur(10px);
+  background: rgba(250, 246, 240, 0.92);
+  border-bottom: 1px solid var(--bnb-line);
+  transition: transform 0.3s ease;
 
-    @media (min-width: 960px) {
-      button {
-        font-size: 17px;
-      }
-    }
-
-    @media (min-width: 1280px) {
-      button {
-        font-size: 24px;
-      }
-    }
-  }
-
-  .active-section {
-    color: #1c92d2;
+  &.hid {
+    transform: translateY(-100%);
   }
 }
 
-.container {
-  height: 100%;
+.navin {
+  align-items: center;
+  display: flex;
+  gap: 16px;
+  height: 64px;
+  justify-content: space-between;
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 24px;
+}
+
+.brand {
+  color: var(--bnb-ink);
+  font-family: var(--bnb-serif);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+
+  &:hover {
+    color: var(--bnb-ink);
+    text-decoration: none;
+  }
+}
+
+.navlinks {
+  align-items: center;
+  display: flex;
+  gap: 26px;
+}
+
+.navlink {
+  border-bottom: 2px solid transparent;
+  color: var(--bnb-ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 2px 0;
+  text-transform: uppercase;
+
+  &:hover {
+    color: var(--bnb-brick);
+    text-decoration: none;
+  }
+
+  &.on {
+    border-bottom-color: var(--bnb-brick);
+    color: var(--bnb-brick);
+  }
+}
+
+.navright {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.navlangs {
+  align-items: center;
+  display: flex;
+  flex-shrink: 0;
+}
+
+.langbtn {
+  background: none;
+  border: none;
+  border-radius: var(--bnb-radius);
+  color: var(--bnb-ink-faint);
+  cursor: pointer;
+  font: 600 12px var(--bnb-sans);
+  letter-spacing: 0.08em;
+  padding: 4px 6px;
+
+  &.on {
+    color: var(--bnb-brick);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+}
+
+.navcta {
+  flex-shrink: 0;
+  font-size: 12px;
+  padding: 10px 18px;
+}
+
+.burger {
+  background: none;
+  border: none;
+  color: var(--bnb-ink);
+  cursor: pointer;
+  display: none;
+  padding: 8px;
+}
+
+.mmenu {
+  background: var(--bnb-bg);
+  border-top: 1px solid var(--bnb-line);
+  display: none;
+  flex-direction: column;
+  padding: 8px 24px 20px;
+
+  .navlink {
+    border-bottom: 1px solid #F0E7DB;
+    font-size: 14px;
+    padding: 12px 0;
+
+    &.on {
+      border-bottom-color: #F0E7DB;
+      color: var(--bnb-brick);
+    }
+  }
+}
+
+@media (max-width: 960px) {
+  .navlinks {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .mmenu.open {
+    display: flex;
+  }
 }

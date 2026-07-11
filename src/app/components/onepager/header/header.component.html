@@ -1,57 +1,29 @@
-<div id="header-content" fxLayout="column" fxLayoutAlign="center center" [ngClass]="{
-    'header-content-with-sticky-navbar': media.isActive('gt-sm'),
-    'header-content-without-navbar': media.isActive('lt-md')
-    }">
-  <div class="header-text-content" fxFlex="stretch" fxLayout="column" fxLayoutAlign="center center">
-    <h1 class="header-title text-center">BELLA & BASIEL</h1>
-    <div class="header-text">
-      <h2 class="text-center header-subtitle" [innerHtml]="'HEADER.subtitle' | transloco"></h2>
-      <hr>
-    </div>
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="8px">
-      <button mat-raised-button class="header-button button-primary" (click)="scrollTo('welcome')" pageScroll
-              pageScrollTarget="#welcome" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to first section'">
-        <mat-icon>arrow_downward</mat-icon>
-        {{ 'HEADER.visitWebsite' | transloco }}
-      </button>
-      <button mat-raised-button class="header-button button-primary" (click)="scrollTo('room')" pageScroll
-              pageScrollTarget="#room" [pageScrollAdjustHash]="true" [attr.aria-label]="'scroll to availability'">
-        <mat-icon>event_available</mat-icon>
+<header class="hero">
+  <img class="heroimg" appFadeIn fetchpriority="high" src="/assets/img/home_img1.jpg"
+       alt="Bruges canal near Bella &amp; Basiel">
+  <div class="heroshade"></div>
+  <div class="heroin">
+    <div class="herokick">{{ 'HEADER.kicker' | transloco }}</div>
+    <h1 class="herotitle">Bella &amp; Basiel</h1>
+    <p class="herosub">{{ 'HEADER.subtitle' | transloco }}</p>
+    <div class="heroctas">
+      <a class="btn btn-solid" href="#room" (click)="scrollTo('room', $event)">
         {{ 'HEADER.checkAvailability' | transloco }}
-      </button>
-    </div>
-  </div>
-  <div fxLayout="column" fxLayoutGap="8px" class="text-center header-copyright">
-    <div fxLayout="row wrap" fxLayoutGap="8px" fxLayoutAlign="center center" class="external-links-mobile">
-      <a href="https://www.visitbruges.be/en/eat-and-sleep/accommodation/bb-bella-basiel" target="_blank" rel="noopener" aria-label="visitbruges page">
-        <img class="unclear-logo" src="/assets/img/visit-bruges.png" alt="visitbruges.be logo">
       </a>
-      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank" rel="noopener"
-         aria-label="westtoer page">
-        <img class="unclear-logo" src="/assets/svg/westtoer.svg" alt="westtoer.be logo">
-      </a>
-      <a href="https://maps.app.goo.gl/4EJjqJp1sA3AG3ys8" target="_blank" rel="noopener" aria-label="google maps page">
-        <img class="clear-logo" src="/assets/svg/google-logo.svg" alt="google logo">
-        <div class="google-stars" aria-label="5 star rating">
-          <mat-icon class="star-icon">star</mat-icon>
-          <mat-icon class="star-icon">star</mat-icon>
-          <mat-icon class="star-icon">star</mat-icon>
-          <mat-icon class="star-icon">star</mat-icon>
-          <mat-icon class="star-icon">star</mat-icon>
-        </div>
-      </a>
-      <a
-        href="https://www.booking.com/hotel/be/b-amp-b-bella-en-basiel"
-        target="_blank" rel="noopener" aria-label="booking.com page">
-        <img class="clear-logo" src="/assets/svg/bookingcom.svg" alt="booking.com logo">
-        <div aria-label="Scored 9.7 " class="booking-score">9.7</div>
-      </a>
-      <a href="https://www.facebook.com/bellaenbasiel" target="_blank" rel="noopener" aria-label="facebook page">
-        <img class="clear-logo" src="/assets/img/facebook-logo.png" alt="facebook logo">
+      <a class="btn btn-ghost" href="#welcome" (click)="scrollTo('welcome', $event)">
+        {{ 'HEADER.discoverHouse' | transloco }}
       </a>
     </div>
-    <span>&reg; 2018 Bella en Basiel -
-      <span class="nowrap">{{ 'HEADER.contact' | transloco }}: <a href="tel:+32 472 643527">+32 472 643527</a></span>
-    </span>
+    <div class="trustbar">
+      <a class="trust" href="https://www.booking.com/hotel/be/b-amp-b-bella-en-basiel" target="_blank" rel="noopener">
+        <span class="tnum">9.7</span><span class="tlabel">booking.com</span>
+      </a>
+      <a class="trust" href="https://maps.app.goo.gl/4EJjqJp1sA3AG3ys8" target="_blank" rel="noopener">
+        <span class="tnum">5.0 ★</span><span class="tlabel">Google reviews</span>
+      </a>
+      <div class="trust">
+        <span class="tnum">Superhost</span><span class="tlabel">Airbnb</span>
+      </div>
+    </div>
   </div>
-</div>
+</header>

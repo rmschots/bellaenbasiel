@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { MediaObserver } from '@ngbracket/ngx-layout';
 import { FirebaseService } from '../../shared/services/firebase.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { FirebaseService } from '../../shared/services/firebase.service';
 })
 export class OnepagerComponent implements OnInit {
 
-  constructor(private _firebaseService: FirebaseService, public media: MediaObserver) {
+  constructor(private _firebaseService: FirebaseService) {
   }
 
   ngOnInit(): void {

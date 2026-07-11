@@ -1,50 +1,61 @@
-<app-section-title>{{ 'CONTACT.title' | transloco }}</app-section-title>
-<div class="container section-margin">
-  <div fxLayout="column" fxLayoutGap="16px">
-    <div>
-      <h4>Bella en Basiel</h4>
-      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon>location_on</mat-icon>
-        <span>
-            <a href="https://www.google.com/maps/place/Rijkepijndersstraat+7,+8000+Brugge" target="_blank"
-               rel="noopener">
-              Rijkepijndersstraat 7, 8000 Brugge
-            </a>
-          </span>
-      </p>
-      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon>phone</mat-icon>
-        <span><a href="tel:+32 472 64 35 27">+32 472 64 35 27</a></span>
-      </p>
-      <p fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon>email</mat-icon>
-        <span><a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel&#64;telenet.be</a></span>
-      </p>
-    </div>
-    <div class="access">
-      <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-        <mat-icon>accessibility</mat-icon>
-        <h4>{{ 'CONTACT.access.title' | transloco }}</h4>
+<div class="sec contactsec">
+  <div class="wrap1100">
+    <div class="contactgrid">
+      <div>
+        <div class="eyebrow">{{ 'CONTACT.title' | transloco }}</div>
+        <h2 class="h2 contact-heading">{{ 'CONTACT.heading' | transloco }}</h2>
+        <div class="cblock">
+          <h3 class="ctitle">{{ 'CONTACT.reach.title' | transloco }}</h3>
+          <ul class="clist">
+            <li>
+              <span class="clabel">{{ 'CONTACT.reach.phone' | transloco }}</span>
+              <a href="tel:+32472643527">+32 472 643 527</a>
+            </li>
+            <li>
+              <span class="clabel">{{ 'CONTACT.reach.email' | transloco }}</span>
+              <a href="mailto:bellaenbasiel@telenet.be">bellaenbasiel&#64;telenet.be</a>
+            </li>
+            <li>
+              <span class="clabel">{{ 'CONTACT.reach.address' | transloco }}</span>
+              <a href="https://maps.app.goo.gl/4EJjqJp1sA3AG3ys8" target="_blank" rel="noopener">
+                Rijkepijndersstraat 7, 8000 Brugge
+              </a>
+            </li>
+            <li>
+              <span class="clabel">Facebook</span>
+              <a href="https://www.facebook.com/bellaenbasiel" target="_blank" rel="noopener">bellaenbasiel</a>
+            </li>
+          </ul>
+        </div>
+        <div class="cblock">
+          <h3 class="ctitle">{{ 'CONTACT.access.title' | transloco }}</h3>
+          <ul class="clist">
+            <li>
+              <span class="clabel">{{ 'CONTACT.access.train.label' | transloco }}</span>
+              <span [innerHTML]="'CONTACT.access.train.text' | transloco"></span>
+            </li>
+            <li>
+              <span class="clabel">{{ 'CONTACT.access.bus.label' | transloco }}</span>
+              <span>{{ 'CONTACT.access.bus.text' | transloco }}</span>
+            </li>
+            <li>
+              <span class="clabel">{{ 'CONTACT.access.taxi.label' | transloco }}</span>
+              <span>{{ 'CONTACT.access.taxi.text' | transloco }}</span>
+            </li>
+            <li>
+              <span class="clabel">{{ 'CONTACT.access.car.label' | transloco }}</span>
+              <span>{{ 'CONTACT.access.car.text' | transloco }}</span>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-        <mat-icon class="icon-tertiary">check</mat-icon>
-        <span [innerHtml]="'CONTACT.access.train' | transloco"></span>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-        <mat-icon class="icon-tertiary">check</mat-icon>
-        <span [innerHtml]="'CONTACT.access.bus' | transloco"></span>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-        <mat-icon class="icon-tertiary">check</mat-icon>
-        <span [innerHtml]="'CONTACT.access.taxi' | transloco"></span>
-      </div>
-      <div fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px">
-        <mat-icon class="icon-tertiary">check</mat-icon>
-        <span [innerHtml]="'CONTACT.access.car' | transloco"></span>
+      <div>
+        <div class="mapbox">
+          <google-map [center]="center" [zoom]="zoom" [width]="'100%'" [height]="'100%'">
+            <map-marker [position]="center"></map-marker>
+          </google-map>
+        </div>
       </div>
     </div>
   </div>
 </div>
-<google-map [center]="center" [zoom]="zoom" [width]="'100%'" [height]="'300px'">
-  <map-marker [position]="center"></map-marker>
-</google-map>

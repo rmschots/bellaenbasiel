@@ -1,12 +1,6 @@
-<app-header id="home" [ngClass]="{
-    'header-with-sticky-navbar': media.isActive('gt-sm'),
-    'header-without-navbar': media.isActive('lt-md')
-    }"></app-header>
+<app-header id="home"></app-header>
 <app-section sectionId="welcome" sectionName="NAV.welcome">
   <app-welcome id="welcome"></app-welcome>
-</app-section>
-<app-section sectionId="guestbook" sectionName="NAV.guestbook">
-  <app-guestbook id="guestbook"></app-guestbook>
 </app-section>
 <app-section sectionId="room" sectionName="NAV.room">
   <app-room id="room"></app-room>
@@ -14,9 +8,28 @@
 <app-section sectionId="pictures" sectionName="NAV.pictures">
   <app-pictures id="pictures"></app-pictures>
 </app-section>
+<app-section sectionId="guestbook" sectionName="NAV.guestbook">
+  <app-guestbook id="guestbook"></app-guestbook>
+</app-section>
 <app-section sectionId="activities" sectionName="NAV.activities">
   <app-activities id="activities"></app-activities>
 </app-section>
 <app-section sectionId="contact" sectionName="NAV.contact">
   <app-contact id="contact"></app-contact>
 </app-section>
+<footer class="footer">
+  <div class="footin">
+    <div class="footbrand">Bella <span class="footamp">&amp;</span> Basiel</div>
+    <div class="footlinks">
+      <a href="https://www.booking.com/hotel/be/b-amp-b-bella-en-basiel" target="_blank" rel="noopener">booking.com</a>
+      <a href="https://www.visitbruges.be/en/eat-and-sleep/accommodation/bb-bella-basiel" target="_blank"
+         rel="noopener">visitbruges.be</a>
+      <a href="https://www.westtoer.be/nl/slapen/bella-basiel" target="_blank" rel="noopener">westtoer.be</a>
+      <a href="https://www.facebook.com/bellaenbasiel" target="_blank" rel="noopener">Facebook</a>
+    </div>
+  </div>
+  <div class="footnote">
+    <span>© 2018–2026 Bella en Basiel — Bruges, Belgium</span>
+    <span>{{ 'HEADER.contact' | transloco }}: <a href="tel:+32472643527">+32 472 643 527</a></span>
+  </div>
+</footer>

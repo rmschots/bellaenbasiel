@@ -1,25 +1,6 @@
-@if (media.isActive('gt-sm')) {
-  <app-navbar class="mat-elevation-z6"></app-navbar>
-}
-@if (media.isActive('lt-md') && (navBarClosed$ | async) && !(overlayShown$ | async)) {
-  <div class="menu-button-overlay">
-    <button aria-label="button that opens the sidenav" mat-fab (click)="openSidenav()">
-      <mat-icon>menu</mat-icon>
-    </button>
+<div #contentWrapper id="content-wrapper">
+  <app-navbar></app-navbar>
+  <div id="content">
+    <router-outlet></router-outlet>
   </div>
-}
-<mat-sidenav-container [ngClass]="{
-    'sidenav-container-with-sticky-navbar': media.isActive('gt-sm'),
-    'sidenav-container-without-navbar': media.isActive('lt-md')
-    }">
-  <mat-sidenav role="directory" [fixedInViewport]="false" (closedStart)="onSidenavClose()">
-    <app-sidenav></app-sidenav>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <div #contentWrapper id="content-wrapper">
-      <div id="content">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+</div>

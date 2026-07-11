@@ -1,13 +1,7 @@
-$header-height: 80px;
-
 :host {
   display: block;
   height: 100%;
   width: 100%;
-}
-
-app-navbar {
-  height: $header-height;
 }
 
 #content-wrapper {
@@ -18,26 +12,4 @@ app-navbar {
 #content {
   position: relative;
   width: 100%;
-}
-
-.menu-button-overlay {
-  left: 16px;
-  position: absolute;
-  top: 16px;
-  z-index: 9999;
-}
-
-mat-sidenav-container {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-
-.sidenav-container-without-navbar {
-  top: 0;
-}
-
-.sidenav-container-with-sticky-navbar {
-  top: $header-height;
 }

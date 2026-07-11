@@ -1,20 +1,22 @@
 {
   "ACTIVITIES": {
     "culture": {
-      "text": "With its historical buildings and imposing city gates Bruges belongs to Unesco World Heritage site. Numerous museums and exhibitions fill the culture finder. This year, from May to October, you can visit the \"art triennial Bruges\" where 13 artists and architects exhibit their monumental works on and around the canals. The theme of this triennial 2021 : \"TraumA\"",
+      "text": "Historic buildings, imposing city gates and Unesco World Heritage — museums and exhibitions all year round.",
       "title": "Culture"
     },
     "gastronomy": {
-      "text": "Fine dining is part of our culture of Burgundy. You’ll find in Bruges dining options of fries tent to Michelin-star restaurants.<br><br>We like to let our guests enjoy our “favorites” and help with reservations when needed.",
+      "text": "From fries tent to Michelin star. We share our favourites and help with reservations when needed.",
       "title": "Gastronomy"
     },
+    "heading": "Bruges, at your pace",
+    "lede": "We give every guest personal suggestions — from unique picnic spots to lovely quiet evening walks.",
     "relax": {
-      "text": "A romantic stroll along the illuminated fairy-tale like Canals, a tasty beer in a pub or a frivolous festival on the beautiful squares, put you in the perfect holiday mood.<br>Belgian chocolate and waffles make your holiday perfect ! We give our guests all suggestions.",
-      "title": "Relax Bruges"
+      "text": "A romantic stroll along the illuminated canals, a tasty beer in a pub — plus Belgian chocolate and waffles.",
+      "title": "Relax"
     },
     "sportsAndNature": {
-      "text": "Around the city there are important green footpaths and nature reserves, so there is a possibility to safely ride your bike on the cycle lanes around the city.<br>You can also reach the coast , the nature reserve ‘het Zwin’ and the polders near Uitkerke by bike, while visiting colourful polder villages.<br>The old fortified town of Sluis (NL) is barely 20 km away.<br>The book village of Damme is even within walking distance.<br>We provide cycling and walking maps and give our guests the best and adapted suggestions, also for unique pick-nick places, lovely quiet evening walks,...",
-      "title": "Sports and nature"
+      "text": "Cycle safely to the coast, the Zwin nature reserve and the polders. Damme is within walking distance — we provide the maps.",
+      "title": "Sports & nature"
     },
     "title": "Activities"
   },
@@ -44,19 +46,47 @@
   },
   "CONTACT": {
     "access": {
-      "bus": "<b>By bus :</b> At the train station, exit “Centrum”, take BUS 2 on platform A1.",
-      "car": "<b>By car :</b> Loading and unloading is allowed in front of our house. We’ll help you to find parking space.",
-      "taxi": "<b>By taxi :</b> ca &euro;12-16",
-      "title": "Access",
-      "train": "<b>By train :</b> <a href=\"http://www.belgianrail.be\">belgianrail.be</a>"
+      "bus": {
+        "label": "By bus",
+        "text": "Exit “Centrum”, bus 2 on platform A1"
+      },
+      "car": {
+        "label": "By car",
+        "text": "Loading/unloading in front of the house; we help you find parking"
+      },
+      "taxi": {
+        "label": "By taxi",
+        "text": "ca. €12–16 from the station"
+      },
+      "title": "Getting here",
+      "train": {
+        "label": "By train",
+        "text": "<a href=\"http://www.belgianrail.be\" target=\"_blank\" rel=\"noopener\">belgianrail.be</a> to Bruges station"
+      }
     },
     "availability": {
+      "available": "Available",
+      "bookDirect": "Book direct:",
+      "booked": "Booked",
+      "call": "call",
+      "copied": "copied ✓",
+      "copy": "copy",
+      "synced": "Synced hourly from booking.com",
       "title": "Availability"
+    },
+    "heading": "Find us in Saint Ann",
+    "reach": {
+      "address": "Address",
+      "email": "Email",
+      "phone": "Phone",
+      "title": "Reach us"
     },
     "title": "Contact"
   },
   "GUESTBOOK": {
     "by": "by {{name}}",
+    "filterAll": "All",
+    "heading": "What guests say",
     "review": "review",
     "title": "Guestbook",
     "SOURCE": {
@@ -103,11 +133,13 @@
   "HEADER": {
     "checkAvailability": "Check availability",
     "contact": "Contact",
-    "subtitle": "Your Favorite <span class=\"nowrap\">Cosy and Quiet</span> <span class=\"nowrap\">Bed and Breakfast</span> <span class=\"nowrap\">in BRUGES</span>",
-    "visitWebsite": "More information"
+    "discoverHouse": "Discover the house",
+    "kicker": "Bed & Breakfast · Bruges",
+    "subtitle": "A cosy and quiet stay in the green Saint Ann district, ten minutes on foot from the heart of Bruges."
   },
   "NAV": {
-    "activities": "Activities",
+    "activities": "Bruges",
+    "bookDirect": "Book direct",
     "contact": "Contact",
     "guestbook": "Guestbook",
     "manageGuestbook": "Manage guestbook",
@@ -117,6 +149,9 @@
     "welcome": "Welcome"
   },
   "PICTURES": {
+    "heading": "A look inside",
+    "showAll": "Show all {{count}} pictures",
+    "showFewer": "Show fewer pictures",
     "title": "Pictures"
   },
   "PICTURE_MANAGER": {
@@ -147,68 +182,72 @@
   },
   "ROOM": {
     "booking": {
-      "conditions": "General booking conditions",
       "item1": "<b>Deposit :</b> &euro;100/room on BE14 3631 5869 6383 (Bella en Basiel)",
       "item2": "<b>Balance :</b> payment on arrival using cash or credit card, or in advance by bank transfer",
       "item3": "<b>Cancelling</b> is possible without penalty up to 10 days before the arrival date. For later cancellation, the first night and possibly ordered breakfast is charged. In case of no show, the total sum of the reservation will be charged.",
       "title": "Booking"
     },
-    "breakfast": "breakfast &euro;{{amount}} pppd**",
-    "extraInfo": {
-      "item1": "*Minimum 2 nights (price excl. tourist tax)",
-      "item2": "**To be discussed in advance by mail :<br><b>Breakfast :</b> &euro;20 pppd<br><b>Garage :</b> &euro;20 pn<br><b>Washing machine and dryer :</b> &euro;15 / 7kg<br><b>Room 2, Use of the sofa bed :</b> &euro;27 pppn<br><b>Tourist tax Bruges :</b> &euro;4,5 pppn",
-      "item3": "Free cot and high child chair",
-      "item4": "No pets allowed (We have our own pretty dog)",
-      "item5": "Smoking is allowed in the garden",
-      "item6": "DISCOUNTS :<br>Reservation of 3 rooms : -10 %<br>Reservation of 7 nights : -10%<br>Discounts cannot be cumulated.",
-      "title": "Extra info"
+    "eyebrow": "Rooms & rates",
+    "goodToKnow": {
+      "item1": "*Minimum 2 nights, price excl. tourist tax (€4,5 pppn)",
+      "item2": "<b>Breakfast</b> €20 pppd · <b>Garage</b> €20 pn · <b>Sofa bed (room 2)</b> €27 pppn",
+      "item3": "Free cot and high chair · no pets (we have our own pretty dog) · smoking in the garden only",
+      "item4": "<b>Discounts:</b> 3 rooms −10% · 7 nights −10% (not cumulative)",
+      "title": "Good to know"
     },
-    "night": "&euro;{{amount}} / night*",
+    "heading": "Three cosy guestrooms",
+    "lede": "Each with a comfortable 1.80 m boxspring bed, a modern private bathroom with walk-in shower, free Wi-Fi and TV. Breakfast optional.",
+    "perNight": "/ night*",
     "rooms": {
       "room1": {
         "image1": "Bedroom",
         "image2": "Bathroom",
         "image3": "Breakfast",
-        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
+        "text": "Spacious guest room with comfortable boxspring bed (1.80 m) on the 2nd floor. Modern, warmly decorated bathroom with walk-in shower.",
         "title": "Cosy and quiet 2 person room"
       },
       "room2": {
         "image1": "Bedroom",
         "image2": "Bathroom",
         "image3": "Breakfast",
-        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi. Cozy corner with chair and table.",
-        "title": "Cosy and quiet 2 person room"
+        "text": "Same comfort as room 1, plus a cosy corner with chair and table. Optional sofa bed for a third guest.",
+        "title": "Cosy 2 person room with sitting corner"
       },
       "room3": {
         "image1": "Bedroom",
         "image2": "Bathroom",
         "image3": "Breakfast",
-        "text": "The spacious guest room with comfortable boxspringbed (1.80 m) is located on the 2th floor. You have a modern and warmly decorated bathroom with walk-in shower, toilet and wash basin. There is a hairdryer and free Wi-Fi.",
+        "text": "Spacious guest room with comfortable boxspring bed (1.80 m) on the 2nd floor. Modern bathroom with walk-in shower, hairdryer and free Wi-Fi.",
         "title": "Cosy and quiet 2 person room"
       }
     },
+    "rooms23": "Rooms 2 & 3",
     "subtitle": "Room {{counter}}",
     "tags": {
       "breakfastOptional": "Breakfast optional",
-      "maxOccupancy": "Max occupancy : {{amount}} persons",
-      "nonSmoking": "No smoking inside",
+      "persons": "{{amount}} persons",
+      "sofaBed": "Sofa bed",
       "tv": "TV",
-      "wifi": "WiFi available"
+      "wifi": "WiFi"
     },
     "title": "Rooms"
   },
   "WELCOME": {
+    "heading": "Stay with locals,<br>live like one",
     "hosts": {
-      "text": "As born and raised locals we know our city and we like to share this with our guests. Still we discover some romantic places, tasty restaurants and cosy pubs.<br>We advise you about all kinds of activities : Cycling and walking tours in and around the city, to the sea, in the polders, romantic walks in the city, events...",
-      "title": "Hosts"
+      "kicker": "Your hosts",
+      "text": "As born and raised locals we know our city, and we love sharing it. We still discover romantic places, tasty restaurants and cosy pubs — and we'll gladly advise you on cycling and walking tours in and around the city, to the sea, through the polders, or a romantic evening stroll.",
+      "title": "Born and raised in Bruges"
     },
     "house": {
-      "text": "The guests have their own room and bathroom. Breakfast is served in the dining room or outside in our sunny and flowered garden.<br>Our chickens don’t like other pets, only our dear dog and he, yes he loves our guests.<br>Smoking is allowed in the garden.",
-      "title": "Our house"
+      "kicker": "The house",
+      "text": "Guests have their own room and bathroom. Breakfast is served in the dining room or outside in our sunny, flowered garden. Our chickens don't like other pets — only our dear dog, and he loves our guests. Smoking is allowed in the garden.",
+      "title": "Your own room, our sunny garden"
     },
     "neighbourhood": {
-      "text": "We gladly welcome you in our 3 guestrooms, situated in the quiet and green Saint Ann district, a popular working-class area within the old city walls of Bruges.<br>Via a 10-minute walk along picturesque small streets you will arrive at the city centre, from where you can enjoy numerous historic buildings, events, museums, festivals, exhibitions…<br>3 km further on, on foot or by bike, you reach the green surroundings of the city, which extend down to the sea.",
-      "title": "Our neighborhood"
+      "kicker": "The neighbourhood",
+      "text": "Our three guestrooms sit in the quiet and green Saint Ann district, a popular working-class area within the old city walls. A ten-minute walk along picturesque small streets brings you to the city centre — historic buildings, museums, festivals and exhibitions. Three kilometres further, on foot or by bike, the green surroundings of the city stretch all the way to the sea.",
+      "title": "Quiet, green Saint Ann"
     },
     "title": "Welcome"
   }

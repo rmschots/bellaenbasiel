@@ -2,19 +2,73 @@
   display: block;
 }
 
-h1 {
-  background: #8EBCAF;
+.contactsec {
+  background: var(--bnb-bg-alt);
 }
 
-.availability-data {
-  margin-top: 32px;
+.contactgrid {
+  align-items: start;
+  display: grid;
+  gap: 64px;
+  grid-template-columns: 1.1fr 0.9fr;
+  margin-top: 0;
 }
 
-.access span {
-  width: 100%;
+.contact-heading {
+  margin-bottom: 34px;
 }
 
-google-map {
-  background: #c6c6c6;
-  text-align: center;
+.cblock {
+  margin-bottom: 28px;
+}
+
+.ctitle {
+  font-family: var(--bnb-serif);
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.clist {
+  color: var(--bnb-ink-soft);
+  font-size: 15px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    border-bottom: 1px solid var(--bnb-line-soft);
+    display: flex;
+    gap: 10px;
+    padding: 7px 0;
+  }
+}
+
+.clabel {
+  color: var(--bnb-ink);
+  flex: none;
+  font-weight: 700;
+  width: 86px;
+}
+
+.mapbox {
+  aspect-ratio: 4 / 3;
+  background: repeating-linear-gradient(45deg, #F1E7DA, #F1E7DA 12px, #EDE0CF 12px, #EDE0CF 24px);
+  border: 1px solid var(--bnb-card-line);
+  border-radius: var(--bnb-radius);
+  overflow: hidden;
+  position: relative;
+
+  google-map, ::ng-deep .map-container {
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 960px) {
+  .contactgrid {
+    gap: 40px;
+    grid-template-columns: 1fr;
+  }
 }

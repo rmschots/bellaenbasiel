@@ -2,30 +2,51 @@
   display: block;
 }
 
-.date-cell {
-  color: #fff;
-  font-size: 20px;
-  opacity: .99;
-  padding-left: 8px;
-
-  &.occupied {
-    background: #E44646;
-  }
-
-  &.free {
-    background: #6DBD5A;
-  }
-
-  &.grayed-out {
-    background: gray;
-  }
-
-  &.not-in-month {
-    opacity: .5;
-  }
+.calname {
+  color: var(--bnb-brick);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
 
-.calendar-title {
-  margin-bottom: 0;
-  margin-top: 0;
+.calgrid {
+  display: grid;
+  gap: 4px;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.cwd {
+  color: var(--bnb-ink-faint);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.cd {
+  background: #F1F3EC;
+  border-radius: 3px;
+  color: #3D5A3D;
+  font-size: 13px;
+  padding: 8px 0;
+  text-align: center;
+
+  &.na {
+    background: #EFDDD3;
+    color: #BA8E7B;
+    text-decoration: line-through;
+  }
+
+  &.past {
+    background: transparent;
+    color: #C9BCAE;
+    text-decoration: none;
+  }
+
+  &.blank {
+    background: transparent;
+  }
 }

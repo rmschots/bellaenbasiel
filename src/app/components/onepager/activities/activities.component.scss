@@ -2,24 +2,70 @@
   display: block;
 }
 
-h1 {
-  background: #8EBCAF;
+.actgrid {
+  display: grid;
+  gap: 22px;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 56px;
 }
 
-.activities-first-row {
-  margin-bottom: 64px;
-}
-
-p {
-  width: 100%;
-}
-
-.activity-image-wrapper {
-  height: 280px;
-  width: 300px;
+.actcard {
+  align-items: flex-end;
+  aspect-ratio: 3 / 4;
+  background: var(--bnb-dark);
+  border-radius: var(--bnb-radius);
+  display: flex;
+  overflow: hidden;
+  position: relative;
 
   img {
     height: 100%;
+    inset: 0;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.4s;
     width: 100%;
+  }
+
+  &:hover img {
+    transform: scale(1.05);
+  }
+}
+
+.actshade {
+  background: linear-gradient(180deg, rgba(24, 16, 10, 0) 35%, rgba(24, 16, 10, 0.82) 100%);
+  inset: 0;
+  position: absolute;
+}
+
+.actbody {
+  color: var(--bnb-cream);
+  padding: 22px;
+  position: relative;
+}
+
+.acttitle {
+  font-family: var(--bnb-serif);
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.acttext {
+  color: #EADCCE;
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin: 8px 0 0;
+}
+
+@media (max-width: 960px) {
+  .actgrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .actgrid {
+    grid-template-columns: 1fr;
   }
 }

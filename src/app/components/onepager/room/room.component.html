@@ -1,134 +1,106 @@
-<app-section-title>{{ 'ROOM.title' | transloco }}</app-section-title>
-<div class="container section-margin" fxLayout="column" fxLayoutGap="32px">
-  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '1'} }}</h2>
-  <app-room-details [roomConfig]="roomConfig1" fxLayout="row" fxLayout.lt-md="column"
-    fxLayoutAlign="center start"
-    fxLayoutAlign.lt-md="center center"
-    class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
-      hotel
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
-      wifi
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
-      free_breakfast
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
-      smoke_free
-    </mat-icon>
-  </app-room-details>
-  <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-header fxLayoutAlign="center center">
-      <mat-card-title fxLayoutAlign="center center">
-        <mat-icon class="icon-primary">event_available</mat-icon>
-        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <app-availability-calendar fxFlex.gt-sm="50"
-      [firebaseCalendar]="firebaseCalendar1$ | async"></app-availability-calendar>
-    </mat-card-content>
-  </mat-card>
+<div class="sec roomsec">
+  <div class="wrap1100">
+    <div class="eyebrow">{{ 'ROOM.eyebrow' | transloco }}</div>
+    <h2 class="h2">{{ 'ROOM.heading' | transloco }}</h2>
+    <p class="lede">{{ 'ROOM.lede' | transloco }}</p>
 
-  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '2'} }}</h2>
-  <app-room-details [roomConfig]="roomConfig2" fxLayout="row" fxLayout.lt-md="column"
-    fxLayoutAlign="center start"
-    fxLayoutAlign.lt-md="center center"
-    class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
-      hotel
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
-      wifi
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
-      free_breakfast
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
-      smoke_free
-    </mat-icon>
-  </app-room-details>
-  <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-header fxLayoutAlign="center center">
-      <mat-card-title fxLayoutAlign="center center">
-        <mat-icon class="icon-primary">event_available</mat-icon>
-        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <app-availability-calendar fxFlex.gt-sm="50"
-      [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
-    </mat-card-content>
-  </mat-card>
-
-  <h2 class="text-center">{{ 'ROOM.subtitle' | transloco:{counter: '3'} }}</h2>
-  <app-room-details [roomConfig]="roomConfig3" fxLayout="row" fxLayout.lt-md="column"
-    fxLayoutAlign="center start"
-    fxLayoutAlign.lt-md="center center"
-    class="room-details mat-elevation-z3">
-    <mat-icon [matTooltip]="'ROOM.tags.maxOccupancy' | transloco:{amount: '2'}" matTooltipPosition="above">
-      hotel
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.wifi' | transloco" matTooltipPosition="above">
-      wifi
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.breakfastOptional' | transloco" matTooltipPosition="above">
-      free_breakfast
-    </mat-icon>
-    <mat-icon [matTooltip]="'ROOM.tags.nonSmoking' | transloco" matTooltipPosition="above">
-      smoke_free
-    </mat-icon>
-  </app-room-details>
-  <mat-card class="availability-data mat-elevation-z3">
-    <mat-card-header fxLayoutAlign="center center">
-      <mat-card-title fxLayoutAlign="center center">
-        <mat-icon class="icon-primary">event_available</mat-icon>
-        <span>{{ 'CONTACT.availability.title' | transloco }}</span>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content fxLayout="row" fxLayoutAlign="center start">
-      <app-availability-calendar fxFlex.gt-sm="50"
-      [firebaseCalendar]="firebaseCalendar2$ | async"></app-availability-calendar>
-    </mat-card-content>
-  </mat-card>
-
-  <div fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center" fxLayoutGap="16px">
-    <mat-card fxFlex.gt-sm="33" class="mat-elevation-z3">
-      <mat-card-header>
-        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon class="icon-primary">info_outline</mat-icon>
-          <span>{{ 'ROOM.extraInfo.title' | transloco }}</span>
-        </mat-card-title>
-      </mat-card-header>
-
-      <mat-card-content>
-        @for (x of extraInfo; track x; let i = $index) {
-          <div class="extra-info" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
-            >
-            <mat-icon class="icon-tertiary">check</mat-icon>
-            <span [innerHTML]="('ROOM.extraInfo.item'+(i+1)) | transloco"></span>
+    <div class="roomgrid">
+      @for (room of rooms; track room.id) {
+        <div class="roomcard">
+          <div class="roomphotos">
+            @for (image of room.images; track image.src; let i = $index) {
+              <img class="rphoto" [class.show]="i === photoIndex[room.id]" loading="lazy"
+                   [src]="image.src" [alt]="image.captionKey | transloco">
+            }
+            <span class="pcap">{{ room.images[photoIndex[room.id]].captionKey | transloco }}</span>
+            <button class="parr pl" (click)="prevPhoto(room.id)" aria-label="previous photo">‹</button>
+            <button class="parr pr" (click)="nextPhoto(room.id)" aria-label="next photo">›</button>
+            <div class="dots">
+              @for (image of room.images; track image.src; let i = $index) {
+                <button class="dot" [class.on]="i === photoIndex[room.id]" (click)="pickPhoto(room.id, i)"
+                        aria-label="photo"></button>
+              }
+            </div>
           </div>
-        }
-      </mat-card-content>
-    </mat-card>
-    <mat-card fxFlex.gt-sm="67" class="mat-elevation-z3">
-      <mat-card-header>
-        <mat-card-title fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="8px">
-          <mat-icon class="icon-primary">attach_money</mat-icon>
-          <span>{{ 'ROOM.booking.title' | transloco }}</span>
-        </mat-card-title>
-      </mat-card-header>
-      <mat-card-content>
-        <h4>{{ 'ROOM.booking.conditions' | transloco }}:</h4>
-        @for (x of bookings; track x; let i = $index) {
-          <div class="booking-conditions" fxLayout="row" fxLayoutAlign="start start" fxLayoutGap="8px"
-            >
-            <mat-icon class="icon-tertiary">check</mat-icon>
-            <span [innerHTML]="('ROOM.booking.item'+(i+1)) | transloco"></span>
+          <div class="roombody">
+            <div class="roomtop">
+              <span class="roomno">{{ 'ROOM.subtitle' | transloco:{counter: room.id} }}</span>
+              <span class="price">
+                <span class="pricenum">€{{ room.price }}</span>
+                <span class="priceunit">{{ 'ROOM.perNight' | transloco }}</span>
+              </span>
+            </div>
+            <h3 class="roomtitle">{{ ('ROOM.rooms.room' + room.id + '.title') | transloco }}</h3>
+            <p class="roomdesc">{{ ('ROOM.rooms.room' + room.id + '.text') | transloco }}</p>
+            <div class="tags">
+              @for (tag of room.tags; track tag.key) {
+                <span class="tag">{{ tag.key | transloco:tag.params }}</span>
+              }
+            </div>
           </div>
-        }
-      </mat-card-content>
-    </mat-card>
+        </div>
+      }
+    </div>
+
+    <div class="availcard">
+      <div class="availhead">
+        <h3 class="finetitle">{{ 'CONTACT.availability.title' | transloco }}</h3>
+        <div class="calnav">
+          <button class="calbtn" (click)="previousMonth()" [disabled]="(monthOffset$ | async) === 0"
+                  aria-label="previous month">←
+          </button>
+          <span class="callabel">{{ calendarLabel$ | async }}</span>
+          <button class="calbtn" (click)="nextMonth()" [disabled]="(monthOffset$ | async) === maxMonthOffset"
+                  aria-label="next month">→
+          </button>
+        </div>
+      </div>
+      <div class="calwrap">
+        <app-availability-calendar [name]="'ROOM.subtitle' | transloco:{counter: 1}"
+                                   [firebaseCalendar]="firebaseCalendar1$ | async"
+                                   [monthOffset]="monthOffset$ | async"></app-availability-calendar>
+        <app-availability-calendar [name]="'ROOM.rooms23' | transloco"
+                                   [firebaseCalendar]="firebaseCalendar2$ | async"
+                                   [monthOffset]="monthOffset$ | async"></app-availability-calendar>
+      </div>
+      <div class="legendrow">
+        <div class="legend">
+          <span><span class="lgsw lgsw-free"></span>{{ 'CONTACT.availability.available' | transloco }}</span>
+          <span><span class="lgsw lgsw-booked"></span>{{ 'CONTACT.availability.booked' | transloco }}</span>
+          <span class="syncnote"><span class="pulse"></span>{{ 'CONTACT.availability.synced' | transloco }}</span>
+        </div>
+        <div class="availfoot">
+          <span class="bookvia">{{ 'CONTACT.availability.bookDirect' | transloco }}</span>
+          <button class="copychip" (click)="copyEmail()" title="copy email address">
+            <span>{{ bookingEmail }}</span>
+            <span class="copyhint">{{ (copied ? 'CONTACT.availability.copied' : 'CONTACT.availability.copy') | transloco }}</span>
+          </button>
+          <a class="copychip" href="tel:+32472643527">
+            <span>+32 472 643 527</span>
+            <span class="copyhint">{{ 'CONTACT.availability.call' | transloco }}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="finetable">
+      <div class="finecard">
+        <h3 class="finetitle">{{ 'ROOM.booking.title' | transloco }}</h3>
+        <ul>
+          <li [innerHTML]="'ROOM.booking.item1' | transloco"></li>
+          <li [innerHTML]="'ROOM.booking.item2' | transloco"></li>
+          <li [innerHTML]="'ROOM.booking.item3' | transloco"></li>
+        </ul>
+      </div>
+      <div class="finecard">
+        <h3 class="finetitle">{{ 'ROOM.goodToKnow.title' | transloco }}</h3>
+        <ul>
+          <li [innerHTML]="'ROOM.goodToKnow.item1' | transloco"></li>
+          <li [innerHTML]="'ROOM.goodToKnow.item2' | transloco"></li>
+          <li [innerHTML]="'ROOM.goodToKnow.item3' | transloco"></li>
+          <li [innerHTML]="'ROOM.goodToKnow.item4' | transloco"></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </div>

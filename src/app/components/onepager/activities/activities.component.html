@@ -1,63 +1,20 @@
-<app-section-title>{{ 'ACTIVITIES.title' | transloco }}</app-section-title>
-<div class="container section-margin">
-  <div>
-    <div class="activities-first-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="64px">
-      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
-        <div class="activity-image-wrapper" appLazyLoadImages>
-          <img class="mat-elevation-z6" src="/assets/svg/loading-image.svg" data-src="/assets/img/activiteiten_relax.jpg" [alt]="'ACTIVITIES.relax.title' | transloco">
+<div class="sec">
+  <div class="wrap1100">
+    <div class="eyebrow">{{ 'ACTIVITIES.title' | transloco }}</div>
+    <h2 class="h2">{{ 'ACTIVITIES.heading' | transloco }}</h2>
+    <p class="lede">{{ 'ACTIVITIES.lede' | transloco }}</p>
+    <div class="actgrid">
+      @for (card of activityCards; track card.key) {
+        <div class="actcard">
+          <img appFadeIn loading="lazy" [src]="card.image"
+               [alt]="('ACTIVITIES.' + card.key + '.title') | transloco">
+          <div class="actshade"></div>
+          <div class="actbody">
+            <h3 class="acttitle">{{ ('ACTIVITIES.' + card.key + '.title') | transloco }}</h3>
+            <p class="acttext">{{ ('ACTIVITIES.' + card.key + '.text') | transloco }}</p>
+          </div>
         </div>
-        <h3>{{ 'ACTIVITIES.relax.title' | transloco }}</h3>
-        <p [innerHtml]="'ACTIVITIES.relax.text' | transloco"></p>
-        <div>
-          <a href="https://www.bruggeleeft.be/">bruggeleeft.be</a>
-          <br>
-          <a href="https://www.visitbruges.be/">visitbruges.be</a>
-        </div>
-      </div>
-      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
-        <div class="activity-image-wrapper" appLazyLoadImages>
-          <img class="mat-elevation-z6" src="/assets/svg/loading-image.svg" data-src="/assets/img/activiteiten_cultuur.jpg" [alt]="'ACTIVITIES.culture.title' | transloco">
-        </div>
-        <h3>{{ 'ACTIVITIES.culture.title' | transloco }}</h3>
-        <p [innerHtml]="'ACTIVITIES.culture.text' | transloco"></p>
-        <div>
-          <a href="https://bezoekers.brugge.be">bezoekers.brugge.be</a>
-        </div>
-      </div>
-    </div>
-    <div fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="64px">
-      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
-        <div class="activity-image-wrapper" appLazyLoadImages>
-          <img class="mat-elevation-z6" src="/assets/svg/loading-image.svg" data-src="/assets/img/activiteiten_sportennatuur.jpg" [alt]="'ACTIVITIES.sportsAndNature.title' | transloco">
-        </div>
-        <h3>{{ 'ACTIVITIES.sportsAndNature.title' | transloco }}</h3>
-        <p [innerHtml]="'ACTIVITIES.sportsAndNature.text' | transloco"></p>
-        <div>
-          <a href="https://www.brugseommeland.be/">brugseommeland.be</a>
-          <br>
-          <a href="https://www.westtoer.be/nl">westtoer.be</a>
-          <br>
-          <a href="https://www.visitdamme.be">visitdamme.be</a>
-          <br>
-          <a href="https://www.vvvzeeland.nl">vvvzeeland.nl</a>
-          <br>
-          <a href="https://www.vlaanderen-fietsland.be">vlaanderen-fietsland.be</a>
-          <br>
-          <a href="https://www.wandelknooppunt.be">wandelknooppunt.be</a>
-        </div>
-      </div>
-      <div fxFlex.gt-sm="50" fxLayout="column" fxLayoutAlign="start center">
-        <div class="activity-image-wrapper" appLazyLoadImages>
-          <img class="mat-elevation-z6" src="/assets/svg/loading-image.svg" data-src="/assets/img/activiteiten_gastronomie.jpg" [alt]="'ACTIVITIES.gastronomy.title' | transloco">
-        </div>
-        <h3>{{ 'ACTIVITIES.gastronomy.title' | transloco }}</h3>
-        <p [innerHtml]="'ACTIVITIES.gastronomy.text' | transloco"></p>
-        <div>
-          <a href="http://horecagids.be">horecagids.be</a>
-          <br>
-          <a href="http://pocketresto.be">pocketresto.be</a>
-        </div>
-      </div>
+      }
     </div>
   </div>
 </div>

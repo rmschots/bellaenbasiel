@@ -1,36 +1,42 @@
-<div class="container" fxLayout="row" fxLayoutGap="16px" fxLayoutAlign="space-between center">
-  <a class="navbar-brand" href="#" pageScroll pageScrollTarget="#home" [pageScrollAdjustHash]="true"
-    (click)="scrollTo('home')" aria-label="Go to top of page">
-    <img src="/assets/img/logo-header.png" alt="Bella en Basiel logo">
-  </a>
-  @if (currentSection$ | async; as currentSection) {
-    <div class="nav-links">
-      <ul fxLayout="row">
-        @for (navItem of sections$ | async; track navItem) {
-          <li>
-            <button mat-button pageScroll [pageScrollTarget]="'#'+ navItem.id" [pageScrollAdjustHash]="true"
-              (click)="scrollTo(navItem.id)" [ngClass]="{ 'active-section': navItem.id === currentSection}"
-              [attr.aria-label]="'navigate to ' + (navItem.nameKey | transloco)">
-              <b>{{ navItem.nameKey | transloco }}</b>
-            </button>
-          </li>
+<nav class="nav" [class.hid]="(hidden$ | async) && !menuOpen">
+  <div class="navin">
+    <a class="brand" href="#" (click)="scrollToTop($event)" aria-label="Go to top of page">
+      Bella <span class="brick">&amp;</span> Basiel
+    </a>
+    <div class="navlinks">
+      @if (currentSection$ | async; as currentSection) {
+        @for (navItem of sections$ | async; track navItem.id) {
+          <a class="navlink" [class.on]="navItem.id === currentSection" href="#{{ navItem.id }}"
+             (click)="scrollTo(navItem.id, $event)">{{ navItem.nameKey | transloco }}</a>
         }
-      </ul>
+      }
     </div>
-  }
-  @if (currentLanguage$ | async; as currentLanguage) {
-    <button mat-button [matMenuTriggerFor]="menu"
-      [attr.aria-label]="'change language'">
-      <img src="/assets/img/languages/{{ currentLanguage.code }}.jpg" alt="{{ currentLanguage.name }} flag"/>
-    </button>
-  }
-</div>
-<mat-menu #menu="matMenu">
-  @for (language of languages; track language) {
-    <button mat-menu-item (click)="languageSelected(language)"
-      [attr.aria-label]="'set '+ language.name">
-      <mat-icon><img src="/assets/img/languages/{{language.code}}.jpg" alt="{{ language.name }} flag"/></mat-icon>
-      <span>{{ language.name }}</span>
-    </button>
-  }
-</mat-menu>
+    <div class="navright">
+      @if (currentLanguage$ | async; as currentLanguage) {
+        <div class="navlangs">
+          @for (language of languages; track language.code) {
+            <button class="langbtn" [class.on]="language.code === currentLanguage.code"
+                    (click)="languageSelected(language)"
+                    [attr.aria-label]="'set ' + language.name">{{ language.code | uppercase }}</button>
+          }
+        </div>
+      }
+      <a class="btn btn-solid navcta" href="#room" (click)="scrollTo('room', $event)">
+        {{ 'NAV.bookDirect' | transloco }}
+      </a>
+      <button class="burger" (click)="toggleMenu()" aria-label="menu">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M2 5h18M2 11h18M2 17h18"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div class="mmenu" [class.open]="menuOpen">
+    @if (currentSection$ | async; as currentSection) {
+      @for (navItem of sections$ | async; track navItem.id) {
+        <a class="navlink" [class.on]="navItem.id === currentSection" href="#{{ navItem.id }}"
+           (click)="scrollTo(navItem.id, $event)">{{ navItem.nameKey | transloco }}</a>
+      }
+    }
+  </div>
+</nav>

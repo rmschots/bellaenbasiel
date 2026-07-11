@@ -1,33 +1,19 @@
-<app-section-title>{{ 'WELCOME.title' | transloco }}</app-section-title>
-<div class="container section-margin">
-  <div class="welcome-info" fxLayout="row" fxLayout.lt-md="column" fxLayoutAlign="center space-evenly" fxLayoutAlign.lt-md="start"
-       fxLayoutGap="32px">
-    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
-      <mat-card-header>
-        <mat-card-title>{{ 'WELCOME.hosts.title' | transloco }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image data-src="/assets/img/welkom_gastheervrouw.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the hosts">
-      <mat-card-content>
-        <p [innerHtml]="'WELCOME.hosts.text' | transloco"></p>
-      </mat-card-content>
-    </mat-card>
-    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
-      <mat-card-header>
-        <mat-card-title>{{ 'WELCOME.house.title' | transloco }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image data-src="/assets/img/welkom_huis.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the house">
-      <mat-card-content>
-        <p [innerHtml]="'WELCOME.house.text' | transloco"></p>
-      </mat-card-content>
-    </mat-card>
-    <mat-card fxFlex.gt-sm="33" appLazyLoadImages>
-      <mat-card-header>
-        <mat-card-title>{{ 'WELCOME.neighbourhood.title' | transloco }}</mat-card-title>
-      </mat-card-header>
-      <img mat-card-image data-src="/assets/img/welkom_buurt.jpg" src="/assets/svg/loading-image.svg" alt="Picture of the neighbourhood">
-      <mat-card-content>
-        <p [innerHtml]="'WELCOME.neighbourhood.text' | transloco"></p>
-      </mat-card-content>
-    </mat-card>
+<div class="sec">
+  <div class="wrap1100">
+    <div class="eyebrow">{{ 'WELCOME.title' | transloco }}</div>
+    <h2 class="h2" [innerHTML]="'WELCOME.heading' | transloco"></h2>
+    @for (row of storyRows; track row.key; let i = $index) {
+      <div class="storyrow" [class.rev]="i % 2 === 1">
+        <div class="storyimgbox">
+          <img class="storyimg" appFadeIn loading="lazy" [src]="row.image" [alt]="row.alt">
+          <div class="storyframe"></div>
+        </div>
+        <div>
+          <div class="storyn">0{{ i + 1 }} — {{ ('WELCOME.' + row.key + '.kicker') | transloco }}</div>
+          <h3 class="h3">{{ ('WELCOME.' + row.key + '.title') | transloco }}</h3>
+          <p class="storytext">{{ ('WELCOME.' + row.key + '.text') | transloco }}</p>
+        </div>
+      </div>
+    }
   </div>
 </div>

@@ -1,7 +1,37 @@
-<div class="pictures-background" appLazyLoadImages>
-  <div data-background-src="/assets/img/pictures_background.jpg"></div>
+<div class="sec">
+  <div class="wrap1100">
+    <div class="eyebrow">{{ 'PICTURES.title' | transloco }}</div>
+    <h2 class="h2">{{ 'PICTURES.heading' | transloco }}</h2>
+    @if (pictures$ | async; as pictures) {
+      <div class="galgrid">
+        @for (picture of pictures; track picture.medium.url; let i = $index) {
+          <div class="gph {{ spanClass(i) }}" [class.ghide]="!expanded && i >= collapsedCount"
+               (click)="openLightbox(i)">
+            <img appFadeIn loading="lazy" [src]="picture.medium.url" [alt]="'picture ' + (i + 1)">
+          </div>
+        }
+      </div>
+      @if (pictures.length > collapsedCount) {
+        <div class="galfoot">
+          <button class="btn btn-line" (click)="toggleExpanded()">
+            {{ (expanded ? 'PICTURES.showFewer' : 'PICTURES.showAll') | transloco:{count: pictures.length} }}
+          </button>
+        </div>
+      }
+    }
+  </div>
 </div>
-<div class="container pictures-content">
-  <lightgallery [settings]="settings" [onInit]="onInit" >
-  </lightgallery>
-</div>
+@if (pictures$ | async; as pictures) {
+  @if (lightboxIndex >= 0 && pictures[lightboxIndex]; as picture) {
+    <div class="lb" (click)="closeLightbox()">
+      <div class="lbimg"
+           [style.background-image]="'url(' + picture.large.url + '), url(' + picture.medium.url + ')'"
+           role="img" [attr.aria-label]="'picture ' + (lightboxIndex + 1)"
+           (click)="stopPropagation($event)"></div>
+      <button class="lbbtn lbprev" (click)="previousPicture($event)" aria-label="previous">←</button>
+      <button class="lbbtn lbnext" (click)="nextPicture($event)" aria-label="next">→</button>
+      <button class="lbbtn lbclose" aria-label="close">✕</button>
+      <div class="lbcount">{{ lightboxIndex + 1 }} / {{ pictures.length }}</div>
+    </div>
+  }
+}

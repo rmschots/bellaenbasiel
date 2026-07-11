@@ -1,15 +1,22 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, DOCUMENT } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostListener } from '@angular/core';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
-import { BehaviorSubject, distinctUntilChanged, filter } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, filter, map, Observable } from 'rxjs';
 import { FirebaseService } from '../../../shared/services/firebase.service';
-
+import { FirebasePicture } from '../../../shared/models/firebase-data';
 import { isEqual } from 'lodash-es';
-import { LightGallerySettings } from 'lightgallery/lg-settings';
-import { InitDetail } from 'lightgallery/lg-events';
-import { LightGallery } from 'lightgallery/lightgallery';
-import lgZoom from 'lightgallery/plugins/zoom';
-import lgThumbnail from 'lightgallery/plugins/thumbnail';
-import { GalleryItem } from 'lightgallery/lg-utils';
+
+const COLLAPSED_COUNT = 8;
+// Mosaic rhythm taken from the redesign mockup, repeated over the real gallery
+const SPAN_PATTERN: Record<number, string> = {
+  0: 'g-wide g-tall',
+  5: 'g-wide',
+  8: 'g-wide',
+  11: 'g-tall',
+  12: 'g-wide',
+  14: 'g-wide',
+  16: 'g-wide'
+};
+const SPAN_PATTERN_LENGTH = 17;
 
 @UntilDestroy()
 @Component({
@@ -20,47 +27,78 @@ import { GalleryItem } from 'lightgallery/lg-utils';
     standalone: false
 })
 export class PicturesComponent {
-  private lightGallery!: LightGallery;
-  items$: BehaviorSubject<GalleryItem[]> = new BehaviorSubject<GalleryItem[]>([{
-    src: 'assets/svg/loading-image.svg',
-    thumb: 'assets/svg/loading-image.svg'
-  }])
-  settings: LightGallerySettings = {
-    plugins: [lgZoom, lgThumbnail],
-    dynamic: true,
-    closable: false,
-    showMaximizeIcon: true,
-    container: this._elementRef.nativeElement,
-    dynamicEl: this.items$.getValue()
-  };
+  readonly collapsedCount = COLLAPSED_COUNT;
 
+  expanded = false;
+  lightboxIndex = -1;
 
-  onInit = (detail: InitDetail) => {
-    this.lightGallery = detail.instance;
-  };
+  private _pictures$ = new BehaviorSubject<FirebasePicture[]>([]);
 
-  constructor(private _changeDetectorRef: ChangeDetectorRef,
-              _firebaseService: FirebaseService,
-              private _elementRef: ElementRef,
-              @Inject(DOCUMENT) private _document: any) {
-    _firebaseService.galleryData$.pipe(
+  constructor(private _firebaseService: FirebaseService) {
+    this._firebaseService.galleryData$.pipe(
       filter(data => !!data),
       distinctUntilChanged((data1, data2) => isEqual(data1, data2)),
       untilDestroyed(this)
-    )
-      .subscribe(imgs => {
-        const gas: GalleryItem[] = imgs.pictures.map(picture => {
-          return {
-            src: picture.large.url,
-            thumb: picture.small.url,
-          }
-        });
-        this.items$.next(gas);
-        if (this.lightGallery) {
-          this.lightGallery.refresh(gas);
-          this.lightGallery.openGallery();
-          this._changeDetectorRef.detectChanges();
-        }
-      });
+    ).subscribe(gallery => this._pictures$.next(gallery.pictures));
+  }
+
+  get pictures$(): Observable<FirebasePicture[]> {
+    return this._pictures$.asObservable();
+  }
+
+  get pictureCount$(): Observable<number> {
+    return this._pictures$.pipe(map(pictures => pictures.length));
+  }
+
+  spanClass(index: number): string {
+    return SPAN_PATTERN[index % SPAN_PATTERN_LENGTH] || '';
+  }
+
+  toggleExpanded(): void {
+    this.expanded = !this.expanded;
+  }
+
+  openLightbox(index: number): void {
+    this.lightboxIndex = index;
+  }
+
+  closeLightbox(): void {
+    this.lightboxIndex = -1;
+  }
+
+  previousPicture(event?: Event): void {
+    event?.stopPropagation();
+    this.moveLightbox(-1);
+  }
+
+  nextPicture(event?: Event): void {
+    event?.stopPropagation();
+    this.moveLightbox(1);
+  }
+
+  stopPropagation(event: Event): void {
+    event.stopPropagation();
+  }
+
+  @HostListener('document:keydown', ['$event'])
+  onKeydown(event: KeyboardEvent): void {
+    if (this.lightboxIndex < 0) {
+      return;
+    }
+    if (event.key === 'Escape') {
+      this.closeLightbox();
+    } else if (event.key === 'ArrowLeft') {
+      this.moveLightbox(-1);
+    } else if (event.key === 'ArrowRight') {
+      this.moveLightbox(1);
+    }
+  }
+
+  private moveLightbox(offset: number): void {
+    const amountOfPictures = this._pictures$.getValue().length;
+    if (amountOfPictures === 0) {
+      return;
+    }
+    this.lightboxIndex = ((this.lightboxIndex + offset) % amountOfPictures + amountOfPictures) % amountOfPictures;
   }
 }

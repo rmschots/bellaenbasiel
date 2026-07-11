@@ -1,30 +1,12 @@
-<div fxLayout="column" fxLayoutGap="8px">
-  <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="8px">
-    <h3 class="calendar-title">{{ viewDate | calendarDate:('month' + 'ViewTitle'): (language$ | async) || 'en' }}</h3>
-    <div>
-      <button mat-mini-fab mwlCalendarPreviousView [view]="'month'" [(viewDate)]="viewDate"
-              [disabled]="preventClickPrevious" [attr.aria-label]="'previous month'">
-        <mat-icon>navigate_before</mat-icon>
-      </button>
-      <button mat-mini-fab mwlCalendarNextView [view]="'month'" [(viewDate)]="viewDate" [attr.aria-label]="'next month'">
-        <mat-icon>navigate_next</mat-icon>
-      </button>
-    </div>
-  </div>
-  <mwl-calendar-month-view
-    [weekStartsOn]="1"
-    [viewDate]="viewDate"
-    [events]="(events$ | async) || []"
-    [cellTemplate]="availabilityCellTemplate"
-    [locale]="(language$ | async) || 'en'">
-  </mwl-calendar-month-view>
+<div class="calname">{{ name }}</div>
+<div class="calgrid">
+  @for (weekday of weekdays$ | async; track $index) {
+    <span class="cwd">{{ weekday }}</span>
+  }
+  @for (cell of cells$ | async; track $index) {
+    <span class="cd"
+          [class.na]="cell.state === 'booked'"
+          [class.past]="cell.state === 'past'"
+          [class.blank]="cell.state === 'blank'">{{ cell.day }}</span>
+  }
 </div>
-
-<ng-template #availabilityCellTemplate let-day="day" let-locale="locale">
-  <div class="date-cell"
-       [ngClass]="{ occupied: day.events.length, free: !day.events.length, 'grayed-out': day.isPast, 'not-in-month': !day.inMonth }">
-    {{ day.date | calendarDate:'monthViewDayNumber':locale }}
-  </div>
-
-  <!--{{ day | json }}-->
-</ng-template>
