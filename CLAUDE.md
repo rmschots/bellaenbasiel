@@ -51,7 +51,10 @@ All site content lives in one Firestore collection named `data`, with one docume
 Uses **Transloco** (`@jsverse/transloco`) — the README's mention of ngx-translate is outdated. Three languages (`en`, `nl`, `fr`) with JSON catalogs in `src/assets/i18n/`. `TranslationService` resolves the active language (localStorage → browser → `en`) and persists it. When editing copy, keep all three locale files in sync.
 
 ### Admin
-`/admin` requires Google sign-in (Firebase Auth, `signInWithPopup` in `AdminComponent`). It currently exposes the guestbook manager; the picture manager is present but commented out in `AdminModule`.
+`/admin` requires Google sign-in (Firebase Auth, `signInWithPopup` in `AdminComponent`). It only exposes the guestbook manager — the former picture manager was deleted entirely; only some commented-out gallery methods remain in `FirebaseService`.
+
+### Theming — Material 3
+`src/theme.scss` defines a single light M3 theme via `mat.define-theme`, using palettes generated from the brand seed colours into `src/_theme-colors.scss` (`ng generate @angular/material:theme-color`). The deprecated M2 `color="primary|accent|warn"` inputs are **not used**; instead apply the custom classes from `theme.scss` (`button-primary`/`button-tertiary`/`button-error`, `icon-primary`/`icon-tertiary`, `chip-tertiary`), which are built on the `mat.*-overrides` design-token API. M3 maps accent → tertiary and warn → error.
 
 ## Conventions & gotchas
 
@@ -60,3 +63,4 @@ Uses **Transloco** (`@jsverse/transloco`) — the README's mention of ngx-transl
 - **Hardcoded content**: room prices and image lists live in code (`RoomComponent.roomConfig1/2/3`), not Firestore. Translation keys for room copy are in the i18n files.
 - **Environment files**: `environment.ts` is the production config; dev builds replace it with `environment.development.ts` (configured in `angular.json`). The Firebase web config (apiKey etc.) is intentionally public client config.
 - **Guestbook versioning**: prefer `guestbookV2` / `GuestbookEntry` for new work; the V1 `FirebaseGuestbook` shape (Airbnb-scraped, snake_case fields) is legacy.
+- **lodash-es**: import from `lodash-es` (tree-shakable), not `lodash`.
