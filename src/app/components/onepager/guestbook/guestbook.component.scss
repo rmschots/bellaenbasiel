@@ -22,6 +22,28 @@
   margin-top: 34px;
 }
 
+// Phones: keep the language chips on one swipeable line bleeding to the
+// screen edges instead of stacking into a tall block above the quote.
+@media (max-width: 520px) {
+  .gbfilter {
+    flex-wrap: nowrap;
+    margin-left: -20px;
+    margin-right: -20px;
+    overflow-x: auto;
+    padding: 2px 20px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .gbchip {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+}
+
 .gbchip {
   background: none;
   border: 1px solid var(--bnb-ink-soft);
@@ -64,8 +86,13 @@
 .gbmeta {
   align-items: center;
   display: flex;
-  gap: 12px;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   margin-top: 26px;
+
+  > span {
+    white-space: nowrap;
+  }
 }
 
 .gbstars {
@@ -81,6 +108,13 @@
 }
 
 .gbsrc {
+  color: #B9A594;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.gbdate {
   color: #B9A594;
   font-size: 12px;
   letter-spacing: 0.1em;

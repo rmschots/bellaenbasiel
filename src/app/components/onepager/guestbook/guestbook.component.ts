@@ -3,6 +3,7 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 import { BehaviorSubject, combineLatest, distinctUntilChanged, filter, map, Observable } from 'rxjs';
 import { FirebaseGuestbookV2, GuestbookEntry } from '../../../shared/models/firebase-data';
 import { FirebaseService } from '../../../shared/services/firebase.service';
+import { TranslationService } from '../../../shared/services/translation.service';
 import { cloneDeep, countBy, isEqual } from 'lodash-es';
 import { Timestamp } from '@firebase/firestore';
 
@@ -28,7 +29,8 @@ export class GuestbookComponent {
   private _selectedLanguage$ = new BehaviorSubject<string>(ALL_LANGUAGES);
   private _entryIndex$ = new BehaviorSubject<number>(0);
 
-  constructor(private _firebaseService: FirebaseService) {
+  constructor(private _firebaseService: FirebaseService,
+              private _translationService: TranslationService) {
     this._firebaseService.guestbookDataV2$.pipe(
       filter(data => !!data),
       untilDestroyed(this),
@@ -50,6 +52,10 @@ export class GuestbookComponent {
 
   get selectedLanguage$(): Observable<string> {
     return this._selectedLanguage$.asObservable();
+  }
+
+  get siteLanguage$(): Observable<string> {
+    return this._translationService.currentLanguage$.pipe(map(language => language.code));
   }
 
   get currentEntry$(): Observable<GuestbookEntry | undefined> {

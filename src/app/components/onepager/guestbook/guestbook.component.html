@@ -22,6 +22,7 @@
           <span class="gbstars">{{ stars(entry) }}</span>
           <span class="gbname">{{ entry.reviewer.firstName }}</span>
           <span class="gbsrc">via {{ ('GUESTBOOK.SOURCE.' + entry.source) | transloco }}</span>
+          <span class="gbdate">{{ entry.createdAt | bnbDate:'longDate':(siteLanguage$ | async) }}</span>
         </div>
         <div class="gbnav">
           <button class="gbbtn" (click)="prevEntry()" aria-label="previous review">←</button>

@@ -26,15 +26,18 @@
   justify-content: space-between;
   margin: 0 auto;
   max-width: 1200px;
+  min-width: 0;
   padding: 0 24px;
 }
 
 .brand {
   color: var(--bnb-ink);
+  flex-shrink: 0;
   font-family: var(--bnb-serif);
   font-size: 22px;
   font-weight: 600;
   letter-spacing: 0.06em;
+  white-space: nowrap;
 
   &:hover {
     color: var(--bnb-ink);
@@ -131,6 +134,19 @@
   }
 }
 
+// Language row inside the burger menu; shown only when the top-bar
+// switcher is hidden on narrow screens.
+.mlangs {
+  display: none;
+  gap: 6px;
+  padding-top: 16px;
+
+  .langbtn {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+}
+
 @media (max-width: 960px) {
   .navlinks {
     display: none;
@@ -141,6 +157,33 @@
   }
 
   .mmenu.open {
+    display: flex;
+  }
+}
+
+// Narrow phones: compact the bar so brand + CTA + burger always fit
+// without horizontal overflow; languages move into the burger menu.
+@media (max-width: 520px) {
+  .navin {
+    gap: 8px;
+    padding: 0 16px;
+  }
+
+  .brand {
+    font-size: 19px;
+  }
+
+  .navlangs {
+    display: none;
+  }
+
+  .navcta {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    padding: 9px 12px;
+  }
+
+  .mmenu.open .mlangs {
     display: flex;
   }
 }

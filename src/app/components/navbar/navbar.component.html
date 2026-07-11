@@ -38,5 +38,14 @@
            (click)="scrollTo(navItem.id, $event)">{{ navItem.nameKey | transloco }}</a>
       }
     }
+    @if (currentLanguage$ | async; as currentLanguage) {
+      <div class="mlangs">
+        @for (language of languages; track language.code) {
+          <button class="langbtn" [class.on]="language.code === currentLanguage.code"
+                  (click)="languageSelected(language)"
+                  [attr.aria-label]="'set ' + language.name">{{ language.code | uppercase }}</button>
+        }
+      </div>
+    }
   </div>
 </nav>
