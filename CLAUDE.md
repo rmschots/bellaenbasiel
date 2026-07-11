@@ -13,7 +13,7 @@ Frontend (run from repo root):
 - `npm run build` — production build (default configuration) into `dist/bellaenbasiel`
 - `npm run watch` — incremental development build
 - `npm test` — Karma/Jasmine unit tests. Note: the Angular schematics set `skipTests: true`, so almost no `.spec` files exist in practice.
-- `ng deploy` — build production and deploy hosting via `@angular/fire:deploy`
+- `npm run deploy` — production build + `firebase deploy --only hosting` (uses the pinned `firebase-tools` devDependency). Do **not** use `ng deploy`: the `@angular/fire:deploy` builder crashes on load (broken `import.meta.url` shim in its CJS bundle).
 
 Cloud Functions (run from `functions/`):
 - `npm run build` — compile TypeScript (`tsc`) into `lib/`
