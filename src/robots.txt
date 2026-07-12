@@ -1,0 +1,8 @@
+# bellaenbasiel.be — all crawlers welcome, including AI/LLM crawlers
+# (GPTBot, ClaudeBot, Claude-Web, PerplexityBot, Google-Extended, CCBot, ...)
+
+User-agent: *
+Allow: /
+Disallow: /admin
+
+Sitemap: https://bellaenbasiel.be/sitemap.xml
