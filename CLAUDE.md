@@ -27,7 +27,9 @@ Functions target Node 22; the frontend toolchain is Angular CLI 21 / TypeScript 
 ## Architecture
 
 ### Module structure
-Classic NgModule-based app (not standalone components). `AppModule` declares the public one-pager components and wires up all Firebase providers. `/admin` is a lazy-loaded `AdminModule` (`app-routing.module.ts`). Shared UI (Material modules, `SectionComponent`, `StarRatingComponent`, `BnbDatePipe`, lazy-load directive) lives in `SharedModule`, imported by both feature modules.
+Classic NgModule-based app (not standalone components). `AppModule` declares the public one-pager components and provides the Firebase app + Firestore. `/admin` is a lazy-loaded `AdminModule` (`app-routing.module.ts`) that provides Firebase Auth and imports the Material modules and `ngx-layout` directives it uses. `SharedModule` (`SectionComponent`, `SectionTitleComponent`, `BnbDatePipe`, lazy-load directive, Transloco) is imported by both.
+
+**Bundle size**: the public one-pager uses no Material, forms or `ngx-layout`. Keep admin-only dependencies in `AdminModule`, not `SharedModule`, or they land in the initial bundle (Material modules list their standalone components in their injector imports, so importing a module pulls in all its components even if unused). The `initial` budget in `angular.json` is set just above the current size to catch such regressions.
 
 ### Firebase data flow — single `data` collection
 All site content lives in one Firestore collection named `data`, with one document per concern:
@@ -58,7 +60,7 @@ Uses **Transloco** (`@jsverse/transloco`) — the README's mention of ngx-transl
 
 ## Conventions & gotchas
 
-- **Named Firestore database**: both frontend (`getFirestore('firestore-eu')`) and functions (`getFirestore('firestore-eu')`) use the named database `firestore-eu`, *not* the default. Storage uses the explicit bucket `gs://bellaenbasiel`.
+- **Named Firestore database**: both frontend (`getFirestore('firestore-eu')`) and functions (`getFirestore('firestore-eu')`) use the named database `firestore-eu`, *not* the default. The frontend no longer provides Firebase Storage or Functions (nothing used them); if re-added, Storage uses the explicit bucket `gs://bellaenbasiel`.
 - **Change detection**: components use `ChangeDetectionStrategy.OnPush` with RxJS observables in templates. Manage subscriptions with `@UntilDestroy()` + `untilDestroyed(this)` (from `@ngneat/until-destroy`), the established pattern here.
 - **Hardcoded content**: room prices and image lists live in code (`RoomComponent.roomConfig1/2/3`), not Firestore. Translation keys for room copy are in the i18n files.
 - **Environment files**: `environment.ts` is the production config; dev builds replace it with `environment.development.ts` (configured in `angular.json`). The Firebase web config (apiKey etc.) is intentionally public client config.

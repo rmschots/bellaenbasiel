@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { NgxPageScrollCoreModule } from 'ngx-page-scroll-core';
@@ -23,8 +22,6 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
-import { getFunctions, provideFunctions } from '@angular/fire/functions';
-import { getStorage, provideStorage } from '@angular/fire/storage';
 import { registerLocaleData } from '@angular/common';
 import localeNl from '@angular/common/locales/nl';
 import localeFr from '@angular/common/locales/fr';
@@ -32,7 +29,6 @@ import localeEn from '@angular/common/locales/en';
 import localeNlExtra from '@angular/common/locales/extra/nl';
 import localeFrExtra from '@angular/common/locales/extra/fr';
 import localeEnExtra from '@angular/common/locales/extra/en';
-import { getAuth, provideAuth } from '@angular/fire/auth';
 
 @NgModule({
   declarations: [
@@ -52,7 +48,6 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     TranslocoRootModule,
     NgxPageScrollCoreModule.forRoot({
       duration: 750, easingLogic: easingLogic
@@ -63,10 +58,7 @@ import { getAuth, provideAuth } from '@angular/fire/auth';
   providers: [
     provideHttpClient(withInterceptorsFromDi()),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideFirestore(() => getFirestore('firestore-eu')),
-    provideFunctions(() => getFunctions()),
-    provideStorage(() => getStorage(initializeApp(environment.firebase), 'gs://bellaenbasiel')),
-    provideAuth(() => getAuth())
+    provideFirestore(() => getFirestore('firestore-eu'))
   ],
   bootstrap: [AppComponent]
 })

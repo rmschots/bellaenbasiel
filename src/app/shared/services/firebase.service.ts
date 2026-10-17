@@ -7,7 +7,6 @@ import {
   FirebasePicture
 } from '../models/firebase-data';
 import { BehaviorSubject, from, map, Observable, ReplaySubject, switchMap, tap } from 'rxjs';
-import { PictureService } from './picture.service';
 import { collection, doc, DocumentChange, DocumentData, Firestore, onSnapshot, setDoc } from '@angular/fire/firestore';
 import { cloneDeep } from 'lodash-es';
 
@@ -38,9 +37,6 @@ export class FirebaseService {
   private _guestbookDataV2$: ReplaySubject<FirebaseGuestbookV2> = new ReplaySubject<FirebaseGuestbookV2>(1);
 
   private _galleryData$: ReplaySubject<FirebaseGallery> = new ReplaySubject<FirebaseGallery>(1);
-
-  constructor(private _pictureService: PictureService) {
-  }
 
   init() {
     if (this._initialized) {
