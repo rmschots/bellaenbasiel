@@ -12,8 +12,6 @@ Includes picture manager & guestbook utility for airbnb
   * [angular-calendar](https://github.com/mattlewis92/angular-calendar)
   * [Transloco](https://github.com/jsverse/transloco) (i18n)
   * [AngularFire](https://github.com/angular/angularfire)
-  * [angular-modal-gallery](https://github.com/Ks89/angular-modal-gallery)
-  * [lightGallery](https://github.com/sachinchoolur/lightGallery)
   * [@ngneat/until-destroy](https://github.com/ngneat/until-destroy)
   * [date-fns](https://date-fns.org/)
   * [lodash](https://lodash.com/)
