@@ -16,7 +16,7 @@ export interface GuestbookEntry {
 export interface BookingReviewsResponse {
   result: BookingReview[];
   count: number;
-  sort_options: any[];
+  sort_options: unknown[];
 }
 
 export interface BookingReview {
@@ -30,7 +30,7 @@ export interface BookingReview {
   pros: string;
   cons: string;
   hotel_id: number;
-  user_new_badges: any[];
+  user_new_badges: unknown[];
   review_id: number;
   author: Author;
   review_hash: string;
@@ -44,9 +44,9 @@ export interface BookingReview {
   date: string;
   reviewng: number;
   average_score: number;
-  anonymous: any;
+  anonymous: unknown;
   is_incentivised: number;
-  tags: any[];
+  tags: unknown[];
   hotelier_response_date?: number;
 }
 
