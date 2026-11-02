@@ -6,7 +6,7 @@ export const environment = {
     databaseURL: 'https://bellaenbasiel.firebaseio.com',
     storageBucket: 'bellaenbasiel',
     locationId: 'EU',
-    apiKey: 'AIzaSyA8PUB5o0fDevwzDEHqJeWUzT28xLKN5j8',
+    apiKey: 'AIzaSyAORxGmP_E6dlEpImalH4pLMMPhY3vYlng',
     authDomain: 'bellaenbasiel.firebaseapp.com',
     messagingSenderId: '904733919586',
   }
